@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>缓存策略 · GitBook</title>
+        <title>变量类型 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -64,8 +64,6 @@
     <link rel="next" href="3.html" />
     
     
-    <link rel="prev" href="1.html" />
-    
 
     </head>
     <body>
@@ -106,9 +104,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="./">
+        <li class="chapter " data-level="1.2" data-path="../part1/">
             
-                <a href="./">
+                <a href="../part1/">
             
                     
                     浏览器缓存
@@ -120,9 +118,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="1.html">
+        <li class="chapter " data-level="1.2.1" data-path="../part1/1.html">
             
-                <a href="1.html">
+                <a href="../part1/1.html">
             
                     
                     从缓存位置区分
@@ -133,9 +131,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.2" data-path="2.html">
+        <li class="chapter " data-level="1.2.2" data-path="../part1/2.html">
             
-                <a href="2.html">
+                <a href="../part1/2.html">
             
                     
                     缓存策略
@@ -147,9 +145,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.2.1" data-path="3.html">
+        <li class="chapter " data-level="1.2.2.1" data-path="../part1/3.html">
             
-                <a href="3.html">
+                <a href="../part1/3.html">
             
                     
                     Express和Cache-Control
@@ -160,9 +158,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.2" data-path="4.html">
+        <li class="chapter " data-level="1.2.2.2" data-path="../part1/4.html">
             
-                <a href="4.html">
+                <a href="../part1/4.html">
             
                     
                     Last-Modified和E-Tag
@@ -326,9 +324,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.7.1" data-path="../part6/1.html">
+        <li class="chapter active" data-level="1.7.1" data-path="1.html">
             
-                <a href="../part6/1.html">
+                <a href="1.html">
             
                     
                     变量类型
@@ -339,9 +337,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.2" data-path="../part6/3.html">
+        <li class="chapter " data-level="1.7.2" data-path="3.html">
             
-                <a href="../part6/3.html">
+                <a href="3.html">
             
                     
                     类型转换
@@ -352,9 +350,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.3" data-path="../part6/2.html">
+        <li class="chapter " data-level="1.7.3" data-path="2.html">
             
-                <a href="../part6/2.html">
+                <a href="2.html">
             
                     
                     变量计算
@@ -400,7 +398,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >缓存策略</a>
+        <a href=".." >变量类型</a>
     </h1>
 </div>
 
@@ -415,39 +413,49 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;&#x7B56;&#x7565;">&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;&#x7B56;&#x7565;</h1>
-<h2 id="&#x7F13;&#x5B58;&#x7B56;&#x7565;&#x5206;&#x4E3A;&#x4E24;&#x79CD;-&#x5E76;&#x4E14;&#x90FD;&#x662F;&#x901A;&#x8FC7;http-header&#x5B9E;&#x73B0;">&#x7F13;&#x5B58;&#x7B56;&#x7565;&#x5206;&#x4E3A;&#x4E24;&#x79CD;, &#x5E76;&#x4E14;&#x90FD;&#x662F;&#x901A;&#x8FC7;HTTP Header&#x5B9E;&#x73B0;</h2>
-<h3 id="&#x5F3A;&#x7F13;&#x5B58;">&#x5F3A;&#x7F13;&#x5B58;</h3>
-<p>&#x4E0D;&#x4F1A;&#x5411;&#x6D4F;&#x89C8;&#x5668;&#x53D1;&#x9001;&#x8BF7;&#x6C42;, &#x76F4;&#x63A5;&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x83B7;&#x53D6;&#x8D44;&#x6E90;. &#x5728;&#x63A7;&#x5236;&#x53F0;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8BF7;&#x6C42;&#x8FD4;&#x56DE;200&#x72B6;&#x6001;&#x7801;, &#x4F46;&#x662F;Size&#x663E;&#x793A;from disk Cache &#x6216;&#x8005; from Memory Cache&#x3002;</p>
+                                <h2 id="&#x503C;&#x7C7B;&#x578B;&#x548C;&#x5F15;&#x7528;&#x7C7B;&#x578B;">&#x503C;&#x7C7B;&#x578B;&#x548C;&#x5F15;&#x7528;&#x7C7B;&#x578B;</h2>
+<h3 id="&#x503C;&#x7C7B;&#x578B;&#x539F;&#x59CB;&#x7C7B;&#x578B;">&#x503C;&#x7C7B;&#x578B;(&#x539F;&#x59CB;&#x7C7B;&#x578B;)</h3>
+<pre><code>let a = 100;
+let b = a;
+a = 200;
+console.info(b); // 100
+// &#x8FD9;&#x4E24;&#x4E2A;&#x5E76;&#x4E0D;&#x4F1A;&#x76F8;&#x4E92;&#x5E72;&#x6D89;
+</code></pre><h4 id="js&#x539F;&#x59CB;&#x6570;&#x636E;&#x7C7B;&#x578B;">js&#x539F;&#x59CB;&#x6570;&#x636E;&#x7C7B;&#x578B;</h4>
+<p>undefined&#x3001;boolean&#x3001;number&#x3001;string&#x3001;symbol&#x3001;null&#x3001;bigint</p>
+<h3 id="&#x5F15;&#x7528;&#x7C7B;&#x578B;">&#x5F15;&#x7528;&#x7C7B;&#x578B;</h3>
+<pre><code>let a = {
+    age: 20
+}
+let b = a;
+b.age = 21;
+console.info(a.age) // 21
+// &#x56E0;&#x4E3A;&#x662F;&#x6D45;&#x62F7;&#x8D1D;&#xFF0C;b&#x548C;a&#x7684;&#x5730;&#x5740;&#x662F;&#x4E00;&#x81F4;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x66F4;&#x65B0;b&#x7684;&#x65F6;&#x5019;&#xFF0C;a&#x4E5F;&#x540C;&#x65F6;&#x66F4;&#x65B0;
+</code></pre><p>&#x65E0;&#x8BBA;&#x662F;&#x503C;&#x7C7B;&#x578B;&#x8FD8;&#x662F;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x90FD;&#x662F;&#x5728;&#x6808;&#x91CC;&#x9762;&#x5B58;&#x50A8;&#x7684;&#x3002;</p>
+<p>&#x5728;&#x503C;&#x7C7B;&#x578B;&#x4E2D;&#xFF0C;&#x5B9A;&#x4E49;a&#x7684;&#x65F6;&#x5019;&#x5C31;&#x5728;&#x6808;&#x4E2D;&#x5F00;&#x4E00;&#x4E2A;&#x533A;&#x57DF;&#xFF0C;&#x5C06;&#x4ED6;&#x7684;&#x503C;100&#x5B58;&#x5165;&#x6808;&#x4E2D;&#xFF0C;&#x800C;&#x5B9A;&#x4E49;b&#x7B49;&#x4E8E;a&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53C8;&#x5728;&#x6808;&#x4E2D;&#x5F00;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x533A;&#x57DF;&#xFF0C;&#x5B58;&#x5165;b&#x7684;&#x503C;100&#xFF0C;&#x56E0;&#x6B64;&#x6539;&#x53D8;&#x503C;&#x7C7B;&#x578B;b&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;a&#x3002;</p>
+<p>&#x800C;&#x5728;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x4E2D;&#xFF0C;&#x5B9A;&#x4E49;a&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5148;&#x5728;&#x6808;&#x4E2D;&#x5F00;&#x4E00;&#x4E2A;a&#x7684;&#x533A;&#x57DF;&#xFF0C;&#x952E;&#x540D;&#x4E3A;a&#xFF0C;&#x952E;&#x503C;&#x6307;&#x5411;a&#x7684;&#x5185;&#x5B58;&#x5730;&#x5740;a&#xFF0C;&#x540C;&#x65F6;&#x52A0;&#x5165;&#x5806;&#x7684;&#x6982;&#x5FF5;&#x3002;&#x6808;&#x662F;&#x4E00;&#x4E2A;&#x4ECE;&#x4E0A;&#x5F80;&#x4E0B;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x5806;&#x662F;&#x4E00;&#x4E2A;&#x4ECE;&#x4E0B;&#x5F80;&#x4E0A;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x5728;&#x5185;&#x5B58;&#x8DB3;&#x591F;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6808;&#x548C;&#x5806;&#x5E76;&#x4E0D;&#x4F1A;&#x91CD;&#x5408;&#x3002;&#x800C;&#x5728;&#x6808;&#x4E2D;&#x5F00;&#x8F9F;a&#x7684;&#x540C;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x5728;&#x5806;&#x4E2D;&#x5B58;&#x653E;&#x4E00;&#x4E2A;&#x952E;&#x540D;&#x4E3A;&#x5185;&#x5B58;&#x5730;&#x5740;a&#xFF0C;&#x952E;&#x503C;&#x4E3A;{age: 20}&#x7684;&#x7ED3;&#x6784;&#x3002;&#x7531;&#x4E8E;&#x6478;&#x4E0D;&#x6E05;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4E2D;&#x7A76;&#x7ADF;&#x6709;&#x591A;&#x5C11;&#x6570;&#x636E;&#xFF0C;&#x8003;&#x8651;&#x5230;&#x4E00;&#x4E2A;&#x6027;&#x80FD;&#x95EE;&#x9898;&#xFF0C;&#x56E0;&#x6B64;js&#x7684;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x90FD;&#x4F1A;&#x91C7;&#x7528;&#x8FD9;&#x6837;&#x7684;&#x5B58;&#x50A8;&#x65B9;&#x5F0F;&#x3002;&#x800C;&#x5B9A;&#x4E49;b&#xFF0C;&#x5E76;&#x4E14;&#x5C06;a&#x7684;&#x503C;&#x8D4B;&#x7ED9;b&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x76F4;&#x63A5;&#x5C06;a&#x5728;&#x5806;&#x4E2D;&#x7684;&#x5185;&#x5B58;&#x5730;&#x5740;a&#x8D4B;&#x503C;&#x7ED9;&#x4E86;b&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5728;&#x6808;&#x4E2D;&#xFF0C;a&#x548C;b&#x6307;&#x5411;&#x4E86;&#x540C;&#x4E00;&#x4E2A;&#x5806;&#x7684;&#x5185;&#x5B58;&#x5730;&#x5740;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x4FEE;&#x6539;b&#x4E2D;age&#x7684;&#x65F6;&#x5019;&#xFF0C;a&#x7684;age&#xFF0C;&#x4E5F;&#x53D1;&#x751F;&#x540C;&#x6837;&#x7684;&#x6539;&#x53D8;&#xFF0C;&#x56E0;&#x4E3A;&#x4ED6;&#x4EEC;&#x4ECE;&#x6839;&#x672C;&#x4E0A;&#x8BF4;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x4E1C;&#x897F;&#x3002;&#x8FD9;&#x5C31;&#x662F;&#x6240;&#x8C13;&#x7684;&#x6D45;&#x62F7;&#x8D1D;&#x3002;</p>
+<h4 id="&#x5E38;&#x89C1;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;">&#x5E38;&#x89C1;&#x5F15;&#x7528;&#x7C7B;&#x578B;(&#x5BF9;&#x8C61;&#x7C7B;&#x578B;)</h4>
+<p>object&#x3001;array&#x3001;function&#x3001;map&#x3001;weakmap&#x3001;set&#x3001;&#x65E5;&#x671F;
+function&#x4E5F;&#x662F;&#x7279;&#x6B8A;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#xFF0C;&#x4F46;&#x4E0D;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x6570;&#x636E;</p>
+<h3 id="typeof&#x8FD0;&#x7B97;&#x7B26;">typeof&#x8FD0;&#x7B97;&#x7B26;</h3>
 <ul>
-<li>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;<code>Expiress</code>&#x6216;&#x8005;<code>Cache-Control</code>&#x5B9E;&#x73B0;</li>
-</ul>
-<h3 id="&#x534F;&#x5546;&#x7F13;&#x5B58;">&#x534F;&#x5546;&#x7F13;&#x5B58;</h3>
-<p>&#x5F3A;&#x7F13;&#x5B58;&#x5931;&#x6548;&#x4E4B;&#x540E;, &#x6D4F;&#x89C8;&#x5668;&#x643A;&#x5E26;&#x7F13;&#x5B58;&#x6807;&#x8BC6;&#x5411;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;&#x8BF7;&#x6C42;, &#x7531;&#x670D;&#x52A1;&#x5668;&#x6839;&#x636E;&#x7F13;&#x5B58;&#x6807;&#x8BC6;&#x6765;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x4F7F;&#x7528;&#x7F13;&#x5B58;&#x7684;&#x8FC7;&#x7A0B;</p>
-<ul>
-<li>&#x4E3B;&#x8981;&#x6709;&#x4E24;&#x79CD;&#x60C5;&#x51B5;<ul>
-<li>&#x534F;&#x5546;&#x7F13;&#x5B58;&#x751F;&#x6548;, &#x8FD4;&#x56DE;304&#x72B6;&#x6001;&#x7801;&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x83B7;&#x53D6;&#x6570;&#x636E;<ul>
-<li>&#x6D4F;&#x89C8;&#x5668;&#x53D1;&#x8D77;HTTP&#x8BF7;&#x6C42;, &#x5148;&#x5230;<code>&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;</code></li>
-<li>&#x8BE5;&#x8BF7;&#x6C42;&#x7F13;&#x5B58;&#x7ED3;&#x679C;&#x5931;&#x6548;(&#x6CA1;&#x6709;&#x547D;&#x4E2D;&#x5F3A;&#x7F13;&#x5B58;), &#x8FD4;&#x56DE;&#x7F13;&#x5B58;&#x6807;&#x8BC6;</li>
-<li>&#x6D4F;&#x89C8;&#x5668;&#x643A;&#x5E26;&#x7F13;&#x5B58;&#x6807;&#x8BC6;&#x53D1;&#x8D77;HTTP&#x8BF7;&#x6C42;&#x5230;&#x670D;&#x52A1;&#x5668;</li>
-<li>&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;304 &#x6807;&#x8BC6;&#x8D44;&#x6E90;&#x6CA1;&#x6709;&#x66F4;&#x65B0;</li>
-<li>&#x6D4F;&#x89C8;&#x5668;&#x5411;<code>&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;</code>&#x4E2D;&#x83B7;&#x53D6;&#x8BE5;&#x8BF7;&#x6C42;&#x7684;&#x7ED3;&#x679C;</li>
-<li>&#x7136;&#x540E;<code>&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;</code>&#x8FD4;&#x56DE;&#x8BE5;&#x8BF7;&#x6C42;&#x7684;&#x7ED3;&#x679C;</li>
+<li>&#x8BC6;&#x522B;&#x6240;&#x6709;&#x503C;&#x7C7B;&#x578B;<ul>
+<li>typeof &quot;123&quot; // string</li>
+<li>typeof 10 // number</li>
+<li>typeof 10n // bigint</li>
+<li>typeof undefined // undefinen</li>
+<li>typeof Symbol(&quot;a&quot;) // symbol</li>
+<li>typeof true // boolean</li>
 </ul>
 </li>
-<li>&#x534F;&#x5546;&#x7F13;&#x5B58;&#x5931;&#x6548;, &#x8FD4;&#x56DE;200&#x548C;&#x8BF7;&#x6C42;&#x7ED3;&#x679C;<ul>
-<li>&#x6D4F;&#x89C8;&#x5668;&#x53D1;&#x8D77;HTTP&#x8BF7;&#x6C42;, &#x5148;&#x5230;<code>&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;</code></li>
-<li>&#x8BE5;&#x8BF7;&#x6C42;&#x7684;&#x7F13;&#x5B58;&#x7ED3;&#x679C;&#x5931;&#x6548;, &#x8FD4;&#x56DE;&#x7F13;&#x5B58;&#x6807;&#x8BC6;</li>
-<li>&#x643A;&#x5E26;&#x7F13;&#x5B58;&#x6807;&#x8BC6;&#x53D1;&#x8D77;HTTP&#x8BF7;&#x6C42;&#x5230;&#x670D;&#x52A1;&#x5668;</li>
-<li>&#x8BE5;&#x8D44;&#x6E90;&#x5DF2;&#x66F4;&#x65B0;, &#x91CD;&#x65B0;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;, &#x72B6;&#x6001;&#x7801;200</li>
-<li>&#x5C06;&#x65B0;&#x7684;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x548C;&#x7F13;&#x5B58;&#x6807;&#x8BC6;&#x5199;&#x5165;&#x7F13;&#x5B58;</li>
+<li>&#x8BC6;&#x522B;&#x51FD;&#x6570;<ul>
+<li>typeof function() {} // function</li>
+<li>typeof console.info() // function</li>
 </ul>
 </li>
-</ul>
-</li>
-<li>&#x534F;&#x5546;&#x7F13;&#x5B58;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;&#x4E24;&#x79CD;HTTP Header&#x5B9E;&#x73B0;<ul>
-<li>ETag</li>
-<li>Last-Modified</li>
+<li>&#x5224;&#x65AD;&#x662F;&#x5426;&#x662F;&#x5F15;&#x7528;&#x7C7B;&#x578B;(&#x4E0D;&#x53EF;&#x518D;&#x7EC6;&#x5206;)<ul>
+<li>typeof null // object(&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x7F8E;&#x4E3D;&#x7684;&#x9519;&#x4F4D;, &#x539F;&#x56E0;&#x662F;&#x56E0;&#x4E3A;js&#x5BF9;&#x4E8E;object&#x7684;&#x5224;&#x65AD;&#x662F;&#x5224;&#x65AD;&#x5730;&#x5740;&#x524D;&#x4E09;&#x4F4D;&#x662F;&#x4E0D;&#x662F;000, &#x800C;null&#x5168;&#x662F;0, &#x56E0;&#x6B64;&#x5BFC;&#x81F4;&#x9519;&#x8BEF;&#x5224;&#x65AD;&#x4E3A;&#x4E86;object, &#x5B9E;&#x9645;&#x4E0A;&#x4ED6;&#x662F;&#x539F;&#x59CB;&#x7C7B;&#x578B;, &#x5B58;&#x50A8;&#x5728;&#x6808;&#x4E2D;)</li>
+<li>typeof [] // object</li>
+<li>typeof {} // object</li>
 </ul>
 </li>
 </ul>
@@ -478,12 +486,8 @@
 
             
                 
-                <a href="1.html" class="navigation navigation-prev " aria-label="Previous page: 从缓存位置区分">
-                    <i class="fa fa-angle-left"></i>
-                </a>
                 
-                
-                <a href="3.html" class="navigation navigation-next " aria-label="Next page: Express和Cache-Control">
+                <a href="3.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 类型转换">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -494,7 +498,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"缓存策略","level":"1.2.2","depth":2,"next":{"title":"Express和Cache-Control","level":"1.2.2.1","depth":3,"path":"part1/3.md","ref":"part1/3.md","articles":[]},"previous":{"title":"从缓存位置区分","level":"1.2.1","depth":2,"path":"part1/1.md","ref":"part1/1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part1/2.md","mtime":"2021-02-19T17:27:17.039Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-20T06:04:07.970Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"变量类型","level":"1.7.1","depth":2,"next":{"title":"类型转换","level":"1.7.2","depth":2,"path":"part6/3.md","ref":"part6/3.md","articles":[]},"previous":{"title":"变量类型和计算","level":"1.7","depth":1,"ref":"","articles":[{"title":"变量类型","level":"1.7.1","depth":2,"path":"part6/1.md","ref":"part6/1.md","articles":[]},{"title":"类型转换","level":"1.7.2","depth":2,"path":"part6/3.md","ref":"part6/3.md","articles":[]},{"title":"变量计算","level":"1.7.3","depth":2,"path":"part6/2.md","ref":"part6/2.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part6/1.md","mtime":"2021-02-20T05:57:28.165Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-20T06:04:07.970Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
