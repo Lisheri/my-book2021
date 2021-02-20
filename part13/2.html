@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>xss注入 · GitBook</title>
+        <title>Promise A+ 版 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,8 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="2.html" />
+    <link rel="next" href="../part14/" />
     
+    
+    <link rel="prev" href="1.html" />
     
 
     </head>
@@ -195,9 +197,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.1" data-path="1.html">
+        <li class="chapter " data-level="1.3.1" data-path="../part2/1.html">
             
-                <a href="1.html">
+                <a href="../part2/1.html">
             
                     
                     xss注入
@@ -208,9 +210,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="2.html">
+        <li class="chapter " data-level="1.3.2" data-path="../part2/2.html">
             
-                <a href="2.html">
+                <a href="../part2/2.html">
             
                     
                     CSRF注入
@@ -221,9 +223,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="3.html">
+        <li class="chapter " data-level="1.3.3" data-path="../part2/3.html">
             
-                <a href="3.html">
+                <a href="../part2/3.html">
             
                     
                     https
@@ -666,9 +668,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.14.1" data-path="../part13/1.html">
+        <li class="chapter " data-level="1.14.1" data-path="1.html">
             
-                <a href="../part13/1.html">
+                <a href="1.html">
             
                     
                     简易版
@@ -679,9 +681,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.14.2" data-path="../part13/2.html">
+        <li class="chapter active" data-level="1.14.2" data-path="2.html">
             
-                <a href="../part13/2.html">
+                <a href="2.html">
             
                     
                     Promise A+ 版
@@ -882,7 +884,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >xss注入</a>
+        <a href=".." >Promise A+ 版</a>
     </h1>
 </div>
 
@@ -897,52 +899,160 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="xss&#x6CE8;&#x5165;">XSS&#x6CE8;&#x5165;</h1>
-<p>XSS &#x5168;&#x79F0;&#x662F; <code>Cross Site Scripting</code> &#x4E5F;&#x5C31;&#x662F; <code>&#x8DE8;&#x7AD9;&#x811A;&#x672C;&#x653B;&#x51FB;</code>, &#x4E3A;&#x4E86;&#x548C;CSS&#x533A;&#x5206;, &#x624D;&#x53EB;&#x4ED6;XSS&#x3002;
-&#x662F;&#x6307;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x6267;&#x884C;&#x6076;&#x610F;&#x811A;&#x672C;(&#x65E0;&#x8BBA;&#x8DE8;&#x57DF;&#x8FD8;&#x662F;&#x540C;&#x57DF;), &#x4ECE;&#x800C;&#x62FF;&#x5230;&#x7528;&#x6237;&#x4FE1;&#x606F;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;</p>
-<p>&#x4E00;&#x822C;&#x4E3A;&#x4E86;&#x5B8C;&#x6210;&#x4E0B;&#x9762;&#x7684;&#x4E8B;&#x60C5;:</p>
-<ul>
-<li>&#x7A83;&#x53D6;cookie</li>
-<li>&#x76D1;&#x542C;&#x7528;&#x6237;&#x884C;&#x4E3A;, &#x6BD4;&#x5982;&#x8F93;&#x5165;&#x8D26;&#x53F7;&#x5BC6;&#x7801;&#x540E;&#x76F4;&#x63A5;&#x53D1;&#x9001;&#x5230;&#x9ED1;&#x5BA2;&#x670D;&#x52A1;&#x5668;</li>
-<li>&#x4FEE;&#x6539;DOM&#x4F2A;&#x9020;&#x767B;&#x5F55;&#x8868;&#x5355;</li>
-<li>&#x5728;&#x9875;&#x9762;&#x4E2D;&#x751F;&#x6210;&#x6D6E;&#x7A97;&#x5E7F;&#x544A;</li>
-</ul>
-<h4 id="&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;xss&#x653B;&#x51FB;&#x5B9E;&#x73B0;&#x6709;&#x4E09;&#x79CD;">&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;XSS&#x653B;&#x51FB;&#x5B9E;&#x73B0;&#x6709;&#x4E09;&#x79CD;</h4>
-<ul>
-<li>&#x5B58;&#x50A8;&#x578B;<ul>
-<li><code>&#x5B58;&#x50A8;&#x578B;</code>&#x987E;&#x540D;&#x601D;&#x4E49;&#x5C31;&#x662F;&#x5C06;&#x8DE8;&#x7AD9;&#x811A;&#x672C;&#x5B58;&#x50A8;&#x8D77;&#x6765;, &#x5C06;&#x811A;&#x672C;&#x5B58;&#x50A8;&#x5230;&#x4E86;&#x6570;&#x636E;&#x5E93;, &#x7136;&#x540E;&#x5BA2;&#x6237;&#x7AEF;&#x6267;&#x884C;&#x811A;&#x672C;&#x8FBE;&#x5230;&#x653B;&#x51FB;&#x76EE;&#x7684;</li>
-<li>&#x6BD4;&#x5982;&#x5728;&#x8BC4;&#x8BBA;&#x533A;&#x7559;&#x4E0B;&#x4E00;&#x4E2A;&#x811A;&#x672C;<code>&lt;script&gt;while(!![]) {alert(&apos;&#x4F60;&#x4EBA;&#x6CA1;&#x4E86;&#xFF01;&#xFF01;&apos;)}&lt;/script&gt;</code>, &#x8FD9;&#x6BB5;&#x811A;&#x672C;&#x5982;&#x679C;&#x5230;&#x4E86;&#x540E;&#x7AEF;, &#x4E0D;&#x505A;&#x89E3;&#x6790;&#x76F4;&#x63A5;&#x5B58;&#x50A8;&#x8D77;&#x6765;, &#x5728;&#x9875;&#x9762;&#x6E32;&#x67D3;&#x8FC7;&#x7A0B;&#x4E2D;&#x5C31;&#x4F1A;&#x6267;&#x884C;&#x8FD9;&#x4E9B;&#x811A;&#x672C;, &#x8FD9;&#x6837;&#x8FD9;&#x4E2A;&#x9875;&#x9762;&#x4E5F;&#x5C31;&#x5D29;&#x4E86;</li>
-</ul>
-</li>
-<li>&#x53CD;&#x5C04;&#x578B;<ul>
-<li><code>&#x53CD;&#x5C04;&#x578B;</code>XSS&#x4E00;&#x822C;&#x4F5C;&#x4E3A;&#x8BF7;&#x6C42;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x4F20;&#x7ED9;&#x540E;&#x7AEF;</li>
-<li>&#x6BD4;&#x5982;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7684;URL&#x7684;&#x6700;&#x540E;&#x6DFB;&#x52A0;&#x4E00;&#x6BB5; <code>?q=&lt;script&gt;while(!![]){alert(&apos;&#x4F60;&#x4EBA;&#x6CA1;&#x4E86;!!&apos;)}&lt;/script&gt;</code>, &#x7136;&#x540E;&#x5237;&#x65B0;&#x7684;&#x65F6;&#x5019;&#x53D1;&#x8D77;&#x8BF7;&#x6C42;, &#x8FD4;&#x56DE;&#x4E00;&#x6BB5;HTML, &#x5176;&#x4E2D;&#x5C31;&#x5305;&#x542B;&#x8FD9;&#x4E2A;, &#x5982;&#x679C;&#x4E0D;&#x505A;&#x5904;&#x7406;, &#x6D4F;&#x89C8;&#x5668;&#x53D1;&#x73B0;&#x4ED6;&#x662F;HTML&#x7684;&#x4E00;&#x90E8;&#x5206;, &#x5C31;&#x4F1A;&#x76F4;&#x63A5;&#x6267;&#x884C;, &#x7136;&#x540E;&#x9875;&#x9762;&#x5C31;&#x5D29;&#x4E86;</li>
-</ul>
-</li>
-<li>&#x6587;&#x6863;&#x578B;<ul>
-<li><code>&#x6587;&#x6863;&#x578B;</code>XSS&#x4E0D;&#x4F1A;&#x7ECF;&#x8FC7;&#x670D;&#x52A1;&#x7AEF;, &#x800C;&#x662F;&#x4F5C;&#x4E3A;&#x4E2D;&#x95F4;&#x4EBA;&#x7684;&#x89D2;&#x8272;, &#x5728;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x8FC7;&#x7A0B;&#x4E2D;&#x52AB;&#x6301;&#x7F51;&#x7EDC;&#x6570;&#x636E;&#x5305;, &#x7136;&#x540E;&#x4FEE;&#x6539;&#x91CC;&#x9762;HTML&#x7684;&#x6587;&#x6863;</li>
-<li>&#x52AB;&#x6301;&#x65B9;&#x5F0F;&#x5305;&#x62EC;<code>wifi&#x8DEF;&#x7531;&#x5668;&#x52AB;&#x6301;</code>&#x548C;<code>&#x672C;&#x5730;&#x6076;&#x610F;&#x8F6F;&#x4EF6;</code>&#x7B49;</li>
-</ul>
-</li>
-</ul>
-<h4 id="&#x9632;&#x8303;&#x63AA;&#x65BD;">&#x9632;&#x8303;&#x63AA;&#x65BD;</h4>
-<ul>
-<li>&#x4E00;&#x4E2A;&#x4FE1;&#x5FF5;<ul>
-<li>&#x5343;&#x4E07;&#x4E0D;&#x8981;&#x76F8;&#x4FE1;&#x7528;&#x6237;&#x7684;&#x4EFB;&#x4F55;&#x8F93;&#x5165;, &#x65E0;&#x8BBA;&#x524D;&#x7AEF;&#x8FD8;&#x662F;&#x540E;&#x7AEF;&#x4E00;&#x5B9A;&#x8981;&#x505A;&#x597D;&#x8F6C;&#x7801;&#x6216;&#x8005;&#x8FC7;&#x6EE4;</li>
-</ul>
-</li>
-<li>&#x4E24;&#x4E2A;&#x5229;&#x7528;<ul>
-<li>&#x5229;&#x7528;CSP(<code>&#x6D4F;&#x89C8;&#x5668;&#x5B89;&#x5168;&#x7B56;&#x7565;</code>)<ul>
-<li>&#x9650;&#x5236;&#x5176;&#x4ED6;&#x57DF;&#x8D44;&#x6E90;&#x52A0;&#x8F7D;</li>
-<li>&#x8FDB;&#x5236;&#x5411;&#x5176;&#x4ED6;&#x57DF;&#x63D0;&#x4EA4;&#x6570;&#x636E;</li>
-<li>&#x63D0;&#x4F9B;&#x4E0A;&#x62A5;&#x673A;&#x5236;, &#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x53CA;&#x65F6;&#x53D1;&#x73B0;XSS</li>
-</ul>
-</li>
-<li>xss&#x4E3B;&#x8981;&#x76EE;&#x7684;&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x83B7;&#x53D6;&#x7528;&#x6237;&#x7684;&#x767B;&#x5F55;&#x4FE1;&#x606F;, &#x56E0;&#x6B64;&#x5229;&#x7528;cookie&#x7684;&#x5C5E;&#x6027;&#x4E4B;&#x4E00;<code>HttpOnly</code>, &#x52A0;&#x4E0A;&#x8BE5;&#x5C5E;&#x6027;&#x7684;cookie&#x524D;&#x7AEF;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;js&#x83B7;&#x53D6;cookie&#x4FE1;&#x606F;</li>
-</ul>
-</li>
-</ul>
+                                <h1 id="promise-a-&#x89C4;&#x8303;&#x7248;&#x672C;">Promise A+ &#x89C4;&#x8303;&#x7248;&#x672C;</h1>
+<pre><code>const PENDING = &apos;pending&apos;;
+const RESOLVED = &apos;resolved&apos;;
+const REJECTED = &apos;rejected&apos;;
 
+function MyPromise(fn) {
+    const vm = this; // * &#x4F7F;&#x7528;that&#x66FF;&#x4EE3;&#x5168;&#x5C40;this&#x6307;&#x5411;
+    vm.state = PENDING;
+    vm.value = null; // * &#x7528;&#x4E8E;&#x4FDD;&#x5B58;
+    vm.resolvedCallbacks = []; // * &#x7528;&#x4E8E;&#x4FDD;&#x5B58;then&#x4E2D;&#x7684;&#x56DE;&#x8C03;
+    vm.rejectedCallbacks = []; // * &#x7528;&#x4E8E;&#x4FDD;&#x5B58;catch&#x4E2D;&#x7684;&#x56DE;&#x8C03;
+
+    // * &#x5B8C;&#x5584;&#x4E00;&#x4E2A;&#x7B26;&#x5408;Promise A+ &#x7684; resolve &#x548C; reject
+    function resolve(value) {
+        // * &#x9996;&#x5148;&#x8981;&#x5224;&#x65AD;&#x4F20;&#x5165;&#x7684; value &#x662F;&#x4E0D;&#x662F;&#x4E00;&#x4E2A; Promise &#x7C7B;&#x578B;
+        if (value instanceof MyPromise) {
+            return value.then(resolve, reject);
+        }
+        // * &#x7531;&#x4E8E;resolve&#x662F;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;, &#x56E0;&#x6B64;&#x5C06;&#x4ED6;&#x4EEC;&#x7528;setTimeout&#x5305;&#x88F9;&#x8D77;&#x6765;, &#x4FDD;&#x969C;&#x6267;&#x884C;&#x987A;&#x5E8F;
+        setTimeout(() =&gt; {
+            if (vm.state === PENDING) {
+                vm.value = value;
+                vm.state = RESOLVED;
+                vm.resolvedCallbacks.map(cb =&gt; cb(vm.value));
+            }
+        }, 0)
+    }
+
+    function reject(value) {
+        setTimeout(() =&gt; {
+            if (vm.state === PENDING) {
+                vm.value = value;
+                vm.state = REJECTED;
+                vm.rejectedCallbacks.map(cb =&gt; cb(vm.value))
+            }
+        }, 0)
+    }
+}
+
+MyPromise.prototype.then = function(onFulfilled, onRejected) {
+    consst vm = this;
+    // * &#x9996;&#x5148;&#x8981;&#x5224;&#x65AD;&#x662F;&#x4E0D;&#x662F;&#x51FD;&#x6570;&#x7C7B;&#x578B;, &#x5982;&#x679C;&#x4E0D;&#x662F;&#x51FD;&#x6570;&#x7C7B;&#x578B;, &#x5219;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x8D4B;&#x503C;&#x7ED9;&#x5BF9;&#x5E94;&#x7684;&#x53C2;&#x6570;, &#x540C;&#x65F6;&#x4E5F;&#x5B9E;&#x73B0;&#x4E86;&#x900F;&#x4F20;
+    onFulfilled = typeof onFulfilled === &apos;function&apos; ? onFulfilled : v =&gt; v;
+    onRejected = typeof onRejected === &apos;function&apos; ? onRejected : r =&gt; throw{ r };
+    let promise2;
+
+    // * &#x63A5;&#x4E0B;&#x6765;&#x9700;&#x8981;&#x6539;&#x9020;then&#x51FD;&#x6570;&#x5224;&#x65AD;&#x903B;&#x8F91;, &#x9996;&#x5148;&#x8981;&#x65B0;&#x589E;&#x4E00;&#x4E2A;&#x53D8;&#x91CF; promise2
+    // * &#x56E0;&#x4E3A;&#x6BCF;&#x4E00;&#x4E2A;then&#x51FD;&#x6570;&#x9700;&#x8981;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684; Promise &#x5BF9;&#x8C61;, &#x8BE5;&#x53D8;&#x91CF;&#x7528;&#x4E8E;&#x4FDD;&#x5B58;&#x65B0;&#x7684;&#x8FD4;&#x56DE;&#x5BF9;&#x8C61;, &#x7136;&#x540E;&#x6211;&#x4EEC;&#x63A5;&#x4E0B;&#x6765;&#x662F;&#x6539;&#x9020;&#x5224;&#x65AD;&#x7B49;&#x5F85;&#x72B6;&#x6001;&#x7684;&#x903B;&#x8F91;
+    // * &#x9996;&#x5148;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684; Promise&#x5BF9;&#x8C61;&#xFF0C; &#x5E76;&#x5728;Promise&#x4E2D;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x51FD;&#x6570;
+    // * &#x57FA;&#x672C;&#x903B;&#x8F91;&#x548C;&#x4E4B;&#x524D;&#x7684;&#x4E00;&#x6837;&#xFF0C; &#x5F80;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x6570;&#x7EC4;&#x4E2D;push&#x51FD;&#x6570;
+    // * &#x540C;&#x6837;&#xFF0C; &#x5728;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x9519;&#xFF0C; &#x56E0;&#x6B64;&#x4F7F;&#x7528;try catch
+    // * &#x89C4;&#x8303;&#x89C4;&#x5B9A;&#xFF0C; &#x6267;&#x884C;onFulfilled &#x6216;&#x8005; onRejected &#x51FD;&#x6570;&#x65F6;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; x&#xFF0C; &#x5E76;&#x4E14;&#x6267;&#x884C; Promise &#x89E3;&#x51B3;&#x8FC7;&#x7A0B;&#xFF0C; &#x8FD9;&#x662F;&#x4E3A;&#x4E86;&#x4E0D;&#x540C;&#x7684; Promise &#x90FD;&#x53EF;&#x4EE5;&#x517C;&#x5BB9;&#x4F7F;&#x7528;&#xFF0C; &#x6BD4;&#x5982; JQ &#x7684; Promise &#x80FD;&#x517C;&#x5BB9; ES6 &#x7684; Promise
+     if (that.state === PENDING) {
+         return ( promise2 = new MyPromise((resolve, reject) =&gt; {
+             that.resolvedCallbacks.push(() =&gt; {
+                 try {
+                     const x = onFulfilled(that.value);
+                     resolutionProcedure(promise2, x, resolve, reject)
+                 } catch (r) {
+                     reject(r)
+                 }
+             })
+
+             that.rejectedCallbacks.push(() =&gt; {
+                 try {
+                     const x = onRejected(that.value);
+                     resolutionProcedure(promise2, x, resolve, reject);
+                 } catch (r) {
+                     reject(r)
+                 }
+             })
+         }))
+     }
+
+     if (that.state === RESOLVED) {
+         return (promise2 = new MyPromise((resolve, reject) =&gt; {
+             setTimeout(() =&gt; {
+                 try {
+                     const x = onFulfilled(that.value);
+                     resolutionProcedure(promise2, x, resolve, reject);
+                 } catch (r) {
+                     reject(r)
+                 }
+             }, 0)
+         }))
+     }
+
+     if (that.state === REJECTED) {
+         return (promise2 = new MyPromise((resolve, reject) =&gt; {
+             setTimeout(() =&gt; {
+                 try {
+                     const x = onRejected(that.value);
+                     resolutionProcedure(promise2, x, resolve, reject);
+                 } catch (err) {
+                     reject(err)
+                 }
+             })
+         }))
+     }
+}
+
+// * &#x6700;&#x540E;&#xFF0C;&#x4E5F;&#x662F;&#x6700;&#x96BE;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5B9E;&#x73B0;&#x517C;&#x5BB9;&#x591A;&#x79CD; Promise &#x7684; resolutionProcedure &#x51FD;&#x6570;
+// * &#x9996;&#x5148; Promise A+ &#x89C4;&#x8303;&#x89C4;&#x5B9A;&#x4E86; x &#x4E0D;&#x80FD;&#x548C; Promise2&#x76F8;&#x7B49;, &#x8FD9;&#x6837;&#x4F1A;&#x5F15;&#x53D1;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x7684;&#x95EE;&#x9898;
+function resolutionProcedure(promise2, x, resolve, reject) {
+    if (promise2 === x) {
+        return reject(new TypeError(&apos;&#x6709;&#x6BDB;&#x75C5;&apos;))
+    }
+
+    // * &#x7136;&#x540E;&#x9700;&#x8981;&#x5224;&#x65AD; x &#x7684;&#x7C7B;&#x578B;
+    // * &#x89C4;&#x8303;&#x89C4;&#x5B9A;&#x5982;&#x679C; x &#x662F;&#x4E00;&#x4E2A; Promise&#xFF0C;&#x90A3;&#x4E48;&#x9700;&#x8981;&#x5224;&#x65AD;&#x4E00;&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#x60C5;&#x51B5;:
+    // * 1. &#x5982;&#x679C; x &#x5904;&#x4E8E;&#x7B49;&#x5F85;&#x72B6;&#x6001;, Promise&#x9700;&#x4FDD;&#x6301;&#x4E3A;&#x7B49;&#x5F85;&#x72B6;&#x6001;&#x76F4;&#x81F3; x &#x88AB;&#x6267;&#x884C;&#x6216;&#x62D2;&#x7EDD;
+    // * 2. &#x5982;&#x679C; x &#x5904;&#x4E8E;&#x5176;&#x4ED6;&#x72B6;&#x6001;, &#x5219;&#x7528;&#x76F8;&#x540C;&#x7684;&#x503C;&#x5904;&#x7406; Promise
+    if (x instanceof MyPromise) {
+        x.then(function(value) {
+            resolutionProcedure(promise2, value, resolve, reject)
+        }, reject)
+    }
+
+    // * &#x63A5;&#x7740;&#x5B9E;&#x73B0;&#x5269;&#x4E0B;&#x7684;&#x90E8;&#x5206;
+    // * &#x9996;&#x5148;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;called, &#x7528;&#x4E8E;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x8C03;&#x7528;&#x8FC7;&#x51FD;&#x6570;
+    // * &#x7136;&#x540E;&#x5224;&#x65AD; x &#x662F;&#x5426;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x6216;&#x8005;&#x51FD;&#x6570;&#xFF0C; &#x5982;&#x679C;&#x90FD;&#x4E0D;&#x662F;&#xFF0C; &#x5C31;&#x5C06; x &#x4F20;&#x5165;resolve&#x4E2D;
+    // * &#x5982;&#x679C;x &#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6216;&#x8005;&#x5BF9;&#x8C61;&#xFF0C; &#x5148;&#x628A; x.then &#x7684;&#x503C;&#x8D4B;&#x503C;&#x7ED9; then&#xFF0C; &#x7136;&#x540E;&#x5224;&#x65AD;then&#x7684;&#x7C7B;&#x578B;&#xFF0C; &#x5982;&#x679C;&#x4E0D;&#x662F;&#x51FD;&#x6570;&#x5C31;&#x76F4;&#x63A5;&#x5C06; x &#x4F20;&#x5165; resolve &#x4E2D;
+    // * &#x5982;&#x679C;then&#x662F;&#x51FD;&#x6570;&#x7C7B;&#x578B;&#xFF0C; &#x90A3;&#x4E48;&#x5C31;&#x5C06;x&#x4F5C;&#x4E3A; then &#x65B9;&#x6CD5;&#x7684;&#x4F5C;&#x7528;&#x57DF;this&#x8C03;&#x7528;&#xFF0C; &#x5E76;&#x4E14;&#x4F20;&#x5165;&#x4E24;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C; &#x7B2C;&#x4E00;&#x4E2A;&#x662F;resolvePromise&#xFF0C; &#x7B2C;&#x4E8C;&#x4E2A;&#x662F;rejectPromise&#xFF0C; &#x4E24;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x90FD;&#x8981;&#x5224;&#x65AD;&#x662F;&#x5426;&#x6267;&#x884C;&#x8FC7;&#x51FD;&#x6570;
+    // * &#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x53EA;&#x8981;&#x6709;&#x629B;&#x9519;&#xFF0C; &#x5C31;&#x4F20;&#x5165;reject&#x4E2D;&#x6267;&#x884C;
+    let called = false;
+    if (x !== null &amp;&amp; (typeof x === &apos;object&apos; || typeof x === &apos;function&apos;)) {
+        try {
+            let then = x.then;
+            if (typeof then === &apos;function&apos;) {
+                then.call(x,
+                    y =&gt; {
+                        if (called) return;
+                        called = true;
+                        resolutionProcedure(promise2, y, resolve, reject);
+                    },
+                    e =&gt; {
+                        if (called) return;
+                        called = true;
+                        reject(e);
+                    }
+                )
+            } else {
+                resolve(x)
+            }
+        } catch (err) {
+            if (called) return;
+            called = true;
+            reject(err);
+        }
+    } else {
+        resolve(x)
+    }
+}
+</code></pre>
                                 
                                 </section>
                             
@@ -969,8 +1079,12 @@
 
             
                 
+                <a href="1.html" class="navigation navigation-prev " aria-label="Previous page: 简易版">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="2.html" class="navigation navigation-next navigation-unique" aria-label="Next page: CSRF注入">
+                
+                <a href="../part14/" class="navigation navigation-next " aria-label="Next page: 原型和原型链">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -981,7 +1095,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"xss注入","level":"1.3.1","depth":2,"next":{"title":"CSRF注入","level":"1.3.2","depth":2,"path":"part2/2.md","ref":"part2/2.md","articles":[]},"previous":{"title":"浏览器安全","level":"1.3","depth":1,"ref":"","articles":[{"title":"xss注入","level":"1.3.1","depth":2,"path":"part2/1.md","ref":"part2/1.md","articles":[]},{"title":"CSRF注入","level":"1.3.2","depth":2,"path":"part2/2.md","ref":"part2/2.md","articles":[]},{"title":"https","level":"1.3.3","depth":2,"path":"part2/3.md","ref":"part2/3.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part2/1.md","mtime":"2021-02-20T06:08:21.478Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-20T18:12:17.491Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Promise A+ 版","level":"1.14.2","depth":2,"next":{"title":"原型和原型链","level":"1.15","depth":1,"path":"part14/index.md","ref":"part14/index.md","articles":[]},"previous":{"title":"简易版","level":"1.14.1","depth":2,"path":"part13/1.md","ref":"part13/1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part13/2.md","mtime":"2021-02-20T17:22:57.879Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-20T18:12:17.491Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

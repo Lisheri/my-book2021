@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>xss注入 · GitBook</title>
+        <title>作用域和闭包 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,8 +61,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="2.html" />
     
+    <link rel="prev" href="../part15/6.html" />
     
 
     </head>
@@ -195,9 +195,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.1" data-path="1.html">
+        <li class="chapter " data-level="1.3.1" data-path="../part2/1.html">
             
-                <a href="1.html">
+                <a href="../part2/1.html">
             
                     
                     xss注入
@@ -208,9 +208,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="2.html">
+        <li class="chapter " data-level="1.3.2" data-path="../part2/2.html">
             
-                <a href="2.html">
+                <a href="../part2/2.html">
             
                     
                     CSRF注入
@@ -221,9 +221,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="3.html">
+        <li class="chapter " data-level="1.3.3" data-path="../part2/3.html">
             
-                <a href="3.html">
+                <a href="../part2/3.html">
             
                     
                     https
@@ -807,9 +807,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.17" data-path="../part16/">
+        <li class="chapter active" data-level="1.17" data-path="./">
             
-                <a href="../part16/">
+                <a href="./">
             
                     
                     作用域和闭包
@@ -882,7 +882,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >xss注入</a>
+        <a href=".." >作用域和闭包</a>
     </h1>
 </div>
 
@@ -897,52 +897,183 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="xss&#x6CE8;&#x5165;">XSS&#x6CE8;&#x5165;</h1>
-<p>XSS &#x5168;&#x79F0;&#x662F; <code>Cross Site Scripting</code> &#x4E5F;&#x5C31;&#x662F; <code>&#x8DE8;&#x7AD9;&#x811A;&#x672C;&#x653B;&#x51FB;</code>, &#x4E3A;&#x4E86;&#x548C;CSS&#x533A;&#x5206;, &#x624D;&#x53EB;&#x4ED6;XSS&#x3002;
-&#x662F;&#x6307;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x6267;&#x884C;&#x6076;&#x610F;&#x811A;&#x672C;(&#x65E0;&#x8BBA;&#x8DE8;&#x57DF;&#x8FD8;&#x662F;&#x540C;&#x57DF;), &#x4ECE;&#x800C;&#x62FF;&#x5230;&#x7528;&#x6237;&#x4FE1;&#x606F;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;</p>
-<p>&#x4E00;&#x822C;&#x4E3A;&#x4E86;&#x5B8C;&#x6210;&#x4E0B;&#x9762;&#x7684;&#x4E8B;&#x60C5;:</p>
+                                <h1 id="&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x95ED;&#x5305;">&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x95ED;&#x5305;</h1>
+<h3 id="&#x9898;&#x76EE;">&#x9898;&#x76EE;</h3>
 <ul>
-<li>&#x7A83;&#x53D6;cookie</li>
-<li>&#x76D1;&#x542C;&#x7528;&#x6237;&#x884C;&#x4E3A;, &#x6BD4;&#x5982;&#x8F93;&#x5165;&#x8D26;&#x53F7;&#x5BC6;&#x7801;&#x540E;&#x76F4;&#x63A5;&#x53D1;&#x9001;&#x5230;&#x9ED1;&#x5BA2;&#x670D;&#x52A1;&#x5668;</li>
-<li>&#x4FEE;&#x6539;DOM&#x4F2A;&#x9020;&#x767B;&#x5F55;&#x8868;&#x5355;</li>
-<li>&#x5728;&#x9875;&#x9762;&#x4E2D;&#x751F;&#x6210;&#x6D6E;&#x7A97;&#x5E7F;&#x544A;</li>
-</ul>
-<h4 id="&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;xss&#x653B;&#x51FB;&#x5B9E;&#x73B0;&#x6709;&#x4E09;&#x79CD;">&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;XSS&#x653B;&#x51FB;&#x5B9E;&#x73B0;&#x6709;&#x4E09;&#x79CD;</h4>
-<ul>
-<li>&#x5B58;&#x50A8;&#x578B;<ul>
-<li><code>&#x5B58;&#x50A8;&#x578B;</code>&#x987E;&#x540D;&#x601D;&#x4E49;&#x5C31;&#x662F;&#x5C06;&#x8DE8;&#x7AD9;&#x811A;&#x672C;&#x5B58;&#x50A8;&#x8D77;&#x6765;, &#x5C06;&#x811A;&#x672C;&#x5B58;&#x50A8;&#x5230;&#x4E86;&#x6570;&#x636E;&#x5E93;, &#x7136;&#x540E;&#x5BA2;&#x6237;&#x7AEF;&#x6267;&#x884C;&#x811A;&#x672C;&#x8FBE;&#x5230;&#x653B;&#x51FB;&#x76EE;&#x7684;</li>
-<li>&#x6BD4;&#x5982;&#x5728;&#x8BC4;&#x8BBA;&#x533A;&#x7559;&#x4E0B;&#x4E00;&#x4E2A;&#x811A;&#x672C;<code>&lt;script&gt;while(!![]) {alert(&apos;&#x4F60;&#x4EBA;&#x6CA1;&#x4E86;&#xFF01;&#xFF01;&apos;)}&lt;/script&gt;</code>, &#x8FD9;&#x6BB5;&#x811A;&#x672C;&#x5982;&#x679C;&#x5230;&#x4E86;&#x540E;&#x7AEF;, &#x4E0D;&#x505A;&#x89E3;&#x6790;&#x76F4;&#x63A5;&#x5B58;&#x50A8;&#x8D77;&#x6765;, &#x5728;&#x9875;&#x9762;&#x6E32;&#x67D3;&#x8FC7;&#x7A0B;&#x4E2D;&#x5C31;&#x4F1A;&#x6267;&#x884C;&#x8FD9;&#x4E9B;&#x811A;&#x672C;, &#x8FD9;&#x6837;&#x8FD9;&#x4E2A;&#x9875;&#x9762;&#x4E5F;&#x5C31;&#x5D29;&#x4E86;</li>
-</ul>
-</li>
-<li>&#x53CD;&#x5C04;&#x578B;<ul>
-<li><code>&#x53CD;&#x5C04;&#x578B;</code>XSS&#x4E00;&#x822C;&#x4F5C;&#x4E3A;&#x8BF7;&#x6C42;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x4F20;&#x7ED9;&#x540E;&#x7AEF;</li>
-<li>&#x6BD4;&#x5982;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7684;URL&#x7684;&#x6700;&#x540E;&#x6DFB;&#x52A0;&#x4E00;&#x6BB5; <code>?q=&lt;script&gt;while(!![]){alert(&apos;&#x4F60;&#x4EBA;&#x6CA1;&#x4E86;!!&apos;)}&lt;/script&gt;</code>, &#x7136;&#x540E;&#x5237;&#x65B0;&#x7684;&#x65F6;&#x5019;&#x53D1;&#x8D77;&#x8BF7;&#x6C42;, &#x8FD4;&#x56DE;&#x4E00;&#x6BB5;HTML, &#x5176;&#x4E2D;&#x5C31;&#x5305;&#x542B;&#x8FD9;&#x4E2A;, &#x5982;&#x679C;&#x4E0D;&#x505A;&#x5904;&#x7406;, &#x6D4F;&#x89C8;&#x5668;&#x53D1;&#x73B0;&#x4ED6;&#x662F;HTML&#x7684;&#x4E00;&#x90E8;&#x5206;, &#x5C31;&#x4F1A;&#x76F4;&#x63A5;&#x6267;&#x884C;, &#x7136;&#x540E;&#x9875;&#x9762;&#x5C31;&#x5D29;&#x4E86;</li>
-</ul>
-</li>
-<li>&#x6587;&#x6863;&#x578B;<ul>
-<li><code>&#x6587;&#x6863;&#x578B;</code>XSS&#x4E0D;&#x4F1A;&#x7ECF;&#x8FC7;&#x670D;&#x52A1;&#x7AEF;, &#x800C;&#x662F;&#x4F5C;&#x4E3A;&#x4E2D;&#x95F4;&#x4EBA;&#x7684;&#x89D2;&#x8272;, &#x5728;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x8FC7;&#x7A0B;&#x4E2D;&#x52AB;&#x6301;&#x7F51;&#x7EDC;&#x6570;&#x636E;&#x5305;, &#x7136;&#x540E;&#x4FEE;&#x6539;&#x91CC;&#x9762;HTML&#x7684;&#x6587;&#x6863;</li>
-<li>&#x52AB;&#x6301;&#x65B9;&#x5F0F;&#x5305;&#x62EC;<code>wifi&#x8DEF;&#x7531;&#x5668;&#x52AB;&#x6301;</code>&#x548C;<code>&#x672C;&#x5730;&#x6076;&#x610F;&#x8F6F;&#x4EF6;</code>&#x7B49;</li>
-</ul>
-</li>
-</ul>
-<h4 id="&#x9632;&#x8303;&#x63AA;&#x65BD;">&#x9632;&#x8303;&#x63AA;&#x65BD;</h4>
-<ul>
-<li>&#x4E00;&#x4E2A;&#x4FE1;&#x5FF5;<ul>
-<li>&#x5343;&#x4E07;&#x4E0D;&#x8981;&#x76F8;&#x4FE1;&#x7528;&#x6237;&#x7684;&#x4EFB;&#x4F55;&#x8F93;&#x5165;, &#x65E0;&#x8BBA;&#x524D;&#x7AEF;&#x8FD8;&#x662F;&#x540E;&#x7AEF;&#x4E00;&#x5B9A;&#x8981;&#x505A;&#x597D;&#x8F6C;&#x7801;&#x6216;&#x8005;&#x8FC7;&#x6EE4;</li>
-</ul>
-</li>
-<li>&#x4E24;&#x4E2A;&#x5229;&#x7528;<ul>
-<li>&#x5229;&#x7528;CSP(<code>&#x6D4F;&#x89C8;&#x5668;&#x5B89;&#x5168;&#x7B56;&#x7565;</code>)<ul>
-<li>&#x9650;&#x5236;&#x5176;&#x4ED6;&#x57DF;&#x8D44;&#x6E90;&#x52A0;&#x8F7D;</li>
-<li>&#x8FDB;&#x5236;&#x5411;&#x5176;&#x4ED6;&#x57DF;&#x63D0;&#x4EA4;&#x6570;&#x636E;</li>
-<li>&#x63D0;&#x4F9B;&#x4E0A;&#x62A5;&#x673A;&#x5236;, &#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x53CA;&#x65F6;&#x53D1;&#x73B0;XSS</li>
-</ul>
-</li>
-<li>xss&#x4E3B;&#x8981;&#x76EE;&#x7684;&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x83B7;&#x53D6;&#x7528;&#x6237;&#x7684;&#x767B;&#x5F55;&#x4FE1;&#x606F;, &#x56E0;&#x6B64;&#x5229;&#x7528;cookie&#x7684;&#x5C5E;&#x6027;&#x4E4B;&#x4E00;<code>HttpOnly</code>, &#x52A0;&#x4E0A;&#x8BE5;&#x5C5E;&#x6027;&#x7684;cookie&#x524D;&#x7AEF;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;js&#x83B7;&#x53D6;cookie&#x4FE1;&#x606F;</li>
-</ul>
-</li>
-</ul>
+<li>this&#x7684;&#x4E0D;&#x540C;&#x5E94;&#x7528;&#x573A;&#x666F;&#x5982;&#x4F55;&#x53D6;&#x503C;?</li>
+<li><p>&#x624B;&#x5199;bind&#x51FD;&#x6570;</p>
+<pre><code>// bind-demo
+Function.prototype.bind1 = function(self, ...args) {
+  // &#x5C06;&#x53C2;&#x6570;&#x62C6;&#x89E3;&#x4E3A;&#x6570;&#x7EC4;
+  // arguments &#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6240;&#x6709;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x5217;&#x8868;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;
+  const args = Array.prototype.slice.call(arguments) // &#x5C06;&#x4E00;&#x4E2A;&#x5217;&#x8868;&#x53D8;&#x4E3A;&#x6570;&#x7EC4;
 
+  // &#x83B7;&#x53D6;this (&#x6570;&#x7EC4;&#x7B2C;&#x4E00;&#x9879;)
+  const t = args.shift() // &#x5C06;&#x7B2C;&#x4E00;&#x4E2A;&#x503C;&#x53D6;&#x51FA;&#x6765;&#xFF0C;&#x6539;&#x53D8;&#x539F;&#x6570;&#x7EC4;
+
+  // &#x7531;&#x4E8E;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;class&#x4E2D;&#x4E00;&#x4E2A;&#x6210;&#x5458;&#x65B9;&#x6CD5;&#x7684;this&#xFF0C;&#x6307;&#x5411;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;fn1
+  // &#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x7684;this&#x5C31;&#x662F;fn1.bind()&#x4E2D;&#x7684;fn1
+  const self = this
+
+  // &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;
+  return function() {
+      return self.apply(t, args)
+  }
+}
+</code></pre></li>
+<li>&#x5B9E;&#x9645;&#x5F00;&#x53D1;&#x4E2D;&#x95ED;&#x5305;&#x7684;&#x5E94;&#x7528;&#x573A;&#x666F;&#xFF0C;&#x4E3E;&#x4F8B;&#x8BF4;&#x660E;</li>
+</ul>
+<pre><code>// 1.&#x9690;&#x85CF;&#x6570;&#x636E;&#xFF0C;&#x53EA;&#x63D0;&#x4F9B;API
+function createCache() {
+    const data = [] // &#x95ED;&#x5305;&#x4E2D;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x88AB;&#x9690;&#x85CF;&#xFF0C;&#x4E0D;&#x88AB;&#x5916;&#x754C;&#x8BBF;&#x95EE;
+    return {
+        set: function(key, val) {
+            data[key] = val
+        },
+        get: function(key) {
+            return data[key]
+        }
+    }
+}
+
+// 2.
+</code></pre><h3 id="&#x4F5C;&#x7528;&#x57DF;">&#x4F5C;&#x7528;&#x57DF;</h3>
+<pre><code>let a = 0; // &#x5168;&#x5C40;&#x53D8;&#x91CF;
+function fn1() {
+    let a1 = 100; // &#x51FD;&#x6570;&amp;&amp;&#x5757;&#x7EA7;&#x53D8;&#x91CF;
+    function fn2() {
+        let a2 = 200; // &#x51FD;&#x6570;&amp;&amp;&#x5757;&#x7EA7;&#x53D8;&#x91CF;
+        function fn3() {
+            let a3 = 300; // &#x51FD;&#x6570;&amp;&amp;&#x5757;&#x7EA7;&#x53D8;&#x91CF;
+            // &#x5728;&#x8FD9;&#x4E2A;&#x5757;&#x4E2D;&#xFF0C;&#x53EA;&#x6709;a3&#x4E0D;&#x662F;&#x81EA;&#x7531;&#x53D8;&#x91CF;
+            return a + a1 + a2 + a3
+        }
+        fn3()
+    }
+    fn2()
+}
+console.info(fn1())
+</code></pre><ul>
+<li>&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;<ul>
+<li>&#x5728;&#x5168;&#x5C40;&#x7533;&#x660E;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x4EFB;&#x4F55;&#x4F4D;&#x7F6E;&#x90FD;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;</li>
+</ul>
+</li>
+<li>&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;<ul>
+<li>&#x5728;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x7533;&#x660E;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x53EA;&#x80FD;&#x5728;&#x5F53;&#x524D;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x4F7F;&#x7528;</li>
+</ul>
+</li>
+<li>&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;<ul>
+<li>&#x4E00;&#x4E2A;&#x5927;&#x62EC;&#x53F7;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5757;&#xFF0C;&#x8D85;&#x51FA;&#x8FD9;&#x4E2A;&#x5927;&#x62EC;&#x53F7;&#x4F7F;&#x7528;&#x5C31;&#x62A5;&#x9519;</li>
+</ul>
+</li>
+<li><p>&#x81EA;&#x7531;&#x53D8;&#x91CF;</p>
+<ul>
+<li>&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x5728;&#x5F53;&#x524D;&#x4F5C;&#x7528;&#x57DF;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#xFF0C;&#x4F46;&#x5C31;&#x88AB;&#x4F7F;&#x7528;&#x4E86;</li>
+<li>&#x5411;&#x4E0A;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x4E00;&#x5C42;&#x4E00;&#x5C42;&#x4F9D;&#x6B21;&#x5BFB;&#x627E;&#xFF0C;&#x76F4;&#x5230;&#x627E;&#x5230;&#x4E3A;&#x6B62;</li>
+<li>&#x5982;&#x679C;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x90FD;&#x6CA1;&#x6709;&#x627E;&#x5230;&#xFF0C;&#x5C31;&#x62A5;&#x9519; xxx is not defined</li>
+</ul>
+</li>
+<li><p>&#x95ED;&#x5305;(&#x4F5C;&#x7528;&#x57DF;&#x5E94;&#x7528;&#x7684;&#x7279;&#x6B8A;&#x60C5;&#x51B5;&#xFF0C;&#x6709;&#x4E24;&#x79CD;&#x8868;&#x73B0;)</p>
+<ul>
+<li>&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x88AB;&#x4F20;&#x9012;</li>
+<li>&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x8FD4;&#x56DE;&#x503C;&#x88AB;&#x8FD4;&#x56DE;</li>
+</ul>
+</li>
+<li><p>&#x95ED;&#x5305;&#x6709;&#x4E09;&#x4E2A;&#x7279;&#x6548;:</p>
+<ul>
+<li>1.&#x51FD;&#x6570;&#x5D4C;&#x5957;&#x51FD;&#x6570;;</li>
+<li>2.&#x51FD;&#x6570;&#x5185;&#x90E8;&#x53EF;&#x4EE5;&#x5F15;&#x7528;&#x5916;&#x90E8;&#x7684;&#x53C2;&#x6570;&#x548C;&#x53D8;&#x91CF;;</li>
+<li>3.&#x53C2;&#x6570;&#x548C;&#x53D8;&#x91CF;&#x4E0D;&#x4F1A;&#x88AB;&#x5783;&#x573E;&#x56DE;&#x6536;&#x673A;&#x5236;&#x56DE;&#x6536;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<pre><code>// &#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x8FD4;&#x56DE;&#x503C;
+function create() {
+    let a = 100;
+    return function() {
+        console.info(a)
+    }
+}
+let fn = create()
+let a = 200
+fn() // 100
+
+// &#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;
+function print(fn) {
+    let a = 200;
+    fn()
+}
+let a = 100
+function fn() {
+    console.info(a)
+}
+print(fn) // 100
+
+// &#x4E3B;&#x8981;&#x662F;&#x7531;&#x4E8E;&#x51FD;&#x6570;&#x5BFB;&#x627E;&#x81EA;&#x7531;&#x53D8;&#x91CF;&#x4F1A;&#x4ECE;&#x5B9A;&#x4E49;&#x4ED6;&#x81EA;&#x5DF1;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x5F00;&#x59CB;&#x53BB;&#x5BFB;&#x627E;
+// &#x800C;&#x4E0D;&#x662F;&#x5728;&#x51FD;&#x6570;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;
+</code></pre><h3 id="this">this</h3>
+<p>&#x5E94;&#x7528;&#x573A;&#x666F;</p>
+<ul>
+<li>&#x4F5C;&#x4E3A;&#x666E;&#x901A;&#x51FD;&#x6570;&#x8C03;&#x7528;</li>
+<li>&#x4F7F;&#x7528;call apply bind&#x8C03;&#x7528;</li>
+<li>&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;&#x65B9;&#x6CD5;&#x88AB;&#x8C03;&#x7528;</li>
+<li>class&#x65B9;&#x6CD5;&#x4E2D;&#x88AB;&#x8C03;&#x7528;</li>
+<li>&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x4E2D;&#x8C03;&#x7528;</li>
+</ul>
+<h4 id="this&#x53D6;&#x4EC0;&#x4E48;&#x503C;&#x662F;&#x5728;&#x51FD;&#x6570;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#x786E;&#x8BA4;&#x7684;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x7684;&#x65F6;&#x5019;">this&#x53D6;&#x4EC0;&#x4E48;&#x503C;&#x662F;&#x5728;&#x51FD;&#x6570;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#x786E;&#x8BA4;&#x7684;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x7684;&#x65F6;&#x5019;</h4>
+<pre><code>function fn1() {
+    console.info(this)
+}
+
+fn1() // window
+
+fn1.call({x: 100}) // {x: 100}
+const fn2 = fn1.bind({x: 200})
+fn2() // {x: 200}
+
+const zhangsan1 = {
+    name: &apos;&#x5F20;&#x4E09;&apos;,
+    sayHi() {
+        // this&#x5C31;&#x662F;&#x5F53;&#x524D;&#x5BF9;&#x8C61;
+        console.info(this)
+    },
+    wait() {
+        setTimeout(function() {
+            // this&#x6307;&#x5411;window
+            console.info(this)
+        }, 100)
+    }
+}
+
+const zhangsan2 = {
+    name: &apos;&#x5F20;&#x4E09;&apos;,
+    sayHi() {
+        // &#x666E;&#x901A;&#x51FD;&#x6570;&#x7684;this&#xFF0C;&#x6307;&#x5411;&#x8C03;&#x7528;&#x7684;&#x4F4D;&#x7F6E;
+        // this&#x5C31;&#x662F;&#x5F53;&#x524D;&#x5BF9;&#x8C61;
+        console.info(this)
+    },
+    wait() {
+        setTimeout(() =&gt; {
+            // &#x7BAD;&#x5934;&#x51FD;&#x6570;&#x7684;this&#x6C38;&#x8FDC;&#x53D6;&#x5B83;&#x4E0A;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x7684;this
+            // &#x56E0;&#x6B64;&#x8FD9;&#x91CC;&#x7684;this&#x6307;&#x5411;wait&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x6240;&#x4EE5;this&#x6307;&#x5411;&#x5F53;&#x524D;&#x5BF9;&#x8C61;
+            console.info(this)
+        }, 100)
+    }
+}
+
+class People {
+    constructor(name) {
+        this.name = name
+        this.age = 20
+    }
+    sayHi() {
+        console.info(this)
+    }
+}
+// class&#x4E2D;constructor&#x7684;this&#x4EE3;&#x8868;&#x6B63;&#x5728;&#x521B;&#x5EFA;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;class&#x5185;&#x90E8;&#x7684;&#x51FD;&#x6570;this&#x6307;&#x5411;&#x521B;&#x5EFA;&#x7684;&#x5B9E;&#x4F8B;
+const zhangsan = new People(&quot;&#x5F20;&#x4E09;&quot;)
+zhangsan.sayHi() // zhangsan&#x5BF9;&#x8C61;
+</code></pre>
                                 
                                 </section>
                             
@@ -969,10 +1100,10 @@
 
             
                 
-                
-                <a href="2.html" class="navigation navigation-next navigation-unique" aria-label="Next page: CSRF注入">
-                    <i class="fa fa-angle-right"></i>
+                <a href="../part15/6.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Object.is">
+                    <i class="fa fa-angle-left"></i>
                 </a>
+                
                 
             
         
@@ -981,7 +1112,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"xss注入","level":"1.3.1","depth":2,"next":{"title":"CSRF注入","level":"1.3.2","depth":2,"path":"part2/2.md","ref":"part2/2.md","articles":[]},"previous":{"title":"浏览器安全","level":"1.3","depth":1,"ref":"","articles":[{"title":"xss注入","level":"1.3.1","depth":2,"path":"part2/1.md","ref":"part2/1.md","articles":[]},{"title":"CSRF注入","level":"1.3.2","depth":2,"path":"part2/2.md","ref":"part2/2.md","articles":[]},{"title":"https","level":"1.3.3","depth":2,"path":"part2/3.md","ref":"part2/3.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part2/1.md","mtime":"2021-02-20T06:08:21.478Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-20T18:12:17.491Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"作用域和闭包","level":"1.17","depth":1,"next":{"title":"深入数组","level":"1.18","depth":1,"ref":"","articles":[{"title":"数组扁平化","level":"1.18.1","depth":2,"path":"part17/1.md","ref":"part17/1.md","articles":[]}]},"previous":{"title":"Object.is","level":"1.16.6","depth":2,"path":"part15/6.md","ref":"part15/6.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part16/index.md","mtime":"2021-02-20T17:50:02.138Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-20T18:12:17.491Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
