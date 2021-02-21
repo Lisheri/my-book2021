@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>原型和原型链 · GitBook</title>
+        <title>Node中的Event Loop · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -62,7 +62,7 @@
 
     
     
-    <link rel="prev" href="../part13/2.html" />
+    <link rel="prev" href="3.html" />
     
 
     </head>
@@ -697,9 +697,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.15" data-path="./">
+        <li class="chapter " data-level="1.15" data-path="../part14/">
             
-                <a href="./">
+                <a href="../part14/">
             
                     
                     原型和原型链
@@ -866,9 +866,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.19.1" data-path="../part18/1.html">
+        <li class="chapter " data-level="1.19.1" data-path="1.html">
             
-                <a href="../part18/1.html">
+                <a href="1.html">
             
                     
                     进程与线程
@@ -879,9 +879,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.19.2" data-path="../part18/2.html">
+        <li class="chapter " data-level="1.19.2" data-path="2.html">
             
-                <a href="../part18/2.html">
+                <a href="2.html">
             
                     
                     执行栈
@@ -892,9 +892,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.19.3" data-path="../part18/3.html">
+        <li class="chapter " data-level="1.19.3" data-path="3.html">
             
-                <a href="../part18/3.html">
+                <a href="3.html">
             
                     
                     浏览器中的Event Loop
@@ -905,9 +905,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.19.4" data-path="../part18/4.html">
+        <li class="chapter active" data-level="1.19.4" data-path="4.html">
             
-                <a href="../part18/4.html">
+                <a href="4.html">
             
                     
                     Node中的Event Loop
@@ -953,7 +953,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >原型和原型链</a>
+        <a href=".." >Node中的Event Loop</a>
     </h1>
 </div>
 
@@ -968,33 +968,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x539F;&#x578B;&#x548C;&#x539F;&#x578B;&#x94FE;">&#x539F;&#x578B;&#x548C;&#x539F;&#x578B;&#x94FE;</h1>
-<p>&#x5728;ES2019&#x4E2D;&#xFF0C;&#x7528;&#x4E86;&#x4E00;&#x53E5;&#x77ED;&#x77ED;&#x7684;&#x8BDD;&#xFF0C;&#x4ECB;&#x7ECD;&#x4E86;&#x4E00;&#x4E0B;&#x539F;&#x578B;&#x94FE;--prototype chain
-a prototype may have a non-null implicit reference to its prototype, and so on; this is called the prototype chain</p>
-<p>&#x5176;&#x5B9E;&#x6BCF;&#x4E2A; JS &#x5BF9;&#x8C61;&#x90FD;&#x6709; <strong>proto</strong> &#x5C5E;&#x6027;&#xFF0C;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x6307;&#x5411;&#x4E86;&#x539F;&#x578B;&#x3002;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x5728;&#x73B0;&#x5728;&#x6765;&#x8BF4;&#x5DF2;&#x7ECF;&#x4E0D;&#x63A8;&#x8350;&#x76F4;&#x63A5;&#x53BB;&#x4F7F;&#x7528;&#x5B83;&#x4E86;&#xFF0C;&#x8FD9;&#x53EA;&#x662F;&#x6D4F;&#x89C8;&#x5668;&#x5728;&#x65E9;&#x671F;&#x4E3A;&#x4E86;&#x8BA9;&#x6211;&#x4EEC;&#x8BBF;&#x95EE;&#x5230;&#x5185;&#x90E8;&#x5C5E;&#x6027; [[prototype]] &#x6765;&#x5B9E;&#x73B0;&#x7684;&#x4E00;&#x4E2A;&#x4E1C;&#x897F;&#x3002;&#x65E9;&#x671F;&#x7684;<strong>proto</strong>&#x662F;&#x6D4F;&#x89C8;&#x5668;&#x5382;&#x5546;&#x79C1;&#x81EA;&#x5F00;&#x7684;, &#x76EE;&#x7684;&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x64CD;&#x4F5C;<code>prototype</code>&#x3002;&#x53EA;&#x6709;&#x51FD;&#x6570;&#x624D;&#x6709;<code>prototype</code></p>
-<p>&#x539F;&#x578B;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x4E14;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x4E2D;&#x5305;&#x542B;&#x4E86;&#x5F88;&#x591A;&#x51FD;&#x6570;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F97;&#x51FA;&#x4E00;&#x4E2A;&#x7ED3;&#x8BBA;&#xFF1A;&#x5BF9;&#x4E8E;<code>obj</code>&#x6765;&#x8BF4;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>__proto__</code> &#x627E;&#x5230;&#x4E00;&#x4E2A;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF0C;&#x5728;&#x8BE5;&#x5BF9;&#x8C61;&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x5F88;&#x591A;&#x51FD;&#x6570;&#x8BA9;&#x6211;&#x4EEC;&#x6765;&#x4F7F;&#x7528;&#x3002;</p>
-<p>&#x6253;&#x5F00;<code>constructor</code>&#x5C5E;&#x6027;&#x53C8;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x5176;&#x4E2D;&#x8FD8;&#x6709;&#x4E00;&#x4E2A; <code>prototype</code> &#x5C5E;&#x6027;&#xFF0C;&#x5E76;&#x4E14;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#x548C;&#x5148;&#x524D;&#x6211;&#x4EEC;&#x5728; <code>__proto__</code> &#x4E2D;&#x770B;&#x5230;&#x7684;&#x4E00;&#x6A21;&#x4E00;&#x6837;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53C8;&#x53EF;&#x4EE5;&#x5F97;&#x51FA;&#x4E00;&#x4E2A;&#x7ED3;&#x8BBA;&#xFF1A;&#x539F;&#x578B;&#x7684; <code>constructor</code> &#x5C5E;&#x6027;&#x6307;&#x5411;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x53C8;&#x901A;&#x8FC7; <code>prototype</code> &#x5C5E;&#x6027;&#x6307;&#x56DE;&#x539F;&#x578B;&#xFF0C;&#x4F46;&#x662F;&#x5E76;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x51FD;&#x6570;&#x90FD;&#x5177;&#x6709;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;<code>Function.prototype.bind()</code> &#x5C31;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x3002;</p>
-<h3 id="&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x548C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6709;&#x4EC0;&#x4E48;&#x5173;&#x7CFB;">&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x548C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6709;&#x4EC0;&#x4E48;&#x5173;&#x7CFB;</h3>
-<p>&#x5728;JS&#x4E2D;, &#x6BCF;&#x5F53;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6570;&#x636E;&#x7C7B;&#x578B;, &#x5C31;&#x5E26;&#x6709;&#x4E00;&#x4E2A;prototype(&#x9664;&#x4E86;Function.prototype.bind()), &#x800C;&#x5F53;&#x6267;&#x884C;new&#x64CD;&#x4F5C;&#x7684;&#x65F6;&#x5019;, &#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5C31;&#x6210;&#x4E86;&#x6784;&#x9020;&#x51FD;&#x6570;, &#x5728;&#x4ED6;&#x7684;&#x5B9E;&#x4F8B;&#x4E0A;&#x5C31;&#x4F1A;&#x5B58;&#x5728;&#x4E00;&#x4E2A;<strong>proto</strong>, &#x6307;&#x5411;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;prototype</p>
-<p>&#x6362;&#x53E5;&#x8BDD;&#x8BF4;, &#x6BCF;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x90FD;&#x6709;&#x539F;&#x578B;(prototype), &#x6BCF;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x90FD;&#x6709;<strong>proto</strong></p>
-<h3 id="&#x539F;&#x578B;&#x94FE;">&#x539F;&#x578B;&#x94FE;</h3>
-<p>&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;JS&#x901A;&#x8FC7;prototype&#x7684;<strong>proto</strong>&#x5C5E;&#x6027;&#x6307;&#x5411;&#x7236;&#x7C7B;&#x5BF9;&#x8C61;&#x7684;prototype, &#x76F4;&#x5230;&#x6307;&#x5411;Object&#x4E3A;&#x6B62;</p>
-<h3 id="&#x6700;&#x7B80;&#x5355;&#x7684;&#x7EE7;&#x627F;&#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x7EE7;&#x627F;">&#x6700;&#x7B80;&#x5355;&#x7684;&#x7EE7;&#x627F;(&#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x7EE7;&#x627F;)</h3>
-<pre><code>function Father() {
-
-}
-function Son() {
-    Father.call(this)
-}
-Son.prototype = Object.create(Father.prototype)
-Son.prototype.constructor = Son
-</code></pre><h3 id="&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x8BBE;&#x8BA1;&#x4E00;&#x5B9A;&#x662F;&#x6700;&#x597D;&#x7684;&#x8BBE;&#x8BA1;&#x5417;">&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x8BBE;&#x8BA1;&#x4E00;&#x5B9A;&#x662F;&#x6700;&#x597D;&#x7684;&#x8BBE;&#x8BA1;&#x5417;</h3>
-<p>&#x5176;&#x5B9E;&#x5E76;&#x4E0D;, &#x6BD4;&#x5982;Car&#x8FD9;&#x4E2A;&#x7C7B;, &#x6709;&#x4E00;&#x4E2A;&#x52A0;&#x6CB9;&#x7684;&#x5C5E;&#x6027;, &#x4E00;&#x822C;&#x6765;&#x8BF4;&#x7740;&#x5B9E;&#x662F;&#x6240;&#x6709;&#x7684;&#x8F66;&#x90FD;&#x8981;&#x52A0;&#x6CB9;, &#x4F46;&#x662F;&#x65B0;&#x80FD;&#x6E90;&#x6C7D;&#x8F66;&#x7684;&#x51FA;&#x73B0;&#xFF0C;&#x5982;&#x679C;&#x4E5F;&#x7EE7;&#x627F;Car, &#x90A3;&#x4E48;&#x4ED6;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x5C31;&#x662F;&#x591A;&#x4F59;&#x7684;&#x3002;</p>
-<p>&#x8FD9;&#x5C31;&#x662F;&#x8BF4;&#x7684;&#x7236;&#x7C7B;&#x65E0;&#x6CD5;&#x5B8C;&#x5168;&#x63CF;&#x8FF0;&#x6E05;&#x695A;&#x5B50;&#x7C7B;&#x7684;&#x9700;&#x8981;, &#x4F46;&#x662F;&#x5B50;&#x7C7B;&#x4F1A;&#x5C06;&#x7236;&#x7C7B;&#x7684;&#x6210;&#x5458;&#x90FD;&#x7EE7;&#x627F;&#x4E0B;&#x6765;</p>
-<p>&#x4E00;&#x65E6;&#x5B50;&#x7C7B;&#x53D1;&#x751F;&#x53D8;&#x5316;, &#x7236;&#x7C7B;&#x53C8;&#x8981;&#x8DDF;&#x7740;&#x53D8;&#x5316;, &#x8FD9;&#x6837;&#x7EF4;&#x62A4;&#x8D77;&#x6765;&#x5E76;&#x4E0D;&#x597D;(&#x4EE3;&#x7801;&#x8026;&#x5408;&#x6027;&#x9AD8;)</p>
-<h4 id="&#x7C7B;&#x4F3C;&#x4E8E;golang">&#x7C7B;&#x4F3C;&#x4E8E;golang</h4>
-<p>&#x4F7F;&#x7528;&#x9762;&#x5411;&#x7EC4;&#x5408;&#x7F16;&#x7A0B;, &#x65E0;&#x7591;&#x662F;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x4F18;&#x79C0;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;</p>
-<p>&#x5148;&#x8BBE;&#x8BA1;&#x4E00;&#x7CFB;&#x5217;&#x96F6;&#x4EF6;&#xFF0C; &#x7136;&#x540E;&#x4F7F;&#x7528;&#x4ED6;&#x4EEC;&#x8FDB;&#x884C;&#x62FC;&#x88C5;, &#x5F62;&#x6210;&#x4E0D;&#x540C;&#x7684;&#x5B9E;&#x4F8B;&#x6216;&#x8005;&#x7C7B;, &#x8FD9;&#x6837;&#x4EE3;&#x7801;&#x5E72;&#x51C0;, &#x4E5F;&#x5BB9;&#x6613;&#x590D;&#x7528;, &#x7EF4;&#x62A4;&#x8D77;&#x6765;&#x53EA;&#x9700;&#x8981;&#x7EF4;&#x62A4;&#x57FA;&#x672C;&#x7684;&#x96F6;&#x4EF6;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;</p>
+                                <h1 id="node&#x4E2D;&#x7684;event-loop">Node&#x4E2D;&#x7684;Event Loop</h1>
+<p>Node&#x4E2D;&#x7684;Event Loop&#x548C;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x7684;&#x6709;&#x4E9B;&#x8BB8;&#x4E0D;&#x540C;</p>
+<p>Node&#x4E2D;&#x7684;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x5206;&#x4E3A;&#x516D;&#x4E2A;&#x90E8;&#x5206;&#xFF0C;&#x4ED6;&#x4EEC;&#x4F1A;&#x6309;&#x7167;&#x987A;&#x5E8F;&#x53CD;&#x590D;&#x8FD0;&#x884C;&#x3002;&#x6BCF;&#x5F53;&#x8FDB;&#x5165;&#x67D0;&#x4E00;&#x4E2A;&#x9636;&#x6BB5;&#x7684;&#x65F6;&#x5019;&#xFF0C; &#x90FD;&#x4F1A;&#x4ECE;&#x5BF9;&#x5E94;&#x7684;&#x56DE;&#x8C03;&#x961F;&#x5217;&#x4E2D;&#x53D6;&#x51FA;&#x51FD;&#x6570;&#x53BB;&#x6267;&#x884C;&#x3002;&#x5F53;&#x961F;&#x5217;&#x4E3A;&#x7A7A;&#x6216;&#x8005;&#x6267;&#x884C;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6570;&#x91CF;&#x8FBE;&#x5230;&#x7CFB;&#x7EDF;&#x8BBE;&#x5B9A;&#x7684;&#x9608;&#x503C;&#xFF0C;&#x5C31;&#x4F1A;&#x8FDB;&#x5165;&#x4E0B;&#x4E00;&#x9636;&#x6BB5;</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/11/13/1670c3fe3f9a5e2b?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="avatar"></p>
+<h2 id="1&#x4E09;&#x5927;&#x5173;&#x952E;&#x9636;&#x6BB5;">1.&#x4E09;&#x5927;&#x5173;&#x952E;&#x9636;&#x6BB5;</h2>
 
                                 
                                 </section>
@@ -1022,7 +1000,7 @@ Son.prototype.constructor = Son
 
             
                 
-                <a href="../part13/2.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Promise A+ 版">
+                <a href="3.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 浏览器中的Event Loop">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -1034,7 +1012,7 @@ Son.prototype.constructor = Son
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"原型和原型链","level":"1.15","depth":1,"next":{"title":"部分API原理(手写代码)","level":"1.16","depth":1,"ref":"","articles":[{"title":"new操作符","level":"1.16.1","depth":2,"path":"part15/1.md","ref":"part15/1.md","articles":[]},{"title":"call","level":"1.16.2","depth":2,"path":"part15/2.md","ref":"part15/2.md","articles":[]},{"title":"apply","level":"1.16.3","depth":2,"path":"part15/3.md","ref":"part15/3.md","articles":[]},{"title":"bind","level":"1.16.4","depth":2,"path":"part15/4.md","ref":"part15/4.md","articles":[]},{"title":"this指针","level":"1.16.5","depth":2,"path":"part15/5.md","ref":"part15/5.md","articles":[]},{"title":"Object.is","level":"1.16.6","depth":2,"path":"part15/6.md","ref":"part15/6.md","articles":[]}]},"previous":{"title":"Promise A+ 版","level":"1.14.2","depth":2,"path":"part13/2.md","ref":"part13/2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part14/index.md","mtime":"2021-02-20T18:15:47.724Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-21T19:01:17.722Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Node中的Event Loop","level":"1.19.4","depth":2,"previous":{"title":"浏览器中的Event Loop","level":"1.19.3","depth":2,"path":"part18/3.md","ref":"part18/3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part18/4.md","mtime":"2021-02-21T19:00:36.618Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-21T19:01:17.722Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
