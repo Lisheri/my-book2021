@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>深拷贝 · GitBook</title>
+        <title>事件机制 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../part4/" />
+    <link rel="next" href="2.html" />
     
-    
-    <link rel="prev" href="1.html" />
     
 
     </head>
@@ -255,9 +253,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="1.html">
+        <li class="chapter " data-level="1.4.1" data-path="../part3/1.html">
             
-                <a href="1.html">
+                <a href="../part3/1.html">
             
                     
                     浅拷贝
@@ -268,9 +266,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.2" data-path="2.html">
+        <li class="chapter " data-level="1.4.2" data-path="../part3/2.html">
             
-                <a href="2.html">
+                <a href="../part3/2.html">
             
                     
                     深拷贝
@@ -939,9 +937,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.20.1" data-path="../part19/1.html">
+        <li class="chapter active" data-level="1.20.1" data-path="1.html">
             
-                <a href="../part19/1.html">
+                <a href="1.html">
             
                     
                     事件机制
@@ -952,9 +950,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.20.2" data-path="../part19/2.html">
+        <li class="chapter " data-level="1.20.2" data-path="2.html">
             
-                <a href="../part19/2.html">
+                <a href="2.html">
             
                     
                     跨域
@@ -965,9 +963,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.20.3" data-path="../part19/3.html">
+        <li class="chapter " data-level="1.20.3" data-path="3.html">
             
-                <a href="../part19/3.html">
+                <a href="3.html">
             
                     
                     存储
@@ -1026,7 +1024,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >深拷贝</a>
+        <a href=".." >事件机制</a>
     </h1>
 </div>
 
@@ -1041,145 +1039,107 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x6DF1;&#x62F7;&#x8D1D;">&#x6DF1;&#x62F7;&#x8D1D;</h1>
-<p>&#x6DF1;&#x62F7;&#x8D1D;&#x4E0D;&#x4EC5;&#x5728;&#x6808;&#x4E2D;&#x5F00;&#x8F9F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5730;&#x5740;, &#x5185;&#x90E8;&#x6240;&#x6709;&#x5C42;&#x7EA7;&#x7684;&#x6307;&#x9488;&#x90FD;&#x6307;&#x5411;&#x5806;&#x4E2D;&#x5F00;&#x8F9F;&#x7684;&#x65B0;&#x5730;&#x5740;, &#x5B9E;&#x73B0;&#x6808;&#x4E2D;&#x5B58;&#x50A8;&#x6307;&#x9488;, &#x6307;&#x9488;&#x6307;&#x5411;&#x5806;&#x4E2D;&#x7684;&#x503C;</p>
-<h3 id="&#x4EE5;&#x4E0B;&#x4EC5;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6DF1;&#x62F7;&#x8D1D;-&#x53EF;&#x4EE5;&#x62F7;&#x8D1D;&#x53CC;&#x5411;&#x6811;-&#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x5904;&#x7406;funtion&#x7B49;&#x8F83;&#x4E3A;&#x590D;&#x6742;&#x7684;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;">&#x4EE5;&#x4E0B;&#x4EC5;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6DF1;&#x62F7;&#x8D1D;, &#x53EF;&#x4EE5;&#x62F7;&#x8D1D;&#x53CC;&#x5411;&#x6811;, &#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x5904;&#x7406;funtion&#x7B49;&#x8F83;&#x4E3A;&#x590D;&#x6742;&#x7684;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;</h3>
-<pre><code>// &#x6DF1;&#x62F7;&#x8D1D;
-/**
-* @param {Object} obj &#x8981;&#x62F7;&#x8D1D;&#x7684;&#x5BF9;&#x8C61;
-*/
-const isObject = (target) =&gt; (typeOf target === &apos;object&apos; || typeOf target === &apos;function&apos;) &amp;&amp; target !== null;
-function deepClone(target, map = new WeakMap()) {
-    if (map.get(target)) {
-        return target
-    }
-    if (isObject(target)) {
-        map.set(target, true);
-        const cloneTarget = Array.isArray(target) ? [] : {}
-        for (let key in target) {
-            if (target.hasOwnProperty(key)) {
-                cloneTarget[key] = deepClone(target[key], map);
-            }
+                                <h1 id="&#x4E8B;&#x4EF6;&#x673A;&#x5236;">&#x4E8B;&#x4EF6;&#x673A;&#x5236;</h1>
+<p><code>&#x6D89;&#x53CA;&#x9762;&#x8BD5;&#x9898;: &#x4E8B;&#x4EF6;&#x7684;&#x89E6;&#x53D1;&#x8FC7;&#x7A0B;&#x662F;&#x600E;&#x4E48;&#x6837;&#x7684;?</code></p>
+<h2 id="&#x4E8B;&#x4EF6;&#x5192;&#x6CE1;&#x548C;&#x4E8B;&#x4EF6;&#x6355;&#x83B7;">&#x4E8B;&#x4EF6;&#x5192;&#x6CE1;&#x548C;&#x4E8B;&#x4EF6;&#x6355;&#x83B7;</h2>
+<p>&#x6240;&#x8C13;&#x5192;&#x6CE1;&#xFF0C;&#x5C31;&#x662F;&#x8BF4;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x7684;&#x89E6;&#x53D1;&#x662F;&#x4ECE;&#x6700;&#x6DF1;&#x5904;&#x4E00;&#x76F4;&#x5411;&#x5916;&#x6267;&#x884C;&#x7684;&#x3002;(&#x5FAE;&#x8F6F;&#x63D0;&#x51FA;)</p>
+<p>&#x6240;&#x8C13;&#x4E8B;&#x4EF6;&#x6355;&#x83B7;&#xFF0C;&#x90A3;&#x5C31;&#x548C;&#x5192;&#x6CE1;&#x76F8;&#x53CD;&#x7684;&#xFF0C;&#x4ECE;&#x5916;&#x90E8;&#x5411;&#x6DF1;&#x5904;&#x6267;&#x884C;&#x3002;(&#x7F51;&#x666F;&#x63D0;&#x51FA;)</p>
+<p>&#x6700;&#x7EC8;w3C&#x91C7;&#x7528;&#x6298;&#x4E2D;&#x505A;&#x6CD5;&#xFF0C;&#x5148;&#x6355;&#x83B7;&#x518D;&#x5192;&#x6CE1;</p>
+<h2 id="&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x7684;&#x4E09;&#x4E2A;&#x9636;&#x6BB5;">&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x7684;&#x4E09;&#x4E2A;&#x9636;&#x6BB5;</h2>
+<p>&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x8981;&#x7ECF;&#x8FC7;&#x4E09;&#x4E2A;&#x9636;&#x6BB5;:</p>
+<ul>
+<li><code>window</code>&#x5F80;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x5904;&#x4F20;&#x64AD;&#xFF0C;&#x9047;&#x5230;&#x6CE8;&#x518C;&#x7684;&#x6355;&#x83B7;&#x4E8B;&#x4EF6;&#x4F1A;&#x89E6;&#x53D1;</li>
+<li>&#x4F20;&#x64AD;&#x5230;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x5904;&#x65F6;&#x89E6;&#x53D1;&#x6CE8;&#x518C;&#x7684;&#x4E8B;&#x4EF6;</li>
+<li>&#x4ECE;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x5904;&#x5F80;<code>window</code>&#x4F20;&#x64AD;, &#x9047;&#x5230;&#x6CE8;&#x518C;&#x7684;&#x5192;&#x6CE1;&#x4E8B;&#x4EF6;&#x4F1A;&#x89E6;&#x53D1;</li>
+</ul>
+<p>&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#x4F1A;&#x6309;&#x7167;&#x4E0A;&#x9762;&#x7684;&#x987A;&#x5E8F;&#x6267;&#x884C;(&#x4E5F;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x5E38;&#x8BF4;&#x7684;<code>&#x5148;&#x6355;&#x83B7;&#x540E;&#x5192;&#x6CE1;</code>)&#xFF0C;&#x4F46;&#x662F;&#x4E5F;&#x6709;&#x7279;&#x4F8B;&#xFF0C;&#x5982;&#x679C;&#x7ED9;&#x4E00;&#x4E2A;<code>body</code>&#x4E2D;&#x7684;&#x5B50;&#x8282;&#x70B9;&#x540C;&#x65F6;&#x6CE8;&#x518C;&#x5192;&#x6CE1;&#x548C;&#x6355;&#x83B7;&#x4E8B;&#x4EF6;, &#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x4F1A;&#x6309;&#x7167;&#x6CE8;&#x518C;&#x7684;&#x987A;&#x5E8F;&#x6267;&#x884C;, &#x5982;&#x4E0B;:</p>
+<pre><code>// &#x4EE5;&#x4E0B;&#x4F1A;&#x5148;&#x6253;&#x5370;&#x5192;&#x6CE1;&#x7136;&#x540E;&#x662F;&#x6355;&#x83B7;
+node.addEventListener(
+  &apos;click&apos;,
+  event =&gt; {
+    console.log(&apos;&#x5192;&#x6CE1;&apos;)
+  },
+  false
+)
+node.addEventListener(
+  &apos;click&apos;,
+  event =&gt; {
+    console.log(&apos;&#x6355;&#x83B7; &apos;)
+  },
+  true
+)
+</code></pre><h2 id="&#x6CE8;&#x518C;&#x4E8B;&#x4EF6;">&#x6CE8;&#x518C;&#x4E8B;&#x4EF6;</h2>
+<p>&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x4F7F;&#x7528;<code>addEventListener</code>&#x6CE8;&#x518C;&#x4E8B;&#x4EF6;, &#x8BE5;&#x51FD;&#x6570;&#x7684;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x662F;&#x5E03;&#x5C14;&#x503C;, &#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x5BF9;&#x8C61;&#x3002;</p>
+<ul>
+<li>&#x5BF9;&#x4E8E;&#x5E03;&#x5C14;&#x503C;<code>useCapture</code>&#x53C2;&#x6570;&#x6765;&#x8BF4;&#xFF0C; &#x8BE5;&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;<code>false</code>, <code>useCapture</code>&#x51B3;&#x5B9A;&#x4E86;&#x6CE8;&#x518C;&#x7684;&#x4E8B;&#x4EF6;&#x662F;&#x6355;&#x83B7;&#x4E8B;&#x4EF6;&#x8FD8;&#x662F;&#x5192;&#x6CE1;&#x4E8B;&#x4EF6;&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;&#x5BF9;&#x8C61;&#x53C2;&#x6570;&#x6765;&#x8BF4;, &#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x5C5E;&#x6027;<ul>
+<li><code>capture</code>: &#x5E03;&#x5C14;&#x503C;, &#x548C; <code>useCapture</code>&#x4F5C;&#x7528;&#x4E00;&#x6837;</li>
+<li><code>once</code>: &#x5E03;&#x5C14;&#x503C;, &#x503C;&#x4E3A;<code>true</code>&#x8868;&#x793A;&#x8BE5;&#x56DE;&#x8C03;&#x53EA;&#x4F1A;&#x8C03;&#x7528;&#x4E00;&#x6B21;, &#x8C03;&#x7528;&#x540E;&#x4F1A;&#x79FB;&#x9664;&#x76D1;&#x542C;</li>
+<li><code>passive</code>: &#x5E03;&#x5C14;&#x503C;, &#x8868;&#x793A;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x8C03;&#x7528;<code>preventDefault</code></li>
+</ul>
+</li>
+</ul>
+<p>&#x4E00;&#x822C;&#x6765;&#x8BF4;, &#x5982;&#x679C;&#x6211;&#x4EEC;&#x53EA;&#x5E0C;&#x671B;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x5728;&#x76EE;&#x6807;&#x4E0A;&#xFF0C; &#x8FD9;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>stopPropagation</code>&#x6765;&#x963B;&#x6B62;&#x4E8B;&#x4EF6;&#x7684;&#x8FDB;&#x4E00;&#x6B65;&#x4F20;&#x64AD;&#x3002; &#x901A;&#x5E38;&#x6211;&#x4EEC;&#x8BA4;&#x4E3A;<code>stopPropagation</code>&#x662F;&#x7528;&#x6765;&#x963B;&#x6B62;&#x4E8B;&#x4EF6;&#x5192;&#x6CE1;&#x7684;, &#x5176;&#x5B9E;&#x8BE5;&#x51FD;&#x6570;&#x4E5F;&#x53EF;&#x4EE5;&#x963B;&#x6B62;&#x6355;&#x83B7;&#x4E8B;&#x4EF6;&#xFF0C;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x963B;&#x6B62;&#x5904;&#x4E8E;&#x76EE;&#x6807;&#x9636;&#x6BB5;&#x3002;DOM3&#x65B0;&#x589E; <code>stopImmediatePropagation</code>, &#x540C;&#x6837;&#x4E5F;&#x80FD;&#x5B9E;&#x73B0;&#x963B;&#x6B62;&#x4E8B;&#x4EF6;, &#x4F46;&#x662F;&#x8FD8;&#x80FD;&#x963B;&#x6B62;&#x8BE5;&#x4E8B;&#x4EF6;&#x76EE;&#x6807;&#x6267;&#x884C;&#x522B;&#x7684;&#x6CE8;&#x518C;&#x4E8B;&#x4EF6;&#xFF0C; &#x5982;&#x4E0B;:</p>
+<pre><code>// &#x4EE5;&#x4E0B;&#x4F1A;&#x5148;&#x6253;&#x5370;&#x5192;&#x6CE1;&#x7136;&#x540E;&#x662F;&#x6355;&#x83B7;
+node.addEventListener(
+  &apos;click&apos;,
+  event =&gt; {
+      event.stopImmediatePropagation();
+    console.log(&apos;&#x5192;&#x6CE1;&apos;)
+  },
+  false
+)
+// * &#x70B9;&#x51FB;node&#x4E4B;&#x540E;&#x53EA;&#x4F1A;&#x6267;&#x884C;&#x4E0A;&#x95E8;&#x7684;&#x5192;&#x6CE1;&#x4E8B;&#x4EF6;&#xFF0C; &#x800C;&#x4E0D;&#x4F1A;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x6355;&#x83B7;&#x4E8B;&#x4EF6;&#x4E86;
+node.addEventListener(
+  &apos;click&apos;,
+  event =&gt; {
+    console.log(&apos;&#x6355;&#x83B7; &apos;)
+  },
+  true
+)
+</code></pre><h2 id="&#x4E8B;&#x4EF6;&#x4EE3;&#x7406;">&#x4E8B;&#x4EF6;&#x4EE3;&#x7406;</h2>
+<p>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x4E2D;&#x7684;&#x5B50;&#x8282;&#x70B9;&#x662F;&#x52A8;&#x6001;&#x751F;&#x6210;&#x7684;, &#x90A3;&#x4E48;&#x5B50;&#x8282;&#x70B9;&#x9700;&#x8981;&#x6CE8;&#x518C;&#x4E8B;&#x4EF6;&#x7684;&#x8BDD;&#x5E94;&#x8BE5;&#x6CE8;&#x518C;&#x5728;&#x7236;&#x8282;&#x70B9;&#x4E0A;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x904D;&#x5386;&#x5B50;&#x8282;&#x70B9;&#x6240;&#x4F9D;&#x8D56;&#x7684;&#x6570;&#x636E;&#x4ECE;&#x800C;&#x52A8;&#x6001;&#x751F;&#x6210;&#x5B50;&#x8282;&#x70B9;&#x65F6;&#x5728;&#x5C06;&#x4E8B;&#x4EF6;&#x4E00;&#x4E2A;&#x4E00;&#x4E2A;&#x7684;&#x7ED1;&#x5B9A;&#x5230;&#x5B50;&#x8282;&#x70B9;&#x4E0A;&#xFF0C;&#x6D6A;&#x8D39;&#x6027;&#x80FD;&#x3002;</p>
+<p>&#x56E0;&#x6B64;&#x4E8B;&#x4EF6;&#x4EE3;&#x7406;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x5229;&#x7528;&#x4E8B;&#x4EF6;&#x7684;&#x5192;&#x6CE1;&#x539F;&#x7406;&#x6765;&#x5B9E;&#x73B0;&#x7684;&#x3002;&#x5F53;&#x7136;&#x8981;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x4E0D;&#x4EC5;&#x4EC5;&#x9700;&#x8981;&#x5192;&#x6CE1;&#xFF0C;&#x8FD8;&#x8981;&#x4F9D;&#x8D56;&#x4E00;&#x4E2A;&#x6838;&#x5FC3;&#x2014;&#x2014;&#x2014;&#x2014;<code>Event&#x5BF9;&#x8C61;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x53EB;target&#xFF0C;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x4E8B;&#x4EF6;&#x7684;&#x76EE;&#x6807;&#x8282;&#x70B9;</code></p>
+<p>target&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x6307;&#x5411;&#x6211;&#x4EEC;&#x6700;&#x521D;&#x70B9;&#x51FB;&#x7684;&#x90A3;&#x4E00;&#x4E2A;&#x76EE;&#x6807;&#xFF0C;&#x7528;&#x6765;&#x5206;&#x8FA8;&#x6211;&#x4EEC;&#x70B9;&#x51FB;&#x7684;&#x662F;&#x54EA;&#x4E00;&#x4E2A;&#x513F;&#x5B50;&#xFF0C;&#x8FD9;&#x4E24;&#x6837;&#x4E1C;&#x897F;&#x90FD;&#x5230;&#x4E86;&#xFF0C;&#x4E8B;&#x4EF6;&#x4EE3;&#x7406;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x51B2;&#x4E86;&#x3002;</p>
+<pre><code>&lt;ul id=&quot;ul&quot;&gt;
+    &lt;li name=&quot;f&quot;&gt;1&lt;/li&gt;
+    &lt;li name=&quot;s&quot;&gt;2&lt;/li&gt;
+    &lt;li name=&quot;t&quot;&gt;3&lt;/li&gt;
+    &lt;li name=&quot;fo&quot;&gt;4&lt;/li&gt;
+    &lt;li name=&quot;fa&quot;&gt;5&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script&gt;
+    let ul = document.querySelector(&apos;#ul&apos;)
+    ul.addEventListener(&apos;click&apos;, (event) =&gt; {
+        switch(event.target.name) {
+            case &apos;f&apos;:
+                console.info(1);
+                break;
+            case &apos;s&apos;:
+                console.info(2);
+                break;
+            case &apos;t&apos;:
+                console.info(3);
+                break;
+            case &apos;fo&apos;:
+                console.info(4);
+                break;
+            case &apos;fa&apos;:
+                console.info(5);
+                break;
+            default:
+                console.info(&apos;error&apos;);
+                break;
         }
-        return cloneTarget
-    } else {
-        return target
-    }
-}
-// &#x4F7F;&#x7528;
-const obj2 = deepClone(obj1)
-obj2.address.city = &quot;shanghai&quot;
-console.info(obj1.address.city) // beijing
-</code></pre><h3 id="&#x5B8C;&#x6574;&#x7684;&#x6DF1;&#x62F7;&#x8D1D;">&#x5B8C;&#x6574;&#x7684;&#x6DF1;&#x62F7;&#x8D1D;</h3>
-<pre><code>onst getType = obj =&gt; Object.prototype.toString.call(obj);
-
-const isObject = (target) =&gt; (typeof target === &apos;object&apos; || typeof target === &apos;function&apos;) &amp;&amp; target !== null;
-
-const canTraverse = {
-  &apos;[object Map]&apos;: true,
-  &apos;[object Set]&apos;: true,
-  &apos;[object Array]&apos;: true,
-  &apos;[object Object]&apos;: true,
-  &apos;[object Arguments]&apos;: true,
-};
-const mapTag = &apos;[object Map]&apos;;
-const setTag = &apos;[object Set]&apos;;
-const boolTag = &apos;[object Boolean]&apos;;
-const numberTag = &apos;[object Number]&apos;;
-const stringTag = &apos;[object String]&apos;;
-const symbolTag = &apos;[object Symbol]&apos;;
-const dateTag = &apos;[object Date]&apos;;
-const errorTag = &apos;[object Error]&apos;;
-const regexpTag = &apos;[object RegExp]&apos;;
-const funcTag = &apos;[object Function]&apos;;
-
-const handleRegExp = (target) =&gt; {
-  const { source, flags } = target;
-  return new target.constructor(source, flags);
-}
-
-const handleFunc = (func) =&gt; {
-  // &#x7BAD;&#x5934;&#x51FD;&#x6570;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x81EA;&#x8EAB;
-  if(!func.prototype) return func;
-  const bodyReg = /(?&lt;={)(.|\n)+(?=})/m;
-  const paramReg = /(?&lt;=\().+(?=\)\s+{)/;
-  const funcString = func.toString();
-  // &#x5206;&#x522B;&#x5339;&#x914D; &#x51FD;&#x6570;&#x53C2;&#x6570; &#x548C; &#x51FD;&#x6570;&#x4F53;
-  const param = paramReg.exec(funcString);
-  const body = bodyReg.exec(funcString);
-  if(!body) return null;
-  if (param) {
-    const paramArr = param[0].split(&apos;,&apos;);
-    return new Function(...paramArr, body[0]);
-  } else {
-    return new Function(body[0]);
-  }
-}
-
-const handleNotTraverse = (target, tag) =&gt; {
-  const Ctor = target.constructor;
-  switch(tag) {
-    case boolTag:
-      return new Object(Boolean.prototype.valueOf.call(target));
-    case numberTag:
-      return new Object(Number.prototype.valueOf.call(target));
-    case stringTag:
-      return new Object(String.prototype.valueOf.call(target));
-    case symbolTag:
-      return new Object(Symbol.prototype.valueOf.call(target));
-    case errorTag: 
-    case dateTag:
-      return new Ctor(target);
-    case regexpTag:
-      return handleRegExp(target);
-    case funcTag:
-      return handleFunc(target);
-    default:
-      return new Ctor(target);
-  }
-}
-
-const deepClone = (target, map = new WeakMap()) =&gt; {
-  if(!isObject(target)) 
-    return target;
-  let type = getType(target);
-  let cloneTarget;
-  if(!canTraverse[type]) {
-    // &#x5904;&#x7406;&#x4E0D;&#x80FD;&#x904D;&#x5386;&#x7684;&#x5BF9;&#x8C61;
-    return handleNotTraverse(target, type);
-  }else {
-    // &#x8FD9;&#x6CE2;&#x64CD;&#x4F5C;&#x76F8;&#x5F53;&#x5173;&#x952E;&#xFF0C;&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x4E0D;&#x4E22;&#x5931;&#xFF01;
-    let ctor = target.constructor;
-    cloneTarget = new ctor();
-  }
-
-  if(map.get(target)) 
-    return target;
-  map.set(target, true);
-
-  if(type === mapTag) {
-    //&#x5904;&#x7406;Map
-    target.forEach((item, key) =&gt; {
-      cloneTarget.set(deepClone(key, map), deepClone(item, map));
     })
-  }
+&lt;/script&gt;
+</code></pre><p>&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x6267;&#x884C;&#xFF0C;&#x5C31;&#x4F1A;&#x6839;&#x636E;&#x8282;&#x70B9;&#x4E0A;&#x7684;name&#x5C5E;&#x6027;&#xFF0C;&#x53BB;&#x505A;&#x5224;&#x65AD;</p>
+<p>&#x4E8B;&#x4EF6;&#x4EE3;&#x7406;&#x7684;&#x65B9;&#x6CD5;&#x76F8;&#x5BF9;&#x4E8E;&#x76F4;&#x63A5;&#x7ED9;&#x76EE;&#x6807;&#x589E;&#x52A0;&#x4E8B;&#x4EF6;, &#x6709;&#x4EE5;&#x4E0B;&#x4F18;&#x70B9;:</p>
+<ul>
+<li>&#x8282;&#x7EA6;&#x5185;&#x5B58;</li>
+<li>&#x4E0D;&#x9700;&#x8981;&#x7ED9;&#x5B50;&#x8282;&#x70B9;&#x9500;&#x6BC1;&#x4E8B;&#x4EF6;</li>
+</ul>
 
-  if(type === setTag) {
-    //&#x5904;&#x7406;Set
-    target.forEach(item =&gt; {
-      cloneTarget.add(deepClone(item, map));
-    })
-  }
-
-  // &#x5904;&#x7406;&#x6570;&#x7EC4;&#x548C;&#x5BF9;&#x8C61;
-  for (let prop in target) {
-    if (target.hasOwnProperty(prop)) {
-        cloneTarget[prop] = deepClone(target[prop], map);
-    }
-  }
-  return cloneTarget;
-}
-</code></pre>
                                 
                                 </section>
                             
@@ -1206,12 +1166,8 @@ const deepClone = (target, map = new WeakMap()) =&gt; {
 
             
                 
-                <a href="1.html" class="navigation navigation-prev " aria-label="Previous page: 浅拷贝">
-                    <i class="fa fa-angle-left"></i>
-                </a>
                 
-                
-                <a href="../part4/" class="navigation navigation-next " aria-label="Next page: v8垃圾回收">
+                <a href="2.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 跨域">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1222,7 +1178,7 @@ const deepClone = (target, map = new WeakMap()) =&gt; {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"深拷贝","level":"1.4.2","depth":2,"next":{"title":"v8垃圾回收","level":"1.5","depth":1,"path":"part4/index.md","ref":"part4/index.md","articles":[]},"previous":{"title":"浅拷贝","level":"1.4.1","depth":2,"path":"part3/1.md","ref":"part3/1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","livereload"],"pluginsConfig":{"expandable-chapters":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part3/2.md","mtime":"2021-02-21T19:06:47.799Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-22T12:52:38.232Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"事件机制","level":"1.20.1","depth":2,"next":{"title":"跨域","level":"1.20.2","depth":2,"path":"part19/2.md","ref":"part19/2.md","articles":[]},"previous":{"title":"浏览器基础及常见面试题","level":"1.20","depth":1,"ref":"","articles":[{"title":"事件机制","level":"1.20.1","depth":2,"path":"part19/1.md","ref":"part19/1.md","articles":[]},{"title":"跨域","level":"1.20.2","depth":2,"path":"part19/2.md","ref":"part19/2.md","articles":[]},{"title":"存储","level":"1.20.3","depth":2,"path":"part19/3.md","ref":"part19/3.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","livereload"],"pluginsConfig":{"expandable-chapters":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part19/1.md","mtime":"2021-02-22T08:19:08.720Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-22T12:52:38.232Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

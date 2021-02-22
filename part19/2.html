@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>深拷贝 · GitBook</title>
+        <title>跨域 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,7 +61,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../part4/" />
+    <link rel="next" href="3.html" />
     
     
     <link rel="prev" href="1.html" />
@@ -255,9 +255,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="1.html">
+        <li class="chapter " data-level="1.4.1" data-path="../part3/1.html">
             
-                <a href="1.html">
+                <a href="../part3/1.html">
             
                     
                     浅拷贝
@@ -268,9 +268,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.2" data-path="2.html">
+        <li class="chapter " data-level="1.4.2" data-path="../part3/2.html">
             
-                <a href="2.html">
+                <a href="../part3/2.html">
             
                     
                     深拷贝
@@ -939,9 +939,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.20.1" data-path="../part19/1.html">
+        <li class="chapter " data-level="1.20.1" data-path="1.html">
             
-                <a href="../part19/1.html">
+                <a href="1.html">
             
                     
                     事件机制
@@ -952,9 +952,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.20.2" data-path="../part19/2.html">
+        <li class="chapter active" data-level="1.20.2" data-path="2.html">
             
-                <a href="../part19/2.html">
+                <a href="2.html">
             
                     
                     跨域
@@ -965,9 +965,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.20.3" data-path="../part19/3.html">
+        <li class="chapter " data-level="1.20.3" data-path="3.html">
             
-                <a href="../part19/3.html">
+                <a href="3.html">
             
                     
                     存储
@@ -1026,7 +1026,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >深拷贝</a>
+        <a href=".." >跨域</a>
     </h1>
 </div>
 
@@ -1041,145 +1041,129 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x6DF1;&#x62F7;&#x8D1D;">&#x6DF1;&#x62F7;&#x8D1D;</h1>
-<p>&#x6DF1;&#x62F7;&#x8D1D;&#x4E0D;&#x4EC5;&#x5728;&#x6808;&#x4E2D;&#x5F00;&#x8F9F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5730;&#x5740;, &#x5185;&#x90E8;&#x6240;&#x6709;&#x5C42;&#x7EA7;&#x7684;&#x6307;&#x9488;&#x90FD;&#x6307;&#x5411;&#x5806;&#x4E2D;&#x5F00;&#x8F9F;&#x7684;&#x65B0;&#x5730;&#x5740;, &#x5B9E;&#x73B0;&#x6808;&#x4E2D;&#x5B58;&#x50A8;&#x6307;&#x9488;, &#x6307;&#x9488;&#x6307;&#x5411;&#x5806;&#x4E2D;&#x7684;&#x503C;</p>
-<h3 id="&#x4EE5;&#x4E0B;&#x4EC5;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6DF1;&#x62F7;&#x8D1D;-&#x53EF;&#x4EE5;&#x62F7;&#x8D1D;&#x53CC;&#x5411;&#x6811;-&#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x5904;&#x7406;funtion&#x7B49;&#x8F83;&#x4E3A;&#x590D;&#x6742;&#x7684;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;">&#x4EE5;&#x4E0B;&#x4EC5;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6DF1;&#x62F7;&#x8D1D;, &#x53EF;&#x4EE5;&#x62F7;&#x8D1D;&#x53CC;&#x5411;&#x6811;, &#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x5904;&#x7406;funtion&#x7B49;&#x8F83;&#x4E3A;&#x590D;&#x6742;&#x7684;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;</h3>
-<pre><code>// &#x6DF1;&#x62F7;&#x8D1D;
-/**
-* @param {Object} obj &#x8981;&#x62F7;&#x8D1D;&#x7684;&#x5BF9;&#x8C61;
-*/
-const isObject = (target) =&gt; (typeOf target === &apos;object&apos; || typeOf target === &apos;function&apos;) &amp;&amp; target !== null;
-function deepClone(target, map = new WeakMap()) {
-    if (map.get(target)) {
-        return target
+                                <h1 id="&#x8DE8;&#x57DF;">&#x8DE8;&#x57DF;</h1>
+<p><code>&#x6D89;&#x53CA;&#x9762;&#x8BD5;&#x9898;: &#x4EC0;&#x4E48;&#x662F;&#x8DE8;&#x57DF;? &#x4E3A;&#x4EC0;&#x4E48;&#x6D4F;&#x89C8;&#x5668;&#x8981;&#x4F7F;&#x7528;&#x540C;&#x6E90;&#x7B56;&#x7565;? &#x6709;&#x51E0;&#x79CD;&#x65B9;&#x5F0F;&#x8DE8;&#x57DF;&#x89E3;&#x51B3;&#x8DE8;&#x57DF;&#x7684;&#x95EE;&#x9898;? &#x4E86;&#x89E3;&#x9884;&#x68C0;&#x8BF7;&#x6C42;&#x5417;&#xFF1F;</code></p>
+<p>&#x56E0;&#x4E3A;&#x6D4F;&#x89C8;&#x5668;&#x51FA;&#x4E8E;&#x5B89;&#x5168;&#x8003;&#x8651;&#xFF0C;&#x6709;&#x540C;&#x6E90;&#x7B56;&#x7565;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x534F;&#x8BAE;&#x3001;&#x57DF;&#x540D;&#x3001;&#x7AEF;&#x53E3;&#x53F7;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x662F;&#x8DE8;&#x57DF;&#xFF0C;&#x8BF7;&#x6C42;&#x5C31;&#x4F1A;&#x5931;&#x8D25;&#x3002;</p>
+<p>&#x8BBE;&#x7F6E;&#x540C;&#x6E90;&#x7B56;&#x7565;&#x7684;&#x76EE;&#x7684;&#xFF1A;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x9632;&#x6B62;CSRF&#x653B;&#x51FB;&#x7684;&#x3002;&#x7B80;&#x5355;&#x6765;&#x8BF4;&#xFF0C;CSRF&#x653B;&#x51FB;&#x662F;&#x5229;&#x7528;&#x7528;&#x6237;&#x7684;&#x767B;&#x5F55;&#x72B6;&#x6001;&#x53D1;&#x8D77;&#x7684;&#x6076;&#x610F;&#x8BF7;&#x6C42;&#x3002;(&#x524D;&#x9762;&#x6709;&#x8F83;&#x4E3A;&#x8BE6;&#x7EC6;&#x7684;&#x4E00;&#x4E2A;&#x63CF;&#x8FF0;)</p>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x540C;&#x6E90;&#x7B56;&#x7565;&#xFF0C;&#x90A3;&#x4E48;A&#x7F51;&#x7AD9;&#x53EF;&#x4EE5;&#x88AB;&#x4EFB;&#x610F;&#x5176;&#x4ED6;&#x6765;&#x6E90;&#x7684;Ajax&#x8BBF;&#x95EE;&#x5230;&#x5185;&#x5BB9;&#x3002;&#x5982;&#x679C;&#x4F60;&#x5F53;&#x524D;A&#x7F51;&#x7AD9;&#x8FD8;&#x5B58;&#x5728;&#x767B;&#x5F55;&#x6001;&#xFF0C;&#x90A3;&#x4E48;&#x5BF9;&#x65B9;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;Ajax&#x83B7;&#x5F97;&#x4F60;&#x7684;&#x4EFB;&#x4F55;&#x4FE1;&#x606F;&#x3002;&#x5F53;&#x7136;&#x8DE8;&#x57DF;&#x5E76;&#x4E0D;&#x80FD;&#x5B8C;&#x5168;&#x963B;&#x6B62;CSRF&#x3002;(&#x6BD4;&#x5982;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x690D;&#x5165;&#x4E00;&#x4E2A;img&#x6807;&#x7B7E;&#xFF0C;&#x4F2A;&#x9020;&#x4E00;&#x4E2A;&#x81EA;&#x52A8;&#x63D0;&#x4EA4;&#x7684;&#x8868;&#x5355;&#xFF0C;&#x6216;&#x8005;&#x8BF1;&#x5BFC;&#x7528;&#x6237;&#x70B9;&#x4E00;&#x4E0B;&#x9ED1;&#x5BA2;&#x8BBE;&#x7F6E;&#x7684;a&#x6807;&#x7B7E;)</p>
+<p><code>&#x8BF7;&#x6C42;&#x8DE8;&#x57DF;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x8BF7;&#x6C42;&#x5230;&#x5E95;&#x53D1;&#x51FA;&#x53BB;&#x4E86;&#x5417;&#xFF1F;</code>&#x7B54;&#x6848;&#x662F;&#x8BF7;&#x6C42;&#x5FC5;&#x7136;&#x662F;&#x53D1;&#x51FA;&#x53BB;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x6D4F;&#x89C8;&#x5668;&#x62E6;&#x622A;&#x4E86;&#x54CD;&#x5E94;&#x3002;&#x5F52;&#x6839;&#x7ED3;&#x5E95;&#xFF0C;&#x8DE8;&#x57DF;&#x662F;&#x4E3A;&#x4E86;&#x963B;&#x6B62;&#x7528;&#x6237;&#x8BFB;&#x53D6;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x57DF;&#x540D;&#x4E0B;&#x7684;&#x5185;&#x5BB9;&#xFF0C;Ajax&#x8DE8;&#x57DF;&#x83B7;&#x53D6;&#x54CD;&#x5E94;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x8BA4;&#x4E3A;&#x4E0D;&#x5B89;&#x5168;&#xFF0C;&#x56E0;&#x6B64;&#x62E6;&#x622A;&#x4E86;&#x54CD;&#x5E94;&#x3002;&#x4F46;&#x662F;&#x8868;&#x5355;&#x5E76;&#x4E0D;&#x4F1A;&#x83B7;&#x53D6;&#x65B0;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x53D1;&#x8D77;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x3002;&#x540C;&#x65F6;&#x4E5F;&#x8BF4;&#x660E;&#xFF0C;&#x8DE8;&#x57DF;&#x5E76;&#x4E0D;&#x80FD;&#x5B8C;&#x5168;&#x963B;&#x6B62;CSRF&#xFF0C;&#x6BD4;&#x8F83;&#x8BF7;&#x6C42;&#x5DF2;&#x7ECF;&#x53D1;&#x51FA;&#x53BB;&#x4E86;&#x3002;</p>
+<h2 id="&#x5E38;&#x89C1;&#x7684;&#x51E0;&#x79CD;&#x89E3;&#x51B3;&#x8DE8;&#x57DF;&#x7684;&#x65B9;&#x5F0F;">&#x5E38;&#x89C1;&#x7684;&#x51E0;&#x79CD;&#x89E3;&#x51B3;&#x8DE8;&#x57DF;&#x7684;&#x65B9;&#x5F0F;</h2>
+<h3 id="jsonp">JSONP</h3>
+<p>JSONP&#x539F;&#x7406;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x5C31;&#x662F;&#x5229;&#x7528;<code>&lt;script&gt;</code>&#x6807;&#x7B7E;&#x6CA1;&#x6709;&#x8DE8;&#x57DF;&#x9650;&#x5236;&#x7684;&#x6F0F;&#x6D1E;&#x3002;&#x901A;&#x8FC7;<code>&lt;script&gt;</code>&#x6807;&#x7B7E;&#x6307;&#x5411;&#x4E00;&#x4E2A;&#x9700;&#x8981;&#x8BBF;&#x95EE;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6765;&#x63A5;&#x6536;&#x6570;&#x636E;&#x5F53;&#x9700;&#x8981;&#x901A;&#x8BAF;&#x65F6;&#x3002;</p>
+<pre><code>&lt;script src=&quot;http://domain/api?param1=a&amp;param2=b&amp;callback=jsonp&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    function jsonp(data) {
+        console.info(data)
     }
-    if (isObject(target)) {
-        map.set(target, true);
-        const cloneTarget = Array.isArray(target) ? [] : {}
-        for (let key in target) {
-            if (target.hasOwnProperty(key)) {
-                cloneTarget[key] = deepClone(target[key], map);
-            }
-        }
-        return cloneTarget
-    } else {
-        return target
+&lt;/script&gt;
+</code></pre><p>JSONP&#x4F7F;&#x7528;&#x8D77;&#x6765;&#x7B80;&#x5355;&#x7C97;&#x66B4;&#xFF0C;&#x4F46;&#x662F;&#x4EC5;&#x4EC5;&#x9650;&#x5236;&#x4E8E;<code>get</code>&#x8BF7;&#x6C42;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5728;&#x5F00;&#x53D1;&#x4E2D;&#x9047;&#x5230;&#x591A;&#x4E2A;JSONP&#x8BF7;&#x6C42;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x540D;&#x662F;&#x76F8;&#x540C;&#x7684;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5C31;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x5C01;&#x88C5;&#x4E00;&#x4E2A;JSONP&#xFF0C;&#x4EE5;&#x4E0B;&#x662F;&#x7B80;&#x5355;&#x5B9E;&#x73B0;&#x3002;</p>
+<pre><code>function jsonp(url, jsonpCallback, success) {
+    let script = document.createElement(&apos;script&apos;);
+    script.src = url;
+    script.async = true;
+    script.type = &apos;text/javascript&apos;;
+    window[jsonpCallback] = function(data) {
+        success &amp;&amp; success(data)
     }
+    document.body.appendChild(script)
 }
-// &#x4F7F;&#x7528;
-const obj2 = deepClone(obj1)
-obj2.address.city = &quot;shanghai&quot;
-console.info(obj1.address.city) // beijing
-</code></pre><h3 id="&#x5B8C;&#x6574;&#x7684;&#x6DF1;&#x62F7;&#x8D1D;">&#x5B8C;&#x6574;&#x7684;&#x6DF1;&#x62F7;&#x8D1D;</h3>
-<pre><code>onst getType = obj =&gt; Object.prototype.toString.call(obj);
-
-const isObject = (target) =&gt; (typeof target === &apos;object&apos; || typeof target === &apos;function&apos;) &amp;&amp; target !== null;
-
-const canTraverse = {
-  &apos;[object Map]&apos;: true,
-  &apos;[object Set]&apos;: true,
-  &apos;[object Array]&apos;: true,
-  &apos;[object Object]&apos;: true,
-  &apos;[object Arguments]&apos;: true,
+jsonp(&apos;http://xxx&apos;, &apos;callback&apos;, function(value) {console.info(value)})
+</code></pre><h3 id="cors">CORS</h3>
+<p>CORS &#x9700;&#x8981;&#x6D4F;&#x89C8;&#x5668;&#x548C;&#x540E;&#x7AEF;&#x540C;&#x65F6;&#x652F;&#x6301;&#x3002;IE8&#x548C;9&#x9700;&#x8981;&#x901A;&#x8FC7;<code>XDomainRequest</code>&#x6765;&#x5B9E;&#x73B0;</p>
+<p>&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x81EA;&#x52A8;&#x8FDB;&#x884C;CORS&#x901A;&#x4FE1;&#xFF0C;&#x5B9E;&#x73B0;CORS&#x901A;&#x4FE1;&#x7684;&#x5173;&#x952E;&#x662F;&#x540E;&#x7AEF;&#x3002;&#x53EA;&#x8981;&#x540E;&#x7AEF;&#x5B9E;&#x73B0;&#x4E86;CORS&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x5B9E;&#x73B0;&#x4E86;&#x8DE8;&#x57DF;&#x3002;</p>
+<p>&#x670D;&#x52A1;&#x7AEF;&#x8BBE;&#x7F6E;<code>Access-Control-Allow-Origin</code>&#x5C31;&#x8DE8;&#x57DF;&#x5F00;&#x542F;CORS&#x3002;&#x8BE5;&#x5C5E;&#x6027;&#x8868;&#x793A;&#x54EA;&#x4E9B;&#x57DF;&#x540D;&#x8DE8;&#x57DF;&#x8BBF;&#x95EE;&#x8D44;&#x6E90;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x901A;&#x914D;&#x7B26;&#x5219;&#x8868;&#x793A;&#x6240;&#x6709;&#x7F51;&#x7AD9;&#x90FD;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x8D44;&#x6E90;&#x3002;</p>
+<p>&#x867D;&#x7136;&#x8BBE;&#x7F6E;CORS&#x548C;&#x524D;&#x7AEF;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x5173;&#x7CFB;&#xFF0C;&#x4F46;&#x662F;&#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x89E3;&#x51B3;&#x8DE8;&#x57DF;&#x95EE;&#x9898;&#x7684;&#x8BDD;&#xFF0C;&#x4F1A;&#x5728;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x65F6;&#x51FA;&#x73B0;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x5206;&#x522B;&#x662F;<code>&#x7B80;&#x5355;&#x8BF7;&#x6C42;</code>&#x548C;<code>&#x590D;&#x6742;&#x8BF7;&#x6C42;</code></p>
+<h4 id="&#x7B80;&#x5355;&#x8BF7;&#x6C42;">&#x7B80;&#x5355;&#x8BF7;&#x6C42;</h4>
+<p>&#x4EE5;Ajax&#x4E3A;&#x4F8B;&#x5B50;&#xFF0C;&#x6EE1;&#x8DB3;&#x4EE5;&#x4E0B;&#x6761;&#x4EF6;&#x65F6;&#xFF0C; &#x4F1A;&#x89E6;&#x53D1;&#x7B80;&#x5355;&#x8BF7;&#x6C42;</p>
+<ol>
+<li>&#x4F7F;&#x7528;&#x4E0B;&#x5217;&#x65B9;&#x5F0F;&#x4E4B;&#x4E00;:<ul>
+<li><code>GET</code></li>
+<li><code>HEAD</code></li>
+<li><code>POST</code></li>
+</ul>
+</li>
+<li><code>Content-Type</code>&#x7684;&#x503C;&#x4EC5;&#x9650;&#x4E8E;&#x4E0B;&#x5217;&#x4E09;&#x8005;&#x4E4B;&#x4E00;:<ul>
+<li><code>text/plain</code></li>
+<li><code>multipart/form-data</code></li>
+<li><code>application/x-www-form-urlencoded</code></li>
+</ul>
+</li>
+</ol>
+<p>&#x8BF7;&#x6C42;&#x4E2D;&#x7684;&#x4EFB;&#x610F;<code>XMLHttpRequestUpload</code>&#x5BF9;&#x8C61;&#x5747;&#x6CA1;&#x6709;&#x6CE8;&#x518C;&#x4EFB;&#x4F55;&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;; <code>XMLHttpRequestUpload</code>&#x5BF9;&#x8C61;&#x8DE8;&#x57DF;&#x4F7F;&#x7528;<code>XMLHttpRequest.upload</code>&#x5C5E;&#x6027;&#x8BBF;&#x95EE;</p>
+<h4 id="&#x590D;&#x6742;&#x8BF7;&#x6C42;">&#x590D;&#x6742;&#x8BF7;&#x6C42;</h4>
+<p>&#x663E;&#x7136;&#xFF0C;&#x4E0D;&#x7B26;&#x5408;&#x4E0A;&#x8FF0;&#x60C5;&#x51B5;&#x7684;&#x5C31;&#x662F;&#x590D;&#x6742;&#x8BF7;&#x6C42;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x590D;&#x6742;&#x8BF7;&#x6C42;&#x6765;&#x8BF4;&#xFF0C;&#x9996;&#x5148;&#x4F1A;&#x53D1;&#x8D77;&#x4E00;&#x4E2A;<code>&#x9884;&#x68C0;&#x8BF7;&#x6C42;</code>, &#x8BE5;&#x8BF7;&#x6C42;&#x662F;<code>option</code>&#x65B9;&#x6CD5;&#x7684;, &#x901A;&#x8FC7;&#x8BE5;&#x8BF7;&#x6C42;&#x6765;&#x77E5;&#x9053;&#x670D;&#x52A1;&#x7AEF;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x9884;&#x68C0;&#x8BF7;&#x6C42;&#x6765;&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;&#x8FC7;Node&#x6765;&#x8BBE;&#x7F6E;CORS&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x9047;&#x5230;&#x8FC7;&#x8FD9;&#x4E48;&#x4E00;&#x4E2A;&#x5751;</p>
+<p>&#x4EE5;express&#x6846;&#x67B6;&#x4E3A;&#x4F8B;</p>
+<pre><code>aap.use((req, res, next) =&gt; {
+    res.header(&apos;Access-Control-Allow-Origin&apos;, &apos;*&apos;)
+    res.header(&apos;Access-Control-Allow-Methods&apos;, &apos;PUT, GET, POST, DELETE, OPTIONS&apos;)
+    res.header(&apos;Access-Control-Allow-Headers&apos;, &apos;Origin, X-Requested-Width, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials&apos;)
+    next()
+})
+</code></pre><p>&#x8FD9;&#x4E2A;&#x8BF7;&#x6C42;&#x4F1A;&#x9A8C;&#x8BC1;<code>Authorization</code>&#x5B57;&#x6BB5;, &#x5982;&#x679C;&#x6CA1;&#x6709;&#x5C31;&#x4F1A;&#x62A5;&#x9519;</p>
+<p>&#x5F53;&#x524D;&#x7AEF;&#x53D1;&#x8D77;&#x590D;&#x6742;&#x8BF7;&#x6C42;&#x540E;, &#x4F60;&#x4F1A;&#x53D1;&#x73B0;&#x5C31;&#x7B97;&#x4EE3;&#x7801;&#x662F;&#x6B63;&#x786E;&#x7684;, &#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x4E5F;&#x6C38;&#x8FDC;&#x662F;&#x62A5;&#x9519;&#x7684;&#x3002;&#x56E0;&#x4E3A;&#x9884;&#x68C0;&#x8BF7;&#x6C42;&#x4E5F;&#x4F1A;&#x8FDB;&#x5165;&#x56DE;&#x8C03;, &#x4E5F;&#x4F1A;&#x89E6;&#x53D1;<code>next</code>&#x65B9;&#x6CD5;&#xFF0C;&#x56E0;&#x4E3A;&#x9884;&#x68C0;&#x8BF7;&#x6C42;&#x5E76;&#x4E0D;&#x5305;&#x542B;<code>Authorization</code>&#x5B57;&#x6BB5;&#xFF0C; &#x6240;&#x4EE5;&#x670D;&#x52A1;&#x5668;&#x4F1A;&#x62A5;&#x9519;</p>
+<p>&#x8981;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5728;&#x56DE;&#x8C03;&#x4E2D;&#x8FC7;&#x6EE4;<code>option</code>&#x65B9;&#x6CD5;&#x5373;&#x53EF;</p>
+<pre><code>if(req.method == &apos;OPTIONS&apos;) {
+    //&#x8BA9;options&#x8BF7;&#x6C42;&#x5FEB;&#x901F;&#x8FD4;&#x56DE;
+    res.sendStatus(200); 
+} else { 
+    next(); 
+}
+</code></pre><p>&#x4E00;&#x822C;&#x6765;&#x8BF4;&#x53EA;&#x6709;&#x9884;&#x68C0;&#x8BF7;&#x6C42;&#x662F;<code>options</code>&#x65B9;&#x6CD5;&#xFF0C;&#x56E0;&#x6B64;&#x76F4;&#x63A5;&#x8BA9;&#x4ED6;&#x901A;&#x8FC7;&#x5C31;ok</p>
+<h3 id="documentdomain">document.domain</h3>
+<p>&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x53EA;&#x80FD;&#x7528;&#x4E8E;&#x4E8C;&#x7EA7;&#x57DF;&#x540D;&#x76F8;&#x540C;&#x7684;&#x60C5;&#x51B5;&#x4E0B;, &#x6BD4;&#x5982;<code>a.test.com</code>&#x548C;<code>b.test.com</code>&#x9002;&#x7528;&#x4E8E;&#x8BE5;&#x65B9;&#x5F0F;&#x3002;</p>
+<p>&#x53EA;&#x9700;&#x8981;&#x7ED9;&#x9875;&#x9762;&#x6DFB;&#x52A0;<code>document.domain = &apos;test.com&apos;</code>&#x8868;&#x793A;&#x4E8C;&#x7EA7;&#x57DF;&#x540D;&#x90FD;&#x76F8;&#x540C;&#x5C31;&#x8DE8;&#x57DF;&#x5B9E;&#x73B0;&#x8DE8;&#x57DF;&#x3002;</p>
+<h3 id="postmessage">postMessage</h3>
+<p>&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x901A;&#x5E38;&#x7528;&#x4E8E;&#x83B7;&#x53D6;&#x5D4C;&#x5165;&#x9875;&#x9762;&#x4E2D;&#x7684;&#x7B2C;&#x4E09;&#x65B9;&#x9875;&#x9762;&#x6570;&#x636E;&#x3002;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x53D1;&#x9001;&#x6D88;&#x606F;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x5224;&#x65AD;&#x6765;&#x6E90;&#x5E76;&#x63A5;&#x6536;&#x6D88;&#x606F;&#x3002;</p>
+<pre><code>// &#x53D1;&#x9001;&#x6D88;&#x606F;
+window.parent.postMessage(&apos;message&apos;, &apos;http://test.com&apos;)
+// &#x63A5;&#x6536;&#x6D88;&#x606F;
+let mc = new MessageChannel()
+mc.addEventListener(&apos;message&apos;, event =&gt; {
+    let origin = event.origin || event.originalEvent.origin
+    if (origin === &apos;http://test.com&apos;) {
+        console.info(&apos;&#x9A8C;&#x8BC1;&#x901A;&#x8FC7;&apos;)
+    }
+})
+</code></pre><h3 id="webpack&#x914D;&#x7F6E;&#x4EE3;&#x7406;&#x8DE8;&#x57DF;&#x5F00;&#x53D1;&#x73AF;&#x5883;">webpack&#x914D;&#x7F6E;&#x4EE3;&#x7406;&#x8DE8;&#x57DF;(&#x5F00;&#x53D1;&#x73AF;&#x5883;)</h3>
+<p>&#x9700;&#x8981;&#x4F7F;&#x7528;webpack-dev-server, webpack&#x7248;&#x672C;&#x9700;&#x8981;&#x5927;&#x4E8E;3.0</p>
+<pre><code>module.exports = {
+  //...
+  devServer: {
+    proxy: {
+      &apos;/api&apos;: {
+        target: &apos;http://www.baidu.com/&apos;,
+        pathRewrite: {&apos;^/api&apos; : &apos;&apos;},
+        changeOrigin: true,     // target&#x662F;&#x57DF;&#x540D;&#x7684;&#x8BDD;&#xFF0C;&#x9700;&#x8981;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;
+        secure: false,          // &#x8BBE;&#x7F6E;&#x652F;&#x6301;https&#x534F;&#x8BAE;&#x7684;&#x4EE3;&#x7406;
+      },
+      &apos;/api2&apos;: {
+          .....
+      }
+    }
+  }
 };
-const mapTag = &apos;[object Map]&apos;;
-const setTag = &apos;[object Set]&apos;;
-const boolTag = &apos;[object Boolean]&apos;;
-const numberTag = &apos;[object Number]&apos;;
-const stringTag = &apos;[object String]&apos;;
-const symbolTag = &apos;[object Symbol]&apos;;
-const dateTag = &apos;[object Date]&apos;;
-const errorTag = &apos;[object Error]&apos;;
-const regexpTag = &apos;[object RegExp]&apos;;
-const funcTag = &apos;[object Function]&apos;;
+</code></pre><h4 id="api">&apos;/api&apos;</h4>
+<p>&#x6355;&#x83B7;API&#x7684;&#x6807;&#x5FD7;&#xFF0C;&#x5982;&#x679C;API&#x4E2D;&#x6709;&#x8FD9;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x5F00;&#x59CB;&#x5339;&#x914D;&#x4EE3;&#x7406;&#xFF0C;
+&#x6BD4;&#x5982;API&#x8BF7;&#x6C42;/api/users, &#x4F1A;&#x88AB;&#x4EE3;&#x7406;&#x5230;&#x8BF7;&#x6C42; <a href="http://www.baidu.com/api/users" target="_blank">http://www.baidu.com/api/users</a> &#x3002;</p>
+<h4 id="target">target</h4>
+<p>&#x4EE3;&#x7406;&#x7684;API&#x5730;&#x5740;&#xFF0C;&#x5C31;&#x662F;&#x9700;&#x8981;&#x8DE8;&#x57DF;&#x7684;API&#x5730;&#x5740;&#x3002;
+&#x5730;&#x5740;&#x53EF;&#x4EE5;&#x662F;&#x57DF;&#x540D;,&#x5982;&#xFF1A;<a href="http://www.baidu.com" target="_blank">http://www.baidu.com</a>
+&#x4E5F;&#x53EF;&#x4EE5;&#x662F;IP&#x5730;&#x5740;&#xFF1A;<a href="http://127.0.0.1:3000" target="_blank">http://127.0.0.1:3000</a>
+&#x5982;&#x679C;&#x662F;&#x57DF;&#x540D;&#x9700;&#x8981;&#x989D;&#x5916;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x53C2;&#x6570;changeOrigin: true&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x4EE3;&#x7406;&#x5931;&#x8D25;&#x3002;</p>
+<h4 id="pathrewrite">pathRewrite</h4>
+<p>&#x8DEF;&#x5F84;&#x91CD;&#x5199;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x4F1A;&#x4FEE;&#x6539;&#x6700;&#x7EC8;&#x8BF7;&#x6C42;&#x7684;API&#x8DEF;&#x5F84;&#x3002;
+&#x6BD4;&#x5982;&#x8BBF;&#x95EE;&#x7684;API&#x8DEF;&#x5F84;&#xFF1A;/api/users,
+&#x8BBE;&#x7F6E;pathRewrite: {&apos;^/api&apos; : &apos;&apos;},&#x540E;&#xFF0C;
+&#x6700;&#x7EC8;&#x4EE3;&#x7406;&#x8BBF;&#x95EE;&#x7684;&#x8DEF;&#x5F84;&#xFF1A;<a href="http://www.baidu.com/users&#xFF0C;" target="_blank">http://www.baidu.com/users&#xFF0C;</a>
+&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x76EE;&#x7684;&#x662F;&#x7ED9;&#x4EE3;&#x7406;&#x547D;&#x540D;&#x540E;&#xFF0C;&#x5728;&#x8BBF;&#x95EE;&#x65F6;&#x628A;&#x547D;&#x540D;&#x5220;&#x9664;&#x6389;&#x3002;</p>
+<h4 id="changeorigin">changeOrigin</h4>
+<p>&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x8BA9;target&#x53C2;&#x6570;&#x662F;&#x57DF;&#x540D;&#x3002;</p>
+<h4 id="secure">secure</h4>
+<p>&#x8BBE;&#x7F6E;&#x4E3A;false&#x5219;&#x4E0D;&#x68C0;&#x67E5;&#x5B89;&#x5168;&#x95EE;&#x9898;&#xFF0C;&#x8BBE;&#x7F6E;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x8FD0;&#x884C;&#x5728; HTTPS &#x4E0A;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x65E0;&#x6548;&#x8BC1;&#x4E66;&#x7684;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x5668;</p>
 
-const handleRegExp = (target) =&gt; {
-  const { source, flags } = target;
-  return new target.constructor(source, flags);
-}
-
-const handleFunc = (func) =&gt; {
-  // &#x7BAD;&#x5934;&#x51FD;&#x6570;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x81EA;&#x8EAB;
-  if(!func.prototype) return func;
-  const bodyReg = /(?&lt;={)(.|\n)+(?=})/m;
-  const paramReg = /(?&lt;=\().+(?=\)\s+{)/;
-  const funcString = func.toString();
-  // &#x5206;&#x522B;&#x5339;&#x914D; &#x51FD;&#x6570;&#x53C2;&#x6570; &#x548C; &#x51FD;&#x6570;&#x4F53;
-  const param = paramReg.exec(funcString);
-  const body = bodyReg.exec(funcString);
-  if(!body) return null;
-  if (param) {
-    const paramArr = param[0].split(&apos;,&apos;);
-    return new Function(...paramArr, body[0]);
-  } else {
-    return new Function(body[0]);
-  }
-}
-
-const handleNotTraverse = (target, tag) =&gt; {
-  const Ctor = target.constructor;
-  switch(tag) {
-    case boolTag:
-      return new Object(Boolean.prototype.valueOf.call(target));
-    case numberTag:
-      return new Object(Number.prototype.valueOf.call(target));
-    case stringTag:
-      return new Object(String.prototype.valueOf.call(target));
-    case symbolTag:
-      return new Object(Symbol.prototype.valueOf.call(target));
-    case errorTag: 
-    case dateTag:
-      return new Ctor(target);
-    case regexpTag:
-      return handleRegExp(target);
-    case funcTag:
-      return handleFunc(target);
-    default:
-      return new Ctor(target);
-  }
-}
-
-const deepClone = (target, map = new WeakMap()) =&gt; {
-  if(!isObject(target)) 
-    return target;
-  let type = getType(target);
-  let cloneTarget;
-  if(!canTraverse[type]) {
-    // &#x5904;&#x7406;&#x4E0D;&#x80FD;&#x904D;&#x5386;&#x7684;&#x5BF9;&#x8C61;
-    return handleNotTraverse(target, type);
-  }else {
-    // &#x8FD9;&#x6CE2;&#x64CD;&#x4F5C;&#x76F8;&#x5F53;&#x5173;&#x952E;&#xFF0C;&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x4E0D;&#x4E22;&#x5931;&#xFF01;
-    let ctor = target.constructor;
-    cloneTarget = new ctor();
-  }
-
-  if(map.get(target)) 
-    return target;
-  map.set(target, true);
-
-  if(type === mapTag) {
-    //&#x5904;&#x7406;Map
-    target.forEach((item, key) =&gt; {
-      cloneTarget.set(deepClone(key, map), deepClone(item, map));
-    })
-  }
-
-  if(type === setTag) {
-    //&#x5904;&#x7406;Set
-    target.forEach(item =&gt; {
-      cloneTarget.add(deepClone(item, map));
-    })
-  }
-
-  // &#x5904;&#x7406;&#x6570;&#x7EC4;&#x548C;&#x5BF9;&#x8C61;
-  for (let prop in target) {
-    if (target.hasOwnProperty(prop)) {
-        cloneTarget[prop] = deepClone(target[prop], map);
-    }
-  }
-  return cloneTarget;
-}
-</code></pre>
                                 
                                 </section>
                             
@@ -1206,12 +1190,12 @@ const deepClone = (target, map = new WeakMap()) =&gt; {
 
             
                 
-                <a href="1.html" class="navigation navigation-prev " aria-label="Previous page: 浅拷贝">
+                <a href="1.html" class="navigation navigation-prev " aria-label="Previous page: 事件机制">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../part4/" class="navigation navigation-next " aria-label="Next page: v8垃圾回收">
+                <a href="3.html" class="navigation navigation-next " aria-label="Next page: 存储">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1222,7 +1206,7 @@ const deepClone = (target, map = new WeakMap()) =&gt; {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"深拷贝","level":"1.4.2","depth":2,"next":{"title":"v8垃圾回收","level":"1.5","depth":1,"path":"part4/index.md","ref":"part4/index.md","articles":[]},"previous":{"title":"浅拷贝","level":"1.4.1","depth":2,"path":"part3/1.md","ref":"part3/1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","livereload"],"pluginsConfig":{"expandable-chapters":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part3/2.md","mtime":"2021-02-21T19:06:47.799Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-22T12:52:38.232Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"跨域","level":"1.20.2","depth":2,"next":{"title":"存储","level":"1.20.3","depth":2,"path":"part19/3.md","ref":"part19/3.md","articles":[]},"previous":{"title":"事件机制","level":"1.20.1","depth":2,"path":"part19/1.md","ref":"part19/1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","livereload"],"pluginsConfig":{"expandable-chapters":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part19/2.md","mtime":"2021-02-22T09:50:24.480Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-22T12:52:38.232Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

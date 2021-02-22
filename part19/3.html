@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>深拷贝 · GitBook</title>
+        <title>存储 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../part4/" />
+    <link rel="next" href="../part20/1.html" />
     
     
-    <link rel="prev" href="1.html" />
+    <link rel="prev" href="2.html" />
     
 
     </head>
@@ -255,9 +255,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="1.html">
+        <li class="chapter " data-level="1.4.1" data-path="../part3/1.html">
             
-                <a href="1.html">
+                <a href="../part3/1.html">
             
                     
                     浅拷贝
@@ -268,9 +268,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.2" data-path="2.html">
+        <li class="chapter " data-level="1.4.2" data-path="../part3/2.html">
             
-                <a href="2.html">
+                <a href="../part3/2.html">
             
                     
                     深拷贝
@@ -939,9 +939,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.20.1" data-path="../part19/1.html">
+        <li class="chapter " data-level="1.20.1" data-path="1.html">
             
-                <a href="../part19/1.html">
+                <a href="1.html">
             
                     
                     事件机制
@@ -952,9 +952,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.20.2" data-path="../part19/2.html">
+        <li class="chapter " data-level="1.20.2" data-path="2.html">
             
-                <a href="../part19/2.html">
+                <a href="2.html">
             
                     
                     跨域
@@ -965,9 +965,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.20.3" data-path="../part19/3.html">
+        <li class="chapter active" data-level="1.20.3" data-path="3.html">
             
-                <a href="../part19/3.html">
+                <a href="3.html">
             
                     
                     存储
@@ -1026,7 +1026,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >深拷贝</a>
+        <a href=".." >存储</a>
     </h1>
 </div>
 
@@ -1041,144 +1041,133 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x6DF1;&#x62F7;&#x8D1D;">&#x6DF1;&#x62F7;&#x8D1D;</h1>
-<p>&#x6DF1;&#x62F7;&#x8D1D;&#x4E0D;&#x4EC5;&#x5728;&#x6808;&#x4E2D;&#x5F00;&#x8F9F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5730;&#x5740;, &#x5185;&#x90E8;&#x6240;&#x6709;&#x5C42;&#x7EA7;&#x7684;&#x6307;&#x9488;&#x90FD;&#x6307;&#x5411;&#x5806;&#x4E2D;&#x5F00;&#x8F9F;&#x7684;&#x65B0;&#x5730;&#x5740;, &#x5B9E;&#x73B0;&#x6808;&#x4E2D;&#x5B58;&#x50A8;&#x6307;&#x9488;, &#x6307;&#x9488;&#x6307;&#x5411;&#x5806;&#x4E2D;&#x7684;&#x503C;</p>
-<h3 id="&#x4EE5;&#x4E0B;&#x4EC5;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6DF1;&#x62F7;&#x8D1D;-&#x53EF;&#x4EE5;&#x62F7;&#x8D1D;&#x53CC;&#x5411;&#x6811;-&#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x5904;&#x7406;funtion&#x7B49;&#x8F83;&#x4E3A;&#x590D;&#x6742;&#x7684;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;">&#x4EE5;&#x4E0B;&#x4EC5;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6DF1;&#x62F7;&#x8D1D;, &#x53EF;&#x4EE5;&#x62F7;&#x8D1D;&#x53CC;&#x5411;&#x6811;, &#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x5904;&#x7406;funtion&#x7B49;&#x8F83;&#x4E3A;&#x590D;&#x6742;&#x7684;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;</h3>
-<pre><code>// &#x6DF1;&#x62F7;&#x8D1D;
-/**
-* @param {Object} obj &#x8981;&#x62F7;&#x8D1D;&#x7684;&#x5BF9;&#x8C61;
-*/
-const isObject = (target) =&gt; (typeOf target === &apos;object&apos; || typeOf target === &apos;function&apos;) &amp;&amp; target !== null;
-function deepClone(target, map = new WeakMap()) {
-    if (map.get(target)) {
-        return target
-    }
-    if (isObject(target)) {
-        map.set(target, true);
-        const cloneTarget = Array.isArray(target) ? [] : {}
-        for (let key in target) {
-            if (target.hasOwnProperty(key)) {
-                cloneTarget[key] = deepClone(target[key], map);
+                                <h1 id="&#x5B58;&#x50A8;">&#x5B58;&#x50A8;</h1>
+<p><code>&#x6D89;&#x53CA;&#x9762;&#x8BD5;&#x9898;&#xFF1A; &#x6709;&#x51E0;&#x79CD;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x5B58;&#x50A8;&#x529F;&#x80FD;, &#x5206;&#x522B;&#x6709;&#x4EC0;&#x4E48;&#x4F18;&#x7F3A;&#x70B9;? &#x4EC0;&#x4E48;&#x662F; Service Worker</code></p>
+<h2 id="cookie-localstorage-sessionstorage-indexdb">cookie localStorage sessionStorage indexDB</h2>
+<table>
+<thead>
+<tr>
+<th>&#x7279;&#x6027;</th>
+<th>cookie</th>
+<th>localStorage</th>
+<th>sessionStorage</th>
+<th>indexDB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x6570;&#x636E;&#x751F;&#x547D;&#x5468;&#x671F;</td>
+<td>&#x4E00;&#x822C;&#x662F;&#x670D;&#x52A1;&#x5668;&#x751F;&#x6210;, &#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x8FC7;&#x671F;&#x65F6;&#x95F4;</td>
+<td>&#x9664;&#x975E;&#x88AB;&#x6E05;&#x7406;&#xFF0C; &#x5426;&#x5219;&#x4E00;&#x76F4;&#x5B58;&#x5728;</td>
+<td>&#x9875;&#x9762;&#x5173;&#x95ED;&#x5C31;&#x6E05;&#x7406;</td>
+<td>&#x9664;&#x975E;&#x88AB;&#x6E05;&#x7406;&#xFF0C; &#x5426;&#x5219;&#x4E00;&#x76F4;&#x5B58;&#x5728;</td>
+</tr>
+<tr>
+<td>&#x6570;&#x636E;&#x5B58;&#x50A8;&#x5927;&#x5C0F;</td>
+<td>4k</td>
+<td>5M</td>
+<td>5M</td>
+<td>&#x65E0;&#x9650;</td>
+</tr>
+<tr>
+<td>&#x4E0E;&#x670D;&#x52A1;&#x7AEF;&#x901A;&#x4FE1;</td>
+<td>&#x6BCF;&#x6B21;&#x90FD;&#x4F1A;&#x643A;&#x5E26;&#x5728;header&#x4E2D;, &#x5BF9;&#x4E8E;&#x8BF7;&#x6C42;&#x6027;&#x80FD;&#x5F71;&#x54CD;</td>
+<td>&#x4E0D;&#x53C2;&#x4E0E;</td>
+<td>&#x4E0D;&#x53C2;&#x4E0E;</td>
+<td>&#x4E0D;&#x53C2;&#x4E0E;</td>
+</tr>
+</tbody>
+</table>
+<p>cookie&#x4E00;&#x822C;&#x4E0D;&#x5EFA;&#x8BAE;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E0D;&#x53D8;&#x5316;&#x7684;&#x6570;&#x636E;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;localStorage&#x5B58;&#x50A8;&#xFF0C;&#x5BF9;&#x4E8E;&#x9700;&#x8981;&#x9000;&#x51FA;&#x5C31;&#x5237;&#x65B0;&#x7684;&#x6570;&#x636E;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;sessionStorage&#x6765;&#x5B58;&#x50A8;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;cookie&#x6765;&#x8BF4;, &#x4E3B;&#x8981;&#x5173;&#x6CE8;&#x7684;&#x5C31;&#x662F;cookie&#x7684;&#x5B89;&#x5168;&#x95EE;&#x9898;&#x3002;</p>
+<p>cookie&#x5C5E;&#x6027;&#x5982;&#x4E0B;&#x8868;&#x6240;&#x793A;:</p>
+<table>
+<thead>
+<tr>
+<th>&#x540D;&#x79F0;</th>
+<th>&#x4F5C;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>&#x540D;&#x79F0;</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>&#x503C;</td>
+</tr>
+<tr>
+<td>Domain</td>
+<td>&#x5236;&#x5B9A;Cookie&#x53EF;&#x4EE5;&#x9001;&#x8FBE;&#x7684;&#x4E3B;&#x673A;&#x540D;, &#x9ED8;&#x8BA4;&#x662F;&#x5F53;&#x524D;&#x6587;&#x6863;&#x8BBF;&#x95EE;&#x5730;&#x5740;&#x4E2D;&#x7684;&#x4E3B;&#x673A;&#x90E8;&#x5206;</td>
+</tr>
+<tr>
+<td>Path</td>
+<td>&#x5236;&#x5B9A;URL&#x8DEF;&#x5F84;&#xFF0C;&#x8FD9;&#x4E2A;&#x8DEF;&#x5F84;&#x5FC5;&#x987B;&#x51FA;&#x73B0;&#x5728;&#x8981;&#x8BF7;&#x6C42;&#x7684;&#x8D44;&#x6E90;&#x7684;&#x8DEF;&#x5F84;&#x4E2D;&#x624D;&#x53EF;&#x4EE5;&#x53D1;&#x9001;Cookie&#x9996;&#x90E8;</td>
+</tr>
+<tr>
+<td>Expires/Max-Age</td>
+<td>&#x8BBE;&#x7F6E;&#x8FC7;&#x671F;&#x65F6;&#x95F4;, Max-Age&#x63CF;&#x8FF0;&#x4E86;&#x51E0;&#x79D2;&#x540E;&#x5931;&#x6548;</td>
+</tr>
+<tr>
+<td>Size</td>
+<td>&#x5927;&#x5C0F;</td>
+</tr>
+<tr>
+<td>HttpOnly</td>
+<td>&#x8BBE;&#x7F6E;HttpOnly&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x5BA2;&#x6237;&#x7AEF;&#x811A;&#x672C;&#x901A;&#x8FC7; document.cookie &#x7B49;&#x65B9;&#x5F0F;&#x8BBF;&#x95EE;Cookie, &#x6709;&#x52A9;&#x4E8E;&#x907F;&#x514D;XSS&#x653B;&#x51FB;</td>
+</tr>
+<tr>
+<td>SameSite</td>
+<td>SameSite&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x8BA9;Cookie&#x5728;&#x8DE8;&#x7AD9;&#x8BF7;&#x6C42;&#x65F6;&#x4E0D;&#x4F1A;&#x88AB;&#x53D1;&#x9001;, &#x4ECE;&#x800C;&#x963B;&#x6B62;CSRF&#x653B;&#x51FB;&#x3002;&#x5C5E;&#x6027;&#x503C;&#x6709;&#x4E09;&#x4E2A;&#xFF0C;Strict&#x4EC5;&#x5141;&#x8BB8;&#x4E00;&#x65B9;&#x8BF7;&#x6C42;&#x643A;&#x5E26;Cookie, &#x5E76;&#x4E14;&#x4E0D;&#x80FD;&#x8DE8;&#x7AD9;&#x53D1;&#x9001;&#x8BF7;&#x6C42;Cookie, Lax&#x5141;&#x8BB8;&#x90E8;&#x5206;&#x7B2C;&#x4E09;&#x65B9;&#x8BF7;&#x6C42;&#x643A;&#x5E26;Cookie, None&#x5219;&#x65E0;&#x8BBA;&#x662F;&#x5426;&#x8DE8;&#x7AD9;&#x90FD;&#x4F1A;&#x53D1;&#x9001;Cookie&#x3002;Chrome80&#x540E;&#x9ED8;&#x8BA4;&#x662F;Lax, &#x4E4B;&#x524D;&#x662F;None</td>
+</tr>
+<tr>
+<td>Secure</td>
+<td>&#x4E3A;true&#x5219;&#x53EA;&#x5141;&#x8BB8;&#x4F7F;&#x7528;https&#x6765;&#x4F20;&#x9012;&#x8BE5;cookie</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>&#x4F18;&#x5148;&#x7EA7;, &#x76EE;&#x524D;&#x53EA;&#x6709;chrome&#x5B9E;&#x73B0;&#x4E86;&#x8BE5;&#x63D0;&#x6848;, &#x4E09;&#x4E2A;&#x503C;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;Medium, &#x8FD8;&#x6709;Low&#x548C;High, &#x5982;&#x679C;&#x8D85;&#x8FC7;cookie&#x5B58;&#x50A8;&#x5927;&#x5C0F;, &#x5219;&#x4ECE;Low&#x5F00;&#x59CB;&#x79FB;&#x9664;cookie</td>
+</tr>
+</tbody>
+</table>
+<h2 id="service-worker">Service Worker</h2>
+<p>Service Worker &#x662F;&#x8FD0;&#x884C;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x80CC;&#x540E;&#x7684;&#x72EC;&#x7ACB;&#x7EBF;&#x7A0B;, &#x4E00;&#x822C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5B9E;&#x73B0;&#x7F13;&#x5B58;&#x529F;&#x80FD;&#x3002;&#x662F;<code>PWA</code>&#x6982;&#x5FF5;&#x7684;&#x91CD;&#x8981;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x3002;&#x4F7F;&#x7528;Service Worker&#x7684;&#x8BDD;&#xFF0C; &#x4F20;&#x8F93;&#x534F;&#x8BAE;&#x5FC5;&#x987B;&#x662F;https, &#x56E0;&#x4E3A;Service Worker&#x4E2D;&#x6D89;&#x53CA;&#x5230;&#x8BF7;&#x6C42;&#x62E6;&#x622A;&#xFF0C;&#x6240;&#x4EE5;&#x5FC5;&#x987B;&#x4F7F;&#x7528;HTTPS&#x534F;&#x8BAE;&#x6765;&#x4FDD;&#x969C;&#x5B89;&#x5168;&#x3002;</p>
+<p>Service Worker&#x5B9E;&#x73B0;&#x7F13;&#x5B58;&#x529F;&#x80FD;&#x4E00;&#x822C;&#x5206;&#x4E3A;&#x4E09;&#x4E2A;&#x6B65;&#x9AA4;: &#x9996;&#x5148;&#x9700;&#x8981;&#x6CE8;&#x518C; Service Worker, &#x7136;&#x540E;&#x76D1;&#x542C;&#x5230;<code>install</code>&#x4E8B;&#x4EF6;&#x4EE5;&#x540E;, &#x5C31;&#x53EF;&#x4EE5;&#x7F13;&#x5B58;&#x9700;&#x8981;&#x7684;&#x6587;&#x4EF6;, &#x90A3;&#x4E48;&#x5728;&#x4E0B;&#x6B21;&#x7528;&#x6237;&#x8BBF;&#x95EE;&#x7684;&#x65F6;&#x5019;, &#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x62E6;&#x622A;&#x8BF7;&#x6C42;&#x7684;&#x65B9;&#x5F0F;&#x67E5;&#x8BE2;&#x662F;&#x5426;&#x5B58;&#x5728;&#x7F13;&#x5B58;, &#x5B58;&#x5728;&#x7F13;&#x5B58;&#x5C31;&#x76F4;&#x63A5;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;, &#x5426;&#x5219;&#x5C31;&#x53BB;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#x3002;</p>
+<p>&#x6CE8;&#xFF1A; &#x4F46;&#x662F;&#x4E0D;&#x7BA1;&#x662F;&#x4ECE;Memory Cache&#x8FD8;&#x662F;&#x4ECE;&#x8BF7;&#x6C42;&#x4E2D;&#x83B7;&#x53D6;&#x65B0;&#x7684;&#x6570;&#x636E;&#xFF0C; &#x6D4F;&#x89C8;&#x5668;&#x90FD;&#x4F1A;&#x663E;&#x793A;&#x6211;&#x4EEC;&#x662F;&#x4ECE;<code>Service Worker</code>&#x4E2D;&#x83B7;&#x53D6;&#x7684;&#x3002;</p>
+<p>&#x5B9E;&#x73B0;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;:</p>
+<pre><code>// index.js
+if (navigator.serviceWorker) {
+    // * &#x6CE8;&#x518C;sw.js&#x7684;&#x7F13;&#x5B58;
+    navigator.serviceWorker.register(&apos;sw.js&apos;).then((registration) =&gt; {
+        console.info(&apos;service worker &#x6CE8;&#x518C;&#x6210;&#x529F;&apos;)
+    }).catch(err =&gt; {
+        console.info(&apos;service worker &#x6CE8;&#x518C;&#x5931;&#x8D25;&apos;)
+    })
+}
+// sw.js
+// &#x76D1;&#x542C; &apos;install&apos;&#x4E8B;&#x4EF6;, &#x56DE;&#x8C03;&#x4E2D;&#x7F13;&#x5B58;&#x6240;&#x9700;&#x6587;&#x4EF6;
+self.addEventListener(&apos;install&apos;, e =&gt; {
+    // * open&#x5F00;&#x542F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x7F13;&#x5B58;&#x6587;&#x4EF6;, &#x53EB;&#x505A;my-cache, &#x6DFB;&#x52A0;index.html &#x548C; index.js
+    e.waitUntil(
+        caches.open(&apos;my-cache&apos;).then(function(cache) {
+            return cache.addAll([&apos;./index.html&apos;, &apos;./index.js&apos;])
+        })
+    )
+})
+
+// &#x62E6;&#x622A;&#x6240;&#x6709;&#x7684;&#x8BF7;&#x6C42;&#x4E8B;&#x4EF6;
+// &#x5982;&#x679C;&#x7F13;&#x5B58;&#x4E2D;&#x5DF2;&#x7ECF;&#x6709;&#x8BF7;&#x6C42;&#x7684;&#x6570;&#x636E;&#x5C31;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x7F13;&#x5B58;, &#x5426;&#x5219;&#x53BB;&#x8BF7;&#x6C42;&#x6570;&#x636E;
+self.addEventListener(&apos;fetch&apos;, e =&gt; {
+    e.respondWith(
+        caches.match(e.request).then(res =&gt; {
+            if (res) {
+                return res
             }
-        }
-        return cloneTarget
-    } else {
-        return target
-    }
-}
-// &#x4F7F;&#x7528;
-const obj2 = deepClone(obj1)
-obj2.address.city = &quot;shanghai&quot;
-console.info(obj1.address.city) // beijing
-</code></pre><h3 id="&#x5B8C;&#x6574;&#x7684;&#x6DF1;&#x62F7;&#x8D1D;">&#x5B8C;&#x6574;&#x7684;&#x6DF1;&#x62F7;&#x8D1D;</h3>
-<pre><code>onst getType = obj =&gt; Object.prototype.toString.call(obj);
-
-const isObject = (target) =&gt; (typeof target === &apos;object&apos; || typeof target === &apos;function&apos;) &amp;&amp; target !== null;
-
-const canTraverse = {
-  &apos;[object Map]&apos;: true,
-  &apos;[object Set]&apos;: true,
-  &apos;[object Array]&apos;: true,
-  &apos;[object Object]&apos;: true,
-  &apos;[object Arguments]&apos;: true,
-};
-const mapTag = &apos;[object Map]&apos;;
-const setTag = &apos;[object Set]&apos;;
-const boolTag = &apos;[object Boolean]&apos;;
-const numberTag = &apos;[object Number]&apos;;
-const stringTag = &apos;[object String]&apos;;
-const symbolTag = &apos;[object Symbol]&apos;;
-const dateTag = &apos;[object Date]&apos;;
-const errorTag = &apos;[object Error]&apos;;
-const regexpTag = &apos;[object RegExp]&apos;;
-const funcTag = &apos;[object Function]&apos;;
-
-const handleRegExp = (target) =&gt; {
-  const { source, flags } = target;
-  return new target.constructor(source, flags);
-}
-
-const handleFunc = (func) =&gt; {
-  // &#x7BAD;&#x5934;&#x51FD;&#x6570;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x81EA;&#x8EAB;
-  if(!func.prototype) return func;
-  const bodyReg = /(?&lt;={)(.|\n)+(?=})/m;
-  const paramReg = /(?&lt;=\().+(?=\)\s+{)/;
-  const funcString = func.toString();
-  // &#x5206;&#x522B;&#x5339;&#x914D; &#x51FD;&#x6570;&#x53C2;&#x6570; &#x548C; &#x51FD;&#x6570;&#x4F53;
-  const param = paramReg.exec(funcString);
-  const body = bodyReg.exec(funcString);
-  if(!body) return null;
-  if (param) {
-    const paramArr = param[0].split(&apos;,&apos;);
-    return new Function(...paramArr, body[0]);
-  } else {
-    return new Function(body[0]);
-  }
-}
-
-const handleNotTraverse = (target, tag) =&gt; {
-  const Ctor = target.constructor;
-  switch(tag) {
-    case boolTag:
-      return new Object(Boolean.prototype.valueOf.call(target));
-    case numberTag:
-      return new Object(Number.prototype.valueOf.call(target));
-    case stringTag:
-      return new Object(String.prototype.valueOf.call(target));
-    case symbolTag:
-      return new Object(Symbol.prototype.valueOf.call(target));
-    case errorTag: 
-    case dateTag:
-      return new Ctor(target);
-    case regexpTag:
-      return handleRegExp(target);
-    case funcTag:
-      return handleFunc(target);
-    default:
-      return new Ctor(target);
-  }
-}
-
-const deepClone = (target, map = new WeakMap()) =&gt; {
-  if(!isObject(target)) 
-    return target;
-  let type = getType(target);
-  let cloneTarget;
-  if(!canTraverse[type]) {
-    // &#x5904;&#x7406;&#x4E0D;&#x80FD;&#x904D;&#x5386;&#x7684;&#x5BF9;&#x8C61;
-    return handleNotTraverse(target, type);
-  }else {
-    // &#x8FD9;&#x6CE2;&#x64CD;&#x4F5C;&#x76F8;&#x5F53;&#x5173;&#x952E;&#xFF0C;&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x4E0D;&#x4E22;&#x5931;&#xFF01;
-    let ctor = target.constructor;
-    cloneTarget = new ctor();
-  }
-
-  if(map.get(target)) 
-    return target;
-  map.set(target, true);
-
-  if(type === mapTag) {
-    //&#x5904;&#x7406;Map
-    target.forEach((item, key) =&gt; {
-      cloneTarget.set(deepClone(key, map), deepClone(item, map));
-    })
-  }
-
-  if(type === setTag) {
-    //&#x5904;&#x7406;Set
-    target.forEach(item =&gt; {
-      cloneTarget.add(deepClone(item, map));
-    })
-  }
-
-  // &#x5904;&#x7406;&#x6570;&#x7EC4;&#x548C;&#x5BF9;&#x8C61;
-  for (let prop in target) {
-    if (target.hasOwnProperty(prop)) {
-        cloneTarget[prop] = deepClone(target[prop], map);
-    }
-  }
-  return cloneTarget;
-}
+            console.info(&apos;fetch source&apos;)
+        })
+    )
+})
 </code></pre>
                                 
                                 </section>
@@ -1206,12 +1195,12 @@ const deepClone = (target, map = new WeakMap()) =&gt; {
 
             
                 
-                <a href="1.html" class="navigation navigation-prev " aria-label="Previous page: 浅拷贝">
+                <a href="2.html" class="navigation navigation-prev " aria-label="Previous page: 跨域">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../part4/" class="navigation navigation-next " aria-label="Next page: v8垃圾回收">
+                <a href="../part20/1.html" class="navigation navigation-next " aria-label="Next page: 浏览器渲染原理">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1222,7 +1211,7 @@ const deepClone = (target, map = new WeakMap()) =&gt; {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"深拷贝","level":"1.4.2","depth":2,"next":{"title":"v8垃圾回收","level":"1.5","depth":1,"path":"part4/index.md","ref":"part4/index.md","articles":[]},"previous":{"title":"浅拷贝","level":"1.4.1","depth":2,"path":"part3/1.md","ref":"part3/1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","livereload"],"pluginsConfig":{"expandable-chapters":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part3/2.md","mtime":"2021-02-21T19:06:47.799Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-22T12:52:38.232Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"存储","level":"1.20.3","depth":2,"next":{"title":"浏览器渲染原理","level":"1.21","depth":1,"path":"part20/1.md","ref":"part20/1.md","articles":[]},"previous":{"title":"跨域","level":"1.20.2","depth":2,"path":"part19/2.md","ref":"part19/2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","livereload"],"pluginsConfig":{"expandable-chapters":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part19/3.md","mtime":"2021-02-22T14:05:11.047Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-22T12:52:38.232Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
