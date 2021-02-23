@@ -994,6 +994,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.22" data-path="../part21/1.html">
+            
+                <a href="../part21/1.html">
+            
+                    
+                    部分性能优化
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -1074,17 +1087,35 @@
 </ul>
 </li>
 <li>&#x4E24;&#x4E2A;&#x5229;&#x7528;<ul>
-<li>&#x5229;&#x7528;CSP(<code>&#x6D4F;&#x89C8;&#x5668;&#x5B89;&#x5168;&#x7B56;&#x7565;</code>)<ul>
+<li>&#x5229;&#x7528;CSP(<code>&#x6D4F;&#x89C8;&#x5668;&#x5B89;&#x5168;&#x7B56;&#x7565;</code>, &#x672C;&#x8D28;&#x662F;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x767D;&#x540D;&#x5355;&#xFF0C;&#x660E;&#x786E;&#x544A;&#x8BC9;&#x6D4F;&#x89C8;&#x5668;&#x54EA;&#x4E9B;&#x5916;&#x90E8;&#x8D44;&#x6E90;&#x53EF;&#x4EE5;&#x52A0;&#x8F7D;&#x6216;&#x6267;&#x884C;)<ul>
 <li>&#x9650;&#x5236;&#x5176;&#x4ED6;&#x57DF;&#x8D44;&#x6E90;&#x52A0;&#x8F7D;</li>
-<li>&#x8FDB;&#x5236;&#x5411;&#x5176;&#x4ED6;&#x57DF;&#x63D0;&#x4EA4;&#x6570;&#x636E;</li>
-<li>&#x63D0;&#x4F9B;&#x4E0A;&#x62A5;&#x673A;&#x5236;, &#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x53CA;&#x65F6;&#x53D1;&#x73B0;XSS</li>
+<li>&#x7981;&#x6B62;&#x5411;&#x5176;&#x4ED6;&#x57DF;&#x63D0;&#x4EA4;&#x6570;&#x636E;</li>
+<li>&#x63D0;&#x4F9B;&#x4E0A;&#x62A5;&#x673A;&#x5236;, &#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x53CA;&#x65F6;&#x53D1;&#x73B0;XSS(<code>report-uri &#x5730;&#x5740;</code>&#x5C31;&#x53EF;&#x4EE5;&#x628A;&#x6CE8;&#x5165;&#x4E0A;&#x62A5;&#x7ED9;&#x8BBE;&#x7F6E;&#x7684;&#x5730;&#x5740;)</li>
 </ul>
 </li>
 <li>xss&#x4E3B;&#x8981;&#x76EE;&#x7684;&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x83B7;&#x53D6;&#x7528;&#x6237;&#x7684;&#x767B;&#x5F55;&#x4FE1;&#x606F;, &#x56E0;&#x6B64;&#x5229;&#x7528;cookie&#x7684;&#x5C5E;&#x6027;&#x4E4B;&#x4E00;<code>HttpOnly</code>, &#x52A0;&#x4E0A;&#x8BE5;&#x5C5E;&#x6027;&#x7684;cookie&#x524D;&#x7AEF;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;js&#x83B7;&#x53D6;cookie&#x4FE1;&#x606F;</li>
 </ul>
 </li>
 </ul>
-
+<h4 id="csp&#x914D;&#x7F6E;&#x65B9;&#x5F0F;">CSP&#x914D;&#x7F6E;&#x65B9;&#x5F0F;</h4>
+<ol>
+<li>&#x8BBE;&#x7F6E;HTTP Header&#x4E2D;&#x7684;Content-Security-Policy</li>
+<li>&#x8BBE;&#x7F6E;meta&#x6807;&#x7B7E;: <meta http-equiv="Content-Security-Policy"></li>
+</ol>
+<p>&#x8FD9;&#x91CC;&#x4EE5;HTTP Header&#x6765;&#x4E3E;&#x4F8B;:</p>
+<ul>
+<li>&#x53EA;&#x5141;&#x8BB8;&#x52A0;&#x8F7D;&#x672C;&#x7AD9;&#x8D44;&#x6E90;:</li>
+</ul>
+<pre><code>Content-Security-Policy: default-src &apos;self&apos;
+</code></pre><ul>
+<li>&#x53EA;&#x5141;&#x8BB8;&#x52A0;&#x8F7D;HTTPS&#x534F;&#x8BAE;&#x7684;&#x56FE;&#x7247;</li>
+</ul>
+<pre><code>Content-Security-Policy: img-src https://*
+</code></pre><ul>
+<li>&#x5141;&#x8BB8;&#x52A0;&#x8F7D;&#x4EFB;&#x4F55;&#x6765;&#x6E90;&#x7684;&#x6846;&#x67B6;</li>
+</ul>
+<pre><code>Content0Security-Policy: child-src &apos;none&apos;
+</code></pre>
                                 
                                 </section>
                             
@@ -1123,7 +1154,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"xss注入","level":"1.3.1","depth":2,"next":{"title":"CSRF注入","level":"1.3.2","depth":2,"path":"part2/2.md","ref":"part2/2.md","articles":[]},"previous":{"title":"浏览器安全","level":"1.3","depth":1,"ref":"","articles":[{"title":"xss注入","level":"1.3.1","depth":2,"path":"part2/1.md","ref":"part2/1.md","articles":[]},{"title":"CSRF注入","level":"1.3.2","depth":2,"path":"part2/2.md","ref":"part2/2.md","articles":[]},{"title":"https","level":"1.3.3","depth":2,"path":"part2/3.md","ref":"part2/3.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","livereload"],"pluginsConfig":{"expandable-chapters":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part2/1.md","mtime":"2021-02-21T19:06:47.796Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-22T12:52:38.232Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"xss注入","level":"1.3.1","depth":2,"next":{"title":"CSRF注入","level":"1.3.2","depth":2,"path":"part2/2.md","ref":"part2/2.md","articles":[]},"previous":{"title":"浏览器安全","level":"1.3","depth":1,"ref":"","articles":[{"title":"xss注入","level":"1.3.1","depth":2,"path":"part2/1.md","ref":"part2/1.md","articles":[]},{"title":"CSRF注入","level":"1.3.2","depth":2,"path":"part2/2.md","ref":"part2/2.md","articles":[]},{"title":"https","level":"1.3.3","depth":2,"path":"part2/3.md","ref":"part2/3.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part2/1.md","mtime":"2021-02-23T16:05:58.831Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-23T17:33:31.477Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1134,10 +1165,6 @@
     
         
         <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
