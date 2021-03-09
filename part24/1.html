@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Generator · GitBook</title>
+        <title>vue基础知识点 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="2.html" />
     
-    
-    <link rel="prev" href="./" />
+    <link rel="prev" href="../part23/1.html" />
     
 
     </head>
@@ -597,9 +595,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.13.1" data-path="./">
+        <li class="chapter " data-level="1.13.1" data-path="../part12/">
             
-                <a href="./">
+                <a href="../part12/">
             
                     
                     异步编程
@@ -610,9 +608,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.13.2" data-path="1.html">
+        <li class="chapter " data-level="1.13.2" data-path="../part12/1.html">
             
-                <a href="1.html">
+                <a href="../part12/1.html">
             
                     
                     Generator
@@ -623,9 +621,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13.3" data-path="2.html">
+        <li class="chapter " data-level="1.13.3" data-path="../part12/2.html">
             
-                <a href="2.html">
+                <a href="../part12/2.html">
             
                     
                     Promise
@@ -636,9 +634,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13.4" data-path="3.html">
+        <li class="chapter " data-level="1.13.4" data-path="../part12/3.html">
             
-                <a href="3.html">
+                <a href="../part12/3.html">
             
                     
                     async/await
@@ -649,9 +647,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13.5" data-path="4.html">
+        <li class="chapter " data-level="1.13.5" data-path="../part12/4.html">
             
-                <a href="4.html">
+                <a href="../part12/4.html">
             
                     
                     setTimeout/setInterval/requestAnimationFrame
@@ -1048,9 +1046,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.25" data-path="../part24/1.html">
+        <li class="chapter active" data-level="1.25" data-path="1.html">
             
-                <a href="../part24/1.html">
+                <a href="1.html">
             
                     
                     vue基础知识点
@@ -1091,7 +1089,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Generator</a>
+        <a href=".." >vue基础知识点</a>
     </h1>
 </div>
 
@@ -1106,89 +1104,72 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="generator">Generator</h1>
-<h2 id="generator&#x662F;&#x4EC0;&#x4E48;&#xFF1F;">Generator&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</h2>
-<p>Generator(&#x751F;&#x6210;&#x5668;)&#x662F;&#x4E00;&#x4E2A;&#x5E26;&#x6709;<code>*</code>&#x53F7;&#x7684;&#x51FD;&#x6570;, &#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>yield</code>&#x5173;&#x952E;&#x5B57;<code>&#x6682;&#x65F6;&#x6267;&#x884C;</code>&#x548C;<code>&#x6062;&#x590D;&#x6267;&#x884C;</code></p>
-<p>&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
-<pre><code>function* gen() {
-  console.log(&quot;enter&quot;);
-  let a = yield 1;
-  let b = yield (function () {return 2})();
-  return 3;
-}
-var g = gen() // &#x963B;&#x585E;&#x4F4F;&#xFF0C;&#x4E0D;&#x4F1A;&#x6267;&#x884C;&#x4EFB;&#x4F55;&#x8BED;&#x53E5;// enter
-console.log(typeof g)  // object  &#x770B;&#x5230;&#x4E86;&#x5417;&#xFF1F;&#x4E0D;&#x662F;&quot;function&quot;
-
-console.log(g.next())  // { value: 1, done: false }
-console.log(g.next())  // { value: 2, done: false }
-console.log(g.next())  // { value: 3, done: true }
-console.log(g.next()) // { value: undefined, done: true }
-</code></pre><p>&#x4E3B;&#x8981;&#x6709;&#x51E0;&#x4E2A;&#x5173;&#x952E;&#x7684;&#x5730;&#x65B9;:</p>
-<ul>
-<li>&#x8C03;&#x7528;gen&#x51FD;&#x6570;&#x540E;, &#x9047;&#x5230;yield&#x7A0B;&#x5E8F;&#x4F1A;&#x963B;&#x585E;, &#x4E0D;&#x4F1A;&#x6267;&#x884C;&#x4EFB;&#x4F55;&#x8BED;&#x53E5;</li>
-<li>&#x8C03;&#x7528;gen.next()&#x540E;, &#x7A0B;&#x5E8F;&#x4F1A;&#x7EE7;&#x7EED;&#x6267;&#x884C;, &#x76F4;&#x5230;&#x9047;&#x5230;&#x4E0B;&#x4E00;&#x4E2A;yield, &#x5E76;&#x4E14;next()&#x53EF;&#x4EE5;&#x4F20;&#x9012;&#x53C2;&#x6570;, &#x4EE3;&#x8868;&#x7684;&#x662F;&#x4E0A;&#x4E00;&#x6B21;yield&#x8FD4;&#x56DE;&#x7684;&#x503C;</li>
-<li>next&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;, &#x6709;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;<code>value</code>&#x548C;<code>done</code>, value&#x4E3A;<code>&#x5F53;&#x524D;yield&#x540E;&#x9762;&#x7684;&#x7ED3;&#x679C;</code>, done&#x8868;&#x793A;<code>&#x662F;&#x5426;&#x6267;&#x884C;&#x5B8C;</code>, &#x9047;&#x5230;return, done&#x5C31;&#x81EA;&#x52A8;&#x7531;false&#x53D8;&#x4E3A;true</li>
-</ul>
-<h2 id="&#x662F;&#x4EC0;&#x4E48;&#x8BA9;&#x751F;&#x6210;&#x5668;&#x51FD;&#x6570;&#x6682;&#x505C;&#x548C;&#x6267;&#x884C;&#x3002;">&#x662F;&#x4EC0;&#x4E48;&#x8BA9;&#x751F;&#x6210;&#x5668;&#x51FD;&#x6570;&#x6682;&#x505C;&#x548C;&#x6267;&#x884C;&#x3002;</h2>
-<ul>
-<li>&#x751F;&#x6210;&#x5668;&#x6267;&#x884C;&#x673A;&#x5236;&#x2014;&#x2014;&#x2014;&#x2014;<code>&#x534F;&#x7A0B;</code></li>
-<li>&#x534F;&#x7A0B;&#x662F;&#x4EC0;&#x4E48;?<ul>
-<li>&#x534F;&#x7A0B;&#x662F;&#x4E00;&#x79CD;&#x6BD4;&#x7EBF;&#x7A0B;&#x66F4;&#x8F7B;&#x91CF;&#x7684;&#x5B58;&#x5728;, &#x534F;&#x7A0B;&#x5904;&#x4E8E;&#x7EBF;&#x7A0B;&#x73AF;&#x5883;&#x4E2D;, <code>&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x53EF;&#x4EE5;&#x5B58;&#x5728;&#x591A;&#x4E2A;&#x534F;&#x7A0B;</code>, &#x4E0D;&#x50CF;&#x8FDB;&#x7A0B;&#x548C;&#x7EBF;&#x7A0B;, &#x534F;&#x7A0B;&#x4E0D;&#x6536;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x63A7;&#x5236;, &#x662F;&#x7531;&#x5177;&#x4F53;&#x7684;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x6765;&#x63A7;&#x5236;&#x7684;&#x3002;</li>
-</ul>
-</li>
-<li>&#x591A;&#x4E2A;&#x534F;&#x7A0B;&#x53EF;&#x4EE5;&#x4E00;&#x8D77;&#x6267;&#x884C;&#x5417;&#xFF1F;<ul>
-<li>&#x4E0D;&#x884C;, &#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E00;&#x6B21;&#x6027;&#x53EA;&#x80FD;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x534F;&#x7A0B;, &#x6BD4;&#x5982;&#x5F53;&#x524D;&#x534F;&#x7A0B;A&#x5728;&#x6267;&#x884C;, &#x8FD8;&#x6709;&#x53E6;&#x4E00;&#x4E2A;&#x534F;&#x7A0B;B, &#x5982;&#x679C;&#x8981;&#x6267;&#x884C;&#x534F;&#x7A0B;B, &#x5C31;&#x5FC5;&#x987B;&#x5728;A&#x534F;&#x7A0B;&#x4E2D;&#x5C06;<code>JS&#x7EBF;&#x7A0B;&#x7684;&#x63A7;&#x5236;&#x6743;&#x8F6C;&#x79FB;&#x7ED9;B&#x534F;&#x7A0B;</code>, &#x90A3;&#x4E48;&#x73B0;&#x5728;B&#x6267;&#x884C;, A&#x5C31;&#x5904;&#x4E8E;&#x6682;&#x505C;&#x72B6;&#x6001;</li>
-</ul>
-</li>
-<li>&#x534F;&#x7A0B;&#x6027;&#x80FD;&#x8F83;&#x9AD8;<ul>
-<li>&#x56E0;&#x4E3A;&#x4ED6;&#x4E0D;&#x53D7;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x63A7;&#x5236;, &#x5B8C;&#x5168;&#x7531;&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x5207;&#x6362;, &#x6CA1;&#x6709;&#x8FDB;&#x7A0B;/&#x7EBF;&#x7A0B;&#x7684;<code>&#x4E0A;&#x4E0B;&#x6587;&#x5207;&#x6362;</code>&#x5F00;&#x9500;</li>
-</ul>
-</li>
-</ul>
-<h2 id="&#x5982;&#x4F55;&#x8BA9;generator&#x7684;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x6309;&#x987A;&#x5E8F;&#x6267;&#x884C;">&#x5982;&#x4F55;&#x8BA9;Generator&#x7684;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x6309;&#x987A;&#x5E8F;&#x6267;&#x884C;?</h2>
-<p>&#x5176;&#x5B9E;&#x8FD9;&#x91CC;&#x6709;&#x4E24;&#x4E2A;&#x95EE;&#x9898;:</p>
+                                <h1 id="vue&#x5E38;&#x89C1;&#x57FA;&#x7840;&#x77E5;&#x8BC6;&#x70B9;">Vue&#x5E38;&#x89C1;&#x57FA;&#x7840;&#x77E5;&#x8BC6;&#x70B9;</h1>
+<h2 id="&#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50;&#x51FD;&#x6570;">&#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50;&#x51FD;&#x6570;</h2>
+<p><code>beforeCreate</code>, &#x5728;&#x8FD9;&#x5176;&#x4E2D;&#x83B7;&#x53D6;&#x4E0D;&#x5230;<code>props</code>&#x548C;<code>data</code>, &#x56E0;&#x4E3A;&#x4ED6;&#x4EEC;&#x5728;<code>initState</code>&#x4E2D;&#x521D;&#x59CB;&#x5316;</p>
+<p>&#x7136;&#x540E;&#x662F;<code>created</code>, &#x5728;&#x8FD9;&#x4E00;&#x6B65;&#x4E2D;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5230;&#x4E4B;&#x524D;&#x4E0D;&#x80FD;&#x8BBF;&#x95EE;&#x7684;&#x6570;&#x636E;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x65F6;&#x5019;&#x7EC4;&#x4EF6;&#x8FD8;&#x6CA1;&#x6709;&#x6302;&#x8F7D;, &#x5E76;&#x6CA1;&#x6709;&#x6267;&#x884C;render&#x548C;patch&#x3002;render&#x6E32;&#x67D3;&#x51FA;vnode, patch&#x4F7F;&#x7528; vnode&#x521B;&#x5EFA;realDom</p>
+<pre><code>initLifecycle(vm) //TODO &#x521D;&#x59CB;&#x5316;&#x751F;&#x547D;&#x5468;&#x671F;
+initEvents(vm)  // TODO  &#x521D;&#x59CB;&#x5316;&#x4E8B;&#x4EF6;&#x4E2D;&#x5FC3;
+initRender(vm) // TODO 
+// * &#x5728;beforeCreate&#x4E2D;&#xFF0C;vue-router&#xFF0C;vuex&#x90FD;&#x6DF7;&#x5165;&#x4E86;&#x4E00;&#x4E9B;&#x903B;&#x8F91;
+callHook(vm, &apos;beforeCreate&apos;) // TODO &#x6267;&#x884C;beforeCreate, &#x5728;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#xFF0C;&#x662F;&#x62FF;&#x4E0D;&#x5230;&#x7EC4;&#x4EF6;&#x5185;&#x90E8;&#x7684;&#x6570;&#x636E;&#x7684;. &#x56E0;&#x4E3A;&#x5230;&#x6B64;&#x4E3A;&#x6B62;&#xFF0C;&#x53EA;&#x521D;&#x59CB;&#x5316;&#x4E86;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E8B;&#x4EF6;&#x548C;&#x6E32;&#x67D3;&#x51FD;&#x6570;
+initInjections(vm) // resolve injections before data/props // TODO &#x521D;&#x59CB;&#x5316;&#x5168;&#x5C40;&#x6CE8;&#x5165;
+initState(vm) // TODO &#x521D;&#x59CB;&#x5316;props&#x548C;data
+initProvide(vm) // resolve provide after data/props // TODO 
+callHook(vm, &apos;created&apos;) // TODO &#x6267;&#x884C;created, &#x5728;created&#x4E2D;&#x5DF2;&#x7ECF;&#x53EF;&#x4EE5;&#x62FF;&#x5230;&#x9700;&#x8981;&#x7684;data, props&#x4E4B;&#x7C7B;&#x7684;&#x6570;&#x636E;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x5DF2;&#x7ECF;&#x6267;&#x884C;&#x5B8C;&#x4E86;provide/inject&#x7684;&#x521D;&#x59CB;&#x5316;&#xFF0C;data&#xFF0C; props&#x7684;&#x521D;&#x59CB;&#x5316;
+</code></pre><p>&#x4E4B;&#x540E;&#x6267;&#x884C;<code>beforeMount</code>&#x94A9;&#x5B50;&#x51FD;&#x6570;, &#x5F00;&#x59CB;&#x521B;&#x5EFA;VNode, &#x6700;&#x540E;&#x6267;&#x884C;<code>mounted</code>&#x94A9;&#x5B50;, &#x5E76;&#x5C06;VNode&#x6E32;&#x67D3;&#x4E3A;realDOM&#x540C;&#x65F6;&#x6E32;&#x67D3;&#x6570;&#x636E;&#x3002;&#x7EC4;&#x4EF6;&#x4E2D;&#x5982;&#x679C;&#x6709;&#x5B50;&#x7EC4;&#x4EF6;&#xFF0C;&#x4F1A;&#x9012;&#x5F52;&#x6302;&#x8F7D;&#x5B50;&#x7EC4;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14;&#x5D4C;&#x5957;&#x7EC4;&#x4EF6;&#x7684;&#x6302;&#x8F7D;&#x662F;&#x5148;&#x5B50;&#x540E;&#x7236;, &#x5F53;&#x6240;&#x6709;&#x7684;&#x5B50;&#x7EC4;&#x4EF6;&#x90FD;&#x6302;&#x8F7D;&#x5B8C;&#x6BD5;&#xFF0C; &#x624D;&#x4F1A;&#x6267;&#x884C;&#x6839;&#x7EC4;&#x4EF6;&#x7684;<code>mounted</code></p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x662F;&#x6570;&#x636E;&#x66F4;&#x65B0;&#x65F6;&#x5019;&#x8981;&#x6267;&#x884C;<code>beforeUpdate</code>&#x548C;<code>update</code>, &#x8FD9;&#x4E24;&#x4E2A;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x5206;&#x522B;&#x5728;&#x66F4;&#x65B0;&#x524D;&#x540E;&#x8C03;&#x7528;</p>
+<p>&#x5F15;&#x5165;<code>keep-alive</code>&#x540E;&#x8FD8;&#x6709;&#x72EC;&#x7279;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;, &#x5206;&#x522B;&#x662F;<code>activated</code>&#x548C;<code>deactivated</code>, &#x7528;<code>keep-alive</code>&#x5305;&#x88F9;&#x7684;&#x7EC4;&#x4EF6;&#x5728;&#x5207;&#x6362;&#x65F6;&#x5E76;&#x4E0D;&#x4F1A;&#x8FDB;&#x884C;&#x9500;&#x6BC1;, &#x800C;&#x662F;&#x7F13;&#x5B58;&#x5230;&#x5185;&#x5B58;&#x4E2D;&#x5E76;&#x6267;&#x884C;<code>deactivated</code>, &#x547D;&#x4E2D;&#x7F13;&#x5B58;&#x540E;&#x6267;&#x884C;<code>activated</code>, &#x56E0;&#x6B64;&#x6267;&#x884C;<code>activated</code>&#x65F6;, &#x4F1A;&#x5C4F;&#x853D;created, mounted, beforeCreate, beforeMount</p>
+<p>&#x6700;&#x540E;&#x662F;&#x9500;&#x6BC1;&#x7EC4;&#x4EF6;&#x7684;<code>beforeDestory</code>&#x548C;<code>destoryed</code>&#x3002;&#x524D;&#x8005;&#x9002;&#x5408;&#x79FB;&#x9664;&#x4E8B;&#x4EF6;&#x548C;&#x5B9A;&#x65F6;&#x5668;&#x7B49;&#xFF0C;&#x539A;&#x6CFD;&#x53EF;&#x80FD;&#x4F1A;&#x5F15;&#x8D77;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x3002;&#x7136;&#x540E;&#x8FDB;&#x884C;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x9500;&#x6BC1;&#x64CD;&#x4F5C;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x5B50;&#x7EC4;&#x4EF6;&#xFF0C;&#x4E5F;&#x4F1A;&#x9012;&#x5F52;&#x6D88;&#x9664;&#x5B50;&#x7EC4;&#x4EF6;, &#x540C;&#x6837;&#x662F;&#x5148;&#x5B50;&#x540E;&#x7236;&#x3002;</p>
+<h2 id="&#x7EC4;&#x4EF6;&#x901A;&#x4FE1;">&#x7EC4;&#x4EF6;&#x901A;&#x4FE1;</h2>
+<h3 id="&#x7236;&#x5B50;&#x7EC4;&#x4EF6;">&#x7236;&#x5B50;&#x7EC4;&#x4EF6;</h3>
 <ol>
-<li><code>Generator</code>&#x5982;&#x4F55;&#x8DDF;<code>&#x5F02;&#x6B65;</code>&#x4EA7;&#x751F;&#x5173;&#x7CFB;?</li>
-<li>&#x600E;&#x4E48;&#x628A;<code>Generator</code>&#x6309;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x5B8C;&#x6BD5;?</li>
+<li>&#x4F7F;&#x7528;<code>props</code>&#x548C;<code>$emit</code></li>
+<li>&#x4F7F;&#x7528;<code>$attrs</code>&#x548C;<code>$listeners</code></li>
+<li>&#x4F7F;&#x7528;<code>v-model</code>&#x8BED;&#x6CD5;&#x7CD6;&#xFF0C; &#x5B50;&#x7EC4;&#x4EF6;&#x63A5;&#x53D7;&#x7684;props&#x4E3A;value&#xFF0C; &#x63A5;&#x53D7;&#x7684;&#x65B9;&#x6CD5;&#x4E3A;input&#xFF0C; &#x53EF;&#x4EE5;&#x4F7F;&#x7528;model&#x5C5E;&#x6027;&#x6539;&#x53D8;&#x9ED8;&#x8BA4;&#x503C;</li>
 </ol>
-<h3 id="thunk&#x51FD;&#x6570;">thunk&#x51FD;&#x6570;</h3>
-<p>&#x8981;&#x60F3;&#x77E5;&#x9053;<code>Generator</code>&#x548C;&#x5F02;&#x6B65;&#x7684;&#x5173;&#x7CFB;, &#x9996;&#x5148;&#x8981;&#x641E;&#x6E05;&#x695A;&#x4E00;&#x4E2A;&#x6982;&#x5FF5;&#x2014;&#x2014;&#x2014;&#x2014;thunk&#x51FD;&#x6570;(&#x504F;&#x51FD;&#x6570;), &#x867D;&#x7136;&#x8FD9;&#x53EA;&#x662F;&#x5B9E;&#x73B0;&#x4E24;&#x8005;&#x5173;&#x7CFB;&#x7684;&#x65B9;&#x5F0F;&#x4E4B;&#x4E00;&#x3002;(&#x53E6;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x662F;Promise)</p>
-<p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;, &#x6BD4;&#x5982;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x8981;&#x5224;&#x65AD;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;, &#x53EF;&#x4EE5;&#x5199;&#x5982;&#x4E0B;&#x5224;&#x65AD;&#x903B;&#x8F91;:</p>
-<pre><code>let isString = (obj) =&gt; {
-    return Object.prototype.toString.call(obj) === &apos;[object String]&apos;;
-}
-
-let isFunction = (obj) =&gt; {
-    return Object.prototype.toString.call(obj) === &apos;[object Function]&apos;;
-}
-
-let isArray = (obj) =&gt; {
-    return Object.prototype.toString.call(obj) === &apos;[object Array]&apos;;
-}
-
-let isSet = (obj) =&gt; {
-    return Object.prototype.toString.call(obj) === &apos;[object Set]&apos;;
-}
-</code></pre><p>&#x4F46;&#x662F;&#x8FD9;&#x6837;&#x51FA;&#x73B0;&#x4E86;&#x5927;&#x91CF;&#x91CD;&#x590D;&#x7684;&#x51FD;&#x6570;, &#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x505A;&#x4E00;&#x6B21;&#x5C01;&#x88C5;</p>
-<pre><code>let isType = (obj, type) =&gt; {
-    return Object.prototype.toString.call(obj) === `[object ${type}]`;
-}
-</code></pre><p>&#x8FD9;&#x4E2A;isType&#x51FD;&#x6570;&#x88AB;&#x79F0;&#x4E3A;thunk&#x51FD;&#x6570;&#x3002; &#x6838;&#x5FC3;&#x903B;&#x8F91;&#x662F;&#x63A5;&#x6536;&#x4E00;&#x5B9A;&#x7684;&#x53C2;&#x6570;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x5B9A;&#x5236;&#x5316;&#x7684;&#x51FD;&#x6570;, &#x7136;&#x540E;&#x4F7F;&#x7528;&#x5B9A;&#x5236;&#x5316;&#x7684;&#x51FD;&#x6570;&#x53BB;&#x5B8C;&#x6210;&#x529F;&#x80FD;&#x3002;</p>
-<p>thunk&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x73B0;&#x4F1A;&#x6BD4;&#x5355;&#x4E2A;&#x7684;&#x5224;&#x65AD;&#x51FD;&#x6570;&#x590D;&#x6742;&#x4E00;&#x70B9;&#x70B9;&#xFF0C;&#x4F46;&#x5C31;&#x662F;&#x8FD9;&#x4E00;&#x70B9;&#x70B9;&#x7684;&#x590D;&#x6742;&#x5927;&#x5927;&#x65B9;&#x4FBF;&#x4E86;&#x540E;&#x7EED;&#x7684;&#x64CD;&#x4F5C;</p>
-<h3 id="&#x5F02;&#x6B65;&#x6267;&#x884C;&#x7684;&#x65B9;&#x5F0F;">&#x5F02;&#x6B65;&#x6267;&#x884C;&#x7684;&#x65B9;&#x5F0F;:</h3>
+<pre><code>model: {
+  prop: &apos;value&apos;,
+  event: &apos;change&apos;,
+},
+</code></pre><ol>
+<li>&#x4F7F;&#x7528;<code>$children</code>&#x548C;<code>$parent</code></li>
+</ol>
+<h3 id="&#x975E;&#x7236;&#x5B50;&#x7EC4;&#x4EF6;">&#x975E;&#x7236;&#x5B50;&#x7EC4;&#x4EF6;</h3>
 <ol>
-<li>&#x5229;&#x7528;thunk&#x51FD;&#x6570;</li>
-<li>&#x5229;&#x7528;Promise</li>
-<li>co&#x5E93;&#x548C;Generator&#x7ED3;&#x5408;</li>
+<li><code>Provide</code> &amp;&amp; <code>Inject</code></li>
+<li><code>$parent</code> &amp;&amp; <code>$children</code>&#x53BB;&#x4E00;&#x5C42;&#x4E00;&#x5C42;&#x627E;</li>
+<li><code>vuex</code>&#x4E00;&#x628A;&#x68AD;(&#x4EC0;&#x4E48;&#x90FD;&#x53EF;&#x4EE5;)</li>
+<li><code>eventBus</code>&#x4E5F;&#x662F;&#x4EC0;&#x4E48;&#x90FD;&#x53EF;&#x4EE5;</li>
+<li><code>vue-router&#x4E2D;&#x7684;$query&#x6216;&#x8005;$params</code></li>
+<li><code>$refs</code></li>
+<li><code>&#x63D2;&#x69FD;</code></li>
 </ol>
-<p>&#x5176;&#x4E2D;&#x5BF9;&#x4E8E;Generator&#x5728;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x65F6;&#x6700;&#x5E38;&#x7528;&#x7684;&#x5C31;&#x662F;&#x5229;&#x7528;co&#x5E93;+&#x751F;&#x6210;&#x5668;, &#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x4EE3;&#x7801;&#x6309;&#x987A;&#x5E8F;&#x6267;&#x884C;</p>
-<pre><code>co(function* () {
-  const r1 = yield readFilePromise(&apos;1.json&apos;);
-  const r2 = yield readFilePromise(&apos;2.json&apos;);
-  const r3 = yield readFilePromise(&apos;3.json&apos;);
-  const r4 = yield readFilePromise(&apos;4.json&apos;);
+<h2 id="extend&#x80FD;&#x505A;&#x4EC0;&#x4E48;">extend&#x80FD;&#x505A;&#x4EC0;&#x4E48;?</h2>
+<p>&#x4E00;&#x822C;&#x7528;&#x7684;&#x5F88;&#x5C11;, &#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x6269;&#x5C55;&#x7EC4;&#x4EF6;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x6784;&#x9020;&#x5668;, &#x4E00;&#x822C;&#x914D;&#x5408;$mount, &#x6BD4;&#x5982;&#x6269;&#x5C55;app&#x6839;&#x7EC4;&#x4EF6;</p>
+<h2 id="mixin&#x548C;mixins&#x7684;&#x533A;&#x522B;">mixin&#x548C;mixins&#x7684;&#x533A;&#x522B;</h2>
+<p><code>mixin</code>&#x7528;&#x4E8E;&#x5168;&#x5C40;&#x6DF7;&#x5165;, &#x4F1A;&#x5F71;&#x54CD;&#x6240;&#x6709;&#x7EC4;&#x4EF6;, &#x4E00;&#x822C;&#x7528;&#x4F5C;&#x521D;&#x59CB;&#x5316;&#x3002;</p>
+<pre><code>Vue.mixin({
+    data() {
+        return {
+            ...
+        }
+    }
 })
-</code></pre>
+</code></pre><p><code>mixins</code>&#x7528;&#x4E8E;&#x6269;&#x5C55;&#x7EC4;&#x4EF6;, &#x591A;&#x4E2A;&#x7EC4;&#x4EF6;&#x516C;&#x6709;&#x7684;&#x4E1C;&#x897F;, &#x4F7F;&#x7528;&#x540C;&#x4E00;&#x4E2A;mixins&#x53BB;&#x5C01;&#x88C5;&#x3002;&#x6BD4;&#x5982;&#x591A;&#x4E2A;&#x7EC4;&#x4EF6;&#x90FD;&#x5B58;&#x5728;&#x76F8;&#x540C;&#x7684;<code>getData</code>&#x8FD9;&#x6837;&#x7684;&#x4E00;&#x4E2A;&#x521D;&#x59CB;&#x5316;&#x51FD;&#x6570;&#xFF0C; &#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x540C;&#x4E00;&#x4E2A;mixins&#x7684;methods&#x4E2D;&#x5199;&#x5165;&#x4E00;&#x4E2A;<code>getData</code>&#x7684;&#x504F;&#x51FD;&#x6570;, &#x7528;&#x4E8E;&#x5B9A;&#x5236;&#x5316;&#xFF0C;&#x548C;&#x5171;&#x4EAB;&#x65B9;&#x6CD5;&#x3002;&#x540C;&#x65F6;mixins&#x4F1A;&#x5148;&#x4E8E;&#x4F7F;&#x7528;&#x4ED6;&#x7684;&#x7EC4;&#x4EF6;, &#x4F7F;&#x7528;&#x4ED6;&#x7684;&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x8986;&#x76D6;&#x4ED6;&#x7684;&#x903B;&#x8F91;(&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x540D;&#x5B57;)&#x3002;</p>
+<h2 id="computed&#x548C;watch&#x7684;&#x533A;&#x522B;">computed&#x548C;watch&#x7684;&#x533A;&#x522B;</h2>
+<p>&#x4E00;&#x4E2A;&#x662F;&#x8BA1;&#x7B97;&#x5C5E;&#x6027;, &#x5C5E;&#x4E8E;computedWatcher&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x76D1;&#x542C;&#x5C5E;&#x6027;&#xFF0C;&#x5C5E;&#x4E8E;userWatcher</p>
+<h2 id="keep-alive&#x7EC4;&#x4EF6;&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;">keep-alive&#x7EC4;&#x4EF6;&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;</h2>
+<p>&#x7528;&#x4E8E;&#x7F13;&#x5B58;&#x7EC4;&#x4EF6;&#xFF0C;&#x4E13;&#x5C5E;&#x751F;&#x547D;&#x5468;&#x671F;<code>activated</code>&#x548C;<code>deactivated</code></p>
+<h2 id="v-show&#x548C;v-if&#x7684;&#x533A;&#x522B;">v-show&#x548C;v-if&#x7684;&#x533A;&#x522B;</h2>
+<p>v-show&#x662F;display&#x8FD9;&#x4E2A;css&#x5C5E;&#x6027;&#x7684;&#x5207;&#x6362;&#x63A7;&#x5236;&#x9690;&#x85CF;&#x663E;&#x793A;
+v-if&#x662F;&#x8282;&#x70B9;&#x6E32;&#x67D3;&#x4E0E;&#x5426;</p>
+<p>&#x5982;&#x679C;&#x521D;&#x59CB;&#x5316;&#x4E0D;&#x9700;&#x8981;&#x5F53;&#x524D;&#x7EC4;&#x4EF6;&#xFF0C;&#x90A3;&#x4E48;v-if&#x7684;&#x521D;&#x59CB;&#x5316;&#x6E32;&#x67D3;&#x6D88;&#x8017;&#x66F4;&#x4F4E;&#xFF0C;&#x4F46;&#x662F;&#x5207;&#x6362;&#x6D88;&#x8017;&#x9AD8;&#xFF0C;&#x5982;&#x679C;&#x521D;&#x59CB;&#x5316;&#x9700;&#x8981;&#x8BE5;&#x7EC4;&#x4EF6;&#xFF0C;&#x90A3;&#x4E48;&#x8BE5;&#x7EC4;&#x4EF6;&#x7684;&#x521D;&#x59CB;&#x5316;&#x6E32;&#x67D3;&#x6D88;&#x8017;&#x4E00;&#x6837;&#xFF0C;&#x4F46;&#x662F;v-show&#x5207;&#x6362;&#x6D88;&#x8017;&#x4F4E;&#x3002;</p>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x8003;&#x8651;&#x5230;&#x7EC4;&#x4EF6;&#x9700;&#x8981;&#x505A;&#x51FA;&#x4ECE;&#x9690;&#x85CF;&#x5230;&#x663E;&#x793A;&#x540E;&#x9700;&#x8981;&#x5C55;&#x793A;&#x539F;&#x6765;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;v-show&#xFF0C; &#x5982;&#x679C;&#x4ECE;&#x9690;&#x85CF;&#x5230;&#x5C55;&#x793A;&#x9700;&#x8981;&#x518D;&#x8D70;&#x4E00;&#x904D;&#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF0C;&#x5728;&#x60F3;&#x5F00;&#x53D1;&#x8FC5;&#x901F;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;v-if(&#x4F46;&#x662F;&#x4E0D;&#x63A8;&#x8350;, &#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>$children</code>&#x6216;&#x8005;<code>$refs</code>&#x6216;&#x8005;<code>eventBus</code>&#x53BB;&#x89E6;&#x53D1;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x5185;&#x90E8;&#x7684;&#x521D;&#x59CB;&#x5316;&#x51FD;&#x6570;)</p>
+<h2 id="&#x7EC4;&#x4EF6;&#x7684;data&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5BF9;&#x8C61;">&#x7EC4;&#x4EF6;&#x7684;data&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5BF9;&#x8C61;</h2>
+<p>&#x7EC4;&#x4EF6;&#x590D;&#x7528;&#x7684;&#x65F6;&#x5019;&#x6240;&#x6709;&#x7684;&#x7EC4;&#x4EF6;&#x90FD;&#x4F1A;&#x5171;&#x4EAB;data(&#x56E0;&#x4E3A;Vue&#x7684;&#x5E95;&#x5C42;&#x6709;&#x4E00;&#x4E2A;&#x5408;&#x5E76;&#x64CD;&#x4F5C;<code>mergeOptions</code>, &#x5408;&#x5E76;options&#xFF0C;extendOptions&#x5C31;&#x662F;&#x7EC4;&#x4EF6;&#x7684;options&#xFF0C;Super.options&#x8868;&#x793A;Vue&#x7684;options, &#x4F1A;&#x5C06;&#x5168;&#x5C40;&#x7684;options&#x5408;&#x5E76;&#x8FC7;&#x6765;), &#x5982;&#x679C;data&#x662F;&#x5BF9;&#x8C61;&#x7684;&#x8BDD;, &#x5C31;&#x4F1A;&#x9020;&#x6210;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x4FEE;&#x6539;<code>data</code>&#x4EE5;&#x540E;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x5176;&#x4ED6;&#x7EC4;&#x4EF6;&#xFF0C;&#x6240;&#x4EE5;&#x8981;&#x5C06;data&#x5199;&#x4E3A;&#x51FD;&#x6570;, &#x6BCF;&#x4E00;&#x6B21;&#x7528;&#x5230;&#x5C31;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#x51FD;&#x6570;&#x83B7;&#x5F97;&#x65B0;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<p>&#x5F53;&#x4F7F;&#x7528;new Vue()&#x7684;&#x65F6;&#x5019;&#xFF0C; &#x65E0;&#x8BBA;&#x662F;&#x5C06;data&#x8BBE;&#x7F6E;&#x4E3A;&#x5BF9;&#x8C61;&#x8FD8;&#x662F;&#x51FD;&#x6570;&#x90FD;&#x53EF;&#x4EE5;, &#x56E0;&#x4E3A;&#x4ED6;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x6839;&#x7EC4;&#x4EF6;&#xFF0C;&#x7EC4;&#x4EF6;&#x4E0D;&#x4F1A;&#x590D;&#x7528;&#xFF0C;&#x4E5F;&#x5C31;&#x4E0D;&#x5B58;&#x5728;&#x5171;&#x4EAB;<code>data</code>&#x7684;&#x60C5;&#x51B5;&#x4E86;&#x3002;</p>
+
                                 
                                 </section>
                             
@@ -1215,14 +1196,10 @@ let isSet = (obj) =&gt; {
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 异步编程">
+                <a href="../part23/1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: vue和React对比">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="2.html" class="navigation navigation-next " aria-label="Next page: Promise">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -1231,7 +1208,7 @@ let isSet = (obj) =&gt; {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Generator","level":"1.13.2","depth":2,"next":{"title":"Promise","level":"1.13.3","depth":2,"path":"part12/2.md","ref":"part12/2.md","articles":[]},"previous":{"title":"异步编程","level":"1.13.1","depth":2,"path":"part12/index.md","ref":"part12/index.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part12/1.md","mtime":"2021-02-24T11:26:06.789Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-09T16:30:57.170Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"vue基础知识点","level":"1.25","depth":1,"previous":{"title":"vue和React对比","level":"1.24","depth":1,"path":"part23/1.md","ref":"part23/1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part24/1.md","mtime":"2021-03-09T16:25:22.421Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-09T16:30:57.170Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
