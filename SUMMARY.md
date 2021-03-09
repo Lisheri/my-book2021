@@ -66,3 +66,5 @@
 * [浏览器渲染原理](part20/1.md)
 * [部分性能优化](part21/1.md)
 * [webpack性能优化](part22/1.md)
+* [vue和React对比](part23/1.md)
+* [vue基础知识点](part24/1.md)
