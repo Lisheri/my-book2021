@@ -1,0 +1,1405 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>React基础知识 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../part24/1.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../part1/">
+            
+                <a href="../part1/">
+            
+                    
+                    浏览器缓存
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../part1/1.html">
+            
+                <a href="../part1/1.html">
+            
+                    
+                    从缓存位置区分
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../part1/2.html">
+            
+                <a href="../part1/2.html">
+            
+                    
+                    缓存策略
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../part1/3.html">
+            
+                <a href="../part1/3.html">
+            
+                    
+                    Express和Cache-Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../part1/4.html">
+            
+                <a href="../part1/4.html">
+            
+                    
+                    Last-Modified和E-Tag
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    浏览器安全
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../part2/1.html">
+            
+                <a href="../part2/1.html">
+            
+                    
+                    xss注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../part2/2.html">
+            
+                <a href="../part2/2.html">
+            
+                    
+                    CSRF注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../part2/3.html">
+            
+                <a href="../part2/3.html">
+            
+                    
+                    https
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    深浅拷贝
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../part3/1.html">
+            
+                <a href="../part3/1.html">
+            
+                    
+                    浅拷贝
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../part3/2.html">
+            
+                <a href="../part3/2.html">
+            
+                    
+                    深拷贝
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../part4/">
+            
+                <a href="../part4/">
+            
+                    
+                    v8垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../part5/">
+            
+                <a href="../part5/">
+            
+                    
+                    v8解释和编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    变量类型和计算
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../part6/1.html">
+            
+                <a href="../part6/1.html">
+            
+                    
+                    变量类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../part6/3.html">
+            
+                <a href="../part6/3.html">
+            
+                    
+                    类型转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../part6/2.html">
+            
+                <a href="../part6/2.html">
+            
+                    
+                    变量计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../part6/4.html">
+            
+                <a href="../part6/4.html">
+            
+                    
+                    instanceof 类型判断
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../part7/">
+            
+                <a href="../part7/">
+            
+                    
+                    箭头函数和普通函数的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    事件防抖
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../part8/1.html">
+            
+                <a href="../part8/1.html">
+            
+                    
+                    防抖
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../part8/2.html">
+            
+                <a href="../part8/2.html">
+            
+                    
+                    节流
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../part9/">
+            
+                <a href="../part9/">
+            
+                    
+                    sessionStorage和localStorage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" >
+            
+                <span>
+            
+                    
+                    三次握手 四次挥手 http状态码
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../part10/1.html">
+            
+                <a href="../part10/1.html">
+            
+                    
+                    三次握手
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../part10/2.html">
+            
+                <a href="../part10/2.html">
+            
+                    
+                    四次挥手
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../part10/3.html">
+            
+                <a href="../part10/3.html">
+            
+                    
+                    http状态码
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    从输入url到页面呈现
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../part11/1.html">
+            
+                <a href="../part11/1.html">
+            
+                    
+                    网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../part11/2.html">
+            
+                <a href="../part11/2.html">
+            
+                    
+                    解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../part11/3.html">
+            
+                <a href="../part11/3.html">
+            
+                    
+                    渲染
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../part11/4.html">
+            
+                <a href="../part11/4.html">
+            
+                    
+                    从输入URL到页面呈现(总)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" >
+            
+                <span>
+            
+                    
+                    JS异步编程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../part12/">
+            
+                <a href="../part12/">
+            
+                    
+                    异步编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../part12/1.html">
+            
+                <a href="../part12/1.html">
+            
+                    
+                    Generator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../part12/2.html">
+            
+                <a href="../part12/2.html">
+            
+                    
+                    Promise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" data-path="../part12/3.html">
+            
+                <a href="../part12/3.html">
+            
+                    
+                    async/await
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" data-path="../part12/4.html">
+            
+                <a href="../part12/4.html">
+            
+                    
+                    setTimeout/setInterval/requestAnimationFrame
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    手写Promise
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../part13/1.html">
+            
+                <a href="../part13/1.html">
+            
+                    
+                    简易版
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../part13/2.html">
+            
+                <a href="../part13/2.html">
+            
+                    
+                    Promise A+ 版
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../part14/">
+            
+                <a href="../part14/">
+            
+                    
+                    原型和原型链
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" >
+            
+                <span>
+            
+                    
+                    部分API原理(手写代码)
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../part15/1.html">
+            
+                <a href="../part15/1.html">
+            
+                    
+                    new操作符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.2" data-path="../part15/2.html">
+            
+                <a href="../part15/2.html">
+            
+                    
+                    call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.3" data-path="../part15/3.html">
+            
+                <a href="../part15/3.html">
+            
+                    
+                    apply
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.4" data-path="../part15/4.html">
+            
+                <a href="../part15/4.html">
+            
+                    
+                    bind
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.5" data-path="../part15/5.html">
+            
+                <a href="../part15/5.html">
+            
+                    
+                    this指针
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.6" data-path="../part15/6.html">
+            
+                <a href="../part15/6.html">
+            
+                    
+                    Object.is
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../part16/">
+            
+                <a href="../part16/">
+            
+                    
+                    作用域和闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" >
+            
+                <span>
+            
+                    
+                    深入数组
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.18.1" data-path="../part17/1.html">
+            
+                <a href="../part17/1.html">
+            
+                    
+                    数组扁平化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" >
+            
+                <span>
+            
+                    
+                    EventLoop
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.19.1" data-path="../part18/1.html">
+            
+                <a href="../part18/1.html">
+            
+                    
+                    进程与线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19.2" data-path="../part18/2.html">
+            
+                <a href="../part18/2.html">
+            
+                    
+                    执行栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19.3" data-path="../part18/3.html">
+            
+                <a href="../part18/3.html">
+            
+                    
+                    浏览器中的Event Loop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19.4" data-path="../part18/4.html">
+            
+                <a href="../part18/4.html">
+            
+                    
+                    Node中的Event Loop
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" >
+            
+                <span>
+            
+                    
+                    浏览器基础及常见面试题
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.20.1" data-path="../part19/1.html">
+            
+                <a href="../part19/1.html">
+            
+                    
+                    事件机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20.2" data-path="../part19/2.html">
+            
+                <a href="../part19/2.html">
+            
+                    
+                    跨域
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20.3" data-path="../part19/3.html">
+            
+                <a href="../part19/3.html">
+            
+                    
+                    存储
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="../part20/1.html">
+            
+                <a href="../part20/1.html">
+            
+                    
+                    浏览器渲染原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="../part21/1.html">
+            
+                <a href="../part21/1.html">
+            
+                    
+                    部分性能优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="../part22/1.html">
+            
+                <a href="../part22/1.html">
+            
+                    
+                    webpack性能优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" data-path="../part23/1.html">
+            
+                <a href="../part23/1.html">
+            
+                    
+                    vue和React对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" data-path="../part24/1.html">
+            
+                <a href="../part24/1.html">
+            
+                    
+                    vue基础知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.26" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    React基础知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >React基础知识</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="react&#x4E4B;&#x95EE;">React&#x4E4B;&#x95EE;</h1>
+<h2 id="&#x4E3A;&#x4EC0;&#x4E48;&#x9009;&#x62E9;&#x4F7F;&#x7528;&#x6846;&#x67B6;&#x800C;&#x4E0D;&#x662F;&#x539F;&#x751F;">&#x4E3A;&#x4EC0;&#x4E48;&#x9009;&#x62E9;&#x4F7F;&#x7528;&#x6846;&#x67B6;&#x800C;&#x4E0D;&#x662F;&#x539F;&#x751F;</h2>
+<h3 id="&#x6846;&#x67B6;&#x7684;&#x597D;&#x5904;">&#x6846;&#x67B6;&#x7684;&#x597D;&#x5904;</h3>
+<ol>
+<li>&#x7EC4;&#x4EF6;&#x5316;&#xFF1A;&#x5176;&#x4E2D;&#x4EE5;React&#x7684;&#x7EC4;&#x4EF6;&#x5316;&#x6700;&#x4E3A;&#x5F7B;&#x5E95;&#xFF0C;&#x5347;&#x81F3;&#x53EF;&#x4EE5;&#x5230;&#x51FD;&#x6570;&#x7EA7;&#x522B;&#x7684;&#x539F;&#x5B50;&#x7EC4;&#x4EF6;&#xFF0C;&#x9AD8;&#x5EA6;&#x7684;&#x7EC4;&#x4EF6;&#x5316;&#x53EF;&#x4EE5;&#x4F7F;&#x6211;&#x4EEC;&#x7684;&#x5DE5;&#x7A0B;&#x6613;&#x4E8E;&#x7EF4;&#x62A4;&#x3001;&#x6613;&#x4E8E;&#x7EC4;&#x5408;&#x6269;&#x5C55;&#x3002;</li>
+<li>&#x5929;&#x7136;&#x5206;&#x5C42;&#xFF1A; JQ&#x65F6;&#x4EE3;&#x7684;&#x4EE3;&#x7801;&#x5927;&#x90E8;&#x5206;&#x60C5;&#x51B5;&#x4E0B;&#x662F;&#x9762;&#x6761;&#x4EE3;&#x7801;&#xFF0C;&#x8026;&#x5408;&#x4E25;&#x91CD;&#xFF0C;&#x73B0;&#x4EE3;&#x6846;&#x67B6;&#x4E0D;&#x7BA1;&#x662F;MVC&#x3001;MVP&#x8FD8;&#x662F;MVVM&#x6A21;&#x5F0F;&#x90FD;&#x80FD;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x8FDB;&#x884C;&#x5206;&#x5C42;&#xFF0C;&#x4EE3;&#x7801;&#x89E3;&#x85D5;&#x66F4;&#x6613;&#x4E8E;&#x8BFB;&#x5199;</li>
+<li>&#x751F;&#x6001;&#xFF1A; &#x73B0;&#x5728;&#x7684;&#x4E3B;&#x6D41;&#x524D;&#x7AEF;&#x6846;&#x67B6;&#x90FD;&#x81EA;&#x5E26;&#x751F;&#x6001;&#xFF0C;&#x4E0D;&#x7BA1;&#x662F;&#x6570;&#x636E;&#x6D41;&#x7BA1;&#x7406;&#x6846;&#x67B6;&#x8FD8;&#x662F;UI&#x5E93;&#x90FD;&#x6709;&#x6210;&#x719F;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;</li>
+<li>&#x5F00;&#x53D1;&#x6548;&#x7387;&#xFF1A; &#x73B0;&#x4EE3;&#x524D;&#x7AEF;&#x6846;&#x67B6;&#x90FD;&#x9ED8;&#x8BA4;&#x81EA;&#x52A8;&#x66F4;&#x65B0;DOM&#xFF0C;&#x800C;&#x975E;&#x6211;&#x4EEC;&#x624B;&#x52A8;&#x64CD;&#x4F5C;&#xFF0C;&#x89E3;&#x653E;&#x4E86;&#x5F00;&#x53D1;&#x8005;&#x7684;&#x624B;&#x52A8;DOM&#x6210;&#x672C;&#xFF0C;&#x63D0;&#x9AD8;&#x5F00;&#x53D1;&#x6548;&#x7387;&#xFF0C;&#x4ECE;&#x6839;&#x672C;&#x4E0A;&#x89E3;&#x51B3;&#x4E86;UI&#x4E0E;&#x72B6;&#x6001;&#x540C;&#x6B65;&#x95EE;&#x9898;&#x3002;</li>
+</ol>
+<h2 id="&#x865A;&#x62DF;dom&#x7684;&#x4F18;&#x52A3;&#x5982;&#x4F55;&#xFF1F;">&#x865A;&#x62DF;DOM&#x7684;&#x4F18;&#x52A3;&#x5982;&#x4F55;&#xFF1F;</h2>
+<ul>
+<li>&#x865A;&#x62DF;DOM&#x672C;&#x8D28;&#x4E0A;&#x662F;JavaScript&#x5BF9;&#x8C61;,&#x662F;&#x5BF9;&#x771F;&#x5B9E;DOM&#x7684;&#x62BD;&#x8C61;</li>
+<li>&#x72B6;&#x6001;&#x53D8;&#x66F4;&#x65F6;&#xFF0C;&#x8BB0;&#x5F55;&#x65B0;&#x6811;&#x548C;&#x65E7;&#x6811;&#x7684;&#x5DEE;&#x5F02;</li>
+<li>&#x6700;&#x540E;&#x628A;&#x5DEE;&#x5F02;&#x66F4;&#x65B0;&#x5230;VNode&#x5BF9;&#x8C61;&#x4E2D;&#xFF0C;&#x5728;&#x901A;&#x8FC7;VNode&#x751F;&#x6210;DOM</li>
+</ul>
+<h2 id="react&#x6700;&#x65B0;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x662F;&#x600E;&#x4E48;&#x6837;&#x7684;&#xFF1F;">React&#x6700;&#x65B0;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x662F;&#x600E;&#x4E48;&#x6837;&#x7684;&#xFF1F;</h2>
+<p>React16 &#x4E4B;&#x540E;&#x6709;&#x4E09;&#x4E2A;&#x751F;&#x547D;&#x5468;&#x671F;&#x88AB;&#x5E9F;&#x5F03;(&#x4F46;&#x5E76;&#x672A;&#x5220;&#x9664;)</p>
+<ul>
+<li>componentWillMount</li>
+<li>componentWillReceiveProps</li>
+<li>componentWillUpdate</li>
+</ul>
+<p>&#x5B98;&#x65B9;&#x8BA1;&#x5212;&#x5220;&#x9664;&#xFF0C;&#x53EA;&#x4FDD;&#x7559;UNSAVE_&#x524D;&#x7F00;&#x7684;&#x4E09;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x5411;&#x4E0B;&#x517C;&#x5BB9;&#xFF0C;&#x4F46;&#x662F;&#x5BF9;&#x5F00;&#x53D1;&#x8005;&#x800C;&#x8A00;&#xFF0C;&#x5C3D;&#x91CF;&#x907F;&#x514D;&#x4F7F;&#x7528;&#x5B83;&#x4EEC;&#xFF0C;&#x4F7F;&#x7528;&#x65B0;&#x589E;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x53BB;&#x66FF;&#x4EE3;&#x4ED6;&#x4EEC;&#x3002;</p>
+<p>&#x76EE;&#x524D;16.8+&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x5206;&#x4E3A;&#x4E09;&#x4E2A;&#x9636;&#x6BB5;&#xFF0C;&#x5206;&#x522B;&#x662F;&#x6302;&#x8F7D;&#x9636;&#x6BB5;&#x3001;&#x66F4;&#x65B0;&#x9636;&#x6BB5;&#x3001;&#x5378;&#x8F7D;&#x9636;&#x6BB5;</p>
+<h3 id="&#x6302;&#x8F7D;&#x9636;&#x6BB5;&#xFF1A;">&#x6302;&#x8F7D;&#x9636;&#x6BB5;&#xFF1A;</h3>
+<ul>
+<li>constructor: &#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x6700;&#x5148;&#x88AB;&#x6267;&#x884C;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x91CC;&#x521D;&#x59CB;&#x5316;state&#x5BF9;&#x8C61;&#x6216;&#x8005;&#x7ED9;&#x81EA;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;&#x7ED1;&#x5B9A;this</li>
+<li>getDerivedStateFromProps: <code>static getDerivedStateFromProps(nextProps, prevState)</code>, &#x8FD9;&#x4E2A;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x63A5;&#x6536;&#x5230;&#x65B0;&#x7684;&#x5C5E;&#x6027;&#x60F3;&#x53BB;&#x4FEE;&#x6539;&#x6211;&#x4EEC;state, &#x53EF;&#x4EE5;&#x4F7F;&#x7528;getDerivedStateFromProps</li>
+<li>render: render&#x51FD;&#x6570;&#x662F;&#x7EAF;&#x51FD;&#x6570;, &#x53EA;&#x8FD4;&#x56DE;&#x9700;&#x8981;&#x6E32;&#x67D3;&#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x4E0D;&#x5E94;&#x8BE5;&#x5305;&#x542B;&#x5176;&#x4ED6;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#xFF0C;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x539F;&#x751F;&#x7684;DOM&#xFF0C;React&#x7EC4;&#x4EF6;&#xFF0C;Fragment&#xFF0C;Protals&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x548C;&#x6570;&#x5B57;&#xFF0C;Boolean&#x548C;null&#x7B49;&#x5185;&#x5BB9;</li>
+<li>ComponentDidMount: &#x7EC4;&#x4EF6;&#x88C5;&#x8F7D;&#x4E4B;&#x540E;&#x8C03;&#x7528;&#xFF0C; &#x6B64;&#x65F6;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;DOM&#x8282;&#x70B9;&#x5E76;&#x64CD;&#x4F5C;&#xFF0C;&#x6BD4;&#x5982;&#x5BF9;canvas&#xFF0C;svg&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x8BF7;&#x6C42;&#xFF0C;&#x8BA2;&#x9605;&#x90FD;&#x53EF;&#x4EE5;&#x5199;&#x5728;&#x8FD9;&#x4E2A;&#x91CC;&#x9762;&#xFF0C;&#x4F46;&#x662F;&#x8BB0;&#x5F97;&#x5728;componentWillUnMount&#x4E2D;&#x53D6;&#x6D88;&#x8BA2;&#x9605;&#x3002;</li>
+</ul>
+<h3 id="&#x66F4;&#x65B0;&#x9636;&#x6BB5;">&#x66F4;&#x65B0;&#x9636;&#x6BB5;:</h3>
+<ul>
+<li>getDerivedStateFromProps: &#x6B64;&#x65B9;&#x6CD5;&#x5728;&#x66F4;&#x65B0;&#x548C;&#x6302;&#x8F7D;&#x9636;&#x6BB5;&#x90FD;&#x53EF;&#x80FD;&#x4F1A;&#x8C03;&#x7528;</li>
+<li>shouldComponentUpdate: <code>shouldComponentUpdate(nextProps, nextState)</code>, &#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570;nextProps&#x548C;nextState, &#x8868;&#x793A;&#x65B0;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x53D8;&#x5316;&#x4E4B;&#x540E;&#x7684;state, &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;, true&#x8868;&#x793A;&#x4F1A;&#x89E6;&#x53D1;&#x91CD;&#x65B0;&#x6E32;&#x67D3;, false&#x8868;&#x793A;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1;&#x91CD;&#x65B0;&#x6E32;&#x67D3;, &#x9ED8;&#x8BA4;&#x8FD4;&#x56DE;true, &#x6211;&#x4EEC;&#x901A;&#x5E38;&#x5229;&#x7528;&#x6B64;&#x751F;&#x547D;&#x5468;&#x671F;&#x6765;&#x4F18;&#x5316;React&#x7A0B;&#x5E8F;&#x6027;&#x80FD;</li>
+<li>render: &#x66F4;&#x65B0;&#x9636;&#x6BB5;&#x4E5F;&#x4F1A;&#x89E6;&#x53D1;&#x6B64;&#x751F;&#x547D;&#x5468;&#x671F;</li>
+<li>getSnapshotBeforeUpdate: <code>getSnapshotBeforeUpdate(prevProps, prevState)</code>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5728;render&#x4E4B;&#x540E;, componentDidUpdate&#x4E4B;&#x524D;&#x8C03;&#x7528;, &#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570;prevProps&#x548C;prevState, &#x8868;&#x793A;&#x4E4B;&#x524D;&#x7684;&#x5C5E;&#x6027;&#x548C;state, &#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x6709;&#x4E00;&#x4E2A;&#x8FD4;&#x56DE;&#x503C;, &#x4F1A;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x4F20;&#x7ED9;componentDidUpdate, &#x5982;&#x679C;&#x4E0D;&#x60F3;&#x8981;&#x8FD4;&#x56DE;&#x503C;, &#x53EF;&#x4EE5;&#x8FD4;&#x56DE;null, &#x6B64;&#x751F;&#x547D;&#x5468;&#x671F;&#x5FC5;&#x987B;&#x4E0E;componentDidUpdate&#x642D;&#x914D;&#x4F7F;&#x7528;&#x3002;</li>
+<li>componentDidUpdate: <code>componentDidUpdate(prevProps, prevState, snapshot)</code>, &#x8BE5;&#x65B9;&#x6CD5;&#x5728;getSnapshotBeforeUpdate&#x4E4B;&#x540E;&#x88AB;&#x8C03;&#x7528;, &#x6709;&#x4E09;&#x4E2A;&#x53C2;&#x6570;prevProps, prevState, snapshot, &#x8868;&#x793A;&#x4E4B;&#x524D;&#x7684;props, &#x4E4B;&#x524D;&#x7684;state, &#x548C;snapshot&#x3002;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x662F;getSnapshotBeforeUpdate&#x8FD4;&#x56DE;&#x7684;, &#x5982;&#x679C;&#x89E6;&#x53D1;&#x67D0;&#x4E9B;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x65F6;&#x9700;&#x8981;&#x7528;&#x5230;DOM&#x5143;&#x7D20;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x5219;&#x5C06;&#x5BF9;&#x6BD4;&#x6216;&#x8BA1;&#x7B97;&#x7684;&#x8FC7;&#x7A0B;&#x8FC1;&#x79FB;&#x81F3;getSnapshotBeforeUpdate, &#x7136;&#x540E;&#x5728;componentDidUpdate&#x4E2D;&#x7EDF;&#x4E00;&#x89E6;&#x53D1;&#x56DE;&#x8C03;&#x6216;&#x66F4;&#x65B0;&#x72B6;&#x6001;</li>
+</ul>
+<h3 id="&#x5378;&#x8F7D;&#x9636;&#x6BB5;">&#x5378;&#x8F7D;&#x9636;&#x6BB5;:</h3>
+<ul>
+<li>componentWillUnMount: &#x5F53;&#x6211;&#x4EEC;&#x7684;&#x7EC4;&#x4EF6;&#x88AB;&#x5378;&#x8F7D;&#x6216;&#x8005;&#x9500;&#x6BC1;&#x4E86;&#x5C31;&#x4F1A;&#x8C03;&#x7528;, &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x91CC;&#x9762;&#x53BB;&#x6E05;&#x9664;&#x4E00;&#x4E9B;&#x5B9A;&#x65F6;&#x5668;, &#x53D6;&#x6D88;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#xFF0C; &#x6E05;&#x7406;&#x65E0;&#x6548;&#x7684;DOM&#x5143;&#x7D20;&#x7B49;&#x5783;&#x573E;&#x6E05;&#x7406;&#x5DE5;&#x4F5C;</li>
+</ul>
+<h2 id="react&#x7684;&#x8BF7;&#x6C42;&#x5E94;&#x8BE5;&#x653E;&#x5728;&#x54EA;&#x4E2A;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E2D;&#xFF1F;">React&#x7684;&#x8BF7;&#x6C42;&#x5E94;&#x8BE5;&#x653E;&#x5728;&#x54EA;&#x4E2A;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E2D;&#xFF1F;</h2>
+<p>React&#x7684;&#x5F02;&#x6B65;&#x8BF7;&#x6C42;&#x5230;&#x5E95;&#x5E94;&#x8BE5;&#x653E;&#x5728;&#x54EA;&#x4E2A;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E2D;&#xFF0C;&#x6709;&#x4EBA;&#x8BA4;&#x4E3A;&#x662F;&#x5728;<code>componentWillMount</code>&#x4E2D;&#x53EF;&#x4EE5;&#x63D0;&#x524D;&#x8FDB;&#x884C;&#x5F02;&#x6B65;&#x8BF7;&#x6C42;, &#x907F;&#x514D;&#x767D;&#x5C4F;, &#x5176;&#x5B9E;&#x8FD9;&#x4E2A;&#x89C2;&#x70B9;&#x662F;&#x6709;&#x95EE;&#x9898;&#x7684;&#x3002;</p>
+<p>&#x7531;&#x4E8E;JS&#x4E2D;&#x5F02;&#x6B65;&#x4E8B;&#x4EF6;&#x7684;&#x6027;&#x8D28;&#xFF0C;&#x5F53;&#x4F60;&#x542F;&#x52A8;API&#x8C03;&#x7528;&#x65F6;, &#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x5728;&#x6B64;&#x671F;&#x95F4;&#x8FD4;&#x56DE;&#x6267;&#x884C;&#x5176;&#x4ED6;&#x5DE5;&#x4F5C;&#x3002;&#x5F53;React&#x6E32;&#x67D3;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x65F6;&#xFF0C;&#x4ED6;&#x4E0D;&#x4F1A;&#x7B49;&#x5F85;componentWillMount&#x5B8C;&#x6210;&#x4EFB;&#x4F55;&#x4E8B;&#x60C5;&#xFF0C;React&#x7EE7;&#x7EED;&#x524D;&#x8FDB;&#x5E76;&#x7EE7;&#x7EED;render, &#x6CA1;&#x6709;&#x529E;&#x6CD5;&#x201C;&#x6682;&#x505C;&#x201D;&#x6E32;&#x67D3;&#x4EE5;&#x7B49;&#x5F85;&#x6570;&#x636E;&#x5230;&#x8FBE;</p>
+<p>&#x800C;&#x5728;<code>componentWillMount</code>&#x8BF7;&#x6C42;&#x4F1A;&#x6709;&#x4E00;&#x7CFB;&#x5217;&#x6F5C;&#x5728;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x9996;&#x5148;&#xFF0C;&#x5728;SSR&#xFF0C;&#x5982;&#x679C;&#x5728;componentWillMount&#x4E2D;&#x83B7;&#x53D6;&#x6570;&#x636E;&#xFF0C;fetch data&#x4F1A;&#x6267;&#x884C;&#x4E24;&#x6B21;&#xFF0C;&#x4E00;&#x6B21;&#x5728;&#x670D;&#x52A1;&#x7AEF;&#xFF0C;&#x4E00;&#x6B21;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x8FD9;&#x9020;&#x6210;&#x4E86;&#x591A;&#x4F59;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x5176;&#x6B21;&#xFF0C;&#x5728;React16&#x8FDB;&#x884C;React Fiber&#x91CD;&#x5199;&#x540E;&#xFF0C;ComponentWillMount&#x53EF;&#x80FD;&#x4F1A;&#x5728;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x4E2D;&#x591A;&#x6B21;&#x8C03;&#x7528;</p>
+<p>&#x76EE;&#x524D;&#x5B98;&#x65B9;&#x63A8;&#x8350;&#x7684;&#x5F02;&#x6B65;&#x8BF7;&#x6C42;&#x662F;&#x5728;<code>componentDidMount</code>&#x4E2D;&#x8FDB;&#x884C;</p>
+<p>&#x5982;&#x679C;&#x6709;&#x7279;&#x6B8A;&#x9700;&#x6C42;&#x9700;&#x8981;&#x63D0;&#x524D;&#x8BF7;&#x6C42;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x7279;&#x6B8A;&#x60C5;&#x51B5;&#x4E0B;&#x5728;<code>constructor</code>&#x4E2D;&#x8BF7;&#x6C42;:</p>
+<p><code>react 17&#x4E4B;&#x540E;componentWillMount&#x4F1A;&#x88AB;&#x5E9F;&#x5F03;, &#x4EC5;&#x4EC5;&#x4FDD;&#x7559; UNSAFE_componentWillMount</code></p>
+<h2 id="setstate&#x5230;&#x5E95;&#x662F;&#x540C;&#x6B65;&#x8FD8;&#x662F;&#x5F02;&#x6B65;">setState&#x5230;&#x5E95;&#x662F;&#x540C;&#x6B65;&#x8FD8;&#x662F;&#x5F02;&#x6B65;?</h2>
+<p>&#x7B54;&#x6848;&#x662F;&#xFF1A;&#x4ED6;&#x5E76;&#x6CA1;&#x6709;&#x540C;&#x6B65;&#x548C;&#x5F02;&#x6B65;&#x8FD9;&#x4E00;&#x8BF4;&#xFF0C;&#x53EA;&#x80FD;&#x8BF4;&#x6709;&#x65F6;&#x5019;&#x8868;&#x73B0;&#x51FA;&#x662F;&#x540C;&#x6B65;&#xFF0C;&#x6709;&#x65F6;&#x5019;&#x8868;&#x73B0;&#x51FA;&#x662F;&#x5F02;&#x6B65;&#x3002;</p>
+<ol>
+<li>setState&#x53EA;&#x5728;&#x5408;&#x6210;&#x4E8B;&#x4EF6;&#x548C;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x4E2D;&#x662F;&#x5F02;&#x6B65;&#x7684;&#xFF0C;&#x5728;&#x539F;&#x751F;&#x4E8B;&#x4EF6;&#x548C;setTimeout&#x4E2D;&#x90FD;&#x662F;&#x540C;&#x6B65;&#x7684;&#x3002;</li>
+<li>setState&#x7684;&#x201C;&#x5F02;&#x6B65;&#x201D;&#x5E76;&#x4E0D;&#x662F;&#x8BF4;&#x5185;&#x90E8;&#x7531;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#xFF0C;&#x5176;&#x5B9E;&#x672C;&#x8EAB;&#x7684;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x548C;&#x4EE3;&#x7801;&#x90FD;&#x662F;&#x540C;&#x6B65;&#x7684;&#xFF0C;&#x53EA;&#x662F;&#x5408;&#x6210;&#x4E8B;&#x4EF6;&#x548C;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x987A;&#x5E8F;&#x5728;&#x66F4;&#x65B0;&#x4E4B;&#x524D;&#xFF0C;&#x5BFC;&#x81F4;&#x5728;&#x5408;&#x6210;&#x4E8B;&#x4EF6;&#x548C;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x4E2D;&#x6CA1;&#x6CD5;&#x7ACB;&#x9A6C;&#x62FF;&#x5230;&#x66F4;&#x65B0;&#x540E;&#x7684;&#x503C;&#xFF0C;&#x5F62;&#x6210;&#x4E86;&#x6240;&#x8C13;&#x7684;&#x201C;&#x5F02;&#x6B65;&#x201D;&#xFF0C; &#x5F53;&#x7136;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;<code>setState(partialState, callback)</code>&#x7684;<code>callback</code>&#x62FF;&#x5230;&#x66F4;&#x65B0;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x3002;</li>
+<li>setState&#x7684;&#x6279;&#x91CF;&#x66F4;&#x65B0;&#x4F18;&#x5316;&#xFF0C;&#x4E5F;&#x662F;&#x5EFA;&#x7ACB;&#x5728;&quot;&#x5F02;&#x6B65;&quot;(&#x5408;&#x6210;&#x4E8B;&#x4EF6;, &#x94A9;&#x5B50;&#x51FD;&#x6570;)&#x4E4B;&#x4E0A;&#x7684;&#xFF0C;&#x5728;&#x539F;&#x751F;&#x4E8B;&#x4EF6;&#x548C;SetTimeout&#x4E2D;&#x4E0D;&#x4F1A;&#x6279;&#x91CF;&#x66F4;&#x65B0;&#xFF0C;&#x5728;&quot;&#x5F02;&#x6B65;&quot;&#x4E2D;&#x5982;&#x679C;&#x5BF9;&#x4E00;&#x4E2A;&#x503C;&#x8FDB;&#x884C;&#x591A;&#x6B21;setState, setState&#x7684;&#x6279;&#x91CF;&#x66F4;&#x65B0;&#x7B56;&#x7565;&#x4F1A;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x8986;&#x76D6;&#xFF0C;&#x53BB;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x7684;&#x503C;&#x6267;&#x884C;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x591A;&#x6B21;setState&#x66F4;&#x65B0;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x503C;&#xFF0C;&#x5728;&#x66F4;&#x65B0;&#x65F6;&#x4F1A;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x5408;&#x5E76;&#x6279;&#x91CF;&#x66F4;&#x65B0;&#x3002;</li>
+</ol>
+<h2 id="react&#x901A;&#x4FE1;&#x65B9;&#x5F0F;">React&#x901A;&#x4FE1;&#x65B9;&#x5F0F;</h2>
+<ul>
+<li>&#x7239;&#x5411;&#x513F;&#x5B50;&#x901A;&#x4FE1;: &#x7239;&#x5411;&#x513F;&#x5B50;&#x901A;&#x8FC7;&#x4F20;&#x9012;props&#x7684;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#x3002;</li>
+<li>&#x513F;&#x5B50;&#x5411;&#x7239;: &#x7239;&#x5411;&#x513F;&#x5B50;&#x4F20;&#x9012;props&#x4E3A;&#x4E00;&#x4E2A;&#x5B9A;&#x4E49;&#x5728;&#x7239;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x7684;&#x51FD;&#x6570;, &#x4F46;&#x662F;&#x4ED6;&#x7684;&#x53C2;&#x6570;, &#x662F;&#x5728;&#x513F;&#x5B50;&#x89E6;&#x53D1;&#x4ED6;&#x7684;&#x65F6;&#x5019;&#x4F20;&#x9012;&#x7684;, &#x5C06;&#x4E00;&#x4E9B;&#x9700;&#x8981;&#x7528;&#x5230;&#x7684;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x5230;&#x7239;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;, &#x5728;&#x7239;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x83B7;&#x53D6;&#x5230;&#x513F;&#x5B50;&#x7684;&#x4E00;&#x4E9B;&#x9700;&#x8981;&#x4F20;&#x9012;&#x7684;&#x5C5E;&#x6027;&#x6765;&#x6267;&#x884C;&#x51FD;&#x6570;&#x3002;</li>
+<li>&#x5144;&#x5F1F;&#x7EC4;&#x4EF6;: &#x627E;&#x5230;&#x54E5;&#x4FE9;&#x5171;&#x540C;&#x7684;&#x7239;, &#x901A;&#x8FC7;&#x7239;&#x5206;&#x522B;&#x4F20;&#x9012;&#x65B9;&#x6CD5;, &#x7136;&#x540E;&#x5728;&#x901A;&#x8FC7;&#x4F20;&#x53C2;&#x7684;&#x65B9;&#x5F0F;&#x4F20;&#x9012;&#x7ED9;&#x7239;&#xFF0C;&#x7531;&#x7239;&#x6765;&#x8F6C;&#x53D1;&#x6D88;&#x606F;</li>
+<li>&#x8DE8;&#x5C42;&#x7EA7;&#x901A;&#x4FE1;: &#x5229;&#x7528;<code>context</code>, &#x4F7F;&#x7528;createContext, &#x7136;&#x540E;&#x4F7F;&#x7528;<code>const MyContext = React.createContext(defaultValue);</code>, MyContext.Provider&#x5728;&#x6839;&#x8282;&#x70B9;&#x63D0;&#x4F9B;context, &#x5728;&#x5176;&#x4E0B;&#x9762;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x90FD;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;myContext.Consumer&#x6765;&#x6CE8;&#x5165;&#x9700;&#x8981;&#x7684;props</li>
+<li>&#x53D1;&#x5E03;/&#x8BA2;&#x9605;&#x6A21;&#x5F0F;, &#x81EA;&#x5DF1;&#x5C01;&#x88C5;&#x4E00;&#x4E2A;EventBus&#x6A21;&#x5757;</li>
+<li>&#x9876;&#x7EA7;&#x6570;&#x636E;&#x7BA1;&#x7406;&#x603B;&#x7EBF;: Redux&#x6216;&#x8005;Mobx</li>
+</ul>
+<pre><code>// &#x53D1;&#x5E03;&#x8BA2;&#x9605;&#x6A21;&#x5F0F;
+
+class EventBus {
+    map = new Map();
+    $on(key, cb, ..args) {
+        const cbMap = this.map.get(key) || new Map();
+        cbMap.set(cb, args);
+        this.map.set(key, cbMap);
+    }
+    $emit(key, ...args) {
+        const cbMap = this.map.get(key);
+        for (const cb of cbMap) {
+            const oldArgs = cbMap.get(cb);
+            if (oldArgs) {
+                cb(...oldArgs, ...args);
+            } else {
+                cb(...args)
+            }
+        }
+    }
+    $once(key, cb) {
+        const cbMap = this.map.get(key) || new Map();
+        newCb = (...args) =&gt; {
+            cb(...args);
+            this.$off(key, cb)
+        }
+        cbMap.set(newCb, null);
+        this.map.set(key, cbMap);
+    }
+    $off(key, cb) {
+        const cbMap = this.map.get(key);
+        cbMap.delete(cb);
+    }
+}
+</code></pre><h2 id="react&#x6027;&#x80FD;&#x4F18;&#x5316;&#x624B;&#x6BB5;">React&#x6027;&#x80FD;&#x4F18;&#x5316;&#x624B;&#x6BB5;</h2>
+<h2 id="react&#x5982;&#x4F55;&#x8FDB;&#x884C;&#x7EC4;&#x4EF6;&#x903B;&#x8F91;&#x590D;&#x7528;">React&#x5982;&#x4F55;&#x8FDB;&#x884C;&#x7EC4;&#x4EF6;/&#x903B;&#x8F91;&#x590D;&#x7528;?</h2>
+<ul>
+<li>&#x9AD8;&#x9636;&#x7EC4;&#x4EF6;(HOC)</li>
+<li>&#x6E32;&#x67D3;&#x5C5E;&#x6027;</li>
+<li>react-hooks</li>
+</ul>
+<h2 id="mixin&#x3001;hoc&#x3001;render-props&#x3001;react-hooks&#x4F18;&#x52A3;&#x5982;&#x4F55;">mixin&#x3001;HOC&#x3001;render props&#x3001;react-hooks&#x4F18;&#x52A3;&#x5982;&#x4F55;?</h2>
+<h3 id="mixin&#x7F3A;&#x9677;">Mixin&#x7F3A;&#x9677;</h3>
+<ul>
+<li>&#x7EC4;&#x4EF6;&#x4E0E;Mixin&#x4E4B;&#x95F4;&#x5B58;&#x5728;&#x9690;&#x5F0F;&#x4F9D;&#x8D56;(Mixin &#x7ECF;&#x5E38;&#x4F9D;&#x8D56;&#x7EC4;&#x4EF6;&#x7684;&#x7279;&#x5B9A;&#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x5728;&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;&#x65F6;&#x5E76;&#x4E0D;&#x77E5;&#x9053;&#x8FD9;&#x79CD;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;)</li>
+<li>&#x591A;&#x4E2A;Mixin&#x53EF;&#x80FD;&#x4F1A;&#x4EA7;&#x751F;&#x51B2;&#x7A81;, &#x6BD4;&#x5982;&#x6709;&#x76F8;&#x540C;&#x7684;state</li>
+<li>Mixin&#x503E;&#x5411;&#x4E8E;&#x589E;&#x52A0;&#x66F4;&#x591A;&#x7684;state, &#x964D;&#x4F4E;&#x4E86;&#x5E94;&#x7528;&#x7684;&#x53EF;&#x9884;&#x6D4B;&#x6027;&#xFF0C;&#x5BFC;&#x81F4;&#x590D;&#x6742;&#x5EA6;&#x589E;&#x52A0;</li>
+<li>&#x9690;&#x5F0F;&#x4F9D;&#x8D56;&#x548C;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x4E0D;&#x900F;&#x660E;&#xFF0C;&#x5BFC;&#x81F4;&#x7EF4;&#x62A4;&#x6210;&#x672C;&#x907D;&#x589E;<ul>
+<li>&#x96BE;&#x4EE5;&#x5FEB;&#x901F;&#x7406;&#x89E3;&#x7EC4;&#x4EF6;&#x884C;&#x4E3A;&#xFF0C;&#x9700;&#x8981;&#x5168;&#x76D8;&#x4E86;&#x89E3;&#x6240;&#x4F9D;&#x8D56;&#x7684;Mixin&#x7684;&#x6269;&#x5C55;&#x884C;&#x4E3A;&#x4EE5;&#x53CA;&#x5176;&#x4E0E;&#x7EC4;&#x4EF6;&#x4E4B;&#x95F4;&#x7684;&#x76F8;&#x4E92;&#x5F71;&#x54CD;</li>
+<li>&#x7EC4;&#x4EF6;&#x81EA;&#x8EAB;&#x7684;&#x65B9;&#x6CD5;&#x548C;state&#x5B57;&#x6BB5;&#x4E0D;&#x6562;&#x968F;&#x610F;&#x5220;&#x9664;&#xFF0C;&#x56E0;&#x4E3A;&#x4E0D;&#x80FD;&#x786E;&#x5B9A;Mixin&#x6709;&#x6CA1;&#x6709;&#x4F9D;&#x8D56;&#x4ED6;</li>
+<li>Mixin&#x96BE;&#x4EE5;&#x7EF4;&#x62A4;&#xFF0C;&#x56E0;&#x4E3A;&#x6700;&#x7EC8;&#x4F1A;&#x6253;&#x5E73;&#x5408;&#x5E76;&#x5230;&#x4E00;&#x8D77;&#xFF0C;&#x96BE;&#x4EE5;&#x641E;&#x6E05;&#x695A;&#x4E00;&#x4E2A;Mixin&#x7684;&#x8F93;&#x5165;&#x8F93;&#x51FA;</li>
+</ul>
+</li>
+</ul>
+<h3 id="hoc&#x76F8;&#x6BD4;&#x4E8E;mixin&#x7684;&#x4F18;&#x52BF;">HOC&#x76F8;&#x6BD4;&#x4E8E;Mixin&#x7684;&#x4F18;&#x52BF;</h3>
+<ul>
+<li>HOC&#x901A;&#x8FC7;&#x5916;&#x5C42;&#x7EC4;&#x4EF6;&#x901A;&#x8FC7;Props&#x5F71;&#x54CD;&#x5185;&#x5C42;&#x7EC4;&#x4EF6;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x76F4;&#x63A5;&#x6539;&#x53D8;&#x5176;State&#xFF0C;&#x4E0D;&#x5B58;&#x5728;&#x51B2;&#x7A81;&#x548C;&#x4E92;&#x76F8;&#x5E72;&#x6270;&#xFF0C;&#x964D;&#x4F4E;&#x4E86;&#x8026;&#x5408;&#x5EA6;</li>
+<li>&#x4E0D;&#x540C;&#x4E8E;Mixin&#x7684;&#x6253;&#x5E73;+&#x5408;&#x5E76;&#xFF0C;HOC&#x5177;&#x6709;&#x5929;&#x7136;&#x7684;&#x5C42;&#x7EA7;&#x7ED3;&#x6784;(&#x6811;&#x7ED3;&#x6784;), &#x964D;&#x4F4E;&#x4E86;&#x590D;&#x6742;&#x5EA6;</li>
+</ul>
+<h3 id="hoc&#x7F3A;&#x70B9;">HOC&#x7F3A;&#x70B9;</h3>
+<ul>
+<li>&#x6269;&#x5C55;&#x6027;&#x9650;&#x5236;&#xFF1A; HOC&#x65E0;&#x6CD5;&#x4ECE;&#x5916;&#x90E8;&#x8BBF;&#x95EE;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;state&#xFF0C;&#x56E0;&#x6B64;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;shouldComponentUpdate&#x6EE4;&#x6389;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x66F4;&#x65B0;, &#x4F46;&#x662F;React&#x5728;&#x652F;&#x6301;ES Class&#x4E4B;&#x540E;&#x63D0;&#x4F9B;&#x4E86;React.PureComponent&#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;</li>
+<li>Ref&#x4F20;&#x9012;&#x95EE;&#x9898;, Ref&#x88AB;&#x9694;&#x65AD;&#xFF0C;&#x540E;&#x6765;&#x7684;React.fowardRef&#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;</li>
+<li>Wrapper Hell: HOC&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x591A;&#x5C42;&#x5305;&#x88F9;&#x7EC4;&#x4EF6;&#x7684;&#x60C5;&#x51B5;,&#x591A;&#x5C42;&#x62BD;&#x8C61;&#x540C;&#x6837;&#x589E;&#x52A0;&#x4E86;&#x590D;&#x6742;&#x5EA6;&#x548C;&#x7406;&#x89E3;&#x6210;&#x672C;</li>
+<li>&#x547D;&#x540D;&#x51B2;&#x7A81;: &#x5982;&#x679C;&#x9AD8;&#x9636;&#x7EC4;&#x4EF6;&#x591A;&#x6B21;&#x5D4C;&#x5957;, &#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x7684;&#x8BDD;&#x4F1A;&#x4EA7;&#x751F;&#x51B2;&#x7A81;&#xFF0C;&#x7136;&#x540E;&#x8986;&#x76D6;&#x8001;&#x5C5E;&#x6027;</li>
+<li>&#x4E0D;&#x53EF;&#x89C1;&#x6027;&#xFF1A; HOC&#x76F8;&#x5F53;&#x4E8E;&#x5728;&#x539F;&#x6709;&#x7EC4;&#x4EF6;&#x5916;&#x5C42;&#x5728;&#x5305;&#x88C5;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#xFF0C;&#x4F60;&#x6839;&#x672C;&#x4E0D;&#x77E5;&#x9053;&#x5916;&#x5C42;&#x5305;&#x88C5;&#x662F;&#x4EC0;&#x4E48;&#xFF0C;&#x5BF9;&#x4F60;&#x6765;&#x8BF4;&#x662F;&#x4E00;&#x4E2A;&#x9ED1;&#x76D2;</li>
+</ul>
+<h3 id="render-props&#x4F18;&#x70B9;">Render Props&#x4F18;&#x70B9;</h3>
+<p>Render Props&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x4E0A;&#x8FF0;&#x6240;&#x6709;HOC&#x7684;&#x7F3A;&#x70B9;</p>
+<h3 id="render-props&#x7F3A;&#x9677;&#xFF1A;">Render Props&#x7F3A;&#x9677;&#xFF1A;</h3>
+<ul>
+<li>&#x4F7F;&#x7528;&#x7E41;&#x7410;&#xFF1A; HOC&#x4F7F;&#x7528;&#x53EA;&#x9700;&#x8981;&#x501F;&#x52A9;&#x88C5;&#x9970;&#x5668;&#x8BED;&#x6CD5;&#xFF0C;&#x901A;&#x5E38;&#x4E00;&#x884C;&#x4EE3;&#x7801;&#x5C31;&#x53EF;&#x4EE5;&#x590D;&#x7528;&#xFF0C; Render Props&#x65E0;&#x6CD5;&#x505A;&#x5230;&#x5982;&#x6B64;&#x7B80;&#x5355;</li>
+<li>&#x5D4C;&#x5957;&#x8FC7;&#x6DF1;&#xFF1A; Render Props&#x867D;&#x7136;&#x6446;&#x8131;&#x4E86;&#x7EC4;&#x4EF6;&#x591A;&#x5C42;&#x5D4C;&#x5957;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x662F;&#x6539;&#x6210;&#x4E86;&#x51FD;&#x6570;&#x56DE;&#x8C03;&#x7684;&#x5D4C;&#x5957;</li>
+</ul>
+<h3 id="react-hooks&#x4F18;&#x70B9;">React Hooks&#x4F18;&#x70B9;</h3>
+<ul>
+<li>&#x7B80;&#x6D01;&#xFF1A; React Hooks&#x89E3;&#x51B3;&#x4E86;HOC&#x548C;Render Props&#x7684;&#x5D4C;&#x5957;&#x95EE;&#x9898;&#xFF0C; &#x66F4;&#x52A0;&#x7B80;&#x6D01;</li>
+<li>&#x89E3;&#x85D5;&#xFF1A; React Hooks&#x66F4;&#x52A0;&#x7B80;&#x6D01;&#x7684;&#x505A;&#x5230;UI&#x548C;&#x72B6;&#x6001;&#x7684;&#x5206;&#x79BB;&#xFF0C;&#x505A;&#x5230;&#x89E3;&#x85D5;&#x66F4;&#x52A0;&#x5F7B;&#x5E95;</li>
+<li>&#x7EC4;&#x5408;&#xFF1A; Hooks&#x53EF;&#x4EE5;&#x5F15;&#x7528;&#x5176;&#x4ED6;&#x7684;Hooks&#xFF0C;&#x7EC4;&#x5408;&#x5343;&#x53D8;&#x4E07;&#x5316;</li>
+<li>&#x51FD;&#x6570;&#x53CB;&#x597D;&#xFF1A; Hooks&#x4E3A;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x800C;&#x751F;&#xFF0C;&#x89E3;&#x51B3;&#x4E86;&#x7C7B;&#x7EC4;&#x4EF6;&#x7684;&#x95EE;&#x9898;&#xFF1A;<ul>
+<li>this&#x6307;&#x5411;&#x5BB9;&#x6613;&#x9519;&#x8BEF;</li>
+<li>&#x5206;&#x5272;&#x5728;&#x4E0D;&#x540C;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E2D;&#x7684;&#x903B;&#x8F91;&#x4F7F;&#x4EE3;&#x7801;&#x96BE;&#x4EE5;&#x7406;&#x89E3;&#x548C;&#x7EF4;&#x62A4;</li>
+<li>&#x4EE3;&#x7801;&#x590D;&#x7528;&#x6210;&#x672C;&#x9AD8;(HOC&#x4F7F;&#x4EE3;&#x7801;&#x91CF;&#x907D;&#x589E;)</li>
+</ul>
+</li>
+</ul>
+<h3 id="react-hooks&#x7F3A;&#x70B9;">React Hooks&#x7F3A;&#x70B9;</h3>
+<ul>
+<li>&#x589E;&#x52A0;&#x4E86;&#x989D;&#x5916;&#x7684;&#x5B66;&#x4E60;&#x6210;&#x672C;(&#x7406;&#x89E3;&#x51FD;&#x6570;&#x5F0F;&#x7EC4;&#x4EF6;&#x548C;&#x7C7B;&#x7EC4;&#x4EF6;&#x5FC3;&#x667A;&#x6A21;&#x578B;&#x7684;&#x4E0D;&#x540C;)</li>
+<li>&#x5199;&#x6CD5;&#x4E0A;&#x6709;&#x9650;&#x5236;&#xFF08;&#x4E0D;&#x80FD;&#x51FA;&#x73B0;&#x5728;&#x6761;&#x4EF6;&#x3001;&#x5FAA;&#x73AF;&#x4E2D;&#xFF09;&#xFF0C;&#x5E76;&#x4E14;&#x5199;&#x6CD5;&#x4E0A;&#x589E;&#x52A0;&#x4E86;&#x91CD;&#x6784;&#x7684;&#x6210;&#x672C;</li>
+<li>&#x7834;&#x574F;&#x4E86;PureComponent&#x3001;React.memo&#x6D45;&#x6BD4;&#x8F83;&#x7684;&#x6027;&#x80FD;&#x4F18;&#x5316;&#x6210;&#x679C;</li>
+<li>&#x5728;&#x95ED;&#x5305;&#x573A;&#x666F;&#x53EF;&#x80FD;&#x4F1A;&#x5F15;&#x7528;&#x5230;&#x65E7;&#x7684;Props state</li>
+<li>&#x5185;&#x90E8;&#x5B9E;&#x73B0;&#x4E0A;&#x4E0D;&#x76F4;&#x89C2;(&#x4F9D;&#x8D56;&#x4E00;&#x4EFD;&#x53EF;&#x53D8;&#x7684;&#x5168;&#x5267;&#x72B6;&#x6001;&#xFF0C;&#x4E0D;&#x7EAF;)</li>
+<li>React.memo&#x5E76;&#x4E0D;&#x80FD;&#x5B8C;&#x5168;&#x53D6;&#x4EE3;shouldComponentUpdate(&#x56E0;&#x4E3A;&#x62FF;&#x4E0D;&#x5230;state change, &#x53EA;&#x9488;&#x5BF9;props change)</li>
+</ul>
+<h2 id="&#x5982;&#x4F55;&#x7406;&#x89E3;fiber">&#x5982;&#x4F55;&#x7406;&#x89E3;Fiber</h2>
+<p>React Fiber&#x662F;&#x4E00;&#x79CD;&#x57FA;&#x4E8E;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x5355;&#x7EBF;&#x7A0B;&#x8C03;&#x5EA6;&#x7B97;&#x6CD5;</p>
+<p>React16&#x4E4B;&#x524D;, <code>reconcilation</code>&#x7B97;&#x6CD5;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x9012;&#x5F52;&#xFF0C;&#x60F3;&#x8981;&#x4E2D;&#x65AD;&#x9012;&#x5F52;&#x662F;&#x5F88;&#x56F0;&#x96BE;&#x7684;&#xFF0C;React 16&#x5F00;&#x59CB;&#x4F7F;&#x7528;&#x5FAA;&#x73AF;&#x6765;&#x4EE3;&#x66FF;&#x4E4B;&#x524D;&#x7684;&#x9012;&#x5F52;</p>
+<p><code>Fiber</code>: &#x4E00;&#x79CD;&#x5C06;<code>reconcilation(&#x9012;&#x5F52;diff)</code>&#x62C6;&#x5206;&#x4E3A;&#x65E0;&#x6570;&#x5C0F;&#x4EFB;&#x52A1;&#x7684;&#x7B97;&#x6CD5;&#xFF0C;&#x4ED6;&#x968F;&#x65F6;&#x80FD;&#x591F;&#x505C;&#x6B62;&#x548C;&#x6062;&#x590D;&#x3002;&#x505C;&#x6B62;&#x6062;&#x590D;&#x7684;&#x65F6;&#x673A;&#x53D6;&#x51B3;&#x4E8E;&#x5F53;&#x524D;&#x4E00;&#x5E27;&#x5185;&#xFF0C;&#x8FD8;&#x6709;&#x6CA1;&#x6709;&#x8DB3;&#x591F;&#x7684;&#x4E8B;&#x4EF6;&#x5141;&#x8BB8;&#x8BA1;&#x7B97;</p>
+<h2 id="&#x5BF9;time-slice&#x7684;&#x7406;&#x89E3;">&#x5BF9;Time Slice&#x7684;&#x7406;&#x89E3;</h2>
+<p>&#x65F6;&#x95F4;&#x5206;&#x7247;</p>
+<ul>
+<li>React&#x5728;&#x6E32;&#x67D3;(render)&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x4F1A;&#x963B;&#x585E;&#x73B0;&#x5728;&#x7684;&#x7EBF;&#x7A0B;</li>
+<li>&#x5982;&#x679C;&#x4F60;&#x7684;&#x8BBE;&#x5907;&#x8DB3;&#x591F;&#x5FEB;&#xFF0C;&#x4F60;&#x4F1A;&#x611F;&#x89C9;&#x6E32;&#x67D3;&#x662F;&#x540C;&#x6B65;&#x7684;</li>
+<li>&#x5982;&#x679C;&#x4F60;&#x7684;&#x8BBE;&#x5907;&#x975E;&#x5E38;&#x6162;&#xFF0C;&#x4F60;&#x4F1A;&#x611F;&#x89C9;&#x8FD8;&#x7B97;&#x662F;&#x7075;&#x654F;&#x7684;</li>
+<li>&#x867D;&#x7136;&#x662F;&#x5F02;&#x6B65;&#x6E32;&#x67D3;&#xFF0C;&#x4F46;&#x662F;&#x4F60;&#x4F1A;&#x770B;&#x5230;&#x5B8C;&#x6574;&#x6E32;&#x67D3;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x4E00;&#x884C;&#x4E00;&#x884C;&#x7684;&#x6E32;&#x67D3;</li>
+<li>&#x540C;&#x6837;&#x4E66;&#x5199;&#x7EC4;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;</li>
+</ul>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x8BF4;React&#x5728;&#x80CC;&#x540E;&#x505A;&#x7684;&#x4E8B;&#x60C5;&#x5BF9;&#x5F00;&#x53D1;&#x8005;&#x6765;&#x8BF4;&#x662F;&#x900F;&#x660E;&#x7684;</p>
+<p>&#x5F02;&#x6B65;&#x6E32;&#x67D3;&#x6A21;&#x5F0F;&#x5C31;&#x662F;&#x4E0D;&#x963B;&#x585E;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#xFF0C;&#x7EE7;&#x7EED;&#x8DD1;&#x3002;</p>
+<p>&#x65F6;&#x95F4;&#x5206;&#x7247;&#x6B63;&#x662F;&#x57FA;&#x4E8E;&#x53EF;&#x968F;&#x65F6;&#x6253;&#x65AD;&#x3001;&#x91CD;&#x542F;&#x7684;Fiber&#x67B6;&#x6784;,&#x53EF;&#x6253;&#x65AD;&#x5F53;&#x524D;&#x4EFB;&#x52A1;,&#x4F18;&#x5148;&#x5904;&#x7406;&#x7D27;&#x6025;&#x4E14;&#x91CD;&#x8981;&#x7684;&#x4EFB;&#x52A1;,&#x4FDD;&#x8BC1;&#x9875;&#x9762;&#x7684;&#x6D41;&#x7545;&#x8FD0;&#x884C;.</p>
+<h2 id="redux&#x7684;&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;">Redux&#x7684;&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;</h2>
+<h3 id="&#x6838;&#x5FC3;&#x6982;&#x5FF5;">&#x6838;&#x5FC3;&#x6982;&#x5FF5;</h3>
+<ul>
+<li>Store &#x4FDD;&#x5B58;&#x6570;&#x636E;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x6210;&#x4E00;&#x4E2A;&#x5BB9;&#x5668;&#xFF0C;&#x6574;&#x4E2A;&#x5E94;&#x7528;&#x5E94;&#x8BE5;&#x53EA;&#x6709;&#x4E00;&#x4E2A;store</li>
+<li>State: Store&#x5BF9;&#x8C61;&#x6240;&#x5305;&#x542B;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x8981;&#x5F97;&#x5230;&#x67D0;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x5BF9;store&#x751F;&#x6210;&#x5FEB;&#x7167;&#xFF0C;&#x8FD9;&#x79CD;&#x65F6;&#x70B9;&#x7684;&#x6570;&#x636E;&#x96C6;&#x5408;&#x5C31;&#x53EB;&#x505A;State</li>
+<li>Action&#xFF1A;State&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x5C31;&#x4F1A;&#x5BFC;&#x81F4;View&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x4F46;&#x662F;&#x7528;&#x6237;&#x63A5;&#x89E6;&#x4E0D;&#x5230;State&#xFF0C;&#x53EA;&#x80FD;&#x63A5;&#x89E6;&#x5230;View&#x3002;&#x6240;&#x4EE5;State&#x7684;&#x53D8;&#x5316;&#x5FC5;&#x987B;&#x662F;View&#x6240;&#x5BFC;&#x81F4;&#x7684;&#x3002;Action&#x5C31;&#x662F;View&#x53D1;&#x51FA;&#x7684;&#x901A;&#x77E5;&#xFF0C;&#x8868;&#x793A;State&#x5E94;&#x8BE5;&#x8981;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x4E86;</li>
+<li>Action Creator&#xFF1A; View&#x8981;&#x53D1;&#x9001;&#x591A;&#x5C11;&#x79CD;&#x6D88;&#x606F;&#xFF0C;&#x5C31;&#x4F1A;&#x6709;&#x591A;&#x5C11;&#x4E2A;Action&#x3002;&#x5982;&#x679C;&#x90FD;&#x624B;&#x5199;&#xFF0C;&#x5C06;&#x4F1A;&#x975E;&#x5E38;&#x9EBB;&#x70E6;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6765;&#x751F;&#x6210;Action&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5C31;&#x53EB;Action Creator</li>
+<li>Reducer&#xFF1A; Store&#x6536;&#x5230;Action&#x4E4B;&#x540E;&#xFF0C;&#x5FC5;&#x987B;&#x7ED9;&#x51FA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;State&#xFF0C;&#x8FD9;&#x6837;View&#x624D;&#x4F1A;&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;&#x8FD9;&#x79CD;State&#x7684;&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x5C31;&#x53EB;Reducer&#xFF0C;Reducer&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x4ED6;&#x63A5;&#x6536;&#x5F53;&#x524D;State&#x548C;Action&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x65B0;&#x7684;State</li>
+<li>dispatch&#xFF1A; View&#x53D1;&#x51FA;Action&#x7684;&#x552F;&#x4E00;&#x65B9;&#x6CD5;</li>
+</ul>
+<h3 id="&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;&#xFF1A;">&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;&#xFF1A;</h3>
+<ol>
+<li>&#x9996;&#x5148;&#xFF0C;&#x7528;&#x6237;&#xFF08;&#x901A;&#x8FC7;View&#xFF09;&#x53D1;&#x51FA;Action&#xFF0C;&#x53D1;&#x51FA;&#x7684;&#x65B9;&#x5F0F;&#x5C31;&#x662F;&#x901A;&#x8FC7;dispatch&#x5206;&#x53D1;&#x4E00;&#x4E2A;Action</li>
+<li>&#x7136;&#x540E;store&#x4F1A;&#x81EA;&#x52A8;&#x8C03;&#x7528;Reducer&#xFF0C;&#x5E76;&#x4F20;&#x5165;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x5F53;&#x524D;state&#x548C;&#x5206;&#x53D1;&#x7684;Action&#xFF0C; Reducer&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;State</li>
+<li>State&#x4E00;&#x65E6;&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;Store&#x5C31;&#x4F1A;&#x8C03;&#x7528;&#x76D1;&#x542C;&#x51FD;&#x6570;&#x6765;&#x66F4;&#x65B0;State&#x3002;(store.subscribe&#x53EF;&#x4EE5;&#x76D1;&#x542C;State&#x5230;&#x66F4;&#x65B0;&#x5C31;&#x89E6;&#x53D1;&#x56DE;&#x8C03;)</li>
+</ol>
+<p>&#x4E00;&#x76F4;&#x5230;&#x6574;&#x4E2A;&#x4EA4;&#x6D41;&#x7ED3;&#x675F;&#xFF0C;&#x6570;&#x636E;&#x90FD;&#x662F;&#x5355;&#x5411;&#x6D41;&#x52A8;&#x7684;
+<img src="https://user-gold-cdn.xitu.io/2019/8/23/16cbc24efade2de0?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="Redux"></p>
+<h2 id="react-redux&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#xFF1F;">React-Redux&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#xFF1F;</h2>
+<ul>
+<li>Provider&#xFF1A; Provider&#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x4ECE;&#x5916;&#x90E8;&#x5C01;&#x88C5;&#x4E86;&#x6574;&#x4E2A;&#x5E94;&#x7528;&#xFF0C;&#x5E76;&#x5411;connect&#x6A21;&#x5757;&#x4F20;&#x9012;store</li>
+<li>connect: &#x8D1F;&#x8D23;&#x8FDE;&#x63A5;React&#x548C;Redux&#xFF1A;<ul>
+<li>&#x83B7;&#x53D6;state: connect&#x901A;&#x8FC7;connext&#x83B7;&#x53D6;Provider&#x4E2D;&#x7684;store&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;store.getState()&#x83B7;&#x53D6;&#x5230;&#x6574;&#x4E2A;state&#x6811;&#x4E0A;&#x7684;state</li>
+<li>&#x5305;&#x88C5;&#x539F;&#x7EC4;&#x4EF6;: &#x5C06;state&#x548C;action&#x901A;&#x8FC7;props&#x7684;&#x65B9;&#x5F0F;&#x4F20;&#x5165;&#x5230;&#x539F;&#x7EC4;&#x4EF6;&#x5185;&#x90E8;wrapWithConnect&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;ReactComponent&#x5BF9;&#x8C61;Connect&#xFF0C;Connect&#x91CD;&#x65B0;Render&#x5916;&#x90E8;&#x4F20;&#x5165;&#x7684;&#x539F;&#x7EC4;&#x4EF6;&#x3002;&#x540C;&#x65F6;&#x5C06;&#x4F20;&#x5165;connect&#x4E2D;&#x7684;mapStateToProps&#x548C;mapActionToProps&#x901A;&#x8FC7;props&#x7684;&#x65B9;&#x5F0F;&#x4F20;&#x5165;&#x539F;&#x7EC4;&#x4EF6;&#x4E2D;&#x3002;</li>
+<li>&#x76D1;&#x542C;store tree&#x7684;&#x53D8;&#x5316;&#xFF1A; connect&#x7F13;&#x5B58;&#x4E86;store tree&#x4E2D;state&#x7684;&#x72B6;&#x6001;,&#x901A;&#x8FC7;&#x5F53;&#x524D;state&#x72B6;&#x6001;&#x548C;&#x53D8;&#x66F4;&#x524D;state&#x72B6;&#x6001;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;,&#x4ECE;&#x800C;&#x786E;&#x5B9A;&#x662F;&#x5426;&#x8C03;&#x7528;this.setState()&#x65B9;&#x6CD5;&#x89E6;&#x53D1;Connect&#x53CA;&#x5176;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;&#x91CD;&#x65B0;&#x6E32;&#x67D3;</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/23/16cbc24efb408781?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="react-redux"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../part24/1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: vue基础知识点">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"React基础知识","level":"1.26","depth":1,"previous":{"title":"vue基础知识点","level":"1.25","depth":1,"path":"part24/1.md","ref":"part24/1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part25/1.md","mtime":"2021-03-11T16:48:07.908Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-11T16:50:55.196Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
