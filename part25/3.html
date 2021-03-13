@@ -1,0 +1,2172 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>useEffect · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="2.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../part1/">
+            
+                <a href="../part1/">
+            
+                    
+                    浏览器缓存
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../part1/1.html">
+            
+                <a href="../part1/1.html">
+            
+                    
+                    从缓存位置区分
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../part1/2.html">
+            
+                <a href="../part1/2.html">
+            
+                    
+                    缓存策略
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../part1/3.html">
+            
+                <a href="../part1/3.html">
+            
+                    
+                    Express和Cache-Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../part1/4.html">
+            
+                <a href="../part1/4.html">
+            
+                    
+                    Last-Modified和E-Tag
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    浏览器安全
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../part2/1.html">
+            
+                <a href="../part2/1.html">
+            
+                    
+                    xss注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../part2/2.html">
+            
+                <a href="../part2/2.html">
+            
+                    
+                    CSRF注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../part2/3.html">
+            
+                <a href="../part2/3.html">
+            
+                    
+                    https
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    深浅拷贝
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../part3/1.html">
+            
+                <a href="../part3/1.html">
+            
+                    
+                    浅拷贝
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../part3/2.html">
+            
+                <a href="../part3/2.html">
+            
+                    
+                    深拷贝
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../part4/">
+            
+                <a href="../part4/">
+            
+                    
+                    v8垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../part5/">
+            
+                <a href="../part5/">
+            
+                    
+                    v8解释和编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    变量类型和计算
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../part6/1.html">
+            
+                <a href="../part6/1.html">
+            
+                    
+                    变量类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../part6/3.html">
+            
+                <a href="../part6/3.html">
+            
+                    
+                    类型转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../part6/2.html">
+            
+                <a href="../part6/2.html">
+            
+                    
+                    变量计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../part6/4.html">
+            
+                <a href="../part6/4.html">
+            
+                    
+                    instanceof 类型判断
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../part7/">
+            
+                <a href="../part7/">
+            
+                    
+                    箭头函数和普通函数的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    事件防抖
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../part8/1.html">
+            
+                <a href="../part8/1.html">
+            
+                    
+                    防抖
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../part8/2.html">
+            
+                <a href="../part8/2.html">
+            
+                    
+                    节流
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../part9/">
+            
+                <a href="../part9/">
+            
+                    
+                    sessionStorage和localStorage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" >
+            
+                <span>
+            
+                    
+                    三次握手 四次挥手 http状态码
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../part10/1.html">
+            
+                <a href="../part10/1.html">
+            
+                    
+                    三次握手
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../part10/2.html">
+            
+                <a href="../part10/2.html">
+            
+                    
+                    四次挥手
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../part10/3.html">
+            
+                <a href="../part10/3.html">
+            
+                    
+                    http状态码
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    从输入url到页面呈现
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../part11/1.html">
+            
+                <a href="../part11/1.html">
+            
+                    
+                    网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../part11/2.html">
+            
+                <a href="../part11/2.html">
+            
+                    
+                    解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../part11/3.html">
+            
+                <a href="../part11/3.html">
+            
+                    
+                    渲染
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../part11/4.html">
+            
+                <a href="../part11/4.html">
+            
+                    
+                    从输入URL到页面呈现(总)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" >
+            
+                <span>
+            
+                    
+                    JS异步编程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../part12/">
+            
+                <a href="../part12/">
+            
+                    
+                    异步编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../part12/1.html">
+            
+                <a href="../part12/1.html">
+            
+                    
+                    Generator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../part12/2.html">
+            
+                <a href="../part12/2.html">
+            
+                    
+                    Promise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" data-path="../part12/3.html">
+            
+                <a href="../part12/3.html">
+            
+                    
+                    async/await
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" data-path="../part12/4.html">
+            
+                <a href="../part12/4.html">
+            
+                    
+                    setTimeout/setInterval/requestAnimationFrame
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    手写Promise
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../part13/1.html">
+            
+                <a href="../part13/1.html">
+            
+                    
+                    简易版
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../part13/2.html">
+            
+                <a href="../part13/2.html">
+            
+                    
+                    Promise A+ 版
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../part14/">
+            
+                <a href="../part14/">
+            
+                    
+                    原型和原型链
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" >
+            
+                <span>
+            
+                    
+                    部分API原理(手写代码)
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../part15/1.html">
+            
+                <a href="../part15/1.html">
+            
+                    
+                    new操作符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.2" data-path="../part15/2.html">
+            
+                <a href="../part15/2.html">
+            
+                    
+                    call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.3" data-path="../part15/3.html">
+            
+                <a href="../part15/3.html">
+            
+                    
+                    apply
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.4" data-path="../part15/4.html">
+            
+                <a href="../part15/4.html">
+            
+                    
+                    bind
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.5" data-path="../part15/5.html">
+            
+                <a href="../part15/5.html">
+            
+                    
+                    this指针
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.6" data-path="../part15/6.html">
+            
+                <a href="../part15/6.html">
+            
+                    
+                    Object.is
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../part16/">
+            
+                <a href="../part16/">
+            
+                    
+                    作用域和闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" >
+            
+                <span>
+            
+                    
+                    深入数组
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.18.1" data-path="../part17/1.html">
+            
+                <a href="../part17/1.html">
+            
+                    
+                    数组扁平化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" >
+            
+                <span>
+            
+                    
+                    EventLoop
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.19.1" data-path="../part18/1.html">
+            
+                <a href="../part18/1.html">
+            
+                    
+                    进程与线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19.2" data-path="../part18/2.html">
+            
+                <a href="../part18/2.html">
+            
+                    
+                    执行栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19.3" data-path="../part18/3.html">
+            
+                <a href="../part18/3.html">
+            
+                    
+                    浏览器中的Event Loop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19.4" data-path="../part18/4.html">
+            
+                <a href="../part18/4.html">
+            
+                    
+                    Node中的Event Loop
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" >
+            
+                <span>
+            
+                    
+                    浏览器基础及常见面试题
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.20.1" data-path="../part19/1.html">
+            
+                <a href="../part19/1.html">
+            
+                    
+                    事件机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20.2" data-path="../part19/2.html">
+            
+                <a href="../part19/2.html">
+            
+                    
+                    跨域
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20.3" data-path="../part19/3.html">
+            
+                <a href="../part19/3.html">
+            
+                    
+                    存储
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="../part20/1.html">
+            
+                <a href="../part20/1.html">
+            
+                    
+                    浏览器渲染原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="../part21/1.html">
+            
+                <a href="../part21/1.html">
+            
+                    
+                    部分性能优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="../part22/1.html">
+            
+                <a href="../part22/1.html">
+            
+                    
+                    webpack性能优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" data-path="../part23/1.html">
+            
+                <a href="../part23/1.html">
+            
+                    
+                    vue和React对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" data-path="../part24/1.html">
+            
+                <a href="../part24/1.html">
+            
+                    
+                    vue基础知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.26" >
+            
+                <span>
+            
+                    
+                    React基础知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.26.1" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    React基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.26.2" data-path="2.html">
+            
+                <a href="2.html">
+            
+                    
+                    Hooks基本使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.26.3" data-path="3.html">
+            
+                <a href="3.html">
+            
+                    
+                    useEffect
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >useEffect</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="useeffect">useEffect</h1>
+<p>&#x4F46;&#x6709;&#x65F6;&#x5019;&#x5F53;&#x4F60;&#x4F7F;&#x7528;<code>useEffect</code>&#x4F60;&#x603B;&#x89C9;&#x5F97;&#x54EA;&#x513F;&#x6709;&#x70B9;&#x4E0D;&#x5BF9;&#x52B2;&#x3002;&#x4F60;&#x4F1A;&#x5600;&#x5495;&#x4F60;&#x53EF;&#x80FD;&#x9057;&#x6F0F;&#x4E86;&#x4EC0;&#x4E48;&#x3002;&#x5B83;&#x770B;&#x8D77;&#x6765;&#x50CF; class &#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x2026;&#x4F46;&#x771F;&#x7684;&#x662F;&#x8FD9;&#x6837;&#x5417;&#xFF1F;&#x4F60;&#x53D1;&#x89C9;&#x81EA;&#x5DF1;&#x5728;&#x95EE;&#x7C7B;&#x4F3C;&#x4E0B;&#x9762;&#x7684;&#x8FD9;&#x4E9B;&#x95EE;&#x9898;&#xFF1A;</p>
+<ul>
+<li>&#x5982;&#x4F55;&#x7528;<code>useEffect</code>&#x6A21;&#x62DF;<code>componentDidMount</code>&#x751F;&#x547D;&#x5468;&#x671F;?</li>
+<li>&#x5982;&#x4F55;&#x6B63;&#x786E;&#x7684;&#x5728;<code>useEffect</code>&#x91CC;&#x8BF7;&#x6C42;&#x6570;&#x636E;? <code>[]</code>&#x662F;&#x4EC0;&#x4E48;?</li>
+<li>&#x6211;&#x5E94;&#x8BE5;&#x628A;&#x51FD;&#x6570;&#x5F53;&#x4F5C; effect &#x7684;&#x4F9D;&#x8D56;&#x5417;</li>
+<li>&#x4E3A;&#x4EC0;&#x4E48;&#x6709;&#x65F6;&#x5019;&#x4F1A;&#x51FA;&#x73B0;&#x65E0;&#x9650;&#x8BF7;&#x6C42;&#x7684;&#x95EE;&#x9898;?</li>
+<li>&#x4E3A;&#x4EC0;&#x4E48;&#x6709;&#x65F6;&#x5019;&#x5728; effect &#x91CC;&#x62FF;&#x5230;&#x7684;&#x662F;&#x65E7;&#x7684; state &#x6216; props?</li>
+</ul>
+<p>&#x5B9E;&#x9645;&#x4E0A;&#x8981;&#x8BF4; effect &#x548C;&#x751F;&#x547D;&#x5468;&#x671F;&#x6709;&#x4EC0;&#x4E48;&#x4E0D;&#x540C;&#xFF0C;&#x5176;&#x5B9E;&#x4E0D;&#x5E94;&#x8BE5;&#x628A;&#x4ED6;&#x4EEC;&#x62FF;&#x53BB;&#x6BD4;&#x8F83;&#xFF0C;&#x56E0;&#x4E3A;&#x4ED6;&#x4EEC;&#x6839;&#x672C;&#x5C31;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x4E1C;&#x897F;&#x3002;&#x4ED6;&#x4EEC;&#x4ECE;&#x5FC3;&#x667A;&#x6A21;&#x578B;&#x4E0A;&#x5C31;&#x662F;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7684;&#x662F;&#x82B1;&#x65F6;&#x95F4;&#x53BB;&#x5FD8;&#x8BB0;&#x67D0;&#x4E9B;&#x5DF2;&#x7ECF;&#x4E60;&#x5F97;&#x7684;&#x6982;&#x5FF5;&#x3002;</p>
+<p>&#x5F53;&#x6211;&#x4E0D;&#x5728;&#x900F;&#x8FC7;&#x719F;&#x6089;&#x7684; class &#x751F;&#x547D;&#x5468;&#x671F;&#x65B9;&#x6CD5;&#x53BB;&#x7AA5;&#x89C6;<code>useEffect</code>&#x8FD9;&#x4E2A; Hook &#x7684;&#x65F6;&#x5019;, &#x624D;&#x80FD;&#x5F97;&#x4EE5;&#x878D;&#x4F1A;&#x8D2F;&#x901A;&#x3002;</p>
+<h2 id="&#x6BCF;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x90FD;&#x6709;&#x5B83;&#x81EA;&#x5DF1;&#x7684;-props-&#x548C;-state">&#x6BCF;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x90FD;&#x6709;&#x5B83;&#x81EA;&#x5DF1;&#x7684; Props &#x548C; State</h2>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Counter</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> [count, setCount] = useState(<span class="hljs-number">0</span>);
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>You clicked {count} times<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> setCount(count + 1)}&gt;
+        Click me
+      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+}
+</code></pre>
+<p>&#x9996;&#x5148;&#x5C31;&#x662F;&#x8FD9;&#x91CC;, &#x5B9E;&#x9645;&#x4E0A;&#x548C;&#x8FD9;&#x4E2A; count &#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x5355;&#x7EAF;&#x7684;&#x6570;&#x5B57;&#x800C;&#x5DF2;&#x3002;&#x4ED6;&#x5E76;&#x4E0D;&#x662F;&#x50CF; Vue &#x4E00;&#x6837;&#x6709; proxy, &#x4F1A;&#x81EA;&#x52A8;
+&#x4F9D;&#x8D56;&#x6536;&#x96C6;&#x548C;&#x6D3E;&#x53D1;&#x66F4;&#x65B0;&#xFF0C; &#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x7684;&#x6570;&#x5B57;</p>
+<p>&#x5F53;&#x7EC4;&#x4EF6;&#x7684;&#x7B2C;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x7684;&#x65F6;&#x5019;, &#x4ECE; useState()&#x62FF;&#x5230; count &#x7684;&#x521D;&#x59CB;&#x503C; 0&#x3002;&#x5F53;&#x6211;&#x4EEC;&#x8C03;&#x7528; setCount(1)&#xFF0C;React &#x5C31;&#x4F1A;&#x518D;&#x6B21;&#x6E32;&#x67D3;&#x7EC4;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E00;&#x6B21; count &#x662F; 1&#x3002;&#x5982;&#x6B64;&#x6BCF;&#x4E00;&#x6B21;&#x70B9;&#x51FB;&#xFF0C;&#x5C31;&#x4F1A;&#x89E6;&#x53D1; React &#x7684;&#x6E32;&#x67D3;, &#x6BCF;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#xFF0C; &#x90FD;&#x6709;&#x81EA;&#x5DF1;&#x7684; state,</p>
+<p>&#x8FD9;&#x91CC;&#x7684; state &#x5C31;&#x662F; count&#xFF0C;&#x503C;&#x5C31;&#x662F;&#x4ECE; 0 &#x5F00;&#x59CB;&#x7684;&#x6BCF;&#x4E00;&#x6B21;&#x7D2F;&#x52A0;&#xFF0C;&#x4ED6;&#x4EEC;&#x5728;&#x6BCF;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#xFF0C;&#x90FD;&#x662F;&#x4E0D;&#x7B49;&#x7684;&#xFF0C;&#x4F46;&#x90FD;&#x662F;&#x81EA;&#x5DF1;&#x7684;&#xFF0C;&#x548C;&#x5176;&#x4ED6;&#x8F6E;&#x6B21;&#x7684;&#x6E32;&#x67D3;&#x65E0;&#x5173;</p>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5F53;&#x6211;&#x4EEC;&#x6BCF;&#x4E00;&#x6B21;&#x66F4;&#x65B0;&#x72B6;&#x6001;&#x7684;&#x65F6;&#x5019;&#xFF0C;React &#x4F1A;&#x91CD;&#x65B0;&#x6E32;&#x67D3;&#x7EC4;&#x4EF6;&#x3002;&#x6BCF;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x90FD;&#x80FD;&#x62FF;&#x5230;&#x72EC;&#x7ACB;&#x7684; count &#x72B6;&#x6001;&#xFF0C;&#x8FD9;&#x4E2A;&#x72B6;&#x6001;&#x503C;&#x662F;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5E38;&#x91CF;</p>
+<p>&#x6240;&#x4EE5;&#x4E0B;&#x9762;&#x7684;&#x90A3;&#x884C;&#x4EE3;&#x7801;&#x5E76;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x7684;&#x6570;&#x636E;&#x7ED1;&#x5B9A;:</p>
+<p><code>&lt;p&gt;You clicked {count} times&lt;/p&gt;</code></p>
+<p>&#x4EC5;&#x4EC5;&#x53EA;&#x662F;&#x5728;&#x6E32;&#x67D3;&#x8F93;&#x51FA;&#x4E2D;&#x63D2;&#x5165;&#x4E86; count &#x8FD9;&#x4E2A;&#x6570;&#x5B57;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x6570;&#x5B57;&#x7531; React &#x63D0;&#x4F9B;&#x3002;&#x5F53; setCount &#x7684;&#x65F6;&#x5019;&#x3001;React &#x4F1A;&#x5E26;&#x7740;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x7684; count &#x503C;&#x518D;&#x6B21;&#x8C03;&#x7528;&#x7EC4;&#x4EF6;&#x3002;&#x7136;&#x540E;&#xFF0C;React &#x4F1A;&#x66F4;&#x65B0; DOM &#x4EE5;&#x4FDD;&#x6301;&#x548C;&#x6E32;&#x67D3;&#x8F93;&#x51FA;&#x4E00;&#x81F4;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x5173;&#x952E;&#x7684;&#x70B9;&#x5728;&#x4E8E;&#x4EFB;&#x610F;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x4E2D;&#x7684; count &#x5E38;&#x91CF;&#x90FD;&#x4E0D;&#x4F1A;&#x968F;&#x7740;&#x65F6;&#x95F4;&#x6539;&#x53D8;&#x3002;&#x6E32;&#x67D3;&#x8F93;&#x51FA;&#x4F1A;&#x53D8;&#x662F;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x7684;&#x7EC4;&#x4EF6;&#x88AB;&#x4E00;&#x6B21;&#x6B21;&#x8C03;&#x7528;&#xFF0C;&#x800C;&#x6BCF;&#x4E00;&#x6B21;&#x8C03;&#x7528;&#x5F15;&#x8D77;&#x7684;&#x6E32;&#x67D3;&#x4E2D;&#xFF0C;&#x5B83;&#x5305;&#x542B;&#x7684; count &#x503C;&#x72EC;&#x7ACB;&#x4E8E;&#x5176;&#x4ED6;&#x6E32;&#x67D3;&#x3002;</p>
+<h2 id="&#x6BCF;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x90FD;&#x6709;&#x5B83;&#x81EA;&#x5DF1;&#x7684;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;">&#x6BCF;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x90FD;&#x6709;&#x5B83;&#x81EA;&#x5DF1;&#x7684;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;</h2>
+<p>&#x770B;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Counter</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> [count, setCount] = useState(<span class="hljs-number">0</span>);
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleAlertClick</span>(<span class="hljs-params"></span>) </span>{
+    setTimeout(() =&gt; {
+      alert(<span class="hljs-string">&apos;You clicked on: &apos;</span> + count);
+    }, <span class="hljs-number">3000</span>);
+  }
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>You clicked {count} times<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> setCount(count + 1)}&gt;
+        Click me
+      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{handleAlertClick}</span>&gt;</span>
+        Show alert
+      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+}
+</code></pre>
+<p>&#x5982;&#x679C;&#x6309;&#x7167;&#x5982;&#x4E0B;&#x64CD;&#x4F5C;&#x53BB;&#x8FDB;&#x884C;:</p>
+<ul>
+<li>&#x70B9;&#x51FB;&#x589E;&#x52A0; counter &#x5230; 3</li>
+<li>&#x70B9;&#x51FB;&#x4E00;&#x4E0B;&quot;show alert&quot;</li>
+<li>&#x70B9;&#x51FB;&#x589E;&#x52A0; counter &#x5230; 5 &#x5E76;&#x4E14;&#x5728;&#x5B9A;&#x65F6;&#x5668;&#x56DE;&#x8C03;&#x89E6;&#x53D1;&#x524D;&#x5B8C;&#x6210;</li>
+</ul>
+<p>&#x731C;&#x731C;&#x770B;&#x4F1A;&#x5F39;&#x51FA;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<p>&#x662F; 5 &#x5417;&#xFF1F;&#x2014;&#x2014;&#x2014;&#x2014;&#x8FD9;&#x4E2A;&#x503C;&#x662F; alert &#x7684;&#x65F6;&#x5019; counter &#x7684;&#x5B9E;&#x65F6;&#x72B6;&#x6001;&#x3002;</p>
+<p>&#x6216;&#x8005;&#x662F; 3 &#x5417;&#xFF1F;&#x2014;&#x2014;&#x2014;&#x2014;&#x8FD9;&#x4E2A;&#x503C;&#x662F;&#x6211;&#x70B9;&#x51FB;&#x65F6;&#x5019;&#x7684;&#x72B6;&#x6001;&#x3002;</p>
+<p>&#x5B9E;&#x9645;&#x4E0A;&#x662F; 3</p>
+<p>alert &#x4F1A;&quot;&#x6355;&#x83B7;&quot;&#x6211;&#x70B9;&#x51FB;&#x6309;&#x94AE;&#x65F6;&#x7684;&#x72B6;&#x6001;&#x3002;</p>
+<p><em>&#xFF08;&#x867D;&#x7136;&#x6709;&#x5176;&#x4ED6;&#x529E;&#x6CD5;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4E0D;&#x540C;&#x7684;&#x884C;&#x4E3A;&#xFF0C;&#x4F46;&#x73B0;&#x5728;&#x6211;&#x4F1A;&#x4E13;&#x6CE8;&#x4E8E;&#x8FD9;&#x4E2A;&#x9ED8;&#x8BA4;&#x7684;&#x573A;&#x666F;&#x3002;&#x5F53;&#x6211;&#x4EEC;&#x5728;&#x6784;&#x5EFA;&#x4E00;&#x79CD;&#x5FC3;&#x667A;&#x6A21;&#x578B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5728;&#x53EF;&#x9009;&#x7684;&#x7B56;&#x7565;&#x4E2D;&#x5206;&#x8FA8;&#x51FA;&#x201C;&#x6700;&#x5C0F;&#x963B;&#x529B;&#x8DEF;&#x5F84;&#x201D;&#x662F;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#x3002;&#xFF09;</em></p>
+<h3 id="&#x4ED6;&#x7A76;&#x7ADF;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#x5462;&#xFF1F;">&#x4ED6;&#x7A76;&#x7ADF;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#x5462;&#xFF1F;</h3>
+<p>&#x5176;&#x5B9E;&#x5728;&#x4E0A;&#x9762; count &#x6539;&#x53D8;&#x7684;&#x4F8B;&#x5B50;&#x91CC;&#x9762;&#xFF0C;&#x5C31;&#x6709;&#x4E00;&#x4E2A;&#x73B0;&#x8C61;&#xFF0C;&#x5C31;&#x662F; count &#x5728;&#x6BCF;&#x4E00;&#x6B21;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x4E2D;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x5E38;&#x91CF;&#x503C;&#x3002;&#x503C;&#x5F97;&#x5F3A;&#x8C03;&#x7684;&#x662F; &#x2014;&#x2014;&#x2014;&#x2014; &#x6211;&#x4EEC;&#x7684;&#x7EC4;&#x4EF6;&#x51FD;&#x6570;&#x6BCF;&#x6B21;&#x6E32;&#x67D3;&#x90FD;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x6BCF;&#x4E00;&#x6B21;&#x8C03;&#x7528;&#x4E2D;&#x7684; count &#x503C;&#x90FD;&#x662F;&#x5E38;&#x91CF;&#xFF0C;&#x5E76;&#x4E14;&#x4ED6;&#x88AB;&#x8D4B;&#x4E88;&#x4E86;&#x5F53;&#x524D;&#x6E32;&#x67D3;&#x4E2D;&#x7684;&#x72B6;&#x6001;&#x503C;&#x3002;</p>
+<p>&#x8FD9;&#x5E76;&#x4E0D;&#x662F; React &#x7279;&#x6709;&#x7684;&#xFF0C;&#x666E;&#x901A;&#x51FD;&#x6570;&#x4E5F;&#x6709;&#x7C7B;&#x4F3C;&#x7684;&#x884C;&#x4E3A;</p>
+<pre><code class="lang-javaScript">
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sayHi</span>(<span class="hljs-params">person</span>) </span>{
+    <span class="hljs-keyword">const</span> name = person.name;
+    setTimeout(() =&gt; {
+        alert(<span class="hljs-string">&apos;Hello, &apos;</span> + name);
+    }, <span class="hljs-number">3000</span>);
+}
+
+<span class="hljs-keyword">let</span> someone = {name: <span class="hljs-string">&apos;Qins&apos;</span>};
+sayHi(someone);
+
+someone = {name: <span class="hljs-string">&apos;Jack&apos;</span>};
+sayHi(someone);
+
+someone = {name: <span class="hljs-string">&apos;Great&apos;</span>};
+sayHi(someone);
+</code></pre>
+<p>&#x5728;&#x4E0A;&#x8FF0;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x731C;&#x731C;&#x770B; alert &#x5F39;&#x51FA;&#x7684;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;&#x5B9E;&#x9645;&#x4E0A;&#x4F1A;&#x4F9D;&#x6B21;&#x5F39;&#x51FA;&#x4E09;&#x4E2A;&#x503C;&#x3002;</p>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x5916;&#x5C42;&#x7684;<code>someone</code>&#x4F1A;&#x88AB;&#x8D4B;&#x503C;&#x591A;&#x6B21;(&#x5C31;&#x50CF;&#x5728; React &#x4E2D;, &#x5F53;&#x524D;&#x7684;&#x7EC4;&#x4EF6;&#x72B6;&#x6001;&#x4F1A;&#x6539;&#x53D8;&#x4E00;&#x6837;)&#x3002; &#x7136;&#x540E;&#x5728;<code>sayHi</code>&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x5C40;&#x90E8;&#x5E38;&#x91CF;<code>name</code>&#x4F1A;&#x548C;&#x67D0;&#x6B21;&#x8C03;&#x7528;&#x4E2D;&#x7684;<code>person</code>&#x5173;&#x8054;&#x3002;(&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F; person &#x5165;&#x53C2;&#x5C31;&#x662F;&#x4E00;&#x6B21;&#x6D45;&#x62F7;&#x8D1D;&#xFF0C;&#x4F46;&#x662F; const &#x5B9A;&#x4E49;&#x5E38;&#x91CF;&#x4F1A;&#x5728;&#x6808;&#x5185;&#x5F00;&#x8F9F;&#x4E00;&#x4E2A;&#x7A7A;&#x95F4;, &#x5B58;&#x50A8; name &#x7684;&#x503C;, &#x8FD9;&#x6837;&#x6BCF;&#x4E00;&#x6B21;&#x6267;&#x884C; sayHi &#x90FD;&#x4F1A;&#x521B;&#x5EFA;&#x5F53;&#x65F6;&#x7684;&#x4E0A;&#x4E0B;&#x6587;, &#x7136;&#x540E;&#x5728;&#x6808;&#x4E2D;&#x5F00;&#x8F9F;&#x7A7A;&#x95F4;, &#x5B58;&#x50A8;&#x7279;&#x5B9A;&#x7684;&#x503C;)</p>
+<p>&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;&#x5E38;&#x91CF;&#x662F;&#x5C40;&#x90E8;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6BCF;&#x4E00;&#x6B21;&#x8C03;&#x7528;&#x90FD;&#x662F;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#x7684;&#x3002;&#x7ED3;&#x679C;&#x5C31;&#x662F;&#xFF0C; &#x5F53;&#x5B9A;&#x65F6;&#x5668;&#x56DE;&#x8C03;&#x89E6;&#x53D1;&#x7684;&#x65F6;&#x5019;&#xFF0C; &#x6BCF;&#x4E00;&#x6B21; alert &#x90FD;&#x4F1A;&#x5F39;&#x51FA;&#x4ED6;&#x62E5;&#x6709;&#x7684;<code>name</code></p>
+<p>&#x8FD9;&#x5C31;&#x89E3;&#x91CA;&#x4E86;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#x662F;&#x5982;&#x4F55;&#x6355;&#x83B7;&#x4E86;&#x70B9;&#x51FB;&#x65F6;&#x5019;&#x7684;<code>count</code>&#x503C;&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5E94;&#x7528;&#x76F8;&#x540C;&#x7684;&#x66FF;&#x6362;&#x539F;&#x7406;&#xFF0C;&#x6BCF;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&quot;&#x770B;&#x5230;&quot;&#x7684;&#x90FD;&#x662F;&#x4ED6;&#x81EA;&#x5DF1;&#x7684; count&#x3002;</p>
+<p>&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;&#x8BF4; React &#x5728;&#x6BCF;&#x4E00;&#x6B21; render &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x90FD;&#x4F1A;&#x91CD;&#x65B0;&#x6267;&#x884C;&#x7EC4;&#x4EF6;&#x51FD;&#x6570;&#xFF0C;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x56E0;&#x6B64;&#x54EA;&#x4E00;&#x4E2A; count &#x4EC5;&#x5C5E;&#x4E8E;&#x5F53;&#x6B21;&#x6E32;&#x67D3;&#x7684;&#x90A3;&#x4E2A;&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x800C; count &#x7B49;&#x4E8E; 3 &#x7684;&#x65F6;&#x5019;&#x70B9;&#x51FB;&#x6309;&#x94AE;&#xFF0C;&#x6B64;&#x65F6;&#x6267;&#x884C; setTimeout &#x540E;&#xFF0C;&#x62FF;&#x5230;&#x7684;&#x4E5F;&#x662F;&#x5F53;&#x65F6;&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x7684; count &#x503C;&#xFF0C;&#x5E76;&#x4E14;&#x5DF2;&#x7ECF;&#x6DFB;&#x52A0;&#x5230;&#x4E86;&#x5B8F;&#x961F;&#x5217;&#x4E2D;&#xFF0C;&#x7B49;&#x5230;&#x5012;&#x8BA1;&#x65F6;&#x5B8C;&#x6210;&#x5C31;&#x89E6;&#x53D1;&#x3002;&#x591A;&#x6B21;&#x6E32;&#x67D3;&#x7684;&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;&#x662F;&#x5E73;&#x884C;&#x5B58;&#x5728;&#x7684;&#xFF0C;&#x4ED6;&#x4EEC;&#x5206;&#x522B;&#x5B58;&#x50A8;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x6808;&#x4E2D;&#xFF0C;&#x56E0;&#x6B64;&#x540E;&#x9762;&#x89E6;&#x53D1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5F15;&#x7528;&#x7684;&#x5730;&#x5740;&#x4E5F;&#x662F;&#x70B9;&#x51FB;&#x7684;&#x90A3;&#x4E00;&#x6B21;&#x5B58;&#x50A8;&#x5728;&#x6808;&#x4E2D;&#x7684;&#x90A3;&#x4E00;&#x4E2A;&#x5730;&#x5740;&#xFF0C;&#x540E;&#x9762;&#x7684; count&#xFF0C;&#x548C;&#x524D;&#x9762;&#x7684; count&#xFF0C;&#x90FD;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x5730;&#x5740;&#x4E2D;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x4F1A;&#x4E92;&#x76F8;&#x5F71;&#x54CD;&#xFF0C;&#x4E5F;&#x62FF;&#x4E0D;&#x5230;&#x3002;</p>
+<p>&#x7B80;&#x5355;&#x7684;&#x8BF4;&#x5C31;&#x662F;&#xFF0C;&#x6BCF;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&quot;&#x65B0;&#x7248;&#x672C;&quot;&#x7684;<code>handleAlertClick</code>&#x3002;&#x6BCF;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x7684;<code>handleAlertClick</code>&quot;&#x8BB0;&#x4F4F;&quot;&#x4E86;&#x5B83;&#x81EA;&#x5DF1;&#x7684;<code>count</code>&#x3002;</p>
+<p>&#x8FD9;&#x5C31;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x5728;&#x4E0A;&#x9762;&#x7684; demo &#x4E2D;, &#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&quot;&#x5C5E;&#x4E8E;&quot;&#x67D0;&#x4E00;&#x6B21;&#x7279;&#x5B9A;&#x7684;&#x6E32;&#x67D3;&#xFF0C;&#x5F53;&#x4F60;&#x70B9;&#x51FB;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5B83;&#x4F1A;&#x4F7F;&#x7528;&#x90A3;&#x6B21;&#x6E32;&#x67D3;&#x4E2D;&#x7684;<code>counter</code>&#x72B6;&#x6001;&#x503C;&#x3002;</p>
+<p>&#x5728;&#x4EFB;&#x610F;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x4E2D;, props &#x548C; state &#x662F;&#x59CB;&#x7EC8;&#x4E0D;&#x53D8;&#x7684;&#x3002;&#x5982;&#x679C; props &#x548C; state &#x5728;&#x4E0D;&#x540C;&#x7684;&#x6E32;&#x67D3;&#x4E2D;&#x662F;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#x7684;&#xFF0C;&#x90A3;&#x4E48;&#x4F7F;&#x7528;&#x5230;&#x4ED6;&#x4EEC;&#x7684;&#x4EFB;&#x4F55;&#x503C;&#x4E5F;&#x662F;&#x72EC;&#x7ACB;&#x7684;(&#x5305;&#x62EC;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;)&#x3002;&#x4ED6;&#x4EEC;&#x90FD;&quot;&#x5C5E;&#x4E8E;&quot;&#x4E00;&#x6B21;&#x7279;&#x5B9A;&#x7684;&#x6E32;&#x67D3;&#x3002;&#x5373;&#x4FBF;&#x662F;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x4E2D;&#x7684;&#x5F02;&#x6B65;&#x51FD;&#x6570;&#x8C03;&#x7528;&quot;&#x770B;&#x5230;&quot;&#x7684;&#x4E5F;&#x662F;&#x8FD9;&#x6B21;&#x6E32;&#x67D3;&#x4E2D;&#x7684;<code>count</code>&#x503C;&#x3002;</p>
+<p>&#x5907;&#x6CE8;: &#x4E0A;&#x9762;&#x6211;&#x5C06;&#x5177;&#x4F53;&#x7684;<code>count</code>&#x503C;&#x76F4;&#x63A5;&#x5185;&#x8054;&#x5230;&#x4E86;<code>handleAlertClick</code>&#x51FD;&#x6570;&#x4E2D;&#x3002;&#x8FD9;&#x79CD;&#x5FC3;&#x667A;&#x4E0A;&#x7684;&#x66FF;&#x6362;&#x662F;&#x5B89;&#x5168;&#x7684;&#x3002;&#x56E0;&#x4E3A;<code>count</code>&#x503C;&#x5728;&#x67D0;&#x6B21;&#x7279;&#x5B9A;&#x6E32;&#x67D3;&#x4E2D;&#x4E0D;&#x53EF;&#x80FD;&#x88AB;&#x6539;&#x53D8;&#x3002;&#x5B83;&#x88AB;&#x58F0;&#x660E;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x5E38;&#x91CF;&#x5E76;&#x4E14;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#x3002;&#x8FD9;&#x6837;&#x53BB;&#x601D;&#x8003;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x7684;&#x503C;&#x6BD4;&#x5982;&#x5BF9;&#x8C61;&#x4E5F;&#x540C;&#x6837;&#x662F;&#x5B89;&#x5168;&#x7684;&#xFF0C;&#x5F53;&#x7136;&#x9700;&#x8981;&#x5728;&#x6211;&#x4EEC;&#x90FD;&#x540C;&#x610F;&#x5E94;&#x8BE5;&#x907F;&#x514D;&#x76F4;&#x63A5;&#x4FEE;&#x6539; state &#x8FD9;&#x4E2A;&#x524D;&#x63D0;&#x4E0B;&#x3002;&#x901A;&#x8FC7;&#x8C03;&#x7528;<code>setSomething(newObj)</code>&#x7684;&#x65B9;&#x5F0F;&#x53BB;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#x800C;&#x4E0D;&#x662F;&#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x5B83;&#x662F;&#x66F4;&#x597D;&#x7684;&#x9009;&#x62E9;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x6837;&#x80FD;&#x4FDD;&#x8BC1;&#x4E4B;&#x524D;&#x6E32;&#x67D3;&#x4E2D;&#x7684; state &#x4E0D;&#x4F1A;&#x88AB;&#x6C61;&#x67D3;&#x3002;</p>
+<h2 id="&#x6BCF;&#x6B21;&#x6E32;&#x67D3;&#x90FD;&#x6709;&#x5B83;&#x81EA;&#x5DF1;&#x7684;-effects">&#x6BCF;&#x6B21;&#x6E32;&#x67D3;&#x90FD;&#x6709;&#x5B83;&#x81EA;&#x5DF1;&#x7684; Effects</h2>
+<p>&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x662F;&#x5173;&#x4E8E; Effects &#x7684;&#xFF0C;&#x4F46;&#x662F;&#x76EE;&#x524D;&#x5C45;&#x7136;&#x8FD8;&#x6CA1;&#x6709;&#x8BA8;&#x8BBA; Effects&#xFF01;&#x8A00;&#x5F52;&#x6B63;&#x4F20;&#xFF0C; &#x7531;&#x4E0A;&#x9762;&#x5206;&#x6790;&#x5F97;&#x51FA;&#x4E00;&#x4E2A;&#x7ED3;&#x679C;&#xFF0C;effects &#x5176;&#x5B9E;&#x5E76;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x4E24;&#x6837;&#x3002;</p>
+<p>&#x56DE;&#x5230;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x4E2D;&#x7684;&#x4F8B;&#x5B50;:</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Counter</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">const</span> [count, setCount] = useState(<span class="hljs-number">0</span>);
+
+    useEffect(() =&gt; {
+        <span class="hljs-built_in">document</span>.title = <span class="hljs-string">`You clicked <span class="hljs-subst">${count}</span> times`</span>;
+    });
+
+    <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>You clicked {count} times<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> setCount(count + 1)}&gt;
+        Click me
+      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+    )
+}
+</code></pre>
+<h3 id="&#x7B2C;&#x4E00;&#x4E2A;&#x95EE;&#x9898;-effect-&#x662F;&#x5982;&#x4F55;&#x8BFB;&#x53D6;&#x5230;&#x6700;&#x65B0;&#x7684;-count-&#x72B6;&#x6001;&#x503C;&#x5462;&#xFF1F;">&#x7B2C;&#x4E00;&#x4E2A;&#x95EE;&#x9898;: effect &#x662F;&#x5982;&#x4F55;&#x8BFB;&#x53D6;&#x5230;&#x6700;&#x65B0;&#x7684; count &#x72B6;&#x6001;&#x503C;&#x5462;&#xFF1F;</h3>
+<p>&#x9996;&#x5148;&#xFF0C;<code>count</code>&#x8EAB;&#x4E0A;&#x5E76;&#x6CA1;&#x6709;<code>data binding</code>, &#x4E5F;&#x6CA1;&#x6709;<code>watcher</code>&#x673A;&#x5236;&#xFF0C; <code>count</code>&#x4E5F;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x53D8;&#x7684;&#x503C;&#xFF0C;&#x4ED6;&#x662F;&#x4E00;&#x4E2A;&#x5E38;&#x91CF;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x77E5;&#x9053;<code>count</code>&#x662F;&#x67D0;&#x4E2A;&#x7279;&#x5B9A;&#x6E32;&#x67D3;&#x4E2D;&#x7684;&#x5E38;&#x91CF;&#x3002; &#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#x201C;&#x770B;&#x5230;&#x201D;&#x7684;&#x662F;&#x5C5E;&#x4E8E;&#x5B83;&#x90A3;&#x6B21;&#x7279;&#x5B9A;&#x6E32;&#x67D3;&#x4E2D;&#x7684;<code>count</code>&#x72B6;&#x6001;&#x503C;&#x3002;&#x5BF9;&#x4E8E; effects &#x540C;&#x6837;&#x5982;&#x6B64;&#xFF1A;</p>
+<p>&#x5E76;&#x4E0D;&#x662F;<code>count</code>&#x7684;&#x503C;&#x5728;&#x201C;&#x4E0D;&#x53D8;&#x201D;&#x7684; effect &#x4E2D;&#x53D1;&#x751F;&#x4E86;&#x6539;&#x53D8;&#xFF0C;&#x800C;&#x662F; effect &#x51FD;&#x6570;&#x672C;&#x8EAB;&#x5728;&#x6BCF;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x4E2D;&#x90FD;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x3002;</p>
+<p>&#x6BCF;&#x4E00;&#x4E2A; effect &#x7248;&#x672C;&#x201C;&#x770B;&#x5230;&#x201D;&#x7684; count &#x503C;&#x90FD;&#x6765;&#x81EA;&#x4E8E;&#x5B83;&#x5C5E;&#x4E8E;&#x7684;&#x90A3;&#x6B21;&#x6E32;&#x67D3;&#x3002;&#x8FD8;&#x662F;&#x56DE;&#x5230;&#x4E86;&#x4E0A;&#x9762;&#x6240;&#x8BF4;&#x7684;&#xFF0C;&#x6BCF;&#x4E00;&#x6B21;&#x6267;&#x884C; render &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x90FD;&#x4F1A;&#x91CD;&#x65B0;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x800C;&#x4E4B;&#x524D;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x5207;&#x6362;&#xFF0C;&#x6808;&#x9876;&#x7A7A;&#x95F4;&#x56DE;&#x6536;&#xFF0C;&#x4E0A;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x7684; count &#x4E5F;&#x5C31;&#x56DE;&#x6536;&#x4E86;(&#x9664;&#x975E;&#x8FD8;&#x6709;&#x51FD;&#x6570;&#x5728;&#x4F7F;&#x7528;&#xFF0C;&#x6BD4;&#x5982;&#x4E0A;&#x6B21;&#x7684; handleClick &#x4E2D;&#x7684; setTimeout)&#x3002;</p>
+<p>&#x5BF9;&#x4E8E; React &#x6765;&#x8BF4;&#xFF0C;&#x5B83;&#x4F1A;&#x8BB0;&#x4F4F;&#x4F60;&#x63D0;&#x4F9B;&#x7684; effect &#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x4F1A;&#x5728;&#x6BCF;&#x6B21;&#x66F4;&#x6539;&#x4F5C;&#x7528;&#x4E8E; DOM &#x5E76;&#x8BA9;&#x6D4F;&#x89C8;&#x5668;&#x7ED8;&#x5236;&#x5C4F;&#x5E55;&#x540E;&#x53BB;&#x8C03;&#x7528;&#x5B83;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x867D;&#x7136;&#x6211;&#x4EEC;&#x8BF4;&#x7684;&#x662F;&#x4E00;&#x4E2A; effect(&#x8FD9;&#x91CC;&#x6307;&#x66F4;&#x65B0; document &#x7684; title)&#xFF0C; &#x4F46;&#x5176;&#x5B9E;&#x6BCF;&#x6B21;&#x6E32;&#x67D3;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x51FD;&#x6570;&#x2014;&#x2014;&#x2014;&#x2014;&#x5E76;&#x4E14;&#x6BCF;&#x4E2A; effect &#x51FD;&#x6570;&quot;&#x770B;&#x5230;&quot;&#x7684; props &#x548C; state &#x90FD;&#x6765;&#x81EA;&#x4E8E;&#x5B83;&#x5C5E;&#x4E8E;&#x7684;&#x90A3;&#x6B21;&#x7279;&#x5B9A;&#x6E32;&#x67D3;&#x3002;</p>
+<p>&#x6982;&#x5FF5;&#x4E0A;&#xFF0C; &#x4F60;&#x53EF;&#x4EE5;&#x60F3;&#x8C61; effects &#x662F;&#x6E32;&#x67D3;&#x7ED3;&#x679C;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x3002;</p>
+<p>&#x4E25;&#x683C;&#x7684;&#x8BF4;&#xFF0C;&#x4ED6;&#x4EEC;&#x5E76;&#x4E0D;&#x662F;(&#x4E3A;&#x4E86;&#x5141;&#x8BB8; Hook &#x7684;&#x7EC4;&#x5408;&#x5E76;&#x4E14;&#x4E0D;&#x5F15;&#x5165;&#x7B28;&#x62D9;&#x7684;&#x8BED;&#x6CD5;&#x6216;&#x8FD0;&#x884C;&#x65F6;)&#x3002;&#x4F46;&#x662F;&#x5728;&#x6784;&#x5EFA;&#x5FC3;&#x667A;&#x6A21;&#x578B;&#x65F6;&#xFF0C;effect &#x51FD;&#x6570;&#x5C5E;&#x4E8E;&#x67D0;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x6E32;&#x67D3;&#xFF0C;&#x5C31;&#x50CF;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#x4E00;&#x6837;&#x3002;</p>
+<h2 id="&#x6BCF;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x90FD;&#x6709;&#x5B83;&#x81EA;&#x5DF1;&#x7684;&#x6240;&#x6709;">&#x6BCF;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x90FD;&#x6709;&#x5B83;&#x81EA;&#x5DF1;&#x7684;...&#x6240;&#x6709;</h2>
+<p>&#x73B0;&#x5728;&#x5DF2;&#x7ECF;&#x77E5;&#x9053; effects &#x4F1A;&#x5728;&#x6BCF;&#x6B21;&#x6E32;&#x67D3;&#x540E;&#x8FD0;&#x884C;&#xFF0C; &#x5E76;&#x4E14;&#x6982;&#x5FF5;&#x4E0A;&#x4ED6;&#x662F;&#x7EC4;&#x4EF6;&#x8F93;&#x51FA;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x53EF;&#x4EE5;&quot;&#x770B;&#x5230;&quot;&#x5C5E;&#x4E8E;&#x67D0;&#x6B21;&#x7279;&#x5B9A;&#x6E32;&#x67D3;&#x7684; props &#x548C; state</p>
+<p>&#x505A;&#x4E00;&#x4E2A;&#x601D;&#x60F3;&#x5B9E;&#x9A8C;&#xFF0C; &#x601D;&#x8003;&#x4E00;&#x4E0B;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Counter</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> [count, setCount] = useState(<span class="hljs-number">0</span>);
+
+  useEffect(() =&gt; {
+    setTimeout(() =&gt; {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`You clicked <span class="hljs-subst">${count}</span> times`</span>);
+    }, <span class="hljs-number">3000</span>);
+  });
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>You clicked {count} times<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> setCount(count + 1)}&gt;
+        Click me
+      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+}
+</code></pre>
+<p>&#x5982;&#x679C;&#x6211;&#x70B9;&#x51FB;&#x4E86;&#x5F88;&#x591A;&#x6B21;&#x5E76;&#x4E14;&#x5728; effect &#x91CC;&#x8BBE;&#x7F6E;&#x4E86;&#x5EF6;&#x65F6;&#xFF0C;&#x6253;&#x5370;&#x51FA;&#x6765;&#x7684;&#x7ED3;&#x679C;&#x4F1A;&#x662F;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;</p>
+<p>&#x6BCF;&#x4E00;&#x6B21;&#x90FD;&#x4F1A;&#x6253;&#x5370;&#x51FA;&#x6765;&#xFF0C;&#x4ECE; 0 &#x5230;&#x7ED3;&#x675F;&#x7684;&#x90A3;&#x4E00;&#x6B21;&#xFF0C; 0 &#x662F;&#x521D;&#x6B21;&#x6E32;&#x67D3;&#x7684;&#x65F6;&#x5019;(&#x987A;&#x5E8F;&#x6253;&#x5370;)</p>
+<p>&#x4F46;&#x662F;&#x5982;&#x679C;&#x662F;&#x7C7B;&#x7EC4;&#x4EF6;&#xFF0C;&#x4F7F;&#x7528; setState &#x53BB;&#x66F4;&#x65B0;, &#x7136;&#x540E;&#x4F7F;&#x7528; componentDidUpdate &#x53BB;&#x6253;&#x5370;, &#x90A3;&#x4E48;&#x4F1A;&#x53D1;&#x73B0;&#x6BCF;&#x4E00;&#x6B21;&#x90FD;&#x662F;&#x6700;&#x540E;&#x7684;&#x90A3;&#x4E2A;&#x503C;</p>
+<p>&#x56E0;&#x4E3A; setState &#x4F1A;&#x5C06;&#x4E00;&#x4E2A; tick &#x7684;&#x66F4;&#x65B0;&#x5408;&#x5E76;&#x5230;&#x4E00;&#x8D77;&#xFF0C;&#x7136;&#x540E;&#x4E00;&#x8D77;&#x66F4;&#x65B0;&#x5E76;&#x4E14;&#x91CD;&#x65B0;&#x6E32;&#x67D3;</p>
+<p>&#x611F;&#x89C9; Hooks &#x8FD9;&#x4E48;&#x4F9D;&#x8D56; Javascript &#x95ED;&#x5305;&#x662F;&#x633A;&#x8BBD;&#x523A;&#x7684;&#x4E00;&#x4EF6;&#x4E8B;&#x3002;&#x6709;&#x65F6;&#x5019;&#x7EC4;&#x4EF6;&#x7684; class &#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x4F1A;&#x53D7;&#x95ED;&#x5305;&#x76F8;&#x5173;&#x7684;&#x82E6;&#xFF08;the canonical wrong-value-in-a-timeout confusion&#xFF09;&#xFF0C;&#x4F46;&#x5176;&#x5B9E;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#x771F;&#x6B63;&#x7684;&#x6DF7;&#x4E71;&#x6765;&#x6E90;&#x662F;&#x53EF;&#x53D8;&#x6570;&#x636E;&#xFF08;React &#x4FEE;&#x6539;&#x4E86; class &#x4E2D;&#x7684; this.state &#x4F7F;&#x5176;&#x6307;&#x5411;&#x6700;&#x65B0;&#x72B6;&#x6001;&#xFF09;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x95ED;&#x5305;&#x672C;&#x8EAB;&#x7684;&#x9519;&#x3002;</p>
+<p>&#x5F53;&#x5C01;&#x95ED;&#x7684;&#x503C;&#x59CB;&#x7EC8;&#x4E0D;&#x4F1A;&#x53D8;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x95ED;&#x5305;&#x662F;&#x975E;&#x5E38;&#x68D2;&#x7684;&#x3002;&#x8FD9;&#x4F7F;&#x5B83;&#x4EEC;&#x975E;&#x5E38;&#x5BB9;&#x6613;&#x601D;&#x8003;&#x56E0;&#x4E3A;&#x4F60;&#x672C;&#x8D28;&#x4E0A;&#x5728;&#x5F15;&#x7528;&#x5E38;&#x91CF;&#x3002;&#x6B63;&#x5982;&#x6211;&#x4EEC;&#x6240;&#x8BA8;&#x8BBA;&#x7684;&#xFF0C;props &#x548C; state &#x5728;&#x67D0;&#x4E2A;&#x7279;&#x5B9A;&#x6E32;&#x67D3;&#x4E2D;&#x662F;&#x4E0D;&#x4F1A;&#x6539;&#x53D8;&#x7684;&#x3002;&#x987A;&#x4FBF;&#x8BF4;&#x4E00;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x95ED;&#x5305;&#x4FEE;&#x590D;&#x4E0A;&#x9762;&#x7684; class &#x7248;&#x672C;&#x2026;</p>
+<h2 id="&#x4ECE;&#x8FC7;&#x53BB;&#x7684;&#x6E32;&#x67D3;&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x91CC;&#x8BFB;&#x53D6;&#x5230;&#x672A;&#x6765;&#x7684;-props-&#x548C;-state">&#x4ECE;&#x8FC7;&#x53BB;&#x7684;&#x6E32;&#x67D3;&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x91CC;&#x8BFB;&#x53D6;&#x5230;&#x672A;&#x6765;&#x7684; props &#x548C; state</h2>
+<p>&#x5230;&#x76EE;&#x524D;&#x4E3A;&#x6B62;, &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x660E;&#x786E;&#x4E00;&#x4E2A;&#x4E8B;&#x5B9E;: &#x6BCF;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x5185;&#x7684;&#x51FD;&#x6570;(&#x5305;&#x62EC;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;, effects, &#x5B9A;&#x65F6;&#x5668;&#x6216;&#x8005; API &#x8C03;&#x7528;&#x7B49;&#x7B49;)&#x4F1A;&#x6355;&#x83B7;&#x67D0;&#x6B21;&#x6E32;&#x67D3;&#x4E2D;&#x5B9A;&#x4E49;&#x7684; props &#x548C; state</p>
+<p>&#x5728;&#x7EC4;&#x4EF6;&#x5185;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x53BB;&#x8BFB;&#x53D6; props &#x6216;&#x8005; state &#x662F;&#x65E0;&#x5173;&#x7D27;&#x8981;&#x7684;&#x3002;&#x56E0;&#x4E3A;&#x4ED6;&#x4EEC;&#x5E76;&#x4E0D;&#x4F1A;&#x6539;&#x53D8;&#x3002;&#x5728;&#x5355;&#x6B21;&#x6E32;&#x67D3;&#x7684;&#x8303;&#x56F4;&#x5185;&#xFF0C;props &#x548C; state &#x59CB;&#x7EC8;&#x4FDD;&#x6301;&#x4E0D;&#x53D8;&#x3002;(&#x7ED3;&#x6784;&#x8D4B;&#x503C;&#x7684; props &#x5C24;&#x5176;&#x660E;&#x663E;)</p>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x53EF;&#x80FD;&#x4E5F;&#x4F1A;&#x60F3;&#x5728; effect &#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x91CC;&#x8BFB;&#x53D6;&#x6700;&#x65B0;&#x7684;&#x503C;&#x800C;&#x4E0D;&#x662F;&#x6355;&#x83B7;&#x7684;&#x503C;&#x3002;&#x5176;&#x5B9E;&#x6700;&#x7B80;&#x5355;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#x662F;&#x4F7F;&#x7528; refs&#x3002;&#x5C31;&#x662F;&#x5229;&#x7528; refs &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x5F53;&#x66F4;&#x65B0; refs &#x7684;&#x90A3;&#x4E2A;&#x503C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5168;&#x5C40;&#x7684;&#x8BE5;&#x503C;&#x90FD;&#x4F1A;&#x53D1;&#x751F;&#x6539;&#x53D8;&#xFF0C;&#x56E0;&#x6B64;&#x5728; useEffects &#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;&#x5982;&#x679C;&#x4E5F;&#x8BFB;&#x53D6;&#x5B83;&#xFF0C;&#x5C31;&#x80FD;&#x591F;&#x8BFB;&#x53D6;&#x5230;&#x6700;&#x65B0;&#x7684;&#x503C;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x8BF4;&#x60F3;&#x4ECE;&#x8FC7;&#x53BB;&#x7684;&#x6E32;&#x67D3;&#x51FD;&#x6570;&#x4E2D;&#x8BFB;&#x53D6;&#x5230;&#x672A;&#x6765;&#x7684; props &#x548C; state&#xFF0C;&#x8FD9;&#x662F;&#x5728;&#x9006;&#x6F6E;&#x800C;&#x52A8;, &#x867D;&#x7136;&#x5E76;&#x6CA1;&#x6709;&#x9519;&#xFF0C;&#x6709;&#x65F6;&#x5019;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x8FD9;&#x6837;&#x505A;&#x3002;&#x4F46;&#x662F;&#x5B83;&#x6253;&#x7834;&#x4E86;&#x9ED8;&#x8BA4;&#x7684;&#x8303;&#x5F0F;&#x4F1A;&#x8BA9;&#x4EE3;&#x7801;&#x663E;&#x5F97;&#x4E0D;&#x591F;&#x201C;&#x5E72;&#x51C0;&#x201D;&#x3002;&#x8FD9;&#x662F;&#x6211;&#x4EEC;&#x6709;&#x610F;&#x4E3A;&#x4E4B;&#x7684;&#xFF0C; &#x56E0;&#x4E3A;&#x5B83;&#x53EF;&#x4EE5;&#x5E2E;&#x52A9;&#x7A81;&#x51FA;&#x54EA;&#x4E9B;&#x4EE3;&#x7801;&#x662F;&#x8106;&#x5F31;&#x7684;&#xFF0C;&#x662F;&#x9700;&#x8981;&#x4F9D;&#x8D56;&#x65F6;&#x95F4;&#x6B21;&#x5E8F;&#x7684;&#x3002;&#x5728; class &#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x53D1;&#x751F;&#x8FD9;&#x6837;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5C31;&#x6CA1;&#x6709;&#x90A3;&#x4E48;&#x663E;&#x800C;&#x6613;&#x89C1;&#x4E86;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x6A21;&#x62DF;&#x4E00;&#x4E2A; class &#x884C;&#x4E3A;&#x7248;&#x672C;&#x7684;&#x8BA1;&#x6570;&#x5668;</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Example</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">const</span> [count, setCount] = useState(<span class="hljs-number">0</span>);
+    <span class="hljs-keyword">const</span> latestCount = useRef(count);
+
+    useEffect(() =&gt; {
+        latestCount.current = count;
+        setTimeout(() =&gt; {
+            <span class="hljs-built_in">console</span>.info(<span class="hljs-string">`You clicked <span class="hljs-subst">${latestCount.current}</span> times`</span>);
+        }, <span class="hljs-number">3000</span>);
+    });
+}
+...
+</code></pre>
+<p>&#x4E0A;&#x8FF0;&#x4F8B;&#x5B50;&#x5728;&#x6BCF;&#x4E00;&#x6B21;&#x89E6;&#x53D1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x4F1A;&#x62FF;&#x5230;&#x5F53;&#x65F6;&#x6700;&#x65B0;&#x7684; count &#x4E86;&#xFF0C;&#x56E0;&#x4E3A; useRef &#x521B;&#x5EFA;&#x7684;&#x53D8;&#x91CF;&#x7C7B;&#x4F3C;&#x4E8E;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x5B83;&#x4F9D;&#x8D56;&#x4E8E;&#x4F20;&#x5165;&#x7684;&#x503C;&#xFF0C;&#x800C; setTimeout &#x83B7;&#x53D6;&#x5230;&#x7684; latestCount.current &#x5728;&#x5806;&#x5185;&#x5B58;&#x4E2D;&#x5E76;&#x6CA1;&#x6709;&#x88AB;&#x56DE;&#x6536;, &#x6BCF;&#x4E00;&#x6B21; latestCount.current &#x66F4;&#x65B0;&#x7684;&#x65F6;&#x5019;, &#x90FD;&#x4F1A;&#x66F4;&#x65B0;&#x5806;&#x5185;&#x5B58;&#x4E2D;&#x540C;&#x4E00;&#x4E2A; current, &#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;&#x6700;&#x65B0;&#x7684;&#x503C;&#x4E86;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6BCF;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x7684;&#x503C;&#x3002;&#x54EA;&#x6015;&#x662F;&#x524D;&#x51E0;&#x6B21;&#x7684; setTimeout &#x5DF2;&#x7ECF;&#x52A0;&#x5165;&#x5230;&#x5B8F;&#x961F;&#x5217;&#x4E2D;&#x7B49;&#x5F85;&#x8BA1;&#x65F6;&#x4E86;&#xFF0C;&#x4F46;&#x662F; latestCount.current &#x6240;&#x6307;&#x5411;&#x7684;&#x5BF9;&#x5730;&#x5740;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#x8FD8;&#x662F;&#x4E00;&#x76F4;&#x5728;&#x66F4;&#x65B0;&#xFF0C;&#x4F46;&#x662F;&#x5730;&#x5740;&#x5374;&#x6CA1;&#x6709;&#x53D8;&#x5316;&#x3002;</p>
+<p>&#x5728; React &#x4E2D;&#x53BB;&#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x503C;&#x770B;&#x4E0A;&#x53BB;&#x6709;&#x70B9;&#x602A;&#x5F02;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x5728; class &#x7EC4;&#x4EF6;&#x4E2D; React &#x6B63;&#x662F;&#x8FD9;&#x6837;&#x53BB;&#x4FEE;&#x6539; this.state &#x7684;&#x3002;&#x4E0D;&#x50CF;&#x6355;&#x83B7;&#x7684; props &#x548C; state, &#x4F60;&#x6CA1;&#x6CD5;&#x4FDD;&#x8BC1;&#x5728;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;&#x8BFB;&#x53D6;&#x7684; latestCount.current &#x662F;&#x4E0D;&#x53D8;&#x7684;&#x3002;&#x6839;&#x636E;&#x5B9A;&#x4E49;&#xFF0C;&#x53EF;&#x4EE5;&#x968F;&#x65F6;&#x4FEE;&#x6539;&#x4ED6;&#x3002;&#x8FD9;&#x5C31;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x4ED6;&#x4E0D;&#x662F;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#xFF0C;&#x800C;&#x662F;&#x9700;&#x8981;&#x4F60;&#x4E3B;&#x52A8;&#x9009;&#x62E9;&#x8FD9;&#x6837;&#x505A;&#x3002;</p>
+<h2 id="effect-&#x4E2D;&#x7684;&#x6E05;&#x7406;">Effect &#x4E2D;&#x7684;&#x6E05;&#x7406;</h2>
+<p>&#x50CF;<a href="https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup" target="_blank">&#x6587;&#x6863;&#x4E2D;&#x89E3;&#x91CA;&#x7684;</a>&#x90A3;&#x6837;&#xFF0C;&#x6709;&#x4E9B; effects &#x53EF;&#x80FD;&#x9700;&#x8981;&#x6709;&#x4E00;&#x4E2A;&#x6E05;&#x7406;&#x6B65;&#x9AA4;&#x3002;&#x672C;&#x8D28;&#x4E0A;&#xFF0C;&#x5B83;&#x7684;&#x76EE;&#x7684;&#x662F;&#x6D88;&#x9664;&#x526F;&#x4F5C;&#x7528;(effect), &#x6BD4;&#x5982;&#x53D6;&#x6D88;&#x8BA2;&#x9605;&#x3002;</p>
+<p>&#x601D;&#x8003;&#x4E00;&#x4E0B;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;:</p>
+<pre><code class="lang-javaScript">useEffect(() =&gt; {
+  ChatAPI.subscribeToFriendStatus(props.id, handleStatusChange);
+  <span class="hljs-keyword">return</span> () =&gt; {
+    ChatAPI.unsubscribeFromFriendStatus(props.id, handleStatusChange);
+  };
+});
+</code></pre>
+<p>&#x5047;&#x8BBE;&#x7B2C;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x7684;&#x65F6;&#x5019; props &#x662F;{id: 10}, &#x7B2C;&#x4E8C;&#x6B21;&#x6E32;&#x67D3;&#x7684;&#x65F6;&#x5019;&#x662F;{id: 20}&#x3002;&#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x8BA4;&#x4E3A;&#x53D1;&#x751F;&#x4E86;&#x4E0B;&#x9762;&#x7684;&#x8FD9;&#x4E9B;&#x4E8B;&#x60C5;:</p>
+<ul>
+<li>React &#x6E05;&#x9664;&#x4E86;{id: 10}&#x7684; effect</li>
+<li>React &#x6E32;&#x67D3; {id: 20}&#x7684; UI</li>
+<li>React &#x8FD0;&#x884C; {id: 20}&#x7684; effect</li>
+</ul>
+<p>&#x5176;&#x5B9E;&#x5E76;&#x4E0D;&#x662F;&#x8FD9;&#x6837;&#x7684;</p>
+<p>&#x5982;&#x679C;&#x6309;&#x7167;&#x8FD9;&#x6837;&#x7684;&#x65B9;&#x5F0F;&#x8D70;&#x4E0B;&#x53BB;&#xFF0C;&#x90A3;&#x4E48;&#x6E05;&#x9664;&#x4E0A;&#x4E00;&#x6B21;&#x7684;{id: 10}&#x4E4B;&#x540E;&#xFF0C;&#x53C8;&#x4E3A;&#x4EC0;&#x4E48;&#x8FD8;&#x80FD;&#x201C;&#x770B;&#x5230;&#x201D;&#x65E7;&#x7684;{id: 10}&#xFF1F;</p>
+<p>&#x8FD8;&#x662F;&#x8981;&#x5F15;&#x7528;&#x4E0A;&#x534A;&#x90E8;&#x5206;&#x7684;&#x7ED3;&#x8BBA;&#xFF1A;</p>
+<p><em>&#x7EC4;&#x4EF6;&#x5185;&#x6BCF;&#x4E00;&#x4E2A;&#x51FD;&#x6570;(&#x5305;&#x62EC;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;, effects&#xFF0C;&#x5B9A;&#x65F6;&#x5668;&#x6216;&#x8005; API &#x8C03;&#x7528;&#x7B49;)&#x90FD;&#x4F1A;&#x6355;&#x83B7;&#x5B9A;&#x4E49;&#x4ED6;&#x4EEC;&#x7684;&#x90A3;&#x6B21;&#x6E32;&#x67D3;&#x4E2D;&#x7684; props &#x548C; state</em></p>
+<p>&#x73B0;&#x5728;&#x7B54;&#x6848;&#x663E;&#x800C;&#x6613;&#x89C1;&#x3002;effect &#x7684;&#x6E05;&#x9664;&#x5E76;&#x4E0D;&#x4F1A;&#x8BFB;&#x53D6;&#x201C;&#x6700;&#x65B0;&#x201D;&#x7684; props&#x3002;&#x5B83;&#x53EA;&#x80FD;&#x8BFB;&#x53D6;&#x5230;&#x5B9A;&#x4E49;&#x5B83;&#x7684;&#x90A3;&#x6B21;&#x6E32;&#x67D3;&#x4E2D;&#x7684; props &#x503C;&#x3002;</p>
+<p>&#x5B98;&#x65B9;&#x89E3;&#x91CA;&#x662F;:</p>
+<p><code>&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5728; effect &#x4E2D;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF1F; &#x8FD9;&#x662F; effect &#x53EF;&#x9009;&#x7684;&#x6E05;&#x9664;&#x673A;&#x5236;&#x3002;&#x6BCF;&#x4E2A; effect &#x90FD;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6E05;&#x9664;&#x51FD;&#x6570;&#x3002;&#x5982;&#x6B64;&#x53EF;&#x4EE5;&#x5C06;&#x6DFB;&#x52A0;&#x548C;&#x79FB;&#x9664;&#x8BA2;&#x9605;&#x7684;&#x903B;&#x8F91;&#x653E;&#x5728;&#x4E00;&#x8D77;&#x3002;&#x5B83;&#x4EEC;&#x90FD;&#x5C5E;&#x4E8E; effect &#x7684;&#x4E00;&#x90E8;&#x5206;&#x3002;React &#x4F55;&#x65F6;&#x6E05;&#x9664; effect&#xFF1F; React &#x4F1A;&#x5728;&#x7EC4;&#x4EF6;&#x5378;&#x8F7D;&#x7684;&#x65F6;&#x5019;&#x6267;&#x884C;&#x6E05;&#x9664;&#x64CD;&#x4F5C;&#x3002;&#x6B63;&#x5982;&#x4E4B;&#x524D;&#x5B66;&#x5230;&#x7684;&#xFF0C;effect &#x5728;&#x6BCF;&#x6B21;&#x6E32;&#x67D3;&#x7684;&#x65F6;&#x5019;&#x90FD;&#x4F1A;&#x6267;&#x884C;&#x3002;&#x8FD9;&#x5C31;&#x662F;&#x4E3A;&#x4EC0;&#x4E48; React &#x4F1A;&#x5728;&#x6267;&#x884C;&#x5F53;&#x524D; effect &#x4E4B;&#x524D;&#x5BF9;&#x4E0A;&#x4E00;&#x4E2A; effect &#x8FDB;&#x884C;&#x6E05;&#x9664;&#x3002;&#x6211;&#x4EEC;&#x7A0D;&#x540E;&#x5C06;&#x8BA8;&#x8BBA;&#x4E3A;&#x4EC0;&#x4E48;&#x8FD9;&#x5C06;&#x52A9;&#x4E8E;&#x907F;&#x514D; bug&#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x5728;&#x9047;&#x5230;&#x6027;&#x80FD;&#x95EE;&#x9898;&#x65F6;&#x8DF3;&#x8FC7;&#x6B64;&#x884C;&#x4E3A;&#x3002;</code></p>
+<p>&#x56E0;&#x4E3A;&#x6BCF;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x90FD;&#x76F8;&#x5F53;&#x4E8E;&#x662F;&#x5728;&#x5378;&#x8F7D;&#x4E0A;&#x4E00;&#x6B21;&#x7684; effect&#x3002;</p>
+<p>&#x56E0;&#x6B64;&#x5B83;&#x7684;&#x6E05;&#x9664;&#x8FC7;&#x7A0B;&#x5176;&#x5B9E;&#x662F;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
+<pre><code class="lang-javaScript"><span class="hljs-comment">// First render, props are {id: 10}</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Example</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// ...</span>
+  useEffect(
+    <span class="hljs-comment">// Effect from first render</span>
+    () =&gt; {
+      ChatAPI.subscribeToFriendStatus(<span class="hljs-number">10</span>, handleStatusChange);
+      <span class="hljs-comment">// Cleanup for effect from first render</span>
+      <span class="hljs-keyword">return</span> () =&gt; {
+        ChatAPI.unsubscribeFromFriendStatus(<span class="hljs-number">10</span>, handleStatusChange);
+      };
+    }
+  );
+  <span class="hljs-comment">// ...</span>
+}
+
+<span class="hljs-comment">// Next render, props are {id: 20}</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Example</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// ...</span>
+  useEffect(
+    <span class="hljs-comment">// Effect from second render</span>
+    () =&gt; {
+      ChatAPI.subscribeToFriendStatus(<span class="hljs-number">20</span>, handleStatusChange);
+      <span class="hljs-comment">// Cleanup for effect from second render</span>
+      <span class="hljs-keyword">return</span> () =&gt; {
+        ChatAPI.unsubscribeFromFriendStatus(<span class="hljs-number">20</span>, handleStatusChange);
+      };
+    }
+  );
+  <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>&#x7B2C;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x4E2D; effect &#x7684;&#x6E05;&#x9664;&#x51FD;&#x6570;&#x53EA;&#x80FD;&#x770B;&#x5230;{id: 10}&#x8FD9;&#x4E2A; props&#x3002;</p>
+<p>&#x8FD9;&#x6B63;&#x662F;&#x4E3A;&#x4EC0;&#x4E48; React &#x80FD;&#x505A;&#x5230;&#x5728;&#x7ED8;&#x5236;&#x540E;&#x7ACB;&#x5373;&#x5904;&#x7406; effects &#x2014;&#x2014; &#x5E76;&#x4E14;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4F7F;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x8FD0;&#x884C;&#x66F4;&#x6D41;&#x7545;&#x3002;&#x5982;&#x679C;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#x9700;&#x8981;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5230;&#x8001;&#x7684; props&#x3002;</p>
+<h2 id="&#x540C;&#x6B65;&#xFF0C;-&#x800C;&#x975E;&#x751F;&#x547D;&#x5468;&#x671F;">&#x540C;&#x6B65;&#xFF0C; &#x800C;&#x975E;&#x751F;&#x547D;&#x5468;&#x671F;</h2>
+<p>React &#x7EDF;&#x4E00;&#x63CF;&#x8FF0;&#x4E86;&#x521D;&#x59CB;&#x503C;&#x548C;&#x4E4B;&#x540E;&#x7684;&#x66F4;&#x65B0;&#xFF0C;&#x964D;&#x4F4E;&#x4E86;&#x7A0B;&#x5E8F;&#x7684;&#x71B5;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#x6211;&#x6709;&#x4E2A;&#x7EC4;&#x4EF6;&#x50CF;&#x4E0B;&#x9762;&#x8FD9;&#x6837;:</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Greeting</span>(<span class="hljs-params">{ name }</span>) </span>{
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;Greeting&quot;</span>&gt;</span>
+      Hello, {name}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+  );
+}
+</code></pre>
+<p>&#x6211;&#x5148;&#x6E32;&#x67D3;<greeting name="Jack"> &#x7136;&#x540E;&#x6E32;&#x67D3;<greeting name="Greet"></greeting></greeting></p>
+<p>&#x548C;&#x76F4;&#x63A5;&#x6E32;&#x67D3;<greeting name="Greet"> &#x5E76;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#x3002;&#x5728;&#x8FD9;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C; &#x6211;&#x6700;&#x540E;&#x770B;&#x5230;&#x7684;&#x90FD;&#x662F;&quot;Hello Greet&quot;</greeting></p>
+<p>&#x4EBA;&#x4EEC;&#x603B;&#x662F;&#x8BF4;: &#x201C;&#x91CD;&#x8981;&#x7684;&#x662F;&#x65C5;&#x884C;&#x8FC7;&#x7A0B;&#xFF0C; &#x800C;&#x4E0D;&#x662F;&#x76EE;&#x7684;&#x5730;&#x201D;&#x3002;&#x5728; React &#x4E16;&#x754C;&#x4E2D;&#xFF0C; &#x6070;&#x597D;&#x76F8;&#x53CD;&#x3002;&#x91CD;&#x8981;&#x7684;&#x662F;&#x76EE;&#x7684;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x8FC7;&#x7A0B;&#x3002;&#x8FD9;&#x5C31;&#x662F; JQ &#x4EE3;&#x7801;&#x4E2D;<code>$.addClass</code>&#x6216;<code>$.removeClass</code>&#x8FD9;&#x6837;&#x7684;&#x8C03;&#x7528;(&#x8FC7;&#x7A0B;)&#x548C; React &#x4EE3;&#x7801;&#x4E2D;&#x58F0;&#x660E; CSS &#x7C7B;&#x540D;&#x5E94;&#x8BE5;&#x662F;&#x4EC0;&#x4E48;(&#x76EE;&#x7684;)&#x4E4B;&#x95F4;&#x7684;&#x533A;&#x522B;&#x3002;</p>
+<p>React &#x4F1A;&#x6839;&#x636E;&#x5F53;&#x524D;&#x7684; props &#x548C; state &#x540C;&#x6B65;&#x5230; DOM&#x3002;&quot;mount&quot;&#x548C;&quot;update&quot;&#x4E4B;&#x4E8E;&#x6E32;&#x67D3;&#x5E76;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#x3002;</p>
+<p>&#x4F60;&#x5E94;&#x8BE5;&#x4EE5;&#x76F8;&#x540C;&#x7684;&#x65B9;&#x5F0F;&#x53BB;&#x601D;&#x8003; effects&#x3002;<code>useEffect</code>&#x4F7F;&#x4F60;&#x80FD;&#x591F;&#x6839;&#x636E; props &#x548C; state &#x540C;&#x6B65; React tree &#x4E4B;&#x5916;&#x7684;&#x4E1C;&#x897F;&#x3002;</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Greeting</span>(<span class="hljs-params">{ name }</span>) </span>{
+  useEffect(() =&gt; {
+    <span class="hljs-built_in">document</span>.title = <span class="hljs-string">&apos;Hello, &apos;</span> + name;
+  });
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;Greeting&quot;</span>&gt;</span>
+      Hello, {name}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+  );
+}
+</code></pre>
+<p>&#x8FD9;&#x5C31;&#x662F;&#x548C;&#x5927;&#x5BB6;&#x719F;&#x77E5;&#x7684; <em>mount / update / unmount</em> &#x5FC3;&#x667A;&#x6A21;&#x578B;&#x4E4B;&#x95F4;&#x7EC6;&#x5FAE;&#x7684;&#x533A;&#x522B;&#x3002;&#x7406;&#x89E3;&#x548C;&#x5185;&#x5316;&#x8FD9;&#x79CD;&#x533A;&#x522B;&#x662F;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#x3002;&#x5982;&#x679C;&#x4F60;&#x8BD5;&#x56FE;&#x5199;&#x4E00;&#x4E2A; effect &#x4F1A;&#x6839;&#x636E;&#x662F;&#x5426;&#x7B2C;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x800C;&#x8868;&#x73B0;&#x4E0D;&#x4E00;&#x81F4;&#xFF0C;&#x4F60;&#x6B63;&#x5728;&#x9006;&#x6F6E;&#x800C;&#x52A8;&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x7684;&#x7ED3;&#x679C;&#x4F9D;&#x8D56;&#x4E8E;&#x8FC7;&#x7A0B;&#x800C;&#x4E0D;&#x662F;&#x76EE;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x5728;&#x540C;&#x6B65;&#x4E2D;&#x72AF;&#x9519;&#x3002;</p>
+<p>&#x5148;&#x6E32;&#x67D3;&#x5C5E;&#x6027; A&#xFF0C; B &#x518D;&#x6E32;&#x67D3; C&#xFF0C; &#x548C;&#x7ACB;&#x5373;&#x6E32;&#x67D3; C &#x5E76;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#x3002;&#x867D;&#x7136;&#x4ED6;&#x4EEC;&#x53EF;&#x80FD;&#x77ED;&#x6682;&#x5730;&#x4F1A;&#x6709;&#x70B9;&#x4E0D;&#x540C;(&#x6BD4;&#x5982;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#x65F6;)&#xFF0C;&#x4F46;&#x6700;&#x7EC8;&#x7684;&#x7ED3;&#x679C;&#x662F;&#x4E00;&#x6837;&#x7684;&#x3002;</p>
+<p>&#x4E0D;&#x8FC7;&#x8BDD;&#x8BF4;&#x56DE;&#x6765;&#xFF0C; &#x5728;&#x6BCF;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x540E;&#x90FD;&#x53BB;&#x8FD0;&#x884C;&#x6240;&#x6709;&#x7684; effects &#x53EF;&#x80FD;&#x5E76;&#x4E0D;&#x9AD8;&#x6548;&#x3002;(&#x5E76;&#x4E14;&#x5728;&#x67D0;&#x4E9B;&#x573A;&#x666F;&#x4E0B;&#xFF0C;&#x5B83;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x65E0;&#x9650;&#x5FAA;&#x73AF;)&#x3002;</p>
+<h2 id="&#x544A;&#x8BC9;-react-&#x53BB;&#x6BD4;&#x5BF9;&#x4F60;&#x7684;-effects">&#x544A;&#x8BC9; React &#x53BB;&#x6BD4;&#x5BF9;&#x4F60;&#x7684; Effects</h2>
+<p>&#x5176;&#x5B9E;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x4ECE; React &#x5904;&#x7406; DOM &#x7684;&#x65B9;&#x5F0F;&#x4E2D;&#x5B66;&#x4E60;&#x5230;&#x4E86;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x3002;React &#x53EA;&#x4F1A;&#x66F4;&#x65B0; DOM &#x771F;&#x6B63;&#x53D1;&#x751F;&#x6539;&#x53D8;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6BCF;&#x6B21;&#x6E32;&#x67D3;&#x90FD;&#x5927;&#x52A8;&#x5E72;&#x6208;&#x3002;(DOM Diff)</p>
+<p>&#x5F53;&#x4F60;&#x628A;</p>
+<pre><code class="lang-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;Greeting&quot;</span>&gt;</span>
+  Hello, Jack
+<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+</code></pre>
+<p>&#x66F4;&#x65B0;&#x5230;</p>
+<pre><code class="lang-HTML"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;Greeting&quot;</span>&gt;</span>
+  Hello, Greet
+<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+</code></pre>
+<p>React &#x80FD;&#x591F;&#x770B;&#x5230;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;:</p>
+<pre><code class="lang-javaScript"><span class="hljs-keyword">const</span> oldProps = {className: <span class="hljs-string">&apos;Greeting&apos;</span>, children: <span class="hljs-string">&apos;Hello, Jack&apos;</span>}
+<span class="hljs-keyword">const</span> newProps = {className: <span class="hljs-string">&apos;Greeting&apos;</span>, children: <span class="hljs-string">&apos;Hello, Greet&apos;</span>}
+</code></pre>
+<p>&#x5B83;&#x4F1A;&#x68C0;&#x6D4B;&#x6BCF;&#x4E00;&#x4E2A; props, &#x5E76;&#x4E14;&#x53D1;&#x73B0; children &#x53D1;&#x751F;&#x6539;&#x53D8;&#x9700;&#x8981;&#x66F4;&#x65B0; DOM, &#x4F46;<code>className</code>&#x5E76;&#x6CA1;&#x6709;, &#x6240;&#x4EE5;&#x5B83;&#x9700;&#x8981;&#x8FD9;&#x6837;&#x505A;&#x3002;</p>
+<pre><code class="lang-javaScript">domNode.innerText = <span class="hljs-string">&apos;Hello, Greet&apos;</span>;
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x7C7B;&#x4F3C;&#x7684;&#x65B9;&#x5F0F;&#x5904;&#x7406; effects &#x5417;&#xFF1F;&#x5982;&#x679C;&#x80FD;&#x591F;&#x5728;&#x4E0D;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#x907F;&#x514D;&#x8C03;&#x7528; effect &#x5C31;&#x592A;&#x597D;&#x4E86;&#x3002;</p>
+<p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x7EC4;&#x4EF6;&#x53EF;&#x80FD;&#x56E0;&#x4E3A;&#x72B6;&#x6001;&#x53D8;&#x66F4;&#x800C;&#x91CD;&#x65B0;&#x6E32;&#x67D3;&#xFF1A;</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Greeting</span>(<span class="hljs-params">{name}</span>) </span>{
+  <span class="hljs-keyword">const</span> [counter, setCounter] = useState(<span class="hljs-number">0</span>);
+
+  useEffect(() =&gt; {
+    <span class="hljs-built_in">document</span>.title = <span class="hljs-string">`Hello, <span class="hljs-subst">${name}</span>`</span>;
+  });
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;Greeting&quot;</span>&gt;</span>
+      Hello, {name}
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> setCounter(counter + 1)}&gt;
+        Increment
+      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+  );
+}
+</code></pre>
+<p>&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x7684; effect &#x5E76;&#x6CA1;&#x6709;&#x4F7F;&#x7528;<code>counter</code>&#x8FD9;&#x4E2A;&#x72B6;&#x6001;&#x3002;&#x6211;&#x4EEC;&#x7684; effect &#x53EA;&#x4F1A;&#x540C;&#x6B65;<code>name</code>&#x5C5E;&#x6027;&#x7ED9; docuemnt.title, &#x4F46;<code>name</code>&#x5E76;&#x6CA1;&#x6709;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x3002;&#x5728;&#x6BCF;&#x4E00;&#x6B21; counter &#x6539;&#x53D8;&#x540E;&#x91CD;&#x65B0;&#x7ED9;<code>document.title</code>&#x8D4B;&#x503C;&#x5E76;&#x4E0D;&#x662F;&#x7406;&#x60F3;&#x7684;&#x505A;&#x6CD5;&#x3002;</p>
+<p>&#x597D;&#x4E86;&#xFF0C; &#x90A3; React &#x53EF;&#x4EE5;...&#x533A;&#x5206; effects &#x7684;&#x4E0D;&#x540C;&#x5417;?</p>
+<pre><code class="lang-javaScript"><span class="hljs-keyword">let</span> oldEffect = () =&gt; { <span class="hljs-built_in">document</span>.title = <span class="hljs-string">&apos;Hello, Jack&apos;</span>; };
+<span class="hljs-keyword">let</span> newEffect = () =&gt; { <span class="hljs-built_in">document</span>.title = <span class="hljs-string">&apos;Hello, Jack&apos;</span>; };
+</code></pre>
+<p>&#x5E76;&#x4E0D;&#x80FD;&#x3002;React &#x5E76;&#x4E0D;&#x96BE;&#x731C;&#x6D4B;&#x5230;&#x51FD;&#x6570;&#x505A;&#x4E86;&#x4EC0;&#x4E48;&#x5982;&#x679C;&#x4E0D;&#x5148;&#x8C03;&#x7528;&#x7684;&#x8BDD;&#x3002;(&#x6E90;&#x7801;&#x4E2D;&#x5E76;&#x6CA1;&#x6709;&#x5305;&#x542B;&#x7279;&#x6B8A;&#x7684;&#x503C;, &#x5B83;&#x4EC5;&#x4EC5;&#x662F;&#x5F15;&#x7528;&#x4E86;<code>name</code>&#x5C5E;&#x6027;)&#x3002;</p>
+<p>&#x8FD9;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x4F60;&#x5982;&#x679C;&#x60F3;&#x8981;&#x907F;&#x514D; effects &#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x91CD;&#x590D;&#x8C03;&#x7528;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x7ED9;<code>useEffect</code>&#x4E00;&#x4E2A;&#x4F9D;&#x8D56;&#x6570;&#x7EC4;&#x53C2;&#x6570;(deps):</p>
+<pre><code class="lang-javaScript">useEffect(() =&gt; {
+  <span class="hljs-built_in">document</span>.title = <span class="hljs-string">`Hello, <span class="hljs-subst">${name}</span>`</span>;
+}, [name]);
+</code></pre>
+<p>&#x8FD9;&#x5C31;&#x597D;&#x6BD4;&#x4F60;&#x544A;&#x8BC9; React: &#x201C;Hey&#xFF0C;&#x6211;&#x77E5;&#x9053;&#x4F60;&#x770B;&#x4E0D;&#x5230;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x91CC;&#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x4F46;&#x6211;&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x53EA;&#x4F7F;&#x7528;&#x4E86;&#x6E32;&#x67D3;&#x4E2D;&#x7684;<code>name</code>, &#x522B;&#x65E0;&#x5176;&#x4ED6;&#x3002;&#x201D;</p>
+<p>&#x5982;&#x679C;&#x5F53;&#x524D;&#x6E32;&#x67D3;&#x4E2D;&#x7684;&#x8FD9;&#x4E9B;&#x4F9D;&#x8D56;&#x9879;&#x548C;&#x4E0A;&#x4E00;&#x6B21;&#x8FD0;&#x884C;&#x8FD9;&#x4E2A; effect &#x7684;&#x65F6;&#x5019;&#x503C;&#x4E00;&#x6837;&#xFF0C;&#x56E0;&#x4E3A;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x540C;&#x6B65; React &#x4F1A;&#x81EA;&#x52A8;&#x8DF3;&#x8FC7;&#x8FD9;&#x6B21; effect&#x3002;</p>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x5982;&#x679C;&#x6570;&#x7EC4;&#x4E2D;&#x6709;&#x591A;&#x4E2A;&#x503C;&#xFF0C;&#x5373;&#x4F7F;&#x4F9D;&#x8D56;&#x6570;&#x7EC4;&#x4E2D;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x503C;&#x5728;&#x4E24;&#x6B21;&#x6E32;&#x67D3;&#x4E2D;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x4E0D;&#x80FD;&#x8DF3;&#x8FC7; effect &#x7684;&#x8FD0;&#x884C;&#x3002;&#x8981;&#x540C;&#x6B65;&#x6240;&#x6709;&#xFF01;</p>
+<h2 id="&#x5173;&#x4E8E;&#x4F9D;&#x8D56;&#x9879;&#x4E0D;&#x8981;&#x5BF9;-react-&#x6492;&#x8C0E;">&#x5173;&#x4E8E;&#x4F9D;&#x8D56;&#x9879;&#x4E0D;&#x8981;&#x5BF9; React &#x6492;&#x8C0E;</h2>
+<p>&#x5173;&#x4E8E;&#x4F9D;&#x8D56;&#x9879;&#x5BF9; React &#x6492;&#x8C0E;&#x4F1A;&#x6709;&#x4E0D;&#x597D;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x76F4;&#x89C9;&#x4E0A;&#xFF0C;&#x8FD9;&#x5F88;&#x597D;&#x7406;&#x89E3;&#xFF0C;&#x4F46;&#x6211;&#x66FE;&#x770B;&#x5230;&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x4F9D;&#x8D56; class &#x5FC3;&#x667A;&#x6A21;&#x578B;&#x4F7F;&#x7528;<code>useEffect</code>&#x7684;&#x4EBA;&#x90FD;&#x8BD5;&#x56FE;&#x8FDD;&#x53CD;&#x8FD9;&#x4E2A;&#x89C4;&#x5219;(&#x6211;&#x81EA;&#x5DF1;&#x4E5F;&#x662F;)</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SearchResults</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchData</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// ...</span>
+  }
+
+  useEffect(() =&gt; {
+    fetchData();
+  }, []); <span class="hljs-comment">// Is this okay? Not always -- and there&apos;s a better way to write it.</span>
+
+  <span class="hljs-comment">// &#x6211;&#x611F;&#x89C9;&#x4ED6;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x5728;&#x7EC4;&#x4EF6;&#x6302;&#x8F7D;&#x540E;&#x53EA;&#x6267;&#x884C;&#x4E00;&#x6B21;, &#x5B9E;&#x9645;&#x4E0A;&#x7684;&#x539F;&#x7406;&#x53EA;&#x662F;React&#x89C9;&#x5F97;effect&#x7684;&#x4F9D;&#x8D56;&#x9879;&#x6CA1;&#x6709;&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x53BB;&#x66F4;&#x65B0;&#x4ED6;</span>
+}
+</code></pre>
+<p>&#x5B98;&#x65B9;&#x6709;&#x4E00;&#x4E2A;&#x6848;&#x4F8B;&#xFF0C;&#x8BF4;&#x7684;&#x5C31;&#x662F;&#x4E0A;&#x8FF0;&#x7528;&#x6CD5;&#xFF0C;&#x8BE6;&#x60C5;&#x5982;&#x4E0B;:</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Example</span>(<span class="hljs-params">{ someProp }</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doSomething</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(someProp);
+  }
+
+  useEffect(() =&gt; {
+    doSomething();
+  }, []); <span class="hljs-comment">// &#x1F534; &#x8FD9;&#x6837;&#x4E0D;&#x5B89;&#x5168;&#xFF08;&#x5B83;&#x8C03;&#x7528;&#x7684; `doSomething` &#x51FD;&#x6570;&#x4F7F;&#x7528;&#x4E86; `someProp`&#xFF09;</span>
+}
+</code></pre>
+<p>&#x4F46;&#x662F;&#x6211;&#x53EF;&#x80FD;&#x4F1A;&#x8FD9;&#x6837;&#x7406;&#x89E3;: &quot;&#x6211;&#x53EA;&#x662F;&#x60F3;&#x5728;&#x6302;&#x8F7D;&#x7684;&#x65F6;&#x5019;&#x8FD0;&#x884C;&#x5B83;&#xFF01;&quot;</p>
+<p>&#x4F46;&#x662F;&#x73B0;&#x5728;&#x53EA;&#x9700;&#x8981;&#x8BB0;&#x4F4F;: &#x5982;&#x679C;&#x4F60;&#x8BBE;&#x7F6E;&#x4E86;&#x4F9D;&#x8D56;&#x9879;&#xFF0C;effect &#x4E2D;&#x7528;&#x5230;&#x7684;&#x6240;&#x6709;&#x7EC4;&#x4EF6;&#x5185;&#x7684;&#x503C;&#x90FD;&#x8981;&#x5305;&#x542B;&#x5728;&#x4F9D;&#x8D56;&#x4E2D;&#x3002;&#x8FD9;&#x5305;&#x62EC; props, state, &#x51FD;&#x6570; &#x2014;&#x2014;&#x2014;&#x2014; &#x7EC4;&#x4EF6;&#x5185;&#x7684;&#x4EFB;&#x4F55;&#x4E1C;&#x897F;&#x3002;</p>
+<p>&#x6709;&#x65F6;&#x5019;&#x4F60;&#x662F;&#x8FD9;&#x6837;&#x505A;&#x4E86;&#xFF0C; &#x4F46;&#x53EF;&#x80FD;&#x4F1A;&#x5F15;&#x8D77;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#x3002;&#x6BD4;&#x5982;&#xFF0C; &#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x9047;&#x5230;&#x65E0;&#x9650;&#x8BF7;&#x6C42;&#x7684;&#x95EE;&#x9898;&#xFF0C; &#x6216;&#x8005; socket &#x88AB;&#x9891;&#x7E41;&#x521B;&#x5EFA;&#x7684;&#x95EE;&#x9898;&#x3002;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#x7684;&#x65B9;&#x6CD5;&#x4E0D;&#x662F;&#x79FB;&#x9664;&#x4F9D;&#x8D56;&#x9879;&#x3002;&#x540E;&#x9762;&#x6211;&#x4EEC;&#x4F1A;&#x4E86;&#x89E3;&#x5230;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;</p>
+<p>&#x4E0D;&#x8FC7;&#x5728;&#x6DF1;&#x5165;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x5C1D;&#x8BD5;&#x66F4;&#x597D;&#x7684;&#x7406;&#x89E3;&#x95EE;&#x9898;&#x3002;</p>
+<h2 id="&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;&#x9519;&#x8BEF;&#x7684;&#x4F9D;&#x8D56;&#x4F1A;&#x600E;&#x4E48;&#x6837;&#x5462;&#xFF1F;">&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;&#x9519;&#x8BEF;&#x7684;&#x4F9D;&#x8D56;&#x4F1A;&#x600E;&#x4E48;&#x6837;&#x5462;&#xFF1F;</h2>
+<p>&#x5982;&#x679C;&#x4F9D;&#x8D56;&#x9879;&#x5305;&#x542B;&#x4E86;&#x6240;&#x6709; effect &#x4E2D;&#x4F7F;&#x7528;&#x5230;&#x7684;&#x503C;&#xFF0C; React &#x5C31;&#x80FD;&#x77E5;&#x9053;&#x4F55;&#x65F6;&#x9700;&#x8981;&#x8FD0;&#x884C;&#x5B83;&#xFF1A;</p>
+<pre><code class="lang-javaScript">useEffect(() =&gt; {
+  <span class="hljs-built_in">document</span>.title = <span class="hljs-string">`Hello, <span class="hljs-subst">${name}</span>`</span>
+}, [name])
+</code></pre>
+<p><img src="https://overreacted.io/fae247cd068eedbd4b62ba50592d2b3d/deps-compare-correct.gif" alt="&#x56FE;&#x89E3;&#x6539;&#x53D8;"></p>
+<p>(&#x4F9D;&#x8D56;&#x9879;&#x53D1;&#x751F;&#x4E86;&#x6539;&#x53D8;, &#x6240;&#x4EE5;&#x4F1A;&#x91CD;&#x65B0;&#x8FD0;&#x884C; effect&#x3002;)</p>
+<p>&#x4F46;&#x662F;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5C06;<code>[]</code>&#x8BBE;&#x7F6E;&#x4E3A; effect &#x7684;&#x4F9D;&#x8D56;&#x9879;, &#x65B0;&#x7684; effect &#x51FD;&#x6570;&#x4E0D;&#x4F1A;&#x8FD0;&#x884C;&#x3002;</p>
+<pre><code class="lang-javaScript">useEffect(() =&gt; {
+  <span class="hljs-built_in">document</span>.title = <span class="hljs-string">`Hello, <span class="hljs-subst">${name}</span>`</span>
+}, [])
+</code></pre>
+<p><img src="https://overreacted.io/25f75db3f9f57ffe1426912093577445/deps-compare-wrong.gif" alt="&#x56FE;&#x89E3;&#x6539;&#x53D8;"></p>
+<p>(&#x8FD9;&#x5C31;&#x6210;&#x4E86;&#x4F9D;&#x8D56;&#x9879;&#x6CA1;&#x6709;&#x53D8;, &#x6240;&#x4EE5;&#x4E0D;&#x4F1A;&#x518D;&#x6B21;&#x8FD0;&#x884C; effect)</p>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C; &#x95EE;&#x9898;&#x770B;&#x8D77;&#x6765;&#x663E;&#x800C;&#x6613;&#x89C1;&#x3002;&#x4F46;&#x662F;&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#x5982;&#x679C;&#x4F60;&#x8111;&#x5B50;&#x91CC;&quot;&#x8DF3;&#x51FA;&quot;class &#x7EC4;&#x4EF6;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF0C;&#x4F60;&#x7684;&#x76F4;&#x89C9;&#x5F88;&#x53EF;&#x80FD;&#x4F1A;&#x6B3A;&#x9A97;&#x4F60;&#x3002;</p>
+<p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C; &#x6211;&#x4EEC;&#x5199;&#x4E00;&#x4E2A;&#x6BCF;&#x79D2;&#x9012;&#x589E;&#x7684;&#x8BA1;&#x6570;&#x5668;&#x3002;&#x5728; Class &#x7EC4;&#x4EF6;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x76F4;&#x89C9;&#x662F;: &quot;&#x5F00;&#x542F;&#x4E00;&#x6B21;&#x5B9A;&#x65F6;&#x5668;&#xFF0C; &#x6E05;&#x9664;&#x4E5F;&#x662F;&#x4E00;&#x6B21;&quot;&#x3002;&#x6211;&#x4EEC;&#x7406;&#x6240;&#x5F53;&#x7136;&#x7684;&#x628A;&#x5B83;&#x7528;<code>useEffect</code>&#x7684;&#x65B9;&#x5F0F;&#x7FFB;&#x8BD1;&#xFF0C;&#x76F4;&#x89C9;&#x4E0A;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x8BBE;&#x7F6E;&#x4F9D;&#x8D56;&#x9879;&#x4E3A;[]&#x3002;&#x201C;&#x6211;&#x53EA;&#x60F3;&#x8FD0;&#x884C;&#x4E00;&#x6B21; effect&#x201D;, &#x5BF9;&#x5417;&#xFF1F;</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Counter</span>(<span class="hljs-params"></span>) </span>{
+<span class="hljs-keyword">const</span> [counter, setCounter] = useState(<span class="hljs-number">0</span>);
+
+useEffect(() =&gt; {
+  <span class="hljs-keyword">const</span> id = setInterval(() =&gt; {
+    setCount(count + <span class="hljs-number">1</span>);
+  }, <span class="hljs-number">1000</span>);
+  <span class="hljs-keyword">return</span> () =&gt; clearInterval(id);
+}, []);
+
+<span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{counter}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+}
+</code></pre>
+<p>&#x7136;&#x800C;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x4ED6;&#x53EA;&#x4F1A;&#x9012;&#x589E;&#x4E00;&#x6B21;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x7684;&#x5FC3;&#x667A;&#x6A21;&#x578B;&#x662F;&quot;&#x53EA;&#x6709;&#x5F53;&#x6211;&#x60F3;&#x91CD;&#x65B0;&#x89E6;&#x53D1; effect &#x7684;&#x65F6;&#x5019;&#x624D;&#x9700;&#x8981;&#x53BB;&#x8BBE;&#x7F6E;&#x4F9D;&#x8D56;&quot;&#x3002; &#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x53EF;&#x80FD;&#x4F1A;&#x8BA9;&#x4F60;&#x4EA7;&#x751F;&#x5B58;&#x5728;&#x5371;&#x673A;&#x3002;&#x4F60;&#x60F3;&#x8981;&#x89E6;&#x53D1;&#x4E00;&#x6B21;&#xFF0C;&#x56E0;&#x4E3A;&#x4ED6;&#x662F;&#x5B9A;&#x65F6;&#x5668; &#x2014;&#x2014; &#x4F46;&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x6709;&#x95EE;&#x9898;&#xFF1F;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x77E5;&#x9053;&#x4F9D;&#x8D56;&#x9879;&#x662F;&#x6211;&#x4EEC;&#x7ED9; React &#x7684;&#x6697;&#x793A;&#xFF0C; &#x544A;&#x8BC9;&#x4ED6; effect &#x6240;&#x6709;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x6E32;&#x67D3;&#x4E2D;&#x7684;&#x503C;&#xFF0C; &#x4F60;&#x5C31;&#x4E0D;&#x4F1A;&#x5403;&#x60CA;&#x4E86;&#x3002;effect &#x4E2D;&#x4F7F;&#x7528;&#x4E86;<code>count</code>, &#x4F46;&#x6211;&#x4EEC;&#x6492;&#x8C0E;&#x8BF4;&#x5B83;&#x6CA1;&#x6709;&#x4F9D;&#x8D56;&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x8FD9;&#x6837;&#x505A;&#x8FDF;&#x65E9;&#x4F1A;&#x51FA;&#x5E7A;&#x86FE;&#x5B50;&#x3002;</p>
+<p>&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x4E2D;, <code>count</code>&#x662F;<code>0</code>&#x3002;&#x56E0;&#x6B64;&#xFF0C; setCount(count + 1)&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x4E2D;&#x7B49;&#x4EF7;&#x4E8E; setCount(0 + 1)&#x3002;&#x65E2;&#x7136;&#x6211;&#x4EEC;&#x8BBE;&#x7F6E;&#x4E86;<code>[]</code>&#x4F9D;&#x8D56;&#x9879;&#xFF0C; effect &#x4E0D;&#x4F1A;&#x518D;&#x91CD;&#x65B0;&#x8FD0;&#x884C;&#xFF0C;&#x5B83;&#x540E;&#x9762;&#x6BCF;&#x4E00;&#x79D2;&#x90FD;&#x4F1A;&#x8C03;&#x7528; setCount(0 + 1) (&#x56E0;&#x4E3A;&#x6BCF;&#x4E00;&#x79D2;&#x62FF;&#x5230;&#x7684;&#x90FD;&#x662F;&#x5F53;&#x6B21;&#x6E32;&#x67D3;&#x7684; count, &#x5F53;&#x6B21;&#x6E32;&#x67D3;&#x7684; count &#x662F; 0)</p>
+<p>&#x6211;&#x4EEC;&#x5BF9; React &#x6492;&#x8C0E;&#x8BF4;&#x6211;&#x4EEC;&#x7684; effect &#x4E0D;&#x4F9D;&#x8D56;&#x7EC4;&#x4EF6;&#x5185;&#x7684;&#x4EFB;&#x4F55;&#x503C;&#xFF0C; &#x53EF;&#x5B9E;&#x9645;&#x4E0A;&#x6211;&#x4EEC;&#x7684; effect &#x6709;&#x4F9D;&#x8D56;&#xFF01;</p>
+<p>&#x6211;&#x4EEC;&#x7684; effect &#x4F9D;&#x8D56;<code>count</code> &#x2014;&#x2014; &#x4ED6;&#x662F;&#x7EC4;&#x4EF6;&#x5185;&#x7684;&#x503C;(&#x4E0D;&#x8FC7;&#x5728; effect &#x5916;&#x9762;&#x5B9A;&#x4E49;&#x800C;&#x5DF2;)</p>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x8BBE;&#x7F6E;<code>[]</code>&#x4E3A;&#x4F9D;&#x8D56;&#x4F1A;&#x5F15;&#x5165;&#x4E00;&#x4E2A; bug&#x3002;React &#x4F1A;&#x5BF9;&#x6BD4;&#x4F9D;&#x8D56;&#xFF0C;&#x5E76;&#x4E14;&#x8DF3;&#x8FC7;&#x540E;&#x9762;&#x7684; effect&#xFF1A;</p>
+<p><img src="https://overreacted.io/29e53bd0c9b7d2ac70d3cd924886b030/interval-wrong.gif" alt="bug&#x56FE;&#x89E3;"></p>
+<p>(&#x4F9D;&#x8D56;&#x6CA1;&#x6709;&#x53D8;&#x5316;, &#x6240;&#x4EE5;&#x4E0D;&#x4F1A;&#x518D;&#x6B21;&#x8FD0;&#x884C; effect)</p>
+<p>&#x7C7B;&#x4F3C;&#x4E8E;&#x8FD9;&#x6837;&#x7684;&#x95EE;&#x9898;&#x662F;&#x5F88;&#x96BE;&#x88AB;&#x60F3;&#x5230;&#x7684;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x9F13;&#x52B1;&#x6211;&#x81EA;&#x5DF1;&#x8BDA;&#x5B9E;&#x7684;&#x544A;&#x77E5; effect &#x4F9D;&#x8D56;&#x4F5C;&#x4E3A;&#x4E00;&#x6761;&#x786C;&#x6027;&#x89C4;&#x5219;&#xFF0C; &#x5E76;&#x4E14;&#x8981;&#x5217;&#x51FA;&#x6240;&#x6709;&#x4F9D;&#x8D56;&#x3002;</p>
+<h2 id="&#x4E24;&#x79CD;&#x8BDA;&#x5B9E;&#x544A;&#x77E5;&#x4F9D;&#x8D56;&#x7684;&#x65B9;&#x6CD5;&#x3002;">&#x4E24;&#x79CD;&#x8BDA;&#x5B9E;&#x544A;&#x77E5;&#x4F9D;&#x8D56;&#x7684;&#x65B9;&#x6CD5;&#x3002;</h2>
+<p>&#x6709;&#x4E24;&#x79CD;&#x8BDA;&#x5B9E;&#x544A;&#x77E5;&#x4F9D;&#x8D56;&#x7684;&#x7B56;&#x7565;&#x3002;&#x5E94;&#x8BE5;&#x4ECE;&#x7B2C;&#x4E00;&#x79CD;&#x5F00;&#x59CB;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#x5E94;&#x7528;&#x7B2C;&#x4E8C;&#x79CD;&#x3002;</p>
+<h3 id="&#x7B2C;&#x4E00;&#x79CD;&#x7B56;&#x7565;&#x662F;&#x5728;&#x4F9D;&#x8D56;&#x4E2D;&#x5305;&#x542B;&#x6240;&#x6709;-effect-&#x4E2D;&#x7528;&#x5230;&#x7684;&#x7EC4;&#x4EF6;&#x5185;&#x7684;&#x503C;&#x3002;&#x8BA9;&#x6211;&#x4EEC;&#x5728;&#x4F9D;&#x8D56;&#x4E2D;&#x5305;&#x542B;count">&#x7B2C;&#x4E00;&#x79CD;&#x7B56;&#x7565;&#x662F;&#x5728;&#x4F9D;&#x8D56;&#x4E2D;&#x5305;&#x542B;&#x6240;&#x6709; effect &#x4E2D;&#x7528;&#x5230;&#x7684;&#x7EC4;&#x4EF6;&#x5185;&#x7684;&#x503C;&#x3002;&#x8BA9;&#x6211;&#x4EEC;&#x5728;&#x4F9D;&#x8D56;&#x4E2D;&#x5305;&#x542B;<code>count</code>:</h3>
+<pre><code class="lang-javaScript">useEffect(() =&gt; {
+  <span class="hljs-keyword">const</span> id = setInterval(() =&gt; {
+    setCount(count + <span class="hljs-number">1</span>);
+  }, <span class="hljs-number">1000</span>);
+  <span class="hljs-keyword">return</span> () =&gt; clearInterval(id);
+}, [count]);
+</code></pre>
+<p>&#x8FD9;&#x6837;&#x80FD;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x662F;&#x5B9A;&#x65F6;&#x5668;&#x4F1A;&#x5728;&#x6BCF;&#x4E00;&#x6B21; count &#x6539;&#x53D8;&#x540E;&#x6E05;&#x9664;&#x548C;&#x91CD;&#x65B0;&#x8BBE;&#x5B9A;&#x3002;&#x8FD9;&#x5E94;&#x8BE5;&#x4E0D;&#x662F;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
+<h3 id="&#x7B2C;&#x4E8C;&#x79CD;&#x7B56;&#x7565;&#x662F;&#x4FEE;&#x6539;-effect-&#x5185;&#x90E8;&#x7684;&#x4EE3;&#x7801;&#x4EE5;&#x786E;&#x4FDD;&#x5B83;&#x5305;&#x542B;&#x7684;&#x503C;&#x53EA;&#x4F1A;&#x5728;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#x53D1;&#x751F;&#x53D8;&#x66F4;&#x3002;">&#x7B2C;&#x4E8C;&#x79CD;&#x7B56;&#x7565;&#x662F;&#x4FEE;&#x6539; effect &#x5185;&#x90E8;&#x7684;&#x4EE3;&#x7801;&#x4EE5;&#x786E;&#x4FDD;&#x5B83;&#x5305;&#x542B;&#x7684;&#x503C;&#x53EA;&#x4F1A;&#x5728;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#x53D1;&#x751F;&#x53D8;&#x66F4;&#x3002;</h3>
+<p>&#x6211;&#x4EEC;&#x4E0D;&#x60F3;&#x544A;&#x77E5;&#x9519;&#x8BEF;&#x7684;&#x4F9D;&#x8D56; &#x2014;&#x2014; &#x6211;&#x4EEC;&#x53EA;&#x662F;&#x4FEE;&#x6539; effect &#x4F7F;&#x5F97;&#x4F9D;&#x8D56;&#x66F4;&#x5C11;&#x3002;</p>
+<h3 id="&#x4E0B;&#x9762;&#x662F;&#x79FB;&#x9664;&#x4F9D;&#x8D56;&#x9879;&#x7684;&#x5E38;&#x7528;&#x6280;&#x5DE7;&#x3002;">&#x4E0B;&#x9762;&#x662F;&#x79FB;&#x9664;&#x4F9D;&#x8D56;&#x9879;&#x7684;&#x5E38;&#x7528;&#x6280;&#x5DE7;&#x3002;</h3>
+<h4 id="&#x8BA9;-effects-&#x81EA;&#x7ED9;&#x81EA;&#x8DB3;">&#x8BA9; Effects &#x81EA;&#x7ED9;&#x81EA;&#x8DB3;</h4>
+<p>&#x6211;&#x4EEC;&#x60F3;&#x53BB;&#x6389; effect &#x7684;<code>count</code>&#x4F9D;&#x8D56;&#x3002;</p>
+<pre><code class="lang-javaScript">useEffect(() =&gt; {
+  <span class="hljs-keyword">const</span> id = setInterVal(() =&gt; {
+    setCount(count + <span class="hljs-number">1</span>);
+  }, <span class="hljs-number">1000</span>);
+  <span class="hljs-keyword">return</span> () =&gt; clearInterval(id);
+}, [count]);
+</code></pre>
+<p>&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x76EE;&#x7684;, &#x6211;&#x4EEC;&#x9700;&#x8981;&#x95EE;&#x81EA;&#x5DF1;&#x4E00;&#x4E2A;&#x95EE;&#x9898;: &#x6211;&#x4EEC;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;<code>count</code>? &#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6211;&#x4EEC;&#x53EA;&#x5728;<code>setCount</code>&#x8C03;&#x7528;&#x4E2D;&#x7528;&#x5230;&#x4E86;<code>count</code>&#x3002;&#x5728;&#x8FD9;&#x4E2A;&#x573A;&#x666F;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5176;&#x5B9E;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x5728; effect &#x4E2D;&#x4F7F;&#x7528; count&#x3002;</p>
+<p>&#x5F53;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x6839;&#x636E;&#x524D;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x66F4;&#x65B0;&#x72B6;&#x6001;&#x7684;&#x65F6;&#x5019;&#xFF0C; &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; setState &#x7684;&#x51FD;&#x6570;&#x5F62;&#x5F0F;:</p>
+<pre><code class="lang-javaScript">useEffect(() =&gt; {
+  <span class="hljs-keyword">const</span> id = setInterval(() =&gt; {
+    setCount(v =&gt; v + <span class="hljs-number">1</span>);
+  }, <span class="hljs-number">1000</span>);
+  <span class="hljs-keyword">return</span> () =&gt; clearInterval(id);
+}, []);
+</code></pre>
+<p>&#x6211;&#x559C;&#x6B22;&#x628A;&#x7C7B;&#x4F3C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x79F0;&#x4E3A;&#x201C;&#x9519;&#x8BEF;&#x7684;&#x4F9D;&#x8D56;&#x201D;&#x3002;&#x662F;&#x7684;&#xFF0C; &#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x5728; effect &#x4E2D;&#x5199;&#x4E86; setCount(count + 1)&#x6240;&#x4EE5; count &#x662F;&#x4E00;&#x4E2A;&#x5FC5;&#x987B;&#x7684;&#x4F9D;&#x8D56;&#x3002;&#x4F46;&#x662F;&#xFF0C; &#x6211;&#x4EEC;&#x771F;&#x6B63;&#x60F3;&#x8981;&#x7684;&#x662F;&#x628A;<code>count</code>&#x8F6C;&#x6362;&#x6210;<code>count + 1</code>, &#x7136;&#x540E;&#x8FD4;&#x56DE;&#x7ED9; React&#x3002;&#x53EF;&#x662F; React &#x5176;&#x5B9E;&#x5DF2;&#x7ECF;&#x77E5;&#x9053;&#x5F53;&#x524D;&#x7684;<code>count</code>&#x3002;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x544A;&#x77E5; React &#x7684;&#x4EC5;&#x4EC5;&#x662F;&#x53BB;&#x9012;&#x589E;&#x72B6;&#x6001; &#x2014;&#x2014; &#x4E0D;&#x7BA1;&#x4ED6;&#x5177;&#x4F53;&#x662F;&#x4EC0;&#x4E48;&#x503C;&#x3002;</p>
+<p>&#x8FD9;&#x6B63;&#x662F;<code>setCount(v =&gt; v + 1)</code>&#x505A;&#x7684;&#x4E8B;&#x60C5;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x4ED6;&#x662F;&#x5728;&#x7ED9; React&#x201C;&#x53D1;&#x9001;&#x6307;&#x4EE4;&#x201D;&#x544A;&#x77E5;&#x5982;&#x4F55;&#x66F4;&#x65B0;&#x72B6;&#x6001;&#x3002;&#x8FD9;&#x79CD;&#x201C;&#x66F4;&#x65B0;&#x5F62;&#x5F0F;&#x201D;&#x5728;&#x5176;&#x4ED6;&#x60C5;&#x51B5;&#x4E0B;&#x4E5F;&#x6709;&#x5E2E;&#x52A9;&#xFF0C;&#x6BD4;&#x5982;&#x4F60;&#x9700;&#x8981;&#x6279;&#x91CF;&#x66F4;&#x65B0;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x6211;&#x4EEC;&#x505A;&#x4E86;&#x79FB;&#x9664;&#x4F9D;&#x8D56;&#xFF0C; &#x5E76;&#x4E14;&#x6CA1;&#x6709;&#x6492;&#x8C0E;&#x3002;&#x6211;&#x4EEC;&#x7684; effect &#x4E0D;&#x518D;&#x8BFB;&#x53D6;&#x6E32;&#x67D3;&#x4E2D;&#x7684;<code>count</code>&#x503C;&#x4E86;&#x3002;</p>
+<p><img src="https://overreacted.io/f128ad20c28317ed27a3cb68197fc906/interval-right.gif" alt="&#x4E0D;&#x518D;&#x8BFB;&#x53D6;&#x6E32;&#x67D3;&#x7684;count"></p>
+<p>(&#x4F9D;&#x8D56;&#x6CA1;&#x6709;&#x53D8;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x4F1A;&#x518D;&#x6B21;&#x8FD0;&#x884C; effect&#x3002;)</p>
+<p>&#x5C3D;&#x7BA1; effect &#x53EA;&#x8FD0;&#x884C;&#x4E86;&#x4E00;&#x6B21;&#xFF0C; &#x7B2C;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x4E2D;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x5B8C;&#x7F8E;&#x7684;&#x5728;&#x6BCF;&#x6B21;&#x89E6;&#x53D1;&#x7684;&#x65F6;&#x5019;&#x7ED9; React &#x53D1;&#x9001; <code>v =&gt; v + 1</code>&#x66F4;&#x65B0;&#x6307;&#x4EE4;&#x3002;&#x5B83;&#x4E0D;&#x518D;&#x9700;&#x8981;&#x77E5;&#x9053;&#x5F53;&#x524D;&#x7684; count &#x503C;&#x662F;&#x4EC0;&#x4E48;&#x3002;&#x56E0;&#x4E3A; React &#x5DF2;&#x7ECF;&#x77E5;&#x9053;&#x4E86;&#x3002;</p>
+<h4 id="&#x51FD;&#x6570;&#x5F0F;&#x66F4;&#x65B0;&#x548C;-google-docs">&#x51FD;&#x6570;&#x5F0F;&#x66F4;&#x65B0;&#x548C; Google Docs</h4>
+<p>&#x8FD8;&#x8BB0;&#x5F97;&#x6211;&#x4EEC;&#x8BF4;&#x8FC7;&#x540C;&#x6B65;&#x624D;&#x662F;&#x7406;&#x89E3; effects &#x7684;&#x5FC3;&#x667A;&#x6A21;&#x578B;&#x5417;&#xFF1F;&#x540C;&#x6B65;&#x6709;&#x4E00;&#x4E2A;&#x6709;&#x8DA3;&#x7684;&#x5730;&#x65B9;&#x5728;&#x4E8E;&#x4F60;&#x901A;&#x5E38;&#x60F3;&#x8981;&#x628A;&#x540C;&#x6B65;&#x7684;&#x201C;&#x4FE1;&#x606F;&#x201D;&#x548C;&#x72B6;&#x6001;&#x89E3;&#x85D5;&#x3002;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A; &#x5F53;&#x4F60;&#x5728; Google Docs &#x7F16;&#x8F91;&#x6587;&#x6863;&#x7684;&#x65F6;&#x5019;&#xFF0C;Google &#x5E76;&#x4E0D;&#x4F1A;&#x628A;&#x6574;&#x7BC7;&#x6587;&#x7AE0;&#x53D1;&#x9001;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x56E0;&#x4E3A;&#x90A3;&#x6837;&#x505A;&#x4F1A;&#x76F8;&#x5F53;&#x7684;&#x4F4E;&#x6548;&#x3002;&#x76F8;&#x53CD;&#x7684;&#xFF0C;&#x4ED6;&#x53EA;&#x662F;&#x628A;&#x4F60;&#x4FEE;&#x6539;&#x7684;&#x4E00;&#x79CD;&#x5F62;&#x5F0F;&#x53D1;&#x7ED9;&#x670D;&#x52A1;&#x7AEF;&#x3002;</p>
+<p>&#x867D;&#x7136;&#x6211;&#x4EEC; effect &#x7684;&#x60C5;&#x51B5;&#x4E0D;&#x5C3D;&#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x53EF;&#x4EE5;&#x5E94;&#x7528;&#x7C7B;&#x4F3C;&#x7684;&#x601D;&#x60F3;&#x3002;&#x53EA;&#x5728; effects &#x4E2D;&#x4F20;&#x9012;&#x6700;&#x5C0F;&#x7684;&#x4FE1;&#x606F;&#x4F1A;&#x5F88;&#x6709;&#x5E2E;&#x52A9;&#x3002;&#x7C7B;&#x4F3C;&#x4E8E;<code>setCount(v =&gt; v+ 1)</code>&#x6BD4;<code>setCount(count + 1)</code>&#x4F20;&#x9012;&#x4E86;&#x66F4;&#x5C11;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4E0D;&#x4F1A;&#x88AB;&#x5F53;&#x524D;&#x6E32;&#x67D3;&#x7684;<code>count</code>&#x503C;&#x6C61;&#x67D3;&#x3002;&#x4ED6;&#x53EA;&#x662F;&#x8868;&#x8FBE;&#x4E86;&#x4E00;&#x79CD;&#x884C;&#x4E3A;&#x201C;&#x9012;&#x589E;&#x201D;&#x3002;</p>
+<p>&#x201C;Thinking in React&#x201D;&#x4E5F;&#x8BA8;&#x8BBA;&#x4E86;&#x5982;&#x4F55;&#x627E;&#x5230;&#x6700;&#x5C0F;&#x72B6;&#x6001;&#x3002;&#x539F;&#x5219;&#x662F;&#x7C7B;&#x4F3C;&#x7684;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x73B0;&#x5728;&#x5173;&#x6CE8;&#x7684;&#x662F;&#x5982;&#x4F55;&#x66F4;&#x65B0;&#x3002;</p>
+<p>&#x8868;&#x8FBE;&#x610F;&#x56FE;&#xFF08;&#x800C;&#x4E0D;&#x662F;&#x7ED3;&#x679C;&#xFF09;&#x548C; Google Docs &#x5982;&#x4F55;&#x5904;&#x7406;&#x5171;&#x540C;&#x7F16;&#x8F91;&#x5F02;&#x66F2;&#x540C;&#x5DE5;&#x3002;&#x867D;&#x7136;&#x8FD9;&#x4E2A;&#x7C7B;&#x6BD4;&#x7565;&#x5FAE;&#x5EF6;&#x4F38;&#x4E86;&#x4E00;&#x70B9;&#xFF0C;&#x51FD;&#x6570;&#x5F0F;&#x66F4;&#x65B0;&#x5728; React &#x4E2D;&#x626E;&#x6F14;&#x4E86;&#x7C7B;&#x4F3C;&#x7684;&#x89D2;&#x8272;&#x3002;&#x5B83;&#x4EEC;&#x786E;&#x4FDD;&#x80FD;&#x4EE5;&#x6279;&#x91CF;&#x7684;&#x548C;&#x53EF;&#x9884;&#x6D4B;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5904;&#x7406;&#x5404;&#x79CD;&#x6E90;&#x5934;(&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF0C; effect &#x4E2D;&#x7684;&#x8BA2;&#x9605;&#x7B49;)&#x7684;&#x72B6;&#x6001;&#x66F4;&#x65B0;&#x3002;</p>
+<p>&#x7136;&#x800C;&#xFF0C;&#x5373;&#x4FBF;&#x662F;<code>setCount(v =&gt; v + 1)</code>&#x4E5F;&#x975E;&#x5E38;&#x53D7;&#x9650;&#x5236;&#x3002;&#x4ED6;&#x770B;&#x8D77;&#x6765;&#x6709;&#x70B9;&#x602A;&#xFF0C;&#x5E76;&#x4E14;&#x975E;&#x5E38;&#x53D7;&#x9650;&#x4E8E;&#x4ED6;&#x80FD;&#x505A;&#x7684;&#x4E8B;&#x3002;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x6709;&#x4E24;&#x4E2A;&#x76F8;&#x4E92;&#x4F9D;&#x8D56;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x6216;&#x8005;&#x6211;&#x4EEC;&#x60F3;&#x57FA;&#x4E8E;&#x4E00;&#x4E2A; prop &#x6765;&#x8BA1;&#x7B97;&#x4E0B;&#x4E00;&#x6B21;&#x7684; state&#xFF0C;&#x5B83;&#x5E76;&#x4E0D;&#x80FD;&#x505A;&#x5230;&#x3002;&#x5E78;&#x8FD0;&#x7684;&#x662F;&#xFF0C;setCount(v =&gt; v + 1)&#x6709;&#x4E00;&#x4E2A;&#x66F4;&#x52A0;&#x5F3A;&#x5927;&#x7684;&#x59D0;&#x59B9;&#x6A21;&#x5F0F;: <code>useReducer</code></p>
+<h4 id="&#x89E3;&#x85D5;&#x6765;&#x81EA;-actions-&#x7684;&#x66F4;&#x65B0;">&#x89E3;&#x85D5;&#x6765;&#x81EA; Actions &#x7684;&#x66F4;&#x65B0;</h4>
+<p>&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x4FEE;&#x6539;&#x4E00;&#x4E0B;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x8BA9;&#x4ED6;&#x5305;&#x542B;&#x4E24;&#x4E2A;&#x72B6;&#x6001;&#xFF1A; <code>count</code>&#x548C;<code>step</code>&#x3002;&#x6211;&#x4EEC;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#x4F1A;&#x6BCF;&#x6B21;&#x5728;<code>count</code>&#x4E0A;&#x589E;&#x52A0;&#x4E00;&#x4E2A;<code>step</code>&#x7684;&#x503C;:</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Counter</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> [count, setCount] = useState(<span class="hljs-number">0</span>);
+  <span class="hljs-keyword">const</span> [step, setStep] = useState(<span class="hljs-number">1</span>);
+
+  useEffect(() =&gt; {
+    <span class="hljs-keyword">const</span> id = setInterval(() =&gt; {
+      setCount(c =&gt; c + step);
+    }, <span class="hljs-number">1000</span>);
+    <span class="hljs-keyword">return</span> () =&gt; clearInterval(id);
+  }, [step]);
+
+  <span class="hljs-keyword">return</span> (
+    &lt;&gt;
+      &lt;h1&gt;{count}&lt;/h1&gt;
+      &lt;input value={step} onChange={e =&gt; setStep(Number(e.target.value))} /&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x6211;&#x4EEC;&#x5E76;&#x6CA1;&#x6709;&#x6492;&#x8C0E;&#xFF0C;&#x6211;&#x4EEC;&#x5728; useEffect &#x4E2D;&#x4F7F;&#x7528;&#x4E86; step&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x628A;&#x5B83;&#x52A0;&#x5230;&#x4E86;&#x4F9D;&#x8D56;&#x4E2D;&#x3002;&#x8FD9;&#x6837;&#x4EE3;&#x7801;&#x624D;&#x80FD;&#x591F;&#x8FD0;&#x884C;&#x6B63;&#x786E;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x4EE3;&#x7801;&#x76EE;&#x524D;&#x7684;&#x884C;&#x4E3A;&#x662F;&#x4FEE;&#x6539; step &#x4F1A;&#x91CD;&#x542F;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x5E76;&#x4E14;&#x6E05;&#x9664;&#x4E0A;&#x4E00;&#x6B21;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#x3002;&#x56E0;&#x4E3A; step &#x662F;&#x4F9D;&#x8D56;&#x9879;&#x4E4B;&#x4E00;&#x3002;&#x5927;&#x591A;&#x6570;&#x573A;&#x666F;&#x4E0B;&#x8FD9;&#x6837;&#x7684;&#x4F7F;&#x7528;&#x662F;&#x5B8C;&#x5168;&#x6B63;&#x786E;&#x7684;&#xFF0C;&#x6E05;&#x9664;&#x65E7;&#x7684; effect&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x65B0;&#x6267;&#x884C;&#x65B0;&#x7684; effect&#xFF0C;&#x8FD9;&#x5E76;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x9519;&#xFF0C;&#x9664;&#x975E;&#x6211;&#x4EEC;&#x6709;&#x66F4;&#x597D;&#x7684;&#x7406;&#x7531;&#xFF0C;&#x5426;&#x5219;&#x6211;&#x4EEC;&#x4E0D;&#x5E94;&#x8BE5;&#x6539;&#x53D8;&#x8FD9;&#x4E2A;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x3002;</p>
+<p>&#x4E0D;&#x8FC7;&#xFF0C;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x4E0D;&#x60F3;&#x518D; step &#x6539;&#x53D8;&#x540E;&#x91CD;&#x542F;&#x5B9A;&#x65F6;&#x5668;&#x5462;&#xFF1F;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x60F3;&#x66F4;&#x65B0;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#xFF0C;&#x800C;&#x8FD9;&#x4E2A;&#x72B6;&#x6001;&#x53C8;&#x4F9D;&#x8D56;&#x53E6;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x80FD;&#x4F60;&#x9700;&#x8981;<code>useReducer</code>&#x53BB;&#x66FF;&#x6362;&#x4ED6;&#x4EEC;&#x3002;</p>
+<p>&#x5F53;&#x4F60;&#x5199;&#x7C7B;&#x4F3C;<code>setSomething(something =&gt; ...)</code>&#x8FD9;&#x79CD;&#x4EE3;&#x7801;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E5F;&#x8BB8;&#x5C31;&#x662F;&#x8003;&#x8651;&#x4F7F;&#x7528; reducer &#x7684;&#x5951;&#x673A;&#x3002;reducer &#x53EF;&#x4EE5;&#x8BA9;&#x4F60;&#x628A;&#x7EC4;&#x4EF6;&#x5185;&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;(actions)&#x548C;&#x72B6;&#x6001;&#x5982;&#x4F55;&#x54CD;&#x5E94;&#x5E76;&#x66F4;&#x65B0;&#x5206;&#x5F00;&#x8868;&#x8FF0;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x7528;&#x4E00;&#x4E2A;<code>dispatch</code>&#x4F9D;&#x8D56;&#x53BB;&#x66FF;&#x6362; effect &#x7684; step &#x7684;&#x4F9D;&#x8D56;&#x3002;</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Counter5</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">const</span> initState = {
+        count: <span class="hljs-number">0</span>,
+        step: <span class="hljs-number">1</span>
+    }
+    <span class="hljs-comment">// * &#x4F7F;&#x7528;reducer&#x53BB;&#x66FF;&#x6362;step&#x7684;&#x4F9D;&#x8D56;</span>
+
+    <span class="hljs-keyword">const</span> reducer = useCallback((state, action) =&gt; {
+        <span class="hljs-keyword">if</span> (action.type === <span class="hljs-string">&apos;changeStep&apos;</span>) {
+            <span class="hljs-comment">// console.info(action.value)</span>
+            <span class="hljs-keyword">return</span> {step: action.value, count: state.count};
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (action.type === <span class="hljs-string">&apos;changeCount&apos;</span>) {
+            <span class="hljs-built_in">console</span>.info(state.count)
+            <span class="hljs-keyword">return</span> {count: state.step + state.count, step: state.step};
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> state;
+        }
+    }, []);
+
+    <span class="hljs-keyword">const</span> [state, dispatch] = useReducer(reducer, initState);
+    <span class="hljs-keyword">const</span> {count, step} = state;
+
+    useEffect(() =&gt; {
+        <span class="hljs-keyword">const</span> id = setInterval(() =&gt; {
+            dispatch({type: <span class="hljs-string">&apos;changeCount&apos;</span>})
+        }, <span class="hljs-number">1000</span>)
+        <span class="hljs-keyword">return</span> () =&gt; {
+            <span class="hljs-built_in">console</span>.info(<span class="hljs-string">&apos;&#x6E05;&#x9664;&apos;</span>)
+            clearInterval(id)};
+    }, [dispatch]);
+
+    <span class="hljs-keyword">return</span> (
+        &lt;&gt;
+            &lt;h1&gt;{count}&lt;/h1&gt;
+            &lt;input value={step} onChange={e =&gt; dispatch({type: &apos;changeStep&apos;, value: Object.is(Number(e.target.value), NaN) ? 0 : Number(e.target.value)})} /&gt;
+       &lt;/&gt;
+    );
+}
+</code></pre>
+<p>&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x7591;&#x95EE;: &#x201C;&#x8FD9;&#x600E;&#x4E48;&#x5C31;&#x66F4;&#x597D;&#x4E86;&#xFF1F;&#x201D;&#x5176;&#x5B9E;&#x5C31;&#x662F; React &#x4F1A;&#x4FDD;&#x8BC1;<code>dispatch</code>&#x5728;&#x7EC4;&#x4EF6;&#x58F0;&#x660E;&#x5468;&#x671F;&#x5185;&#x4FDD;&#x6301;&#x4E0D;&#x53D8;&#x3002;&#x6240;&#x4EE5;&#x4E0A;&#x9762;&#x4F8B;&#x5B50;&#x4E2D;&#x4E0D;&#x518D;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x8BA2;&#x9605;&#x5B9A;&#x65F6;&#x5668;&#x3002;</p>
+<p>&#x56E0;&#x6B64;&#x89E3;&#x51B3;&#x4E86;&#x4E0A;&#x9762;&#x7684;&#x95EE;&#x9898;&#xFF01;</p>
+<p><em>&#xFF08;&#x4F60;&#x53EF;&#x4EE5;&#x4ECE;&#x4F9D;&#x8D56;&#x4E2D;&#x53BB;&#x9664;<code>dispatch</code>, <code>setState</code>, &#x548C;<code>useRef</code>&#x5305;&#x88F9;&#x7684;&#x503C;&#x56E0;&#x4E3A; React &#x4F1A;&#x786E;&#x4FDD;&#x5B83;&#x4EEC;&#x662F;&#x9759;&#x6001;&#x7684;&#x3002;&#x4E0D;&#x8FC7;&#x4F60;&#x8BBE;&#x7F6E;&#x4E86;&#x5B83;&#x4EEC;&#x4F5C;&#x4E3A;&#x4F9D;&#x8D56;&#x4E5F;&#x6CA1;&#x4EC0;&#x4E48;&#x95EE;&#x9898;&#x3002;&#xFF09;</em></p>
+<p>&#x76F8;&#x6BD4;&#x4E8E;&#x76F4;&#x63A5;&#x5728; effect &#x91CC;&#x9762;&#x8BFB;&#x53D6;&#x72B6;&#x6001;&#xFF0C;&#x5B83; dispatch &#x4E86;&#x4E00;&#x4E2A;<code>action</code>&#x6765;&#x63CF;&#x8FF0;&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#x3002;&#x8FD9;&#x4F7F;&#x5F97;&#x6211;&#x4EEC;&#x7684; effect &#x548C; step &#x72B6;&#x6001;&#x89E3;&#x8026;&#x3002;&#x6211;&#x4EEC;&#x7684; effect &#x4E0D;&#x518D;&#x5173;&#x5FC3;&#x600E;&#x4E48;&#x66F4;&#x65B0;&#x72B6;&#x6001;&#xFF0C;&#x5B83;&#x53EA;&#x8D1F;&#x8D23;&#x544A;&#x8BC9;&#x6211;&#x4EEC;&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#x3002;&#x66F4;&#x65B0;&#x7684;&#x903B;&#x8F91;&#x5168;&#x90FD;&#x4EA4;&#x7531; reducer &#x53BB;&#x7EDF;&#x4E00;&#x5904;&#x7406;&#x3002;</p>
+<h2 id="&#x4E3A;&#x4EC0;&#x4E48;-usereducer-&#x662F;-hooks-&#x7684;&#x4F5C;&#x5F0A;&#x6A21;&#x5F0F;&#xFF1F;">&#x4E3A;&#x4EC0;&#x4E48; useReducer &#x662F; Hooks &#x7684;&#x4F5C;&#x5F0A;&#x6A21;&#x5F0F;&#xFF1F;</h2>
+<p>&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x5B66;&#x4E60;&#x5230;&#x5982;&#x4F55;&#x79FB;&#x9664; effect &#x7684;&#x4F9D;&#x8D56;&#xFF0C;&#x4E0D;&#x7BA1;&#x72B6;&#x6001;&#x66F4;&#x65B0;&#x662F;&#x4F9D;&#x8D56;&#x4E0A;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x8FD8;&#x662F;&#x4F9D;&#x8D56;&#x53E6;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x3002;&#x4F46;&#x5047;&#x5982;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4F9D;&#x8D56; props &#x53BB;&#x8BA1;&#x7B97;&#x4E0B;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x5462;&#xFF1F;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x6211;&#x4EEC;&#x7684; API &#x662F;<code>&lt;Counter step={1} /&gt;</code>&#x3002;&#x786E;&#x5B9A;&#x7684;&#x662F;&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x6CA1;&#x6CD5;&#x907F;&#x514D;&#x4F9D;&#x8D56; props.step&#x3002;&#x662F;&#x5417;&#xFF1F;</p>
+<p>&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#xFF01;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A; reducer &#x51FD;&#x6570;&#x653E;&#x5230;&#x7EC4;&#x4EF6;&#x5185;&#x53BB;&#x8BFB;&#x53D6; props&#x3002;</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Counter</span>(<span class="hljs-params">{ step }</span>) </span>{
+  <span class="hljs-keyword">const</span> [count, dispatch] = useReducer(reducer, <span class="hljs-number">0</span>);
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reducer</span>(<span class="hljs-params">state, action</span>) </span>{
+    <span class="hljs-keyword">if</span> (action.type === <span class="hljs-string">&apos;tick&apos;</span>) {
+      <span class="hljs-keyword">return</span> state + step;
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>();
+    }
+  }
+
+  useEffect(() =&gt; {
+    <span class="hljs-keyword">const</span> id = setInterval(() =&gt; {
+      dispatch({ type: <span class="hljs-string">&apos;tick&apos;</span> });
+    }, <span class="hljs-number">1000</span>);
+    <span class="hljs-keyword">return</span> () =&gt; clearInterval(id);
+  }, [dispatch]);
+
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{count}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>;
+}
+</code></pre>
+<p>&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x4F1A;&#x4F7F;&#x4E00;&#x4E9B;&#x4F18;&#x5316;&#x5931;&#x8D25;&#xFF0C;&#x6240;&#x4EE5;&#x5E94;&#x8BE5;&#x907F;&#x514D;&#x6EE5;&#x7528;&#x5B83;&#xFF0C;&#x4E0D;&#x8FC7;&#x5982;&#x679C;&#x6709;&#x9700;&#x8981;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x5728; reducer &#x91CC;&#x9762;&#x8BBF;&#x95EE; props&#x3002;</p>
+<p>&#x5373;&#x4F7F;&#x662F;&#x5728;&#x4E0A;&#x8FF0;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;React &#x4E5F;&#x4FDD;&#x8BC1;<code>dispatch</code>&#x5728;&#x6BCF;&#x6B21;&#x6E32;&#x67D3;&#x4E2D;&#x90FD;&#x662F;&#x4E00;&#x6837;&#x7684;&#x3002;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x5728;&#x4F9D;&#x8D56;&#x4E2D;&#x53BB;&#x6389;&#x5B83;&#x3002;&#x4ED6;&#x4E0D;&#x4F1A;&#x5F15;&#x8D77; effect &#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x91CD;&#x590D;&#x6267;&#x884C;&#x3002;</p>
+<p>&#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x7591;&#x60D1;&#xFF1A;&#x8FD9;&#x600E;&#x4E48;&#x53EF;&#x80FD;&#xFF1F;&#x5728;&#x4E4B;&#x524D;&#x6E32;&#x67D3;&#x4E2D;&#x8C03;&#x7528; reducer &#x600E;&#x4E48;&#x201C;&#x77E5;&#x9053;&#x201D;&#x65B0;&#x7684; props&#xFF1F;&#x7B54;&#x6848;&#x5C31;&#x662F;&#x5F53;&#x4F60;<code>dispatch</code>&#x7684;&#x65F6;&#x5019;&#xFF0C;React &#x53EA;&#x662F;&#x8BB0;&#x4F4F;&#x4E86; action &#x2014;&#x2014; &#x4ED6;&#x4F1A;&#x5728;&#x4E0B;&#x6B21;&#x6E32;&#x67D3;&#x4E2D;&#x518D;&#x6B21;&#x8C03;&#x7528; reducer&#x3002;&#x5728;&#x90A3;&#x4E2A;&#x65F6;&#x5019;&#xFF0C;&#x65B0;&#x7684; props &#x5C31;&#x53EF;&#x4EE5;&#x88AB;&#x8BBF;&#x95EE;&#x5230;&#xFF0C;&#x800C;&#x4E14; reducer &#x8C03;&#x7528;&#x4E5F;&#x4E0D;&#x662F;&#x5728; effect &#x91CC;&#x9762;(&#x4E3B;&#x8981;&#x5C31;&#x662F; reducer &#x8C03;&#x7528;&#x7684;&#x903B;&#x8F91;&#xFF0C;reducer &#x4E2D;&#x62FF;&#x5230;&#x7684;&#x662F;&#x6700;&#x65B0;&#x7684; props)&#x3002;</p>
+<p>&#x8FD9;&#x5C31;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x6211;&#x503E;&#x5411;&#x4E8E;&#x8BA4;&#x4E3A;<code>useReducer</code>&#x662F; Hooks &#x7684;&#x201C;&#x4F5C;&#x5F0A;&#x6A21;&#x5F0F;&#x201D;&#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x628A;&#x66F4;&#x65B0;&#x903B;&#x8F91;&#x548C;&#x63CF;&#x8FF0;&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#x5206;&#x5F00;&#x3002;&#x7ED3;&#x679C;&#x662F;&#xFF0C;&#x8FD9;&#x53EF;&#x4EE5;&#x5E2E;&#x52A9;&#x6211;&#x79FB;&#x9664;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x4F9D;&#x8D56;&#xFF0C;&#x907F;&#x514D;&#x4E0D;&#x5FC5;&#x8981;&#x7684; effect &#x8C03;&#x7528;&#x3002;</p>
+<h2 id="&#x628A;&#x51FD;&#x6570;&#x79FB;&#x5230;-effects-&#x91CC;">&#x628A;&#x51FD;&#x6570;&#x79FB;&#x5230; Effects &#x91CC;</h2>
+<p>&#x4E00;&#x4E2A;&#x5178;&#x578B;&#x7684;&#x8BEF;&#x89E3;&#x5C31;&#x662F;&#x8BA4;&#x4E3A;&#x51FD;&#x6570;&#x4E0D;&#x5E94;&#x8BE5;&#x6210;&#x4E3A;&#x4F9D;&#x8D56;&#x3002;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x770B;&#x4E0A;&#x53BB;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;&#x6B63;&#x5E38;&#xFF1A;</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SearchResults</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> [data, setData] = useState({ hits: [] });
+
+  <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchData</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> axios(
+      <span class="hljs-string">&apos;https://hn.algolia.com/api/v1/search?query=react&apos;</span>,
+    );
+    setData(result.data);
+  }
+
+  useEffect(() =&gt; {
+    fetchData();
+  }, []); <span class="hljs-comment">// Is this okay?</span>
+</code></pre>
+<p>&#x9700;&#x8981;&#x660E;&#x786E;&#x7684;&#x662F;&#xFF0C;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x662F;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#x7684;&#x3002;&#x4F46;&#x662F;&#x8FD9;&#x6837;&#x505A;&#x5728;&#x7EC4;&#x4EF6;&#x65E5;&#x6E10;&#x590D;&#x6742;&#x7684;&#x8FED;&#x4EE3;&#x8FC7;&#x7A0B;&#x4E2D;&#x6211;&#x4EEC;&#x5F88;&#x96BE;&#x786E;&#x4FDD;&#x4ED6;&#x5728;&#x5404;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x8FD8;&#x80FD;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#x3002;</p>
+<p>&#x60F3;&#x8C61;&#x4E00;&#x4E0B;&#x4EE3;&#x7801;&#x505A;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x7684;&#x5206;&#x79BB;&#xFF0C;&#x5E76;&#x4E14;&#x6BCF;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x4F53;&#x91CF;&#x662F;&#x73B0;&#x5728;&#x7684;&#x4E94;&#x500D;&#xFF1A;</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SearchResults</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// Imagine this function is long</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFetchUrl</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://hn.algolia.com/api/v1/search?query=react&apos;</span>;
+  }
+
+  <span class="hljs-comment">// Imagine this function is also long</span>
+  <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchData</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> axios(getFetchUrl());
+    setData(result.data);
+  }
+
+  useEffect(() =&gt; {
+    fetchData();
+  }, []);
+
+  <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x5728;&#x4E00;&#x4E9B;&#x51FD;&#x6570;&#x5185;&#x8FD8;&#x4F7F;&#x7528;&#x5230;&#x4E86;&#x4E00;&#x4E9B; state &#x6216;&#x8005; props</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SearchResults</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> [query, setQuery] = useState(<span class="hljs-string">&apos;react&apos;</span>);
+
+  <span class="hljs-comment">// Imagine this function is also long</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFetchUrl</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://hn.algolia.com/api/v1/search?query=&apos;</span> + query;
+  }
+
+  <span class="hljs-comment">// Imagine this function is also long</span>
+  <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchData</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> axios(getFetchUrl());
+    setData(result.data);
+  }
+
+  useEffect(() =&gt; {
+    fetchData();
+  }, []);
+
+  <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5FD8;&#x8BB0;&#x53BB;&#x66F4;&#x65B0;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x51FD;&#x6570;(&#x5F88;&#x53EF;&#x80FD;&#x901A;&#x8FC7;&#x5176;&#x4ED6;&#x51FD;&#x6570;&#x8C03;&#x7528;)&#x7684; effects &#x7684;&#x4F9D;&#x8D56;&#xFF0C;&#x6211;&#x4EEC;&#x7684; effects &#x5C31;&#x4E0D;&#x4F1A;&#x540C;&#x6B65; props &#x548C; state &#x5E26;&#x6765;&#x7684;&#x53D8;&#x66F4;&#x3002;&#x5F53;&#x7136;&#x4E0D;&#x662F;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7684;&#x3002;</p>
+<p>&#x5E78;&#x8FD0;&#x7684;&#x662F;&#xFF0C;&#x5BF9;&#x4E8E;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x6709;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;&#x5982;&#x679C;&#x67D0;&#x4E9B;&#x51FD;&#x6570;&#x4EC5;&#x5728; effect &#x4E2D;&#x8C03;&#x7528;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x628A;&#x4ED6;&#x4EEC;&#x7684;&#x5B9A;&#x4E49;&#x79FB;&#x5230; effect &#x4E2D;&#x3002;</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SearchResults</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// ...</span>
+  useEffect(() =&gt; {
+    <span class="hljs-comment">// We moved these functions inside!</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFetchUrl</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://hn.algolia.com/api/v1/search?query=react&apos;</span>;
+    }
+    <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchData</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> axios(getFetchUrl());
+      setData(result.data);
+    }
+
+    fetchData();
+  }, []); <span class="hljs-comment">// &#x2705; Deps are OK</span>
+  <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>&#x8FD9;&#x6837;&#x505A;&#x7684;&#x597D;&#x5904;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x518D;&#x53BB;&#x8003;&#x8651;&#x8FD9;&#x4E9B;&#x201C;&#x95F4;&#x63A5;&#x4F9D;&#x8D56;&#x201D;&#x3002;&#x6211;&#x4EEC;&#x7684;&#x4F9D;&#x8D56;&#x6570;&#x7EC4;&#x4E5F;&#x4E0D;&#x518D;&#x6492;&#x8C0E;&#xFF1A; &#x5728;&#x6211;&#x4EEC;&#x7684; effect &#x4E2D;&#x786E;&#x5B9E;&#x6CA1;&#x6709;&#x5728;&#x4F7F;&#x7528;&#x7EC4;&#x4EF6;&#x8303;&#x56F4;&#x5185;&#x7684;&#x4EFB;&#x4F55;&#x4E1C;&#x897F;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x540E;&#x9762;&#x4FEE;&#x6539;<code>getFetchUrl</code>&#x53BB;&#x4F7F;&#x7528;<code>query</code>&#x72B6;&#x6001;&#xFF0C;&#x6211;&#x4EEC;&#x66F4;&#x53EF;&#x80FD;&#x4F1A;&#x610F;&#x8BC6;&#x5230;&#x6211;&#x4EEC;&#x6B63;&#x5728; effect &#x91CC;&#x9762;&#x7F16;&#x8F91;&#x4ED6;&#x2014;&#x2014;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x628A;<code>query</code>&#x6DFB;&#x52A0;&#x5230; effect &#x7684;&#x4F9D;&#x8D56;&#x91CC;:</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SearchResults</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> [query, setQuery] = useState(<span class="hljs-string">&apos;react&apos;</span>);
+
+  useEffect(() =&gt; {
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFetchUrl</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://hn.algolia.com/api/v1/search?query=&apos;</span> + query;
+    }
+
+    <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchData</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> axios(getFetchUrl());
+      setData(result.data);
+    }
+
+    fetchData();
+  }, [query]); <span class="hljs-comment">// &#x2705; Deps are OK</span>
+
+  <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>&#x6DFB;&#x52A0;&#x8FD9;&#x4E2A;&#x4F9D;&#x8D56;&#xFF0C;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x5728;&#x201C;&#x53D6;&#x60A6; React&#x201D;&#x3002;&#x5728; query &#x6539;&#x53D8;&#x540E;&#x53BB;&#x91CD;&#x65B0;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#x662F;&#x5408;&#x7406;&#x7684;&#x3002;<code>useEffect</code>&#x7684;&#x8BBE;&#x8BA1;&#x610F;&#x56FE;&#x5C31;&#x662F;&#x8981;&#x5F3A;&#x8FEB;&#x4F60;&#x5173;&#x6CE8;&#x6570;&#x636E;&#x6D41;&#x7684;&#x6539;&#x53D8;&#xFF0C;&#x7136;&#x540E;&#x51B3;&#x5B9A;&#x6211;&#x4EEC;&#x7684; effects &#x8BE5;&#x5982;&#x4F55;&#x548C;&#x5B83;&#x540C;&#x6B65;&#x2014;&#x2014;&#x800C;&#x4E0D;&#x662F;&#x5FFD;&#x7565;&#x5B83;&#x77E5;&#x9053;&#x6211;&#x4EEC;&#x7684;&#x7528;&#x6237;&#x9047;&#x5230;&#x4E86; BUG</p>
+<p>&#x611F;&#x8C22; eslint-plugin-react-hooks &#x63D2;&#x4EF6;&#x7684; exhaustive-depslint &#x89C4;&#x5219;&#xFF0C;&#x5B83;&#x4F1A;&#x5728;&#x4F60;&#x7F16;&#x7801;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x5206;&#x6790; effects &#x5E76;&#x4E14;&#x63D0;&#x4F9B;&#x53EF;&#x80FD;&#x9057;&#x6F0F;&#x4F9D;&#x8D56;&#x7684;&#x5EFA;&#x8BAE;&#x3002;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;&#x673A;&#x5668;&#x4F1A;&#x544A;&#x8BC9;&#x4F60;&#x7EC4;&#x4EF6;&#x4E2D;&#x54EA;&#x4E9B;&#x6570;&#x636E;&#x6D41;&#x53D8;&#x66F4;&#x6CA1;&#x6709;&#x88AB;&#x6B63;&#x786E;&#x5730;&#x5904;&#x7406;&#x3002;</p>
+<h2 id="&#x4F46;&#x662F;&#x6709;&#x4E9B;&#x51FD;&#x6570;&#x4E0D;&#x80FD;&#x653E;&#x5230;-effect-&#x91CC;">&#x4F46;&#x662F;&#x6709;&#x4E9B;&#x51FD;&#x6570;&#x4E0D;&#x80FD;&#x653E;&#x5230; Effect &#x91CC;</h2>
+<p>&#x6709;&#x65F6;&#x5019;&#x4F60;&#x53EF;&#x80FD;&#x4E0D;&#x60F3;&#x5427;&#x51FD;&#x6570;&#x79FB;&#x5165; effect &#x91CC;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x7EC4;&#x4EF6;&#x5185;&#x6709;&#x51E0;&#x4E2A; effect &#x4F7F;&#x7528;&#x4E86;&#x76F8;&#x540C;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x4F60;&#x4E0D;&#x60F3;&#x5728;&#x6BCF;&#x4E2A; effect &#x91CC;&#x590D;&#x5236;&#x9ECF;&#x8D34;&#x4E00;&#x904D;&#x8FD9;&#x4E2A;&#x903B;&#x8F91;&#x3002;&#x4E5F;&#x6216;&#x8BB8;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x662F;&#x4E00;&#x4E2A; prop&#x3002;</p>
+<p>&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x4F60;&#x5E94;&#x8BE5;&#x5FFD;&#x7565;&#x5BF9;&#x51FD;&#x6570;&#x7684;&#x4F9D;&#x8D56;&#x5417;&#xFF1F;&#x5176;&#x5B9E;&#x4E5F;&#x4E0D;&#x662F;&#x3002;&#x518D;&#x6B21;&#x5F3A;&#x8C03;&#xFF0C;effects &#x4E0D;&#x5E94;&#x8BE5;&#x5BF9;&#x4ED6;&#x7684;&#x4F9D;&#x8D56;&#x6492;&#x8C0E;&#x3002;&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x8FD8;&#x6709;&#x66F4;&#x597D;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x3002;&#x4E00;&#x4E2A;&#x5E38;&#x89C1;&#x7684;&#x8BEF;&#x89E3;&#x5C31;&#x662F;&#xFF1A; &#x201C;&#x51FD;&#x6570;&#x4ECE;&#x6765;&#x4E0D;&#x4F1A;&#x6539;&#x53D8;&#x201D;&#x3002;&#x4F46;&#x662F;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x8BFB;&#x5230;&#x73B0;&#x5728;&#xFF0C;&#x5C31;&#x4F1A;&#x77E5;&#x9053;&#x663E;&#x7136;&#x8FD9;&#x4E0D;&#x662F;&#x4E8B;&#x5B9E;&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x5728;&#x7EC4;&#x4EF6;&#x5185;&#x5B9A;&#x4E49;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x6BCF;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x90FD;&#x5728;&#x53D1;&#x751F;&#x6539;&#x53D8;&#x3002;(&#x6BD5;&#x7ADF;&#x51FD;&#x6570;&#x7EC4;&#x4EF6;&#x5728;&#x6BCF;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x90FD;&#x4F1A;&#x5207;&#x6362;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;esp &#x6307;&#x9488;&#x4E0B;&#x79FB;&#xFF0C;&#x56DE;&#x6536;&#x539F;&#x6765;&#x7684;&#x6808;&#x9876;&#x7A7A;&#x95F4;)</p>
+<p>&#x51FD;&#x6570;&#x6BCF;&#x6B21;&#x6E32;&#x67D3;&#x90FD;&#x4F1A;&#x6539;&#x53D8;&#x8FD9;&#x4E2A;&#x4E8B;&#x5B9E;&#x672C;&#x8EAB;&#x5C31;&#x662F;&#x4E2A;&#x95EE;&#x9898;&#x3002;&#x6BD4;&#x5982;&#x6709;&#x4E24;&#x4E2A; effects &#x4F1A;&#x8C03;&#x7528;<code>getFetchUrl</code>:</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SearchResults</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFetchUrl</span>(<span class="hljs-params">query</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://hn.algolia.com/api/v1/search?query=&apos;</span> + query;
+  }
+
+  useEffect(() =&gt; {
+    <span class="hljs-keyword">const</span> url = getFetchUrl(<span class="hljs-string">&apos;react&apos;</span>);
+    <span class="hljs-comment">// ... Fetch data and do something ...</span>
+  }, []); <span class="hljs-comment">// &#x1F534; Missing dep: getFetchUrl</span>
+
+  useEffect(() =&gt; {
+    <span class="hljs-keyword">const</span> url = getFetchUrl(<span class="hljs-string">&apos;redux&apos;</span>);
+    <span class="hljs-comment">// ... Fetch data and do something ...</span>
+  }, []); <span class="hljs-comment">// &#x1F534; Missing dep: getFetchUrl</span>
+
+  <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x4E0D;&#x60F3;&#x628A;<code>getFetchUrl</code>&#x79FB;&#x5230; effects &#x4E2D;&#xFF0C;&#x56E0;&#x4E3A;&#x4F60;&#x60F3;&#x590D;&#x7528;&#x903B;&#x8F91;&#x3002;</p>
+<p>&#x53E6;&#x4E00;&#x65B9;&#x9762;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x5BF9;&#x4F9D;&#x8D56;&#x5F88;&#x201C;&#x8BDA;&#x5B9E;&#x201D;&#xFF0C; &#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x6389;&#x5230;&#x9677;&#x9631;&#x91CC;&#x3002;&#x6211;&#x4EEC;&#x7684;&#x4E24;&#x4E2A; effects &#x90FD;&#x4F9D;&#x8D56;<code>getFetchUrl</code>, &#x800C;&#x5B83;&#x6BCF;&#x6B21;&#x6E32;&#x67D3;&#x90FD;&#x4E0D;&#x540C;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x7684;&#x4F9D;&#x8D56;&#x6570;&#x7EC4;&#x4F1A;&#x53D8;&#x5F97;&#x65E0;&#x7528;:</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SearchResults</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// &#x1F534; Re-triggers all effects on every render</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFetchUrl</span>(<span class="hljs-params">query</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://hn.algolia.com/api/v1/search?query=&apos;</span> + query;
+  }
+
+  useEffect(() =&gt; {
+    <span class="hljs-keyword">const</span> url = getFetchUrl(<span class="hljs-string">&apos;react&apos;</span>);
+    <span class="hljs-comment">// ... Fetch data and do something ...</span>
+  }, [getFetchUrl]); <span class="hljs-comment">// &#x1F6A7; Deps are correct but they change too often</span>
+
+  useEffect(() =&gt; {
+    <span class="hljs-keyword">const</span> url = getFetchUrl(<span class="hljs-string">&apos;redux&apos;</span>);
+    <span class="hljs-comment">// ... Fetch data and do something ...</span>
+  }, [getFetchUrl]); <span class="hljs-comment">// &#x1F6A7; Deps are correct but they change too often</span>
+
+  <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>&#x4E00;&#x4E2A;&#x53EF;&#x80FD;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x628A;<code>getFetchUrl</code>&#x4ECE;&#x4F9D;&#x8D56;&#x4E2D;&#x53BB;&#x6389;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x6211;&#x4E0D;&#x8BA4;&#x4E3A;&#x8FD9;&#x662F;&#x597D;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;&#x8FD9;&#x56DE;&#x4F7F;&#x6211;&#x4EEC;&#x540E;&#x9762;&#x5BF9;&#x6570;&#x636E;&#x6D41;&#x7684;&#x6539;&#x53D8;&#x5F88;&#x96BE;&#x88AB;&#x53D1;&#x73B0;&#x4ECE;&#x800C;&#x5FD8;&#x8BB0;&#x53BB;&#x5904;&#x7406;&#x3002;&#x8FD9;&#x4F1A;&#x5BFC;&#x81F4;&#x7C7B;&#x4F3C;&#x4E8E;&#x4E0A;&#x9762;&#x201C;&#x5B9A;&#x65F6;&#x5668;&#x4E0D;&#x66F4;&#x65B0;&#x503C;&#x201D;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x76F8;&#x53CD;&#xFF0C;&#x6211;&#x4EEC;&#x6709;&#x4E24;&#x4E2A;&#x66F4;&#x7B80;&#x5355;&#x7684;&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#x3002;</p>
+<p>&#x7B2C;&#x4E00;&#x4E2A;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x7EC4;&#x4EF6;&#x5185;&#x7684;&#x4EFB;&#x4F55;&#x503C;&#xFF0C;&#x4F60;&#x5E94;&#x8BE5;&#x628A;&#x5B83;&#x63D0;&#x5230;&#x7EC4;&#x4EF6;&#x5916;&#x9762;&#x53BB;&#x5B9A;&#x4E49;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x81EA;&#x7531;&#x7684;&#x5728; effects &#x4E2D;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-javaScript"><span class="hljs-comment">// &#x2705; Not affected by the data flow</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFetchUrl</span>(<span class="hljs-params">query</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://hn.algolia.com/api/v1/search?query=&apos;</span> + query;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SearchResults</span>(<span class="hljs-params"></span>) </span>{
+  useEffect(() =&gt; {
+    <span class="hljs-keyword">const</span> url = getFetchUrl(<span class="hljs-string">&apos;react&apos;</span>);
+    <span class="hljs-comment">// ... Fetch data and do something ...</span>
+  }, []); <span class="hljs-comment">// &#x2705; Deps are OK</span>
+
+  useEffect(() =&gt; {
+    <span class="hljs-keyword">const</span> url = getFetchUrl(<span class="hljs-string">&apos;redux&apos;</span>);
+    <span class="hljs-comment">// ... Fetch data and do something ...</span>
+  }, []); <span class="hljs-comment">// &#x2705; Deps are OK</span>
+
+  <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>&#x8FD9;&#x6837;&#x5C31;&#x4E0D;&#x518D;&#x9700;&#x8981;&#x5C06;&#x5B83;&#x8BBE;&#x7F6E;&#x4E3A;&#x4F9D;&#x8D56;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4E0D;&#x518D;&#x6E32;&#x67D3;&#x8303;&#x56F4;&#x5185;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x4F1A;&#x88AB;&#x6570;&#x636E;&#x6D41;&#x5F71;&#x54CD;&#x3002;&#x4ED6;&#x4E0D;&#x53EF;&#x80FD;&#x7A81;&#x7136;&#x610F;&#x5916;&#x7684;&#x4F9D;&#x8D56;&#x4E8E; props &#x6216; state&#x3002;</p>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; useCallback &#x5305;&#x88F9;&#x5B83;&#x3002;</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SearchResults</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// &#x2705; Preserves identity when its own deps are the same</span>
+  <span class="hljs-keyword">const</span> getFetchUrl = useCallback((query) =&gt; {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://hn.algolia.com/api/v1/search?query=&apos;</span> + query;
+  }, []);  <span class="hljs-comment">// &#x2705; Callback deps are OK</span>
+
+  useEffect(() =&gt; {
+    <span class="hljs-keyword">const</span> url = getFetchUrl(<span class="hljs-string">&apos;react&apos;</span>);
+    <span class="hljs-comment">// ... Fetch data and do something ...</span>
+  }, [getFetchUrl]); <span class="hljs-comment">// &#x2705; Effect deps are OK</span>
+
+  useEffect(() =&gt; {
+    <span class="hljs-keyword">const</span> url = getFetchUrl(<span class="hljs-string">&apos;redux&apos;</span>);
+    <span class="hljs-comment">// ... Fetch data and do something ...</span>
+  }, [getFetchUrl]); <span class="hljs-comment">// &#x2705; Effect deps are OK</span>
+
+  <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p><code>useCallback</code>&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x6DFB;&#x52A0;&#x4E86;&#x4E00;&#x5C42;&#x4F9D;&#x8D56;&#x68C0;&#x67E5;&#x3002;&#x5B83;&#x4EE5;&#x53E6;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x89E3;&#x51B3;&#x4E86;&#x95EE;&#x9898;&#x2014;&#x2014;&#x6211;&#x4EEC;&#x4F7F;&#x51FD;&#x6570;&#x672C;&#x8EAB;&#x53EA;&#x5728;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#x624D;&#x6539;&#x53D8;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x53BB;&#x6389;&#x5BF9;&#x51FD;&#x6570;&#x7684;&#x4F9D;&#x8D56;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;&#x4E3A;&#x4EC0;&#x4E48;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x662F;&#x6709;&#x7528;&#x7684;&#x3002;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#x5C55;&#x793A;&#x4E86;&#x4E24;&#x79CD;&#x641C;&#x7D22;&#x7ED3;&#x679C;(&#x67E5;&#x8BE2;&#x6761;&#x4EF6;&#x5206;&#x522B;&#x4E3A;&apos;react&apos;&#x548C;&apos;redux&apos;)&#x3002;&#x4F46;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x8F93;&#x5165;&#x6846;&#x5141;&#x8BB8;&#x8F93;&#x5165;&#x4EFB;&#x610F;&#x7684;&#x67E5;&#x8BE2;&#x6761;&#x4EF6;(query)&#x3002;&#x4E0D;&#x540C;&#x4E8E;&#x4F20;&#x9012;<code>query</code>&#x53C2;&#x6570;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x73B0;&#x5728;<code>getFetchUrl</code>&#x4F1A;&#x4ECE;&#x72B6;&#x6001;&#x4E2D;&#x8BFB;&#x53D6;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5F88;&#x5FEB;&#x53D1;&#x73B0;&#x5B83;&#x9057;&#x6F0F;&#x4E86;<code>query</code>&#x4F9D;&#x8D56;&#xFF1A;</p>
+<p>&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x628A;<code>query</code>&#x7684;&#x4F9D;&#x8D56;&#x6DFB;&#x52A0;&#x5230;<code>useCallback</code>&#x7684;&#x4F9D;&#x8D56;&#x4E2D;&#xFF0C;&#x4EFB;&#x4F55;&#x8C03;&#x7528;&#x4E86;<code>getFetchUrl</code>&#x7684; effect &#x5728;<code>query</code>&#x6539;&#x53D8;&#x540E;&#x90FD;&#x4F1A;&#x91CD;&#x65B0;&#x8FD0;&#x884C;:</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SearchResults</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> [query, setQuery] = useState(<span class="hljs-string">&apos;react&apos;</span>);
+
+  <span class="hljs-comment">// &#x2705; Preserves identity until query changes</span>
+  <span class="hljs-keyword">const</span> getFetchUrl = useCallback(() =&gt; {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://hn.algolia.com/api/v1/search?query=&apos;</span> + query;
+  }, [query]);  <span class="hljs-comment">// &#x2705; Callback deps are OK</span>
+
+  useEffect(() =&gt; {
+    <span class="hljs-keyword">const</span> url = getFetchUrl();
+    <span class="hljs-comment">// ... Fetch data and do something ...</span>
+  }, [getFetchUrl]); <span class="hljs-comment">// &#x2705; Effect deps are OK</span>
+
+  <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>&#x6240;&#x4EE5;&#x8BF4;&#x8981;&#x611F;&#x8C22;<code>useCallback</code>. &#x5982;&#x679C;<code>query</code>&#x4FDD;&#x6301;&#x4E0D;&#x53D8;&#xFF0C;<code>getFetchUrl</code>&#x4E5F;&#x4F1A;&#x4FDD;&#x6301;&#x4E0D;&#x53D8;&#xFF0C;&#x6211;&#x4EEC;&#x7684; effect &#x5C31;&#x4E0D;&#x4F1A;&#x91CD;&#x65B0;&#x8FD0;&#x884C;&#x3002;&#x4F46;&#x662F;&#x5982;&#x679C;<code>query</code>&#x4FEE;&#x6539;&#x4E86;, <code>getFetchUrl</code>&#x4E5F;&#x4F1A;&#x968F;&#x4E4B;&#x6539;&#x53D8;&#xFF0C;&#x56E0;&#x6B64;&#x4F1A;&#x91CD;&#x65B0;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#x3002;&#x8FD9;&#x5C31;&#x50CF;&#x4F60;&#x5728; Excel &#x91CC;&#x4FEE;&#x6539;&#x4E86;&#x4E00;&#x4E2A;&#x5355;&#x5143;&#x683C;&#x7684;&#x503C;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x5B83;&#x7684;&#x5355;&#x5143;&#x683C;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x65B0;&#x8BA1;&#x7B97;&#x4E00;&#x6837;&#x3002;</p>
+<p>&#x8FD9;&#x6B63;&#x662F;&#x62E5;&#x62B1;&#x6570;&#x636E;&#x6D41;&#x548C;&#x540C;&#x6B65;&#x601D;&#x7EF4;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x5BF9;&#x4E8E;&#x901A;&#x8FC7;&#x5C5E;&#x6027;&#x4ECE;&#x7236;&#x7EC4;&#x4EF6;&#x4F20;&#x5165;&#x7684;&#x51FD;&#x6570;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E5F;&#x9002;&#x7528;&#x3002;</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Parent</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> [query, setQuery] = useState(<span class="hljs-string">&apos;react&apos;</span>);
+
+  <span class="hljs-comment">// &#x2705; Preserves identity until query changes</span>
+  <span class="hljs-keyword">const</span> fetchData = useCallback(() =&gt; {
+    <span class="hljs-keyword">const</span> url = <span class="hljs-string">&apos;https://hn.algolia.com/api/v1/search?query=&apos;</span> + query;
+    <span class="hljs-comment">// ... Fetch data and return it ...</span>
+  }, [query]);  <span class="hljs-comment">// &#x2705; Callback deps are OK</span>
+
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Child</span> <span class="hljs-attr">fetchData</span>=<span class="hljs-string">{fetchData}</span> /&gt;</span>
+}
+
+function Child({ fetchData }) {
+  let [data, setData] = useState(null);
+
+  useEffect(() =&gt; {
+    fetchData().then(setData);
+  }, [fetchData]); // &#x2705; Effect deps are OK
+
+  // ...
+}
+</span></code></pre>
+<p>&#x56E0;&#x4E3A;<code>fetchData</code>&#x53EA;&#x6709;&#x5728;<code>Parent</code>&#x7684;<code>query</code>&#x72B6;&#x6001;&#x53D8;&#x66F4;&#x65F6;&#x624D;&#x4F1A;&#x6539;&#x53D8;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x7684;<code>Child</code>&#x53EA;&#x4F1A;&#x5728;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#x624D;&#x53BB;&#x91CD;&#x65B0;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#x3002;</p>
+<h2 id="&#x51FD;&#x6570;&#x662F;&#x6570;&#x636E;&#x6D41;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x5417;&#xFF1F;">&#x51FD;&#x6570;&#x662F;&#x6570;&#x636E;&#x6D41;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x5417;&#xFF1F;</h2>
+<p>&#x6709;&#x8DA3;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x5728; class &#x7EC4;&#x4EF6;&#x4E2D;&#x884C;&#x4E0D;&#x901A;&#xFF0C;&#x5E76;&#x4E14;&#x8FD9;&#x79CD;&#x884C;&#x4E0D;&#x901A;&#x6070;&#x5230;&#x597D;&#x5904;&#x7684;&#x63ED;&#x793A;&#x4E86; effect &#x548C;&#x751F;&#x547D;&#x5468;&#x671F;&#x8303;&#x5F0F;&#x4E4B;&#x95F4;&#x7684;&#x533A;&#x522B;&#x3002;&#x8003;&#x8651;&#x4E0B;&#x9762;&#x7684;&#x8F6C;&#x6362;:</p>
+<pre><code class="lang-javaScript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Parent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  state={
+    query: <span class="hljs-string">&apos;react&apos;</span>,
+  };
+  fetchData = () =&gt; {
+    <span class="hljs-keyword">const</span> url = <span class="hljs-string">&apos;https://hn.algolia.com/api/v1/search?query=&apos;</span> + <span class="hljs-keyword">this</span>.state.query;
+    <span class="hljs-comment">// * &#x83B7;&#x53D6;data</span>
+  }
+  render() {
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Child</span> <span class="hljs-attr">fetchData</span>=<span class="hljs-string">{this.fetchData}</span> /&gt;</span>
+  }
+}
+
+class Child extends Component {
+  state = {
+    data: null
+  };
+  componentDidMount() {
+    this.props.fetchData();
+  }
+  render() {
+    // ...
+  }
+}
+</span></code></pre>
+<p>&#x770B;&#x5230;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x53EF;&#x80FD;&#x4F1A;&#x60F3;&#xFF0C;&#x201C;&#x6211;&#x4EEC;&#x90FD;&#x77E5;&#x9053;<code>useEffect</code>&#x5C31;&#x50CF;<code>componentDidMount</code>&#x548C;<code>componentDidUpdate</code>&#x7684;&#x7ED3;&#x5408;&#xFF0C;&#x4E0D;&#x80FD;&#x8001;&#x662F;&#x7834;&#x574F;&#x8FD9;&#x4E00;&#x6761;&#x201D;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x7B97;&#x52A0;&#x4E86;<code>componentDidUpdate</code>&#x4E5F;&#x6CA1;&#x6709;&#x7528;&#x3002;</p>
+<pre><code class="lang-javaScript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Parent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  state={
+    query: <span class="hljs-string">&apos;react&apos;</span>,
+  };
+  fetchData = () =&gt; {
+    <span class="hljs-keyword">const</span> url = <span class="hljs-string">&apos;https://hn.algolia.com/api/v1/search?query=&apos;</span> + <span class="hljs-keyword">this</span>.state.query;
+    <span class="hljs-comment">// * &#x83B7;&#x53D6;data</span>
+  }
+  render() {
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Child</span> <span class="hljs-attr">fetchData</span>=<span class="hljs-string">{this.fetchData}</span> /&gt;</span>
+  }
+}
+
+class Child extends Component {
+  state = {
+    data: null
+  };
+  componentDidMount() {
+    this.props.fetchData();
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps.fetchData !== this.props.fetchData) {
+      this.props.fetchData();
+    }
+  }
+  render() {
+    // ...
+  }
+}
+</span></code></pre>
+<p>&#x50CF;&#x4E0A;&#x9762;&#x8FD9;&#x6837;&#xFF0C; <code>fetchData</code>&#x662F;&#x4E00;&#x4E2A; class &#x65B9;&#x6CD5;&#xFF01;(&#x6216;&#x8005;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x8BF4;&#x662F; class &#x5C5E;&#x6027;&#x2014;&#x2014;&#x4F46;&#x8FD9;&#x4E0D;&#x80FD;&#x6539;&#x53D8;&#x4EC0;&#x4E48;&#x3002;)&#x4ED6;&#x4E0D;&#x4F1A;&#x56E0;&#x4E3A;&#x72B6;&#x6001;&#x7684;&#x6539;&#x53D8;&#x800C;&#x53D8;&#x5F97;&#x4E0D;&#x540C;&#xFF0C;&#x6240;&#x4EE5;<code>this.props.fetchData</code>&#x548C;<code>prevProps.fetchData</code>&#x59CB;&#x7EC8;&#x76F8;&#x7B49;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x4F1A;&#x91CD;&#x65B0;&#x8BF7;&#x6C42;&#x3002;&#x90A3;&#x4E48;&#x5220;&#x9664;&#x6761;&#x4EF6;&#x5224;&#x65AD;&#x600E;&#x4E48;&#x6837;&#x5462;&#xFF1F;</p>
+<pre><code class="lang-javaScript">componentDidUpdate(prevProps) {
+  <span class="hljs-keyword">this</span>.props.fetchData();
+}
+</code></pre>
+<p>&#x4F46;&#x662F;&#x8FD9;&#x6837;&#x6BCF;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x540E;&#x90FD;&#x4F1A;&#x53BB;&#x8BF7;&#x6C42;&#x3002;&#xFF08;&#x5982;&#x679C;&#x6709;loading&#x52A8;&#x753B;&#xFF0C;&#x5C31;&#x4F1A;&#x53D1;&#x73B0;&#x8FD9;&#x4E2A;&#xFF09;&#x4E5F;&#x8BB8;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;query?</p>
+<pre><code class="lang-javaScript">  render() {
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Child</span> <span class="hljs-attr">fetchData</span>=<span class="hljs-string">{this.fetchData.bind(this,</span> <span class="hljs-attr">this.state.query</span>)} /&gt;</span>;
+  }
+</span></code></pre>
+<p>&#x8FD9;&#x6837;&#x4E00;&#x6765;&#xFF0C;<code>this.props.fetchData !== prevProps.fetchData</code>&#x8868;&#x8FBE;&#x5F0F;&#x6C38;&#x8FDC;&#x662F;<code>true</code>, &#x5373;&#x4FBF;&#x662F;<code>query</code>&#x7684;&#x503C;&#x5E76;&#x6CA1;&#x6709;&#x53D1;&#x751F;&#x53D8;&#x5316;, &#x5C31;&#x4F1A;&#x5BFC;&#x81F4;&#x603B;&#x662F;&#x53BB;&#x8BF7;&#x6C42;&#x3002;</p>
+<p>&#x60F3;&#x8981;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;class&#x7EC4;&#x4EF6;&#x4E2D;&#x7684;&#x96BE;&#x9898;&#xFF0C;&#x552F;&#x4E00;&#x73B0;&#x5B9E;&#x53EF;&#x884C;&#x7684;&#x529E;&#x6CD5;&#x662F;&#x786C;&#x7740;&#x5934;&#x76AE;&#x628A;<code>query</code>&#x672C;&#x8EAB;&#x4F20;&#x5165;<code>Child</code>&#x7EC4;&#x4EF6;&#x3002;<code>Child</code>&#x867D;&#x7136;&#x5B9E;&#x9645;&#x5E76;&#x6CA1;&#x6709;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;<code>query</code>&#x7684;&#x503C;&#xFF0C;&#x4F46;&#x80FD;&#x591F;&#x5728;&#x5B83;&#x6539;&#x53D8;&#x7684;&#x65F6;&#x5019;&#x89E6;&#x53D1;&#x4E00;&#x6B21;&#x91CD;&#x65B0;&#x8BF7;&#x6C42;&#x3002;(&#x4F7F;&#x7528;props&#x4E2D;&#x7684;query&#x503C;&#x53BB;&#x505A;&#x5BF9;&#x6BD4;)</p>
+<pre><code class="lang-javaScript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Parent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  state = {
+    query: <span class="hljs-string">&apos;react&apos;</span>
+  };
+  fetchData = () =&gt; {
+    <span class="hljs-keyword">const</span> url = <span class="hljs-string">&apos;https://hn.algolia.com/api/v1/search?query=&apos;</span> + <span class="hljs-keyword">this</span>.state.query;
+    <span class="hljs-comment">// ... Fetch data and do something ...</span>
+  };
+  render() {
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Child</span> <span class="hljs-attr">fetchData</span>=<span class="hljs-string">{this.fetchData}</span> <span class="hljs-attr">query</span>=<span class="hljs-string">{this.state.query}</span> /&gt;</span>;
+  }
+}
+
+class Child extends Component {
+  state = {
+    data: null
+  };
+  componentDidMount() {
+    this.props.fetchData();
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.query !== prevProps.query) {
+      this.props.fetchData();
+    }
+  }
+  render() {
+    // ...
+  }
+}
+</span></code></pre>
+<p>&#x5728;class&#x7EC4;&#x4EF6;&#x4E2D;&#xFF0C;&#x51FD;&#x6570;&#x5C5E;&#x6027;&#x672C;&#x8EAB;&#x5E76;&#x4E0D;&#x662F;&#x6570;&#x636E;&#x6D41;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x3002;&#x7EC4;&#x4EF6;&#x7684;&#x65B9;&#x6CD5;&#x4E2D;&#x5305;&#x542B;&#x4E86;&#x53EF;&#x53D8;&#x7684;<code>this</code>&#x53D8;&#x91CF;&#x5BFC;&#x81F4;&#x6211;&#x4EEC;&#x4E0D;&#x80FD;&#x786E;&#x5B9A;&#x65E0;&#x7591;&#x7684;&#x8BA4;&#x4E3A;&#x4ED6;&#x662F;&#x4E0D;&#x53D8;&#x7684;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5373;&#x4F7F;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x51FD;&#x6570;, &#x6211;&#x4EEC;&#x4E5F;&#x5FC5;&#x987B;&#x628A;&#x4E00;&#x5806;&#x6570;&#x636E;&#x4F20;&#x9012;&#x4E0B;&#x53BB;&#x4EC5;&#x4EC5;&#x662F;&#x4E3A;&#x4E86;&#x505A;<code>diff</code>&#x3002;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x77E5;&#x9053;&#x4F20;&#x5165;&#x7684;<code>this.props.fetchData</code>&#x662F;&#x5426;&#x4F9D;&#x8D56;&#x72B6;&#x6001;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x77E5;&#x9053;&#x5B83;&#x4F9D;&#x8D56;&#x7684;&#x72B6;&#x6001;&#x662F;&#x5426;&#x6539;&#x53D8;&#x4E86;&#x3002;</p>
+<p>&#x4F7F;&#x7528;<code>useCallback</code>&#x51FD;&#x6570;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x53C2;&#x4E0E;&#x5230;&#x6570;&#x636E;&#x6D41;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8BF4;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x8F93;&#x5165;&#x6539;&#x53D8;&#x4E86;&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5C31;&#x6539;&#x53D8;&#x4E86;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;, &#x51FD;&#x6570;&#x4E5F;&#x4E0D;&#x4F1A;&#x6539;&#x53D8;&#x3002;&#x611F;&#x8C22;&#x5468;&#x5230;&#x7684;<code>useCallback</code>&#xFF0C;&#x5C5E;&#x6027;&#x6BD4;&#x5982;<code>props.fetchData</code>&#x7684;&#x6539;&#x53D8;&#x4E5F;&#x4F1A;&#x81EA;&#x52A8;&#x4F20;&#x9012;&#x4E0B;&#x53BB;&#x3002;</p>
+<p>&#x7C7B;&#x4F3C;&#x7684;, <code>useMemo</code>&#x53EF;&#x4EE5;&#x8BA9;&#x6211;&#x4EEC;&#x5BF9;&#x590D;&#x6742;&#x5BF9;&#x8C61;&#x505A;&#x7C7B;&#x4F3C;&#x7684;&#x4E8B;&#x60C5;&#x3002;</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ColorPicker</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> [color, setColor] = useState(<span class="hljs-string">&apos;pink&apos;</span>);
+  <span class="hljs-keyword">const</span> style = useMemo(() =&gt; ({color}), [color]);
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Child</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{style}</span> /&gt;</span>
+}
+</span></code></pre>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x5BFC;&#x51FA;&#x4F7F;&#x7528;<code>useCallback</code>&#x662F;&#x4E00;&#x4EF6;&#x7B28;&#x62D9;&#x7684;&#x4E8B;&#x60C5;&#x3002;&#x5F53;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5C06;&#x51FD;&#x6570;&#x4F20;&#x9012;&#x4E0B;&#x53BB;&#x5E76;&#x4E14;&#x51FD;&#x6570;&#x4F1A;&#x5728;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;effect&#x4E2D;&#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;, <code>useCallback</code>&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x597D;&#x7684;&#x6280;&#x5DE7;&#x5E76;&#x4E14;&#x975E;&#x5E38;&#x53C8;&#x8981;&#x54E6;&#x90A3;&#x4E2A;&#x3002;&#x6216;&#x8005;&#x4F60;&#x60F3;&#x8BD5;&#x56FE;&#x51CF;&#x5C11;&#x5BF9;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;&#x8BB0;&#x5FC6;&#x8D1F;&#x62C5;&#xFF0C;&#x4E5F;&#x4E0D;&#x59A8;&#x8BD5;&#x4E00;&#x6B21;&#x3002;&#x4F46;&#x603B;&#x7684;&#x6765;&#x8BF4;&#xFF0C;Hooks&#x672C;&#x8EAB;&#x80FD;&#x66F4;&#x597D;&#x7684;&#x907F;&#x514D;&#x4F20;&#x9012;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x6211;&#x66F4;&#x503E;&#x5411;&#x4E8E;&#x628A;<code>fetchData</code>&#x653E;&#x5230;effect&#x91CC;&#x9762;(&#x5B83;&#x53EF;&#x4EE5;&#x62BD;&#x79BB;&#x6210;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7684;Hook)&#x6216;&#x8005;&#x4ECE;&#x9876;&#x5C42;&#x5F15;&#x5165;&#x3002;&#x6211;&#x60F3;&#x8BA9;effect&#x4FDD;&#x6301;&#x7B80;&#x5355;&#xFF0C;&#x800C;&#x5728;&#x91CC;&#x9762;&#x8C03;&#x7528;&#x56DE;&#x8C03;&#x4F1A;&#x8BA9;&#x4E8B;&#x60C5;&#x53D8;&#x5F97;&#x590D;&#x6742;&#x3002;(&quot;&#x5982;&#x679C;&#x67D0;&#x4E2A;<code>props.onComplete</code>&#x56DE;&#x8C03;&#x6539;&#x53D8;&#x4E86;&#x800C;&#x8BF7;&#x6C42;&#x8FD8;&#x5728;&#x8FDB;&#x884C;&#x4E2D;&#x4F1A;&#x600E;&#x4E48;&#x6837;&#xFF1F;&quot;)&#x4F60;&#x53EF;&#x4EE5;&#x6A21;&#x62DF;class&#x7684;&#x884C;&#x4E3A;&#x4F46;&#x90A3;&#x6837;&#x5E76;&#x4E0D;&#x80FD;&#x89E3;&#x51B3;&#x7ADE;&#x6001;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<h2 id="&#x7ADE;&#x6001;">&#x7ADE;&#x6001;</h2>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x5178;&#x578B;&#x7684;&#x5728;class&#x7EC4;&#x4EF6;&#x91CC;&#x53D1;&#x8BF7;&#x6C42;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-javaScript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Article</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  state = {
+    article: <span class="hljs-literal">null</span>
+  };
+  componentDidMount() {
+    <span class="hljs-keyword">this</span>.fetchData(<span class="hljs-keyword">this</span>.props.id);
+  }
+  componentDidUpdate(prevProps) {
+    <span class="hljs-keyword">if</span> (prevProps.id !== <span class="hljs-keyword">this</span>.props.id) {
+      <span class="hljs-keyword">this</span>.fetchData(<span class="hljs-keyword">this</span>.props.id);
+    }
+  }
+  <span class="hljs-keyword">async</span> fetchData(id) {
+    <span class="hljs-keyword">const</span> article = <span class="hljs-keyword">await</span> API.fetchArticle(id);
+    <span class="hljs-keyword">this</span>.setState({ article });
+  }
+  <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x6709;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x6700;&#x4E3B;&#x8981;&#x7684;&#x5C31;&#x662F;&#x8FD4;&#x56DE;&#x7684;&#x987A;&#x5E8F;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;&#x4E00;&#x81F4;&#x3002;&#x6BD4;&#x5982;&#x5148;&#x8BF7;&#x6C42;<code>{id: 10}</code>, &#x7136;&#x540E;&#x66F4;&#x65B0;&#x5230;<code>{id :20}</code>, &#x4F46;<code>{id: 20}</code>&#x7684;&#x8BF7;&#x6C42;&#x66F4;&#x5148;&#x8FD4;&#x56DE;&#x3002;&#x8BF7;&#x6C42;&#x66F4;&#x65E9;&#x4F46;&#x8FD4;&#x56DE;&#x66F4;&#x665A;&#x7684;&#x60C5;&#x51B5;&#x4F1A;&#x9519;&#x8BEF;&#x7684;&#x8986;&#x76D6;&#x72B6;&#x6001;&#x503C;&#x3002;</p>
+<p>&#x8FD9;&#x88AB;&#x53EB;&#x505A;&#x7ADE;&#x6001;&#xFF0C;&#x8FD9;&#x5728;&#x6DF7;&#x5408;&#x4E86;<code>async/await</code>&#xFF08;&#x5047;&#x8BBE;&#x5728;&#x7B49;&#x5F85;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#xFF09;&#x548C;&#x81EA;&#x9876;&#x5411;&#x4E0B;&#x6570;&#x636E;&#x6D41;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#x975E;&#x5E38;&#x5178;&#x578B;(props&#x548C;state&#x53EF;&#x80FD;&#x4F1A;&#x5728;async&#x51FD;&#x6570;&#x8C03;&#x7528;&#x8FC7;&#x7A0B;&#x4E2D;&#x53D1;&#x751F;&#x53D8;&#x5316;)&#x3002;</p>
+<p>Effect&#x5E76;&#x6CA1;&#x6709;&#x795E;&#x5947;&#x7684;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x5C3D;&#x7BA1;&#x5B83;&#x4F1A;&#x8B66;&#x544A;&#x4F60;&#x5982;&#x679C;&#x4F60;&#x76F4;&#x63A5;&#x4F20;&#x4E86;&#x4E00;&#x4E2A;<code>async</code>&#x51FD;&#x6570;&#x7ED9;effect&#x3002;(&#x6211;&#x4EEC;&#x4F1A;&#x6539;&#x5584;&#x8FD9;&#x4E2A;&#x8B66;&#x544A;&#x6765;&#x66F4;&#x597D;&#x7684;&#x89E3;&#x91CA;&#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x9047;&#x5230;&#x7684;&#x8FD9;&#x4E9B;&#x95EE;&#x9898;&#x3002;)</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;&#x7684;&#x5F02;&#x6B65;&#x65B9;&#x5F0F;&#x652F;&#x6301;&#x53D6;&#x6D88;&#x3001;&#x90A3;&#x592A;&#x68D2;&#x4E86;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;&#x6E05;&#x9664;&#x51FD;&#x6570;&#x4E2D;&#x53D6;&#x6D88;&#x5F02;&#x6B65;&#x8BF7;&#x6C42;&#x3002;</p>
+<p>&#x6216;&#x8005;&#x4E00;&#x4E2A;&#x6700;&#x7B80;&#x5355;&#x7684;&#x6743;&#x5B9C;&#x4E4B;&#x8BA1;&#x5C31;&#x662F;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#x6765;&#x8DDF;&#x8E2A;&#x5B83;&#xFF1A;</p>
+<pre><code class="lang-javaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Article</span>(<span class="hljs-params">{ id }</span>) </span>{
+  <span class="hljs-keyword">const</span> [article, setArticle] = useState(<span class="hljs-literal">null</span>);
+
+  useEffect(() =&gt; {
+    <span class="hljs-keyword">let</span> didCancel = <span class="hljs-literal">false</span>;
+
+    <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchData</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">const</span> article = <span class="hljs-keyword">await</span> API.fetchArticle(id);
+      <span class="hljs-keyword">if</span> (!didCancel) {
+        setArticle(article);
+      }
+    }
+
+    fetchData();
+
+    <span class="hljs-keyword">return</span> () =&gt; {
+      didCancel = <span class="hljs-literal">true</span>;
+    };
+  }, [id]);
+
+  <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>&#x8FD9;&#x6837;&#xFF0C;&#x4E0A;&#x4E00;&#x6E32;&#x67D3;&#x9636;&#x6BB5;&#x7684;didCancel&#x5C31;&#x662F;true&#xFF0C; &#x4E0A;&#x4E00;&#x9636;&#x6BB5;&#x7684;fetchData&#x5C31;&#x4E0D;&#x4F1A;&#x6267;&#x884C;setArticle&#x4E86;&#x3002;</p>
+<h2 id="&#x63D0;&#x5347;">&#x63D0;&#x5347;</h2>
+<p>&#x5728;class&#x7EC4;&#x4EF6;&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x601D;&#x7EF4;&#x6A21;&#x578B;&#x4E2D;&#xFF0C;&#x526F;&#x4F5C;&#x7528;&#x7684;&#x884C;&#x4E3A;&#x548C;&#x6E32;&#x67D3;&#x8F93;&#x51FA;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x3002;UI&#x6E32;&#x67D3;&#x662F;&#x88AB;props&#x548C;state&#x9A71;&#x52A8;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x80FD;&#x786E;&#x4FDD;&#x6B65;&#x8C03;&#x4E00;&#x81F4;&#xFF0C;&#x4F46;&#x526F;&#x4F5C;&#x7528;&#x5E76;&#x4E0D;&#x662F;&#x8FD9;&#x6837;&#x3002;&#x8FD9;&#x662F;&#x4E00;&#x7C7B;&#x5E38;&#x89C1;&#x95EE;&#x9898;&#x7684;&#x6765;&#x6E90;&#x3002;</p>
+<p>&#x800C;&#x5728;<code>useEffect</code>&#x7684;&#x601D;&#x7EF4;&#x6A21;&#x578B;&#x4E2D;&#xFF0C;&#x9ED8;&#x8BA4;&#x90FD;&#x662F;&#x540C;&#x6B65;&#x7684;&#x3002;&#x526F;&#x4F5C;&#x7528;&#x53D8;&#x6210;&#x4E86;React&#x6570;&#x636E;&#x6D41;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x3002;&#x5BF9;&#x4E8E;&#x6BCF;&#x4E00;&#x4E2A;<code>useEffect</code>&#x8C03;&#x7528;&#xFF0C;&#x4E00;&#x65E6;&#x4F60;&#x5904;&#x7406;&#x6B63;&#x786E;&#xFF0C;&#x4F60;&#x7684;&#x7EC4;&#x4EF6;&#x80FD;&#x591F;&#x66F4;&#x597D;&#x7684;&#x5904;&#x7406;&#x8FB9;&#x7F18;&#x60C5;&#x51B5;&#x3002;</p>
+<p>&#x7136;&#x800C;&#xFF0C;&#x7528;&#x597D;<code>useEffect</code>&#x7684;&#x524D;&#x671F;&#x5B66;&#x4E60;&#x6210;&#x672C;&#x66F4;&#x9AD8;&#x3002;&#x8FD9;&#x53EF;&#x80FD;&#x8BA9;&#x4EBA;&#x6C14;&#x607C;&#x3002;&#x7528;&#x540C;&#x6B65;&#x7684;&#x4EE3;&#x7801;&#x53BB;&#x5904;&#x7406;&#x8FB9;&#x7F18;&#x60C5;&#x51B5;&#x5929;&#x7136;&#x5C31;&#x6BD4;&#x89E6;&#x53D1;&#x4E00;&#x6B21;&#x4E0D;&#x7528;&#x548C;&#x6E32;&#x67D3;&#x7ED3;&#x679C;&#x6B65;&#x8C03;&#x4E00;&#x81F4;&#x7684;&#x526F;&#x4F5C;&#x7528;&#x66F4;&#x96BE;&#x3002;</p>
+<p>&#x539F;&#x6587;&#x94FE;&#x63A5;&#x731B;&#x6233; =&gt; <a href="https://overreacted.io/zh-hans/a-complete-guide-to-useeffect/" target="_blank">useEffect &#x5B8C;&#x6574;&#x6307;&#x5357;</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Hooks基本使用">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"useEffect","level":"1.26.3","depth":2,"previous":{"title":"Hooks基本使用","level":"1.26.2","depth":2,"path":"part25/2.md","ref":"part25/2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part25/3.md","mtime":"2021-03-13T12:33:11.780Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-13T13:25:04.315Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
