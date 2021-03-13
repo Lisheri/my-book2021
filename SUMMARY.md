@@ -68,4 +68,7 @@
 * [webpack性能优化](part22/1.md)
 * [vue和React对比](part23/1.md)
 * [vue基础知识点](part24/1.md)
-* [React基础知识](part25/1.md)
+* React基础知识
+  * [React基础](part25/1.md) 
+  * [Hooks基本使用](part25/2.md)
+  * [useEffect](part25/3.md)
