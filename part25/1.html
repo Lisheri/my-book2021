@@ -1117,6 +1117,32 @@
             
         </li>
     
+        <li class="chapter " data-level="1.27" data-path="../part26/1.html">
+            
+                <a href="../part26/1.html">
+            
+                    
+                    UDP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.28" data-path="../part27/1.html">
+            
+                <a href="../part27/1.html">
+            
+                    
+                    设计模式
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -1228,41 +1254,42 @@
 <li>&#x53D1;&#x5E03;/&#x8BA2;&#x9605;&#x6A21;&#x5F0F;, &#x81EA;&#x5DF1;&#x5C01;&#x88C5;&#x4E00;&#x4E2A;EventBus&#x6A21;&#x5757;</li>
 <li>&#x9876;&#x7EA7;&#x6570;&#x636E;&#x7BA1;&#x7406;&#x603B;&#x7EBF;: Redux&#x6216;&#x8005;Mobx</li>
 </ul>
-<pre><code>// &#x53D1;&#x5E03;&#x8BA2;&#x9605;&#x6A21;&#x5F0F;
+<pre><code class="lang-javaScript"><span class="hljs-comment">// &#x53D1;&#x5E03;&#x8BA2;&#x9605;&#x6A21;&#x5F0F;</span>
 
-class EventBus {
-    map = new Map();
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EventBus</span> </span>{
+    map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
     $on(key, cb, ..args) {
-        const cbMap = this.map.get(key) || new Map();
+        <span class="hljs-keyword">const</span> cbMap = <span class="hljs-keyword">this</span>.map.get(key) || <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
         cbMap.set(cb, args);
-        this.map.set(key, cbMap);
+        <span class="hljs-keyword">this</span>.map.set(key, cbMap);
     }
     $emit(key, ...args) {
-        const cbMap = this.map.get(key);
-        for (const cb of cbMap) {
-            const oldArgs = cbMap.get(cb);
-            if (oldArgs) {
+        <span class="hljs-keyword">const</span> cbMap = <span class="hljs-keyword">this</span>.map.get(key);
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> cb <span class="hljs-keyword">of</span> cbMap) {
+            <span class="hljs-keyword">const</span> oldArgs = cbMap.get(cb);
+            <span class="hljs-keyword">if</span> (oldArgs) {
                 cb(...oldArgs, ...args);
-            } else {
+            } <span class="hljs-keyword">else</span> {
                 cb(...args)
             }
         }
     }
     $once(key, cb) {
-        const cbMap = this.map.get(key) || new Map();
+        <span class="hljs-keyword">const</span> cbMap = <span class="hljs-keyword">this</span>.map.get(key) || <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
         newCb = (...args) =&gt; {
             cb(...args);
-            this.$off(key, cb)
+            <span class="hljs-keyword">this</span>.$off(key, cb)
         }
-        cbMap.set(newCb, null);
-        this.map.set(key, cbMap);
+        cbMap.set(newCb, <span class="hljs-literal">null</span>);
+        <span class="hljs-keyword">this</span>.map.set(key, cbMap);
     }
     $off(key, cb) {
-        const cbMap = this.map.get(key);
+        <span class="hljs-keyword">const</span> cbMap = <span class="hljs-keyword">this</span>.map.get(key);
         cbMap.delete(cb);
     }
 }
-</code></pre><h2 id="react&#x6027;&#x80FD;&#x4F18;&#x5316;&#x624B;&#x6BB5;">React&#x6027;&#x80FD;&#x4F18;&#x5316;&#x624B;&#x6BB5;</h2>
+</code></pre>
+<h2 id="react&#x6027;&#x80FD;&#x4F18;&#x5316;&#x624B;&#x6BB5;">React&#x6027;&#x80FD;&#x4F18;&#x5316;&#x624B;&#x6BB5;</h2>
 <p><a href="https://mp.weixin.qq.com/s/XSvhOF_N0VbuOKStwi0IYw" target="_blank">&#x6027;&#x80FD;&#x4F18;&#x5316;&#x6307;&#x5357;</a></p>
 <h2 id="react&#x5982;&#x4F55;&#x8FDB;&#x884C;&#x7EC4;&#x4EF6;&#x903B;&#x8F91;&#x590D;&#x7528;">React&#x5982;&#x4F55;&#x8FDB;&#x884C;&#x7EC4;&#x4EF6;/&#x903B;&#x8F91;&#x590D;&#x7528;?</h2>
 <ul>
@@ -1408,7 +1435,7 @@ class EventBus {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"React基础","level":"1.26.1","depth":2,"next":{"title":"Hooks基本使用","level":"1.26.2","depth":2,"path":"part25/2.md","ref":"part25/2.md","articles":[]},"previous":{"title":"React基础知识","level":"1.26","depth":1,"ref":"","articles":[{"title":"React基础","level":"1.26.1","depth":2,"path":"part25/1.md","ref":"part25/1.md","articles":[]},{"title":"Hooks基本使用","level":"1.26.2","depth":2,"path":"part25/2.md","ref":"part25/2.md","articles":[]},{"title":"useEffect","level":"1.26.3","depth":2,"path":"part25/3.md","ref":"part25/3.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part25/1.md","mtime":"2021-03-12T01:26:38.033Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-13T13:25:04.315Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"React基础","level":"1.26.1","depth":2,"next":{"title":"Hooks基本使用","level":"1.26.2","depth":2,"path":"part25/2.md","ref":"part25/2.md","articles":[]},"previous":{"title":"React基础知识","level":"1.26","depth":1,"ref":"","articles":[{"title":"React基础","level":"1.26.1","depth":2,"path":"part25/1.md","ref":"part25/1.md","articles":[]},{"title":"Hooks基本使用","level":"1.26.2","depth":2,"path":"part25/2.md","ref":"part25/2.md","articles":[]},{"title":"useEffect","level":"1.26.3","depth":2,"path":"part25/3.md","ref":"part25/3.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part25/1.md","mtime":"2021-03-17T14:34:23.927Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-18T10:02:45.297Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
