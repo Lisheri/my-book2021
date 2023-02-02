@@ -21,7 +21,7 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
           matrix:
-            node-version: [14.x]
+            node-version: [10.x]
         # Steps represent a sequence of tasks that will be executed as part of the job
         steps:
             # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -33,7 +33,7 @@ jobs:
                   git pull
                   npm install yarn -g
                   rm -rf node_modules/
-                  yarn global add gitbook-cli@1
+                  yarn global add gitbook-cli@1.0.1 --ignore-engines
                   gitbook build
                   git checkout gh-pages
                   cp -R _book/* ./
