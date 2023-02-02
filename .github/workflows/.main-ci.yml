@@ -34,6 +34,7 @@ jobs:
                   npm install yarn -g
                   rm -rf node_modules/
                   yarn global add gitbook-cli@1.0.1 --ignore-engines
+                  gitbook install
                   gitbook build
                   git checkout gh-pages
                   cp -R _book/* ./
