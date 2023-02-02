@@ -1,2 +1,4 @@
 _book
 node_modules
+demo.js
+.DS_Store
