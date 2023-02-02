@@ -1546,19 +1546,20 @@
 <li>&#x6784;&#x9020;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#x662F;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#x6570;&#x636E;&#x7C7B;&#x578B;</li>
 </ul>
 <h3 id="&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;new">&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;new</h3>
-<pre><code>function newFactory(ctor, ...args) {
-    if (typeof ctor !== &apos;function&apos;) {
-        throw new Error(&apos;newOperator function the first param be a function&apos;);
+<pre><code class="lang-ts"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">newFactory</span>(<span class="hljs-params">ctor, ...args</span>) </span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> ctor !== <span class="hljs-string">&apos;function&apos;</span>) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;newOperator function the first param be a function&apos;</span>);
     }
-    let obj = new Object();
-    obj  = Object.create(ctor.prototype);
-    let res = ctor.apply(obj, args);
+    <span class="hljs-keyword">let</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>();
+    obj  = <span class="hljs-built_in">Object</span>.create(ctor.prototype);
+    <span class="hljs-keyword">let</span> res = ctor.apply(obj, args);
 
-    let isObject = typeof res === &apos;object&apos; &amp;&amp; typeof res !== null;
-    let isFunction = typeof res === &apos;function&apos;;
-    return isObject || isFunction ? res : obj;
+    <span class="hljs-keyword">let</span> isObject = <span class="hljs-keyword">typeof</span> res === <span class="hljs-string">&apos;object&apos;</span> &amp;&amp; <span class="hljs-keyword">typeof</span> res !== <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">let</span> isFunction = <span class="hljs-keyword">typeof</span> res === <span class="hljs-string">&apos;function&apos;</span>;
+    <span class="hljs-keyword">return</span> isObject || isFunction ? res : obj;
 }
 </code></pre>
+
                                 
                                 </section>
                             
@@ -1597,7 +1598,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"new操作符","level":"1.16.1","depth":2,"next":{"title":"call","level":"1.16.2","depth":2,"path":"part15/2.md","ref":"part15/2.md","articles":[]},"previous":{"title":"部分API原理(手写代码)","level":"1.16","depth":1,"ref":"","articles":[{"title":"new操作符","level":"1.16.1","depth":2,"path":"part15/1.md","ref":"part15/1.md","articles":[]},{"title":"call","level":"1.16.2","depth":2,"path":"part15/2.md","ref":"part15/2.md","articles":[]},{"title":"apply","level":"1.16.3","depth":2,"path":"part15/3.md","ref":"part15/3.md","articles":[]},{"title":"bind","level":"1.16.4","depth":2,"path":"part15/4.md","ref":"part15/4.md","articles":[]},{"title":"this指针","level":"1.16.5","depth":2,"path":"part15/5.md","ref":"part15/5.md","articles":[]},{"title":"Object.is","level":"1.16.6","depth":2,"path":"part15/6.md","ref":"part15/6.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part15/1.md","mtime":"2021-03-22T02:16:12.219Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-12T15:00:11.364Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"new操作符","level":"1.16.1","depth":2,"next":{"title":"call","level":"1.16.2","depth":2,"path":"part15/2.md","ref":"part15/2.md","articles":[]},"previous":{"title":"部分API原理(手写代码)","level":"1.16","depth":1,"ref":"","articles":[{"title":"new操作符","level":"1.16.1","depth":2,"path":"part15/1.md","ref":"part15/1.md","articles":[]},{"title":"call","level":"1.16.2","depth":2,"path":"part15/2.md","ref":"part15/2.md","articles":[]},{"title":"apply","level":"1.16.3","depth":2,"path":"part15/3.md","ref":"part15/3.md","articles":[]},{"title":"bind","level":"1.16.4","depth":2,"path":"part15/4.md","ref":"part15/4.md","articles":[]},{"title":"this指针","level":"1.16.5","depth":2,"path":"part15/5.md","ref":"part15/5.md","articles":[]},{"title":"Object.is","level":"1.16.6","depth":2,"path":"part15/6.md","ref":"part15/6.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part15/1.md","mtime":"2023-02-02T16:15:27.818Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-02T16:16:11.061Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

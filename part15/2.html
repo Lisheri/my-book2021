@@ -1534,14 +1534,17 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="call">call</h1>
-<pre><code>function call(context, ...args) {
-    let self = context || window;
-    self.fn = this;
-    let result = eval(&quot;self.fn(...args)&quot;);
-    delete self.fn;
-    return result;
+<pre><code class="lang-ts"><span class="hljs-built_in">Function</span>.prototype.call = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">context, ...args</span>) </span>{
+  <span class="hljs-keyword">let</span> self = context || <span class="hljs-built_in">window</span>;
+  <span class="hljs-comment">// &#x8FD9;&#x4E2A;this&#x8868;&#x793A;&#x6267;&#x884C;&#x51FD;&#x6570;</span>
+  self.fn = <span class="hljs-keyword">this</span>;
+  <span class="hljs-comment">// &#x7528; eval &#x6267;&#x884C;&#x51FD;&#x6570;, &#x51FD;&#x6570;&#x5185;&#x90E8; this &#x6307;&#x5411;&#x6267;&#x884C;&#x8005;, &#x6240;&#x4EE5; self.fn&#x51FD;&#x6570;&#x6267;&#x884C;&#x65F6;, &#x5185;&#x90E8;this&#x6307;&#x5411;&#x7684;&#x5C31;&#x662F; self</span>
+  <span class="hljs-keyword">let</span> res = <span class="hljs-built_in">eval</span>(<span class="hljs-string">&quot;self.fn(...args)&quot;</span>);
+  <span class="hljs-keyword">delete</span> self.fn;
+  <span class="hljs-keyword">return</span> res;
 }
 </code></pre>
+
                                 
                                 </section>
                             
@@ -1584,7 +1587,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"call","level":"1.16.2","depth":2,"next":{"title":"apply","level":"1.16.3","depth":2,"path":"part15/3.md","ref":"part15/3.md","articles":[]},"previous":{"title":"new操作符","level":"1.16.1","depth":2,"path":"part15/1.md","ref":"part15/1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part15/2.md","mtime":"2021-03-21T16:26:26.517Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-12T15:00:11.364Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"call","level":"1.16.2","depth":2,"next":{"title":"apply","level":"1.16.3","depth":2,"path":"part15/3.md","ref":"part15/3.md","articles":[]},"previous":{"title":"new操作符","level":"1.16.1","depth":2,"path":"part15/1.md","ref":"part15/1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part15/2.md","mtime":"2023-02-02T16:15:27.818Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-02T16:16:11.061Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
