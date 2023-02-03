@@ -1534,159 +1534,220 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="promise-a-&#x89C4;&#x8303;&#x7248;&#x672C;">Promise A+ &#x89C4;&#x8303;&#x7248;&#x672C;</h1>
-<pre><code>const PENDING = &apos;pending&apos;;
-const RESOLVED = &apos;resolved&apos;;
-const REJECTED = &apos;rejected&apos;;
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> PENDING = <span class="hljs-string">&quot;pending&quot;</span>; <span class="hljs-comment">// &#x8FDB;&#x884C;&#x4E2D;</span>
+<span class="hljs-keyword">const</span> FULFILLED = <span class="hljs-string">&quot;fulfilled&quot;</span>; <span class="hljs-comment">// &#x5B8C;&#x6210;</span>
+<span class="hljs-keyword">const</span> FAILED = <span class="hljs-string">&quot;failed&quot;</span>; <span class="hljs-comment">// &#x5931;&#x8D25;</span>
 
-function MyPromise(fn) {
-    const vm = this; // * &#x4F7F;&#x7528;that&#x66FF;&#x4EE3;&#x5168;&#x5C40;this&#x6307;&#x5411;
-    vm.state = PENDING;
-    vm.value = null; // * &#x7528;&#x4E8E;&#x4FDD;&#x5B58;
-    vm.resolvedCallbacks = []; // * &#x7528;&#x4E8E;&#x4FDD;&#x5B58;then&#x4E2D;&#x7684;&#x56DE;&#x8C03;
-    vm.rejectedCallbacks = []; // * &#x7528;&#x4E8E;&#x4FDD;&#x5B58;catch&#x4E2D;&#x7684;&#x56DE;&#x8C03;
+<span class="hljs-keyword">const</span> isFunction = target =&gt; <span class="hljs-keyword">typeof</span> target === <span class="hljs-string">&quot;function&quot;</span>;
 
-    // * &#x5B8C;&#x5584;&#x4E00;&#x4E2A;&#x7B26;&#x5408;Promise A+ &#x7684; resolve &#x548C; reject
-    function resolve(value) {
-        // * &#x9996;&#x5148;&#x8981;&#x5224;&#x65AD;&#x4F20;&#x5165;&#x7684; value &#x662F;&#x4E0D;&#x662F;&#x4E00;&#x4E2A; Promise &#x7C7B;&#x578B;
-        if (value instanceof MyPromise) {
-            return value.then(resolve, reject);
-        }
-        // * &#x7531;&#x4E8E;resolve&#x662F;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;, &#x56E0;&#x6B64;&#x5C06;&#x4ED6;&#x4EEC;&#x7528;setTimeout&#x5305;&#x88F9;&#x8D77;&#x6765;, &#x4FDD;&#x969C;&#x6267;&#x884C;&#x987A;&#x5E8F;
-        setTimeout(() =&gt; {
-            if (vm.state === PENDING) {
-                vm.value = value;
-                vm.state = RESOLVED;
-                vm.resolvedCallbacks.map(cb =&gt; cb(vm.value));
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyPromise</span> </span>{
+  <span class="hljs-comment">// &#x5F53;&#x524D;&#x72B6;&#x6001;</span>
+  state = PENDING;
+  <span class="hljs-comment">// &#x6210;&#x529F;&#x7684;&#x7ED3;&#x679C;</span>
+  value = <span class="hljs-literal">undefined</span>;
+  <span class="hljs-comment">// &#x5931;&#x8D25;&#x7684;&#x539F;&#x56E0;</span>
+  reason = <span class="hljs-literal">undefined</span>;
+  <span class="hljs-comment">// &#x6210;&#x529F;&#x56DE;&#x8C03;&#x6808;, &#x5148;&#x8FDB;&#x5148;&#x6267;&#x884C;</span>
+  successCallbacks = [];
+  <span class="hljs-comment">// &#x5931;&#x8D25;&#x56DE;&#x8C03;&#x6808;</span>
+  failCallbacks = [];
+  <span class="hljs-keyword">constructor</span>(executor) {
+    <span class="hljs-keyword">try</span> {
+      <span class="hljs-comment">// executor&#x8868;&#x793A;&#x56DE;&#x8C03;&#x51FD;&#x6570;</span>
+      executor(<span class="hljs-keyword">this</span>.resolve, <span class="hljs-keyword">this</span>.reject);
+    } <span class="hljs-keyword">catch</span> (e) {
+      <span class="hljs-keyword">this</span>.reject(e);
+    }
+  }
+
+  <span class="hljs-comment">// &#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x7BAD;&#x5934;&#x51FD;&#x6570;, &#x56E0;&#x4E3A;&#x8C03;&#x7528; resolve&#x662F;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x7684;, &#x5982;&#x679C;&#x4E0D;&#x7528;&#x7BAD;&#x5934;&#x51FD;&#x6570;, &#x7ED1;&#x5B9A;&#x7684;this&#x5C31;&#x4F1A;&#x51FA;&#x73B0;&#x9519;&#x8BEF;</span>
+  <span class="hljs-comment">// &#x7BAD;&#x5934;&#x51FD;&#x6570;&#x4E0B; resolve&#x51FD;&#x6570;&#x5185;&#x90E8;this&#x59CB;&#x7EC8;&#x6307;&#x5411;promise&#x5B9E;&#x4F8B;</span>
+  <span class="hljs-comment">// &#x5426;&#x5219;&#x9700;&#x8981;bind</span>
+  resolve = (value) =&gt; {
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.state === PENDING) {
+      <span class="hljs-comment">// &#x53EA;&#x6709;&#x72B6;&#x6001;&#x4E3A; PENDING&#x624D;&#x4FEE;&#x6539;&#x72B6;&#x6001;, &#x9632;&#x6B62;&#x91CD;&#x590D;&#x4FEE;&#x6539;</span>
+      <span class="hljs-keyword">this</span>.state = FULFILLED;
+      <span class="hljs-keyword">this</span>.value = value;
+      <span class="hljs-keyword">while</span> (<span class="hljs-keyword">this</span>.successCallbacks.length) {
+        <span class="hljs-comment">// &#x6267;&#x884C;&#x5E76;&#x51FA;&#x6808;</span>
+        <span class="hljs-keyword">this</span>.successCallbacks.shift()();
+      }
+    }
+  };
+
+  reject = (reason) =&gt; {
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.state === PENDING) {
+      <span class="hljs-keyword">this</span>.state = FAILED;
+      <span class="hljs-keyword">this</span>.reason = reason;
+      <span class="hljs-keyword">while</span> (<span class="hljs-keyword">this</span>.failCallbacks.length) {
+        <span class="hljs-keyword">this</span>.failCallbacks.shift()();
+      }
+    }
+  };
+
+  <span class="hljs-comment">// then&#x4E3A;&#x539F;&#x578B;&#x94FE;&#x8C03;&#x7528;, &#x4E00;&#x822C;&#x662F;&#x5B9E;&#x4F8B;then</span>
+  then(successCallback, failCallback) {
+    <span class="hljs-comment">// &#x5F88;&#x53EF;&#x80FD;&#x4E24;&#x4E2A;&#x90FD;&#x4E0D;&#x4F20;, &#x6B64;&#x65F6;&#x9700;&#x8981;&#x5904;&#x7406;&#x5DEE;&#x5F02;</span>
+    successCallback = isFunction(successCallback) ? successCallback : v =&gt; v;
+    failCallback = isFunction(failCallback) ? failCallback : err =&gt; <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(err);
+    <span class="hljs-comment">// then&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;Promise, &#x4EE5;&#x4FBF;&#x4E8E;&#x94FE;&#x5F0F;&#x8C03;&#x7528;</span>
+    <span class="hljs-keyword">let</span> promise2 = <span class="hljs-keyword">new</span> MyPromise((resolve, reject) =&gt; {
+      <span class="hljs-keyword">const</span> baseQueueMicroTask = (callback, isSuccess = <span class="hljs-literal">true</span>) =&gt; {
+        <span class="hljs-comment">// &#x521B;&#x5EFA;&#x5FAE;&#x4EFB;&#x52A1;</span>
+        <span class="hljs-keyword">return</span> () =&gt; {
+          queueMicrotask(() =&gt; {
+            <span class="hljs-keyword">try</span> {
+              <span class="hljs-comment">// &#x6267;&#x884C;</span>
+              <span class="hljs-keyword">let</span> x = callback(isSuccess ? <span class="hljs-keyword">this</span>.value : <span class="hljs-keyword">this</span>.reason);
+              <span class="hljs-comment">// ? &#x7531;&#x4E8E;&#x76EE;&#x524D;&#x62FF;&#x4E0D;&#x5230;promise2, &#x56E0;&#x6B64;&#x9700;&#x8981;&#x8BA9;&#x5185;&#x90E8;&#x4EE3;&#x7801;&#x53D8;&#x6210;&#x5F02;&#x6B65;&#x7684;&#x624D;&#x884C;</span>
+              <span class="hljs-keyword">this</span>.resolvePromise(promise2, x, resolve, reject);
+            } <span class="hljs-keyword">catch</span> (e) {
+              <span class="hljs-comment">// then&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x62A5;&#x9519;&#x4E5F;&#x8981;&#x901A;&#x8FC7;reject&#x6355;&#x83B7;</span>
+              reject(e);
             }
-        }, 0)
+          });
+        };
+      };
+      <span class="hljs-keyword">const</span> successQueueMicroTask = baseQueueMicroTask(successCallback);
+      <span class="hljs-keyword">const</span> failQueueMicroTask = baseQueueMicroTask(failCallback, <span class="hljs-literal">false</span>);
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.state === FULFILLED) {
+        successQueueMicroTask();
+      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.state === REJECTED) {
+        failQueueMicroTask();
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// pending&#x65F6;, &#x5B58;&#x50A8;&#x6210;&#x529F;&#x548C;&#x5931;&#x8D25;&#x7684;&#x56DE;&#x8C03;</span>
+        <span class="hljs-keyword">this</span>.successCallbacks.push(successQueueMicroTask);
+        <span class="hljs-keyword">this</span>.failCallbacks.push(failQueueMicroTask);
+      }
+    });
+    <span class="hljs-keyword">return</span> promise2;
+  }
+
+  <span class="hljs-comment">// &#x89E3;&#x6790;promise</span>
+  resolvePromise(promise2, x, resolve, reject) {
+    <span class="hljs-keyword">if</span> (promise2 === x) {
+      <span class="hljs-comment">// promise&#x4E0D;&#x5141;&#x8BB8;then&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x81EA;&#x5DF1;&#x5185;&#x90E8;&#x7684;promise&#x5BF9;&#x8C61;, &#x5426;&#x5219;&#x4F1A;&#x53D1;&#x751F;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x62A5;&#x9519;</span>
+      <span class="hljs-keyword">return</span> reject(<span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">&quot;&#x5728;Promise&#x4E2D;&#x51FA;&#x73B0;&#x5FAA;&#x73AF;&#x5F15;&#x7528;!&quot;</span>));
     }
-
-    function reject(value) {
-        setTimeout(() =&gt; {
-            if (vm.state === PENDING) {
-                vm.value = value;
-                vm.state = REJECTED;
-                vm.rejectedCallbacks.map(cb =&gt; cb(vm.value))
-            }
-        }, 0)
+    <span class="hljs-keyword">if</span> (x <span class="hljs-keyword">instanceof</span> MyPromise) {
+      <span class="hljs-comment">// &#x770B;then&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x662F;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;promise</span>
+      <span class="hljs-comment">// &#x5982;&#x679C;&#x662F; promise&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;, &#x9700;&#x8981;&#x7EE7;&#x7EED;&#x8C03;&#x7528;then&#x65B9;&#x6CD5;&#x67E5;&#x770B;promise&#x5BF9;&#x8C61;&#x7684;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;, &#x6839;&#x636E;&#x7ED3;&#x679C;&#x6765;&#x51B3;&#x5B9A;&#x662F;&#x8C03;&#x7528;resolve, &#x8FD8;&#x662F;reject</span>
+      <span class="hljs-comment">// &#x8FD9;&#x91CC;&#x662F; x.then(val =&gt; resolve(val), err =&gt; reject(err)) &#x7684;&#x7B80;&#x5199;</span>
+      x.then(resolve, reject);
+    } <span class="hljs-keyword">else</span> {
+      resolve(x);
     }
-}
+  }
 
-MyPromise.prototype.then = function(onFulfilled, onRejected) {
-    consst vm = this;
-    // * &#x9996;&#x5148;&#x8981;&#x5224;&#x65AD;&#x662F;&#x4E0D;&#x662F;&#x51FD;&#x6570;&#x7C7B;&#x578B;, &#x5982;&#x679C;&#x4E0D;&#x662F;&#x51FD;&#x6570;&#x7C7B;&#x578B;, &#x5219;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x8D4B;&#x503C;&#x7ED9;&#x5BF9;&#x5E94;&#x7684;&#x53C2;&#x6570;, &#x540C;&#x65F6;&#x4E5F;&#x5B9E;&#x73B0;&#x4E86;&#x900F;&#x4F20;
-    onFulfilled = typeof onFulfilled === &apos;function&apos; ? onFulfilled : v =&gt; v;
-    onRejected = typeof onRejected === &apos;function&apos; ? onRejected : r =&gt; throw{ r };
-    let promise2;
-
-    // * &#x63A5;&#x4E0B;&#x6765;&#x9700;&#x8981;&#x6539;&#x9020;then&#x51FD;&#x6570;&#x5224;&#x65AD;&#x903B;&#x8F91;, &#x9996;&#x5148;&#x8981;&#x65B0;&#x589E;&#x4E00;&#x4E2A;&#x53D8;&#x91CF; promise2
-    // * &#x56E0;&#x4E3A;&#x6BCF;&#x4E00;&#x4E2A;then&#x51FD;&#x6570;&#x9700;&#x8981;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684; Promise &#x5BF9;&#x8C61;, &#x8BE5;&#x53D8;&#x91CF;&#x7528;&#x4E8E;&#x4FDD;&#x5B58;&#x65B0;&#x7684;&#x8FD4;&#x56DE;&#x5BF9;&#x8C61;, &#x7136;&#x540E;&#x6211;&#x4EEC;&#x63A5;&#x4E0B;&#x6765;&#x662F;&#x6539;&#x9020;&#x5224;&#x65AD;&#x7B49;&#x5F85;&#x72B6;&#x6001;&#x7684;&#x903B;&#x8F91;
-    // * &#x9996;&#x5148;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684; Promise&#x5BF9;&#x8C61;&#xFF0C; &#x5E76;&#x5728;Promise&#x4E2D;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x51FD;&#x6570;
-    // * &#x57FA;&#x672C;&#x903B;&#x8F91;&#x548C;&#x4E4B;&#x524D;&#x7684;&#x4E00;&#x6837;&#xFF0C; &#x5F80;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x6570;&#x7EC4;&#x4E2D;push&#x51FD;&#x6570;
-    // * &#x540C;&#x6837;&#xFF0C; &#x5728;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x9519;&#xFF0C; &#x56E0;&#x6B64;&#x4F7F;&#x7528;try catch
-    // * &#x89C4;&#x8303;&#x89C4;&#x5B9A;&#xFF0C; &#x6267;&#x884C;onFulfilled &#x6216;&#x8005; onRejected &#x51FD;&#x6570;&#x65F6;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; x&#xFF0C; &#x5E76;&#x4E14;&#x6267;&#x884C; Promise &#x89E3;&#x51B3;&#x8FC7;&#x7A0B;&#xFF0C; &#x8FD9;&#x662F;&#x4E3A;&#x4E86;&#x4E0D;&#x540C;&#x7684; Promise &#x90FD;&#x53EF;&#x4EE5;&#x517C;&#x5BB9;&#x4F7F;&#x7528;&#xFF0C; &#x6BD4;&#x5982; JQ &#x7684; Promise &#x80FD;&#x517C;&#x5BB9; ES6 &#x7684; Promise
-     if (that.state === PENDING) {
-         return ( promise2 = new MyPromise((resolve, reject) =&gt; {
-             that.resolvedCallbacks.push(() =&gt; {
-                 try {
-                     const x = onFulfilled(that.value);
-                     resolutionProcedure(promise2, x, resolve, reject)
-                 } catch (r) {
-                     reject(r)
-                 }
-             })
-
-             that.rejectedCallbacks.push(() =&gt; {
-                 try {
-                     const x = onRejected(that.value);
-                     resolutionProcedure(promise2, x, resolve, reject);
-                 } catch (r) {
-                     reject(r)
-                 }
-             })
-         }))
-     }
-
-     if (that.state === RESOLVED) {
-         return (promise2 = new MyPromise((resolve, reject) =&gt; {
-             setTimeout(() =&gt; {
-                 try {
-                     const x = onFulfilled(that.value);
-                     resolutionProcedure(promise2, x, resolve, reject);
-                 } catch (r) {
-                     reject(r)
-                 }
-             }, 0)
-         }))
-     }
-
-     if (that.state === REJECTED) {
-         return (promise2 = new MyPromise((resolve, reject) =&gt; {
-             setTimeout(() =&gt; {
-                 try {
-                     const x = onRejected(that.value);
-                     resolutionProcedure(promise2, x, resolve, reject);
-                 } catch (err) {
-                     reject(err)
-                 }
-             })
-         }))
-     }
-}
-
-// * &#x6700;&#x540E;&#xFF0C;&#x4E5F;&#x662F;&#x6700;&#x96BE;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5B9E;&#x73B0;&#x517C;&#x5BB9;&#x591A;&#x79CD; Promise &#x7684; resolutionProcedure &#x51FD;&#x6570;
-// * &#x9996;&#x5148; Promise A+ &#x89C4;&#x8303;&#x89C4;&#x5B9A;&#x4E86; x &#x4E0D;&#x80FD;&#x548C; Promise2&#x76F8;&#x7B49;, &#x8FD9;&#x6837;&#x4F1A;&#x5F15;&#x53D1;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x7684;&#x95EE;&#x9898;
-function resolutionProcedure(promise2, x, resolve, reject) {
-    if (promise2 === x) {
-        return reject(new TypeError(&apos;&#x6709;&#x6BDB;&#x75C5;&apos;))
+  <span class="hljs-keyword">static</span> all(promiseAll) {
+    <span class="hljs-keyword">const</span> res = [];
+    <span class="hljs-keyword">let</span> index = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">const</span> addData = (key, value, resolve) =&gt; {
+      res[key] = value;
+      index++;
+      <span class="hljs-keyword">if</span> (index === promiseAll.length) {
+        <span class="hljs-comment">// &#x6240;&#x6709;promise&#x90FD;&#x6B63;&#x786E;&#x6267;&#x884C;&#x5B8C;&#x6210;</span>
+        resolve(res);
+      }
     }
-
-    // * &#x7136;&#x540E;&#x9700;&#x8981;&#x5224;&#x65AD; x &#x7684;&#x7C7B;&#x578B;
-    // * &#x89C4;&#x8303;&#x89C4;&#x5B9A;&#x5982;&#x679C; x &#x662F;&#x4E00;&#x4E2A; Promise&#xFF0C;&#x90A3;&#x4E48;&#x9700;&#x8981;&#x5224;&#x65AD;&#x4E00;&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#x60C5;&#x51B5;:
-    // * 1. &#x5982;&#x679C; x &#x5904;&#x4E8E;&#x7B49;&#x5F85;&#x72B6;&#x6001;, Promise&#x9700;&#x4FDD;&#x6301;&#x4E3A;&#x7B49;&#x5F85;&#x72B6;&#x6001;&#x76F4;&#x81F3; x &#x88AB;&#x6267;&#x884C;&#x6216;&#x62D2;&#x7EDD;
-    // * 2. &#x5982;&#x679C; x &#x5904;&#x4E8E;&#x5176;&#x4ED6;&#x72B6;&#x6001;, &#x5219;&#x7528;&#x76F8;&#x540C;&#x7684;&#x503C;&#x5904;&#x7406; Promise
-    if (x instanceof MyPromise) {
-        x.then(function(value) {
-            resolutionProcedure(promise2, value, resolve, reject)
-        }, reject)
-    }
-
-    // * &#x63A5;&#x7740;&#x5B9E;&#x73B0;&#x5269;&#x4E0B;&#x7684;&#x90E8;&#x5206;
-    // * &#x9996;&#x5148;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;called, &#x7528;&#x4E8E;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x8C03;&#x7528;&#x8FC7;&#x51FD;&#x6570;
-    // * &#x7136;&#x540E;&#x5224;&#x65AD; x &#x662F;&#x5426;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x6216;&#x8005;&#x51FD;&#x6570;&#xFF0C; &#x5982;&#x679C;&#x90FD;&#x4E0D;&#x662F;&#xFF0C; &#x5C31;&#x5C06; x &#x4F20;&#x5165;resolve&#x4E2D;
-    // * &#x5982;&#x679C;x &#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6216;&#x8005;&#x5BF9;&#x8C61;&#xFF0C; &#x5148;&#x628A; x.then &#x7684;&#x503C;&#x8D4B;&#x503C;&#x7ED9; then&#xFF0C; &#x7136;&#x540E;&#x5224;&#x65AD;then&#x7684;&#x7C7B;&#x578B;&#xFF0C; &#x5982;&#x679C;&#x4E0D;&#x662F;&#x51FD;&#x6570;&#x5C31;&#x76F4;&#x63A5;&#x5C06; x &#x4F20;&#x5165; resolve &#x4E2D;
-    // * &#x5982;&#x679C;then&#x662F;&#x51FD;&#x6570;&#x7C7B;&#x578B;&#xFF0C; &#x90A3;&#x4E48;&#x5C31;&#x5C06;x&#x4F5C;&#x4E3A; then &#x65B9;&#x6CD5;&#x7684;&#x4F5C;&#x7528;&#x57DF;this&#x8C03;&#x7528;&#xFF0C; &#x5E76;&#x4E14;&#x4F20;&#x5165;&#x4E24;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C; &#x7B2C;&#x4E00;&#x4E2A;&#x662F;resolvePromise&#xFF0C; &#x7B2C;&#x4E8C;&#x4E2A;&#x662F;rejectPromise&#xFF0C; &#x4E24;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x90FD;&#x8981;&#x5224;&#x65AD;&#x662F;&#x5426;&#x6267;&#x884C;&#x8FC7;&#x51FD;&#x6570;
-    // * &#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x53EA;&#x8981;&#x6709;&#x629B;&#x9519;&#xFF0C; &#x5C31;&#x4F20;&#x5165;reject&#x4E2D;&#x6267;&#x884C;
-    let called = false;
-    if (x !== null &amp;&amp; (typeof x === &apos;object&apos; || typeof x === &apos;function&apos;)) {
-        try {
-            let then = x.then;
-            if (typeof then === &apos;function&apos;) {
-                then.call(x,
-                    y =&gt; {
-                        if (called) return;
-                        called = true;
-                        resolutionProcedure(promise2, y, resolve, reject);
-                    },
-                    e =&gt; {
-                        if (called) return;
-                        called = true;
-                        reject(e);
-                    }
-                )
-            } else {
-                resolve(x)
-            }
-        } catch (err) {
-            if (called) return;
-            called = true;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MyPromise((resolve, reject) =&gt; {
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; promiseAll.length; i++) {
+        <span class="hljs-keyword">const</span> current = promiseAll[i];
+        <span class="hljs-keyword">if</span> (current <span class="hljs-keyword">instanceof</span> MyPromise) {
+          current.then(value =&gt; addData(i, value, resolve), err =&gt; {
             reject(err);
+          });
+        } <span class="hljs-keyword">else</span> {
+          addData(i, current, resolve);
         }
-    } else {
-        resolve(x)
+      }
+    })
+  }
+
+  <span class="hljs-keyword">static</span> race(promiseArr) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MyPromise((resolve, reject) =&gt; {
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; promiseArr.length; i++) {
+        <span class="hljs-keyword">const</span> current = promiseArr[i];
+        <span class="hljs-keyword">if</span> (current <span class="hljs-keyword">instanceof</span> MyPromise) {
+          current.then(val =&gt; {
+            resolve(val);
+          }, err =&gt; {
+            reject(err)
+          })
+        } <span class="hljs-keyword">else</span> {
+          resolve(current);
+        }
+      }
+    });
+  }
+
+  <span class="hljs-comment">// &#x6B63;&#x786E;&#x9519;&#x8BEF;&#x90FD;&#x8FD4;&#x56DE;, &#x4F46;&#x662F;&#x9700;&#x8981;&#x5E26;&#x4E0A;&#x72B6;&#x6001;</span>
+  <span class="hljs-keyword">static</span> allSettled(promiseArr) {
+    <span class="hljs-keyword">const</span> res = [];
+    <span class="hljs-keyword">let</span> index = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">const</span> addData = (key, value, resolve, status) =&gt; {
+      <span class="hljs-keyword">if</span> (status === FULFILLED) {
+        res[key] = {
+          status: FULFILLED,
+          value
+        }
+      } <span class="hljs-keyword">else</span> {
+        res[key] = {
+          status: REJECTED,
+          reason: value
+        }
+      }
+      index++;
+      <span class="hljs-keyword">if</span> (index === promiseArr.length) {
+        resolve(res);
+      }
     }
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MyPromise((resolve) =&gt; {
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; promiseArr.length; i++) {
+        <span class="hljs-keyword">const</span> current = promiseArr[i];
+        <span class="hljs-keyword">if</span> (current <span class="hljs-keyword">instanceof</span> MyPromise) {
+          current.then(val =&gt; {
+            addData(i, val, resolve, FULFILLED);
+          }, err =&gt; {
+            addData(i, err, resolve, REJECTED);
+          })
+        } <span class="hljs-keyword">else</span> {
+          addData(i, current, resolve, FULFILLED);
+        }
+      }
+    })
+  }
+
+  <span class="hljs-keyword">static</span> resolve(value) {
+    <span class="hljs-comment">// Promise.resolve &#x5982;&#x679C;&#x5185;&#x90E8;&#x4F20;&#x5165;&#x7684;promise&#x5B9E;&#x4F8B;, &#x90A3;&#x4E48;&#x4E0B;&#x4E00;&#x6B21;then&#x63A5;&#x6536;&#x7684;&#x5185;&#x5BB9;&#x5C31;&#x662F;&#x8FD9;&#x4E2A;promise&#x5B9E;&#x4F8B;&#x6267;&#x884C;&#x7684;&#x7ED3;&#x679C;</span>
+    <span class="hljs-comment">/* 
+      Promise.resolve(new Promise((resolve) =&gt; {
+        console.info(&quot;1&quot;) // 1
+        resolve(100)
+      })).then((val) =&gt; {
+        console.info(&quot;then&quot;, val) // &quot;then&quot; 100
+      })
+    */</span>
+    <span class="hljs-keyword">if</span> (value <span class="hljs-keyword">instanceof</span> MyPromise) <span class="hljs-keyword">return</span> value;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MyPromise(resolve =&gt; resolve(value));
+  }
+
+  <span class="hljs-keyword">finally</span>(callback) {
+    <span class="hljs-comment">// &#x7B2C;&#x4E00;&#x90FD;&#x8981;&#x6267;&#x884C;callback</span>
+    <span class="hljs-comment">// &#x7B2C;&#x4E8C;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A;promise&#x5BF9;&#x8C61;, &#x540E;&#x9762;&#x518D;then&#x4E00;&#x6B21;, &#x53EF;&#x4EE5;&#x62FF;&#x5230; promise &#x5BF9;&#x8C61;&#x6700;&#x540E;&#x4E00;&#x6B21;then&#x7684;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.then(val =&gt; {
+      <span class="hljs-keyword">return</span> MyPromise.resolve(callback()).then(() =&gt; val)
+    }, err =&gt; {
+      <span class="hljs-keyword">return</span> MyPromise.resolve(callback()).then(() =&gt; { <span class="hljs-keyword">throw</span> err });
+    })
+  }
+
+  <span class="hljs-keyword">catch</span> (callback) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.then(<span class="hljs-literal">undefined</span>, callback);
+  }
 }
 </code></pre>
+
                                 
                                 </section>
                             
@@ -1729,7 +1790,7 @@ function resolutionProcedure(promise2, x, resolve, reject) {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Promise A+ 版","level":"1.14.2","depth":2,"next":{"title":"原型和原型链","level":"1.15","depth":1,"path":"part14/index.md","ref":"part14/index.md","articles":[]},"previous":{"title":"简易版","level":"1.14.1","depth":2,"path":"part13/1.md","ref":"part13/1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part13/2.md","mtime":"2023-02-02T16:15:27.818Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-02T16:16:11.061Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Promise A+ 版","level":"1.14.2","depth":2,"next":{"title":"原型和原型链","level":"1.15","depth":1,"path":"part14/index.md","ref":"part14/index.md","articles":[]},"previous":{"title":"简易版","level":"1.14.1","depth":2,"path":"part13/1.md","ref":"part13/1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part13/2.md","mtime":"2023-02-03T16:54:56.327Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-03T16:55:33.567Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
