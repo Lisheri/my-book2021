@@ -1537,7 +1537,6 @@
 <pre><code class="lang-js"><span class="hljs-keyword">const</span> PENDING = <span class="hljs-string">&quot;pending&quot;</span>; <span class="hljs-comment">// &#x8FDB;&#x884C;&#x4E2D;</span>
 <span class="hljs-keyword">const</span> FULFILLED = <span class="hljs-string">&quot;fulfilled&quot;</span>; <span class="hljs-comment">// &#x5B8C;&#x6210;</span>
 <span class="hljs-keyword">const</span> FAILED = <span class="hljs-string">&quot;failed&quot;</span>; <span class="hljs-comment">// &#x5931;&#x8D25;</span>
-
 <span class="hljs-keyword">const</span> isFunction = target =&gt; <span class="hljs-keyword">typeof</span> target === <span class="hljs-string">&quot;function&quot;</span>;
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyPromise</span> </span>{
@@ -1547,9 +1546,9 @@
   value = <span class="hljs-literal">undefined</span>;
   <span class="hljs-comment">// &#x5931;&#x8D25;&#x7684;&#x539F;&#x56E0;</span>
   reason = <span class="hljs-literal">undefined</span>;
-  <span class="hljs-comment">// &#x6210;&#x529F;&#x56DE;&#x8C03;&#x6808;, &#x5148;&#x8FDB;&#x5148;&#x6267;&#x884C;</span>
+  <span class="hljs-comment">// &#x6210;&#x529F;&#x56DE;&#x8C03;&#x961F;&#x5217;, &#x5148;&#x8FDB;&#x5148;&#x6267;&#x884C;</span>
   successCallbacks = [];
-  <span class="hljs-comment">// &#x5931;&#x8D25;&#x56DE;&#x8C03;&#x6808;</span>
+  <span class="hljs-comment">// &#x5931;&#x8D25;&#x56DE;&#x8C03;&#x961F;&#x5217;</span>
   failCallbacks = [];
   <span class="hljs-keyword">constructor</span>(executor) {
     <span class="hljs-keyword">try</span> {
@@ -1569,7 +1568,7 @@
       <span class="hljs-keyword">this</span>.state = FULFILLED;
       <span class="hljs-keyword">this</span>.value = value;
       <span class="hljs-keyword">while</span> (<span class="hljs-keyword">this</span>.successCallbacks.length) {
-        <span class="hljs-comment">// &#x6267;&#x884C;&#x5E76;&#x51FA;&#x6808;</span>
+        <span class="hljs-comment">// &#x6267;&#x884C;&#x5E76;&#x51FA;&#x961F;</span>
         <span class="hljs-keyword">this</span>.successCallbacks.shift()();
       }
     }
@@ -1790,7 +1789,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Promise A+ 版","level":"1.14.2","depth":2,"next":{"title":"原型和原型链","level":"1.15","depth":1,"path":"part14/index.md","ref":"part14/index.md","articles":[]},"previous":{"title":"简易版","level":"1.14.1","depth":2,"path":"part13/1.md","ref":"part13/1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part13/2.md","mtime":"2023-02-03T16:54:56.327Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-03T16:55:33.567Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Promise A+ 版","level":"1.14.2","depth":2,"next":{"title":"原型和原型链","level":"1.15","depth":1,"path":"part14/index.md","ref":"part14/index.md","articles":[]},"previous":{"title":"简易版","level":"1.14.1","depth":2,"path":"part13/1.md","ref":"part13/1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part13/2.md","mtime":"2023-02-04T07:54:33.472Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-04T07:55:09.615Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
