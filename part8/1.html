@@ -1534,25 +1534,67 @@
                                 <h1 id="&#x9632;&#x6296;">&#x9632;&#x6296;</h1>
 <p>&#x5728;&#x4E8B;&#x4EF6;&#x88AB;&#x89E6;&#x53D1;&#x7684;n&#x79D2;&#x540E;&#x6267;&#x884C;&#x56DE;&#x8C03;&#xFF0C;&#x5982;&#x679C;&#x8BE5;&#x4E8B;&#x4EF6;&#x5728;n&#x79D2;&#x5185;&#x53C8;&#x88AB;&#x89E6;&#x53D1;&#x5219;&#x5237;&#x65B0;&#x8BA1;&#x65F6;&#x65F6;&#x95F4;n&#x3002;</p>
 <p>&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#x5C31;&#x50CF;&#x662F;&#x516C;&#x4EA4;&#x8F66;&#x4E00;&#x5B9A;&#x8981;&#x7B49;&#x5230;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x4EBA;&#x4E0A;&#x8F66;&#x540E;&#x5341;&#x5206;&#x949F;&#x624D;&#x53D1;&#x8F66;&#xFF0C;&#x53EA;&#x8981;&#x6709;&#x4EBA;&#x4E0A;&#x8F66;&#xFF0C;&#x5C31;&#x4E00;&#x76F4;&#x7B49;&#x5F85;&#x76F4;&#x5230;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x4EBA;&#x4E0A;&#x8F66;&#x540E;&#x5341;&#x5206;&#x949F;&#x624D;&#x53D1;&#x8F66;&#x3002;</p>
-<pre><code>function debounce(fn, delay) {
-    if (typeof fn !== &apos;function&apos;) {
-        throw new Error(&quot;&#x53C2;&#x6570;&#x4E00;&#x53F7;&#x4F4D;&#x5FC5;&#x987B;&#x662F;&#x51FD;&#x6570;&quot;);
+<h2 id="&#x666E;&#x901A;&#x9632;&#x6296;">&#x666E;&#x901A;&#x9632;&#x6296;</h2>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">debounce</span>(<span class="hljs-params">fn, delay</span>) </span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> fn !== <span class="hljs-string">&apos;function&apos;</span>) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&quot;&#x53C2;&#x6570;&#x4E00;&#x53F7;&#x4F4D;&#x5FC5;&#x987B;&#x662F;&#x51FD;&#x6570;&quot;</span>);
     }
 
-    let timer;
-    const vm = this;
-    return function(...args) {
-        if (timer) {
+    <span class="hljs-keyword">let</span> timer;
+    <span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">this</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">...args</span>) </span>{
+        <span class="hljs-keyword">if</span> (timer) {
             clearTimeout(timer);
         }
         timer = setTimeout(() =&gt; {
             fn.call(vm, args);
-            // * &#x6267;&#x884C;&#x540E;&#x6E05;&#x7A7A;
-            timer = null;
+            <span class="hljs-comment">// * &#x6267;&#x884C;&#x540E;&#x6E05;&#x7A7A;</span>
+            timer = <span class="hljs-literal">null</span>;
         }, delay)
     }
 }
 </code></pre>
+<h2 id="&#x9632;&#x6296;&#x7ACB;&#x5373;&#x6267;&#x884C;">&#x9632;&#x6296;&#x7ACB;&#x5373;&#x6267;&#x884C;</h2>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">debounce</span>(<span class="hljs-params">fn, delay</span>) </span>{
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> fn !== <span class="hljs-string">&apos;function&apos;</span>) {
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&quot;&#x53C2;&#x6570;&#x4E00;&#x53F7;&#x4F4D;&#x5FC5;&#x987B;&#x662F;&#x51FD;&#x6570;&quot;</span>);
+  }
+  <span class="hljs-keyword">let</span> timer;
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">...args</span>) </span>{
+    <span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">this</span>;
+    <span class="hljs-keyword">if</span> (timer) clearTimeout(timer);
+    <span class="hljs-keyword">let</span> callNow = !timer;
+    timer = setTimeout(() =&gt; {
+      timer = <span class="hljs-literal">null</span>;
+    }, delay);
+    <span class="hljs-keyword">if</span> (callNow) fn.apply(vm, args);
+  }
+}
+</code></pre>
+<h2 id="&#x7ACB;&#x5373;&#x6267;&#x884C;&#x666E;&#x901A;&#x9632;&#x6296;">&#x7ACB;&#x5373;&#x6267;&#x884C;+&#x666E;&#x901A;&#x9632;&#x6296;</h2>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">debounce</span>(<span class="hljs-params">fn, delay, isImmediate</span>) </span>{
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> fn  !== <span class="hljs-string">&apos;function&apos;</span>) {
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&quot;&#x53C2;&#x6570;&#x9519;&#x8BEF;&quot;</span>);
+  }
+  <span class="hljs-keyword">let</span> timer;
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">...args</span>) </span>{
+    <span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">this</span>;
+    <span class="hljs-keyword">if</span> (timer) clearTimeout(timer);
+    <span class="hljs-keyword">if</span> (isImmediate) {
+      <span class="hljs-keyword">let</span> callNow = !timer;
+      timer = setTimeout(() =&gt; {
+        timer = <span class="hljs-literal">null</span>;
+      }, delay);
+      callNow &amp;&amp; fn.apply(vm, args);
+    } <span class="hljs-keyword">else</span> {
+      timer = setTimeout(() =&gt; {
+        fn.apply(vm, args)
+      }, delay);
+    }
+  }
+}
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1591,7 +1633,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"防抖","level":"1.9.1","depth":2,"next":{"title":"节流","level":"1.9.2","depth":2,"path":"part8/2.md","ref":"part8/2.md","articles":[]},"previous":{"title":"事件防抖","level":"1.9","depth":1,"ref":"","articles":[{"title":"防抖","level":"1.9.1","depth":2,"path":"part8/1.md","ref":"part8/1.md","articles":[]},{"title":"节流","level":"1.9.2","depth":2,"path":"part8/2.md","ref":"part8/2.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part8/1.md","mtime":"2023-02-04T07:54:33.476Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-04T07:55:09.615Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"防抖","level":"1.9.1","depth":2,"next":{"title":"节流","level":"1.9.2","depth":2,"path":"part8/2.md","ref":"part8/2.md","articles":[]},"previous":{"title":"事件防抖","level":"1.9","depth":1,"ref":"","articles":[{"title":"防抖","level":"1.9.1","depth":2,"path":"part8/1.md","ref":"part8/1.md","articles":[]},{"title":"节流","level":"1.9.2","depth":2,"path":"part8/2.md","ref":"part8/2.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part8/1.md","mtime":"2023-02-06T03:19:42.837Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-06T03:20:18.661Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
